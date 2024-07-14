@@ -1,4 +1,4 @@
-export default function BlofPage() {
+export default function BlogPage() {
   return (
     <>
       <div className="min-h-[100vh] flex justify-center items-center">

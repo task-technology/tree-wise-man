@@ -12,7 +12,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer
-      className={`w-full min-h-[50vh] background_image mt-20 pt-11 ${styles.background_image}`}
+      className={`w-full min-h-[50vh] background_image  mt-20 pt-11 ${styles.background_image}`}
     >
       {/* <BranchCards /> */}
       <div className="container py-11 mx-auto  px-4">
