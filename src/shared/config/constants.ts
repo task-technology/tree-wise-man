@@ -5,7 +5,7 @@ import { navDataTypes, singleMenuTypes } from "./types";
 export const cx = classNames;
 
 // brand image
-export const logo = "/NT-LOGO.png";
+export const logo = "/Tree Wise Men logo.png";
 
 // menu items
 export const menuData: Array<navDataTypes> = [

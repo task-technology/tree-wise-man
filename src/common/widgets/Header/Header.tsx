@@ -37,7 +37,7 @@ const Header = () => {
           <div className="px-4">
             {/* Logo  */}
             <Image
-              src="/NT-LOGO.png"
+              src="/Tree Wise Men logo.png"
               height={50}
               width={50}
               alt="Logo"

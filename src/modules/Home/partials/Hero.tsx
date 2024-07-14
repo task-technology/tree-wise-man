@@ -58,17 +58,20 @@ const Hero = () => {
             <SwiperSlide
               key={index}
               className="relative h-full bg-cover bg-center"
-              style={{ backgroundImage: `url("${data?.image}")` }}
+              style={{   
+                backgroundImage: `url("${data?.image}")` }}
             >
-              <div className="absolute inset-0 bg-black/80 opacity-80 "></div>
+              <div className="absolute inset-0 bg-black opacity-80 "></div>
               <div className="relative z-10 min-h-screen">
-                <div className="flex items-center min-h-screen w-full">
+                <div className="flex items-center min-h-screen w-full relative overflow-hidden">
+                  <div className={cx(" w-[60rem] h-[60rem] rounded-full absolute left-[-20rem] bottom-[-20rem]",styles.animation)}>
+                  </div>
                   <div className={cx("w-1/2 mx-auto rounded-3xl",styles.perspective)}>
                   <img
                     data-aos="fade-down"
                     data-aos-easing="linear"
                     data-aos-duration="1500"
-                    className="h-60 w-52 mx-auto rounded-md"
+                    className="h-60 w-52 mx-auto rounded-md grayscale-0"
                     src={data?.logo}
                     alt="logo"
                   />
