@@ -21,7 +21,7 @@ export const menuData: Array<navDataTypes> = [
   },
   {
     to: "/about",
-    label: "About ",
+    label: "About Us",
     subItems: [],
   },
   {
@@ -33,7 +33,7 @@ export const menuData: Array<navDataTypes> = [
 export const helpData: Array<singleMenuTypes> = [
   {
     to: "/",
-    label: "Customer Support ",
+    label: "About Us",
   },
   {
     to: "/",

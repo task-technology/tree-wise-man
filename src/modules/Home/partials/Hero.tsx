@@ -63,16 +63,20 @@ const Hero = () => {
               <div className="absolute inset-0 bg-black/80 opacity-80 "></div>
               <div className="relative z-10 min-h-screen">
                 <div className="flex items-center min-h-screen w-full">
-                  <div className={cx("w-1/2 mx-auto rounded-3xl",styles.perspective)}>
-                  <img
-                    data-aos="fade-down"
-                    data-aos-easing="linear"
-                    data-aos-duration="1500"
-                    className="h-60 w-52 mx-auto rounded-md"
-                    src={data?.logo}
-                    alt="logo"
-                  />
-             
+                  <div
+                    className={cx(
+                      "w-1/2 mx-auto rounded-3xl",
+                      styles.perspective
+                    )}
+                  >
+                    <img
+                      data-aos="fade-down"
+                      data-aos-easing="linear"
+                      data-aos-duration="1500"
+                      className="h-60 w-52 mx-auto rounded-md"
+                      src={data?.logo}
+                      alt="logo"
+                    />
                   </div>
                   <div className="w-1/2">
                     <div
