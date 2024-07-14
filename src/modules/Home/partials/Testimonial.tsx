@@ -17,7 +17,7 @@ const Testimonial = () => {
               <div key={data.id} className="max-w-[300px] mt-20">
                 <div className=" bg-slate-50 p-2 rounded-md relative pt-16 pb-4 min-h-[250px]">
                   <img
-                    src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src={data.image}
                     className="h-24 w-24 rounded-full p-2 bg-white  absolute top-[-3rem] inset-x-1/3"
                     alt={data.name}
                   />
