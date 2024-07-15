@@ -5,19 +5,19 @@ const SocialMediaLinks: React.FC = () => {
     <div className="flex justify-center mt-8">
       <a
         href="https://facebook.com"
-        className="mx-2 text-gray-600 hover:text-gray-800"
+        className="mx-2 text-secondary hover:text-gray-800"
       >
         <FaFacebook size={32} />
       </a>
       <a
         href="https://twitter.com"
-        className="mx-2 text-gray-600 hover:text-gray-800"
+        className="mx-2 text-secondary hover:text-gray-800"
       >
         <FaTwitter size={32} />
       </a>
       <a
         href="https://instagram.com"
-        className="mx-2 text-gray-600 hover:text-gray-800"
+        className="mx-2 text-secondary hover:text-gray-800"
       >
         <FaInstagram size={32} />
       </a>

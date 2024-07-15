@@ -4,8 +4,7 @@ import Link from "next/link";
 import { FC } from "react";
 
 const Card: FC<CardProps> = ({ className = "", href, children }) => {
-  const CLASSES =
-    "w-full min-h-[10rem] rounded-lg glass_backround px-4 mx-auto";
+  const CLASSES = "w-full min-h-[10rem] rounded-lg px-4 mx-auto";
   return (
     <div className={cx(CLASSES, className)}>
       <Link href={`${href}`}>
