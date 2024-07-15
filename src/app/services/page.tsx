@@ -1,14 +1,10 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
-
-import Services from "@modules/Services/Services";
+import Services from "@modules/services";
 
 const SearchByZip = () => {
   return (
-    <div>
+    <>
       <Services />
-    </div>
+    </>
   );
 };
 
