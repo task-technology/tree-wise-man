@@ -7,19 +7,52 @@
   }
 
 
-  @keyframes grow {
-    0% {
-      width: 0;
-      height: 0;
-    }
-    100% {
-      width: 60rem;
-      height: 60rem;
-    }
+/* yourStyles.module.css */
+.animationOdd {
+  animation: oddAnimation 9s linear forwards;
+  background: linear-gradient(271.66deg, #226424 -20.59%, #1b81c6 122.65%);
+}
+
+.animationEven {
+  animation: evenAnimation 7s linear forwards;
+  background: linear-gradient(271.66deg, #000f32 -20.59%, #0079c8 122.65%);
+  transform: rotate(45deg);
+}
+
+@keyframes oddAnimation {
+  0% {
+    width: 0;
+    height: 0;
   }
-  
-  .animation {
-    animation: grow 2s ease-out forwards;
-    background: linear-gradient(271.66deg, #000f32 -20.59%, #0079c8 122.65%);
+  50% {
+    width: 35rem;
+    height: 35rem;
   }
-  
+  71.4% {
+    width: 60rem;
+    height: 60rem;
+  }
+  100% {
+    width: 60rem;
+    height: 60rem;
+  }
+}
+
+@keyframes evenAnimation {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: 45rem;
+    height: 45rem;
+  }
+  71.4% {
+    width: 82rem;
+    height: 82rem;
+  }
+  100% {
+    width: 82rem;
+    height: 82rem;
+  }
+}

@@ -11,7 +11,7 @@ export const home_data = {
       btnValue: "Shop Now",
       btnLink: "/shop",
       image:
-        "https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?q=80&w=1776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "/slide02.jpg",
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ export const home_data = {
       btnValue: "Explore",
       btnLink: "/explore",
       image:
-        "https://images.unsplash.com/photo-1458966480358-a0ac42de0a7a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1509420316987-d27b02f81864?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ export const home_data = {
       btnValue: "Contact Us",
       btnLink: "/contact",
       image:
-        "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "/slide01.jpg",
     },
   ],
 
