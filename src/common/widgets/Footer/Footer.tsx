@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./css/footer.module.css";
 
 import Brand from "@components/Brand";
-import BranchCards from "./partials/BranchCards";
 import Navigation_sec from "./partials/Navigation_sec";
 import Help_Navigation_sec from "./partials/Help_Navigation_sec";
 import News_letter_sec from "./partials/News_letter_sec";
