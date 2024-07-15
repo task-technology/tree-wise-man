@@ -10,6 +10,7 @@ const config: Config = {
         disable: "#707070",
         gray: "#707070",
         dark: "#353535",
+        orange: "#f97316",
       },
       fontFamily: {
         primary: ["Poppins", "sans-serif"],
@@ -19,9 +20,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require('daisyui'),
-  ],
+  plugins: [require("daisyui")],
   darkMode: "class",
 };
 export default config;

@@ -53,9 +53,18 @@ const LogoHeadline = () => {
   return (
     <div className="py-16">
       <div>
-        <h1 className="text-3xl font-bold text-center pb-8">
-          Most Popular Companies
-        </h1>
+        <div className="text-center pb-16 space-y-5">
+          <h1 className="text-4xl font-bold  ">
+            Most Popular{" "}
+            <span className="ml-1.5 bg-red-700 px-4 py-1.5 uppercase rounded-tl-2xl rounded-br-2xl text-white">
+              Companies
+            </span>
+          </h1>
+          <p>
+            We confidently recommend these popular companies that have
+            successfully completed numerous operations.
+          </p>
+        </div>
 
         <Marquee className="px-5">
           {data?.map((company, index) => (

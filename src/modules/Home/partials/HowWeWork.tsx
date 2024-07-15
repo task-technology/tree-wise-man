@@ -15,7 +15,7 @@ const HowWeWork = () => {
             return (
               <div key={step.id} className="p-4">
                 <div className="flex items-center">
-                  <p className="text-xl p-4">{step.icon}</p>
+                  <p className="text-4xl p-4">{step.icon}</p>
                   <div className="ml-3">
                     <h3 className="text-lg font-semibold">{step.title}</h3>
                     <p>{step.description}</p>

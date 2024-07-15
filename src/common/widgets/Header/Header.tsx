@@ -8,8 +8,6 @@ import Mobile_navbar from "./partials/Mobile nav";
 import { icons } from "@libs/Icons";
 import Button from "@components/Button";
 
-
-
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);

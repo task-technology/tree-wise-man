@@ -17,7 +17,7 @@ const Testimonial = () => {
         </h2>
       </div>
 
-      <div className="max-w-6xl mx-auto mt-20 relative">
+      <div className="max-w-7xl mx-auto mt-20 relative">
         <Swiper
           pagination={{
             clickable: true,
@@ -25,11 +25,12 @@ const Testimonial = () => {
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           spaceBetween={30}
+          slidesPerView={2}
         >
           {testimonials &&
             testimonials.map((data) => (
               <SwiperSlide key={data.id} className="px-5">
-                <div className=" md:max-w-[950px]  mx-auto flex justify-center items-center min-h-[350px]">
+                <div className=" md:max-w-[500px]  mx-auto flex justify-center items-center min-h-[350px]">
                   <div className="bg-slate-50 p-4 rounded-md relative pt-20 pb-8  shadow-lg">
                     <img
                       src={data.image}
