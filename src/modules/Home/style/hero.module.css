@@ -1,36 +1,45 @@
 .perspective {
-    transform: perspective(500px) rotateY(30deg);
-  }
-  .buttonRound:hover {
-    transform: rotate(360deg);
-    transition: all 0.7s ease-in-out;
-  }
-
+  transform: perspective(500px) rotateY(30deg);
+}
+.perspectiveEven {
+  transform: perspective(500px) rotateY(-30deg);
+}
+.buttonRound:hover {
+  transform: rotate(360deg);
+  transition: all 0.7s ease-in-out;
+}
 
 /* yourStyles.module.css */
+.uptoDown {
+  animation-name: uptodownAnimation;
+  animation-delay: 0s;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  transition: all 0.3s;
+}
+.zoomIn {
+  animation-name: zoomAnimation;
+  animation-delay: 0s;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  transition: all 0.3s;
+}
 .animationOdd {
-  animation: oddAnimation 9s linear forwards;
+  animation: oddAnimation 5s ease forwards;
   background: linear-gradient(271.66deg, #226424 -20.59%, #1b81c6 122.65%);
 }
 
 .animationEven {
-  animation: evenAnimation 7s linear forwards;
-  background: linear-gradient(271.66deg, #000f32 -20.59%, #0079c8 122.65%);
   transform: rotate(45deg);
+  animation: evenAnimation 6s ease forwards;
+  animation-delay: 0s;
+  background: linear-gradient(271.66deg, #000f32 -20.59%, #0079c8 122.65%);
 }
 
 @keyframes oddAnimation {
   0% {
     width: 0;
     height: 0;
-  }
-  50% {
-    width: 35rem;
-    height: 35rem;
-  }
-  71.4% {
-    width: 60rem;
-    height: 60rem;
   }
   100% {
     width: 60rem;
@@ -40,19 +49,29 @@
 
 @keyframes evenAnimation {
   0% {
-    width: 0;
-    height: 0;
+    width: 40rem;
+    height: 40rem;
   }
-  50% {
-    width: 45rem;
-    height: 45rem;
-  }
-  71.4% {
-    width: 82rem;
-    height: 82rem;
-  }
+
   100% {
     width: 82rem;
     height: 82rem;
+  }
+}
+
+@keyframes uptodownAnimation {
+  0% {
+    transform: translateY(-60px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes zoomAnimation {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
   }
 }
