@@ -1,34 +1,7 @@
-import Card from "@components/Card";
-import Form from "./partials/Form/Form";
-import Image from "next/image";
-import Button from "@components/Button";
+import React from 'react';
+import FilterSearch from './partials/FilterSearch';
 
 const Services = () => {
-  const mockResults = [
-    {
-      id: 1,
-      name: "Example Business 1",
-      address: "123 Main St",
-      city: "Example City",
-      state: "EX",
-      zip: "12345",
-      logo: "/logo.png",
-      companyJoinDate: "22/1/2024", // Example logo
-      ownerName: "John Smith",
-    },
-    {
-      id: 2,
-      name: "Example Business 2",
-      address: "456 Elm St",
-      city: "Another City",
-      state: "AN",
-      zip: "67890",
-      logo: "/logo.png", // Example logo
-      companyJoinDate: "22/1/2024",
-      ownerName: "John",
-    },
-    // Add more mock results as needed
-  ];
   return (
     <div className="bg-gray-100 min-h-screen flex mt-20 justify-center">
       <div className="max-w-7xl w-full flex flex-col items-center space-y-8 px-4 py-12">
