@@ -1,4 +1,4 @@
-import Services from "@modules/Services";
+import Services from "@modules/services";
 
 const SearchByZip = () => {
   return (
