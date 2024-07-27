@@ -1,3 +1,4 @@
+"use client";
 import Card from "@components/Card";
 import Form from "./partials/Form/Form";
 import Image from "next/image";

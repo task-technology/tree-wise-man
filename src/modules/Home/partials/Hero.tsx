@@ -85,17 +85,17 @@ const Hero = () => {
                             key={`${animationKey}-${data.id}`}
                             className={cx("space-y-5", styles.uptoDown)}
                           >
-                            <h1 className="text-5xl text-white font-semibold">
+                            <h1 className="text-5xl text-solidWhite font-semibold">
                               {data?.headline}
                             </h1>
-                            <h1 className="text-2xl text-white font-semibold">
+                            <h1 className="text-2xl text-solidWhite font-semibold">
                               {data?.title}
                             </h1>
                           </div>
                           <button
                             key={animationKey}
                             className={cx(
-                              "py-1 text-white px-3 bg-blue-light rounded-full mt-5 font-semibold border-2",
+                              "py-1 text-solidWhite px-3  rounded-full mt-5 font-semibold border-2",
                               styles.zoomIn
                             )}
                           >
@@ -150,17 +150,17 @@ const Hero = () => {
                           key={`${animationKey}-${data.id}`}
                           className={cx("space-y-5", styles.uptoDown)}
                         >
-                          <h1 className="text-5xl text-white font-semibold">
+                          <h1 className="text-5xl text-solidWhite font-semibold">
                             {data?.headline}
                           </h1>
-                          <h1 className="text-2xl text-white font-semibold">
+                          <h1 className="text-2xl text-solidWhite font-semibold">
                             {data?.title}
                           </h1>
                         </div>
                         <button
                           key={animationKey}
                           className={cx(
-                            "py-1 text-white px-3 bg-blue-light rounded-full mt-5 font-semibold border-2",
+                            "py-1 text-solidWhite px-3 bg-blue-light rounded-full mt-5 font-semibold border-2",
                             styles.zoomIn
                           )}
                         >

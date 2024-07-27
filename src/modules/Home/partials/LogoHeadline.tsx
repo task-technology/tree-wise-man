@@ -56,7 +56,7 @@ const LogoHeadline = () => {
         <div className="text-center pb-16 space-y-5">
           <h1 className="text-4xl font-bold  ">
             Most Popular{" "}
-            <span className="ml-1.5 bg-red-700 px-4 py-1.5 uppercase rounded-tl-2xl rounded-br-2xl text-white">
+            <span className="ml-1.5 bg-solidRed px-4 py-1.5 uppercase rounded-tl-2xl rounded-br-2xl text-solidWhite">
               Companies
             </span>
           </h1>

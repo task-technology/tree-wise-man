@@ -35,14 +35,14 @@ const Search = () => {
           <h2 className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold !leading-relaxed">
             <span className="block">{search.first_title}</span>
             <span className="">{search.sec_title}</span>
-            <span className="ml-1.5 bg-red-700 px-4 py-1.5 uppercase rounded-tl-2xl rounded-br-2xl text-white">
+            <span className="ml-1.5 bg-solidRed px-4 py-1.5 uppercase rounded-tl-2xl rounded-br-2xl text-solidWhite">
               {search.description}
             </span>
           </h2>
         </div>
         <form
           onSubmit={handleSubmit}
-          className="flex h-11 lg:h-20 justify-center items-center rounded-lg bg-white p-2"
+          className="flex h-11 lg:h-20 justify-center items-center rounded-lg bg-solidWhite p-2"
         >
           <input
             type="text"

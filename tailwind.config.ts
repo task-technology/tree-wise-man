@@ -11,6 +11,10 @@ const config: Config = {
         gray: "#707070",
         dark: "#353535",
         orange: "#f97316",
+        solidBlack: "#000",
+        solidWhite: "#fff",
+        solidRed: "#b91c1c",
+        slateLight: "#f8fafc",
       },
       fontFamily: {
         primary: ["Poppins", "sans-serif"],

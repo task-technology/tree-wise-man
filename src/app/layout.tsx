@@ -3,6 +3,7 @@ import Header from "@widgets/Header";
 import Footer from "@widgets/Footer";
 
 import "../shared/styles/globals.css";
+import Providers from "../redux/Providers";
 
 export const metadata: Metadata = {
   title: "Tree Wise Man",
@@ -17,11 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light">
       <body className="no-scrollbar max-w-[2400px] mx-auto">
-        <header className="">
-          <Header />
-        </header>
-        <main>{children}</main>
-        <Footer />
+        <Providers>
+          <header>
+            <Header />
+          </header>
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
