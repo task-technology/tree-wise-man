@@ -10,7 +10,7 @@ const Brand = () => {
         src={logo}
         width={1}
         height={0.22}
-        alt="Newtech technology"
+        alt="The Tree Wise Men"
         layout="responsive"
       />
     </div>

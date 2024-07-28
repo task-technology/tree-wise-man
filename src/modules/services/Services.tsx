@@ -31,7 +31,7 @@ const Services = () => {
     // Add more mock results as needed
   ];
   return (
-    <div className="bg-gray-100 min-h-screen flex mt-20 justify-center">
+    <main className="bg-gray-100 min-h-screen flex mt-20 justify-center">
       <div className="max-w-7xl w-full flex flex-col items-center space-y-8 px-4 py-12">
         <h2 className="text-3xl font-bold text-center mb-4">
           Find Services by Zip Code and State
@@ -43,7 +43,7 @@ const Services = () => {
               key={index}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 p-3"
             >
-              <div className="flex gap-5 justify-between">
+              <section className="flex gap-5 justify-between">
                 <div className="">
                   <Image
                     height={180}
@@ -55,10 +55,10 @@ const Services = () => {
                 </div>
                 <div className="flex-1">
                   <div className="space-y-1">
-                    <h1 className="text-xl font-bold">{result?.name}</h1>
-                    <p className="text-sm">
+                    <h4 className="text-xl font-bold">{result?.name}</h4>
+                    <span className="text-sm">
                       <strong>Joining Date:</strong> {result?.companyJoinDate}
-                    </p>
+                    </span>
                     <p className="py-3">
                       Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                       Consequatur commodi pariatur illum ea hic magni cumque!
@@ -88,12 +88,12 @@ const Services = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </section>
             </Card>
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

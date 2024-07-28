@@ -11,6 +11,7 @@ import "aos/dist/aos.css";
 import styles from "../style/hero.module.css";
 import { home_data } from "../config/constants";
 import { cx } from "@config/constants";
+import Image from "next/image";
 const Hero = () => {
   // destructure
   const { slides } = home_data;
@@ -45,7 +46,7 @@ const Hero = () => {
 
   return (
     <>
-      <div className="relative h-screen">
+      <header className="relative h-screen">
         <Swiper
           ref={swiperRef}
           spaceBetween={30}
@@ -68,7 +69,7 @@ const Hero = () => {
               style={{ backgroundImage: `url("${data?.image}")` }}
             >
               <div className="absolute inset-0 bg-secondary/20 opacity-80 "></div>
-              <div className="relative z-10 min-h-screen">
+              <main className="relative z-10 min-h-screen">
                 <div className="flex items-center min-h-screen w-full relative overflow-hidden">
                   {data.id % 2 === 0 ? (
                     <>
@@ -80,7 +81,7 @@ const Hero = () => {
                         key={animationKey}
                       ></div>
                       <div className="w-1/2 flex justify-end">
-                        <div>
+                        <section>
                           <div
                             key={`${animationKey}-${data.id}`}
                             className={cx("space-y-5", styles.uptoDown)}
@@ -88,9 +89,9 @@ const Hero = () => {
                             <h1 className="text-5xl text-solidWhite font-semibold">
                               {data?.headline}
                             </h1>
-                            <h1 className="text-2xl text-solidWhite font-semibold">
+                            <h3 className="text-2xl text-solidWhite font-semibold">
                               {data?.title}
-                            </h1>
+                            </h3>
                           </div>
                           <button
                             key={animationKey}
@@ -101,7 +102,7 @@ const Hero = () => {
                           >
                             {data?.btnValue}
                           </button>
-                        </div>
+                        </section>
                       </div>
                       <div
                         className={cx(
@@ -109,7 +110,7 @@ const Hero = () => {
                           styles.perspectiveEven
                         )}
                       >
-                        <img
+                        <Image
                           key={animationKey}
                           className={cx(
                             "h-60 w-52 mx-auto rounded-md",
@@ -117,6 +118,9 @@ const Hero = () => {
                           )}
                           src={data?.logo}
                           alt="logo"
+                          width={208} // 52 * 4
+                          height={240} // 60 * 4
+                          objectFit="cover"
                         />
                       </div>
                     </>
@@ -135,7 +139,7 @@ const Hero = () => {
                           styles.perspective
                         )}
                       >
-                        <img
+                        <Image
                           key={animationKey}
                           className={cx(
                             "h-60 w-52 mx-auto rounded-md",
@@ -143,9 +147,13 @@ const Hero = () => {
                           )}
                           src={data?.logo}
                           alt="logo"
+                          width={208} // 52 * 4 (tailwind unit conversion)
+                          height={240} // 60 * 4 (tailwind unit conversion)
+                          layout="intrinsic"
+                          objectFit="cover"
                         />
                       </div>
-                      <div className="w-1/2 ">
+                      <section className="w-1/2 ">
                         <div
                           key={`${animationKey}-${data.id}`}
                           className={cx("space-y-5", styles.uptoDown)}
@@ -153,9 +161,9 @@ const Hero = () => {
                           <h1 className="text-5xl text-solidWhite font-semibold">
                             {data?.headline}
                           </h1>
-                          <h1 className="text-2xl text-solidWhite font-semibold">
+                          <h3 className="text-2xl text-solidWhite font-semibold">
                             {data?.title}
-                          </h1>
+                          </h3>
                         </div>
                         <button
                           key={animationKey}
@@ -166,15 +174,15 @@ const Hero = () => {
                         >
                           {data?.btnValue}
                         </button>
-                      </div>
+                      </section>
                     </>
                   )}
                 </div>
-              </div>
+              </main>
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </header>
     </>
   );
 };

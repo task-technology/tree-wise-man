@@ -51,11 +51,11 @@ const LogoHeadline = () => {
   ];
 
   return (
-    <div className="py-16">
+    <section className="py-16">
       <div>
         <div className="text-center pb-16 space-y-5">
           <h1 className="text-4xl font-bold  ">
-            Most Popular{" "}
+            Most Popular
             <span className="ml-1.5 bg-solidRed px-4 py-1.5 uppercase rounded-tl-2xl rounded-br-2xl text-solidWhite">
               Companies
             </span>
@@ -86,7 +86,7 @@ const LogoHeadline = () => {
           ))}
         </Marquee>
       </div>
-    </div>
+    </section>
   );
 };
 

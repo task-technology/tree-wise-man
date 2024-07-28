@@ -4,8 +4,8 @@ import Link from "next/link";
 
 const Help_Navigation_sec = () => {
   return (
-    <div className=" tracking-wider leading-relaxed">
-      <h4 className="text-2xl font-[600] mb-4">Help </h4>
+    <section className=" tracking-wider leading-relaxed">
+      <h3 className="text-2xl font-[600] mb-4">Help </h3>
       <ul>
         {helpData.map((data: singleMenuTypes, i) => {
           return (
@@ -16,7 +16,7 @@ const Help_Navigation_sec = () => {
           );
         })}
       </ul>
-    </div>
+    </section>
   );
 };
 

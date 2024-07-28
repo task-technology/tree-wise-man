@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Header from "@widgets/Header";
 import Footer from "@widgets/Footer";
 
-import "../shared/styles/globals.css";
-import Providers from "../redux/Providers";
+import "../../shared/styles/globals.css";
+import Providers from "../../redux/Providers";
 
 export const metadata: Metadata = {
   title: "Tree Wise Man",

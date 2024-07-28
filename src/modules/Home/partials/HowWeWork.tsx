@@ -4,7 +4,7 @@ import { how_we_work } from "../config/constants";
 const HowWeWork = () => {
   const data = how_we_work;
   return (
-    <div className=" max-w-6xl mx-auto p-2 my-20 space-y-16">
+    <section className=" max-w-6xl mx-auto p-2 my-20 space-y-16">
       <div className="w-full grid grid-cols-2 gap-5 px-2">
         <h2 className="text-4xl font-light">{data.title}</h2>
         <p className="text-lg">{data.description}</p>
@@ -15,17 +15,17 @@ const HowWeWork = () => {
             return (
               <div key={step.id} className="p-4">
                 <div className="flex items-center">
-                  <p className="text-4xl p-4">{step.icon}</p>
+                  <span className="text-4xl p-4">{step.icon}</span>
                   <div className="ml-3">
-                    <h3 className="text-lg font-semibold">{step.title}</h3>
-                    <p>{step.description}</p>
+                    <h5 className="text-lg font-semibold">{step.title}</h5>
+                    <article>{step.description}</article>
                   </div>
                 </div>
               </div>
             );
           })}
       </div>
-    </div>
+    </section>
   );
 };
 

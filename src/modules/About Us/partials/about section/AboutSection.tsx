@@ -16,14 +16,14 @@ const AboutSection: React.FC = () => {
     { count: "532", details: "lorem ipsum dolor sit amet" },
   ];
   return (
-    <section className="px-28 py-10">
-      <div className="flex justify-between gap-10">
+    <main className="px-28 py-10">
+      <section className="flex justify-between gap-10">
         <div className="w-1/2 " data-aos="fade-right" data-aos-duration="1000">
           <span className="text-orange font-semibold">Lorem ipsum dolor !</span>
-          <h2 className="text-5xl font-bold">
+          <h1 className="text-5xl font-bold">
             Nullam quis risus eget urna mollis ornare vel eu leo. Donec id elit
             non mi commodo tincidunt. non mi commodo tincidunt.
-          </h2>
+          </h1>
         </div>
         <div className="w-2/4" data-aos="fade-left" data-aos-duration="1000">
           <div className="relative   h-0 pb-[45%]">
@@ -36,10 +36,10 @@ const AboutSection: React.FC = () => {
             />
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="flex items-center gap-10 mt-20">
-        <div
+      <section className="flex items-center gap-10 mt-20">
+        <article
           className="w-1/2"
           data-aos="fade-up-right"
           data-aos-duration="1200"
@@ -50,7 +50,7 @@ const AboutSection: React.FC = () => {
           necessitatibus accusantium quos, ducimus est laboriosam minus natus
           magnam, temporibus deserunt laborum et distinctio quisquam quaerat
           aspernatur nulla repellendus esse. Ipsam, magnam!
-        </div>
+        </article>
         <div className="w-1/2">
           <div
             className="grid grid-cols-2 gap-5 "
@@ -68,8 +68,8 @@ const AboutSection: React.FC = () => {
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

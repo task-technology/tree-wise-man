@@ -2,8 +2,8 @@ import Button from "@components/Button";
 
 const News_letter_sec = () => {
   return (
-    <div className="px-1">
-      <h4 className="text-2xl font-[600] mb-4 uppercase">Newsletter</h4>
+    <section className="px-1">
+      <h3 className="text-2xl font-[600] mb-4 uppercase">Newsletter</h3>
 
       <form>
         <input
@@ -19,7 +19,7 @@ const News_letter_sec = () => {
           Subscribe Now
         </Button>
       </form>
-    </div>
+    </section>
   );
 };
 

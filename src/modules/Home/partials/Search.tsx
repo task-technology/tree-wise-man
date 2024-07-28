@@ -29,16 +29,16 @@ const Search = () => {
   };
 
   return (
-    <div className="w-full min-h-[50vh] flex items-center justify-center">
+    <section className="w-full min-h-[50vh] flex items-center justify-center">
       <div className="bg-primary/30 max-w-6xl w-full lg:grid grid-cols-[2fr,1fr] flex flex-col space-y-9 items-center px-4 lg:px-20 py-20 mx-2">
         <div>
-          <h2 className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold !leading-relaxed">
+          <h1 className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold !leading-relaxed">
             <span className="block">{search.first_title}</span>
-            <span className="">{search.sec_title}</span>
+            <span>{search.sec_title}</span>
             <span className="ml-1.5 bg-solidRed px-4 py-1.5 uppercase rounded-tl-2xl rounded-br-2xl text-solidWhite">
               {search.description}
             </span>
-          </h2>
+          </h1>
         </div>
         <form
           onSubmit={handleSubmit}
@@ -64,7 +64,7 @@ const Search = () => {
           </Button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 

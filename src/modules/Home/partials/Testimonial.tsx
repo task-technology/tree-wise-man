@@ -10,11 +10,11 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 const Testimonial = () => {
   const { testimonials } = home_data;
   return (
-    <div className="my-20">
+    <section className="my-20">
       <div className="flex justify-center items-center">
-        <h2 className="text-center uppercase text-3xl font-bold py-2 border-b-2 border-primary w-60">
+        <h1 className="text-center uppercase text-3xl font-bold py-2 border-b-2 border-primary w-60">
           Testimonials
-        </h2>
+        </h1>
       </div>
 
       <div className="max-w-7xl mx-auto mt-20 relative">
@@ -37,11 +37,13 @@ const Testimonial = () => {
                       className="h-24 w-24 rounded-full p-2 bg-solidWhite absolute top-[-3rem] left-1/2 transform -translate-x-1/2"
                       alt={data.name}
                     />
-                    <p className="text-center mt-4 mb-2">{data.description}</p>
+                    <article className="text-center mt-4 mb-2">
+                      {data.description}
+                    </article>
                     <div className="text-center mt-2">
-                      <h3 className="text-primary font-semibold">
+                      <h5 className="text-primary font-semibold">
                         {data.name}
-                      </h3>
+                      </h5>
                       <p className="text-sm text-gray">{data.designation}</p>
                     </div>
                   </div>
@@ -50,7 +52,7 @@ const Testimonial = () => {
             ))}
         </Swiper>
       </div>
-    </div>
+    </section>
   );
 };
 

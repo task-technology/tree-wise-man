@@ -13,7 +13,6 @@ const Footer = () => {
     <footer
       className={`w-full min-h-[50vh] background_image   pt-11 ${styles.background_image}`}
     >
-      {/* <BranchCards /> */}
       <div className="container py-11 mx-auto  px-4">
         <div className="flex flex-col lg:flex-row justify-between">
           <div className="max-w-[300px] mx-auto px-4 lg:mx-0">
