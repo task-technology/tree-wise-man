@@ -1,49 +1,36 @@
 export const sidebarData = [
+  { label: "Home", link: "/dashboard", icon: "home" },
+
   {
-    label: "Product",
-    icon: "product",
+    label: "Posts",
+    icon: "posts",
     sub_label: [
-      { label: "Add Product", link: "/add-product" },
-      { label: "Product List", link: "/product-list" },
-      { label: "Return Product", link: "/return-product" },
+      { label: "Create Post", link: "/dashboard/post/create-post" },
+      { label: "Posts List", link: "/dashboard/post/posts-list" },
+      { label: "Admin Posts List", link: "/dashboard/post/admin-posts-list" },
     ],
   },
   {
-    label: "Order",
-    icon: "order",
+    label: "Users",
+    icon: "users",
     sub_label: [
-      { label: "Place Order", link: "/place-order" },
-      { label: "Order List", link: "/order-list" },
+      { label: "Create User", link: "/dashboard/user/create-user" },
+      { label: "User List", link: "/dashboard/user/user-list" },
     ],
   },
   {
-    label: "Stock",
-    icon: "stock",
-    sub_label: [
-      { label: "Inventory", link: "/inventory" },
-      { label: "Stock Report", link: "/stock-report" },
-      { label: "History", link: "/history" },
-    ],
+    label: "Subscriptions List",
+    link: "/dashboard/subscription/subscriptions-list",
+    icon: "subscription",
   },
   {
-    label: "Warehouse",
-    icon: "warehouse",
-    sub_label: [{ label: "Warehouse Report", link: "/warehouse-report" }],
+    label: "Payments List",
+    link: "/dashboard/payment/payments-list",
+    icon: "paymentsList",
   },
   {
-    label: "Employee",
-    icon: "employee",
-    sub_label: [
-      { label: "Add Employee", link: "/add-employee" },
-      { label: "Employee List", link: "/employee-list" },
-    ],
-  },
-  {
-    label: "Customer",
-    icon: "customers",
-    sub_label: [
-      { label: "Add Customer", link: "/add-customer" },
-      { label: "Customer List", link: "/customer-list" },
-    ],
+    label: "My Profile",
+    link: "/dashboard/profile/my-profile",
+    icon: "profile",
   },
 ];

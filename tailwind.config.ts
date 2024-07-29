@@ -20,6 +20,8 @@ const config: Config = {
         solidRed: "#b91c1c",
         slateLight: "#f8fafc",
         linkColor: "#808080",
+        darkSlate: "#334155",
+        lightBlue: "#4b74af",
       },
       fontFamily: {
         primary: ["Poppins", "sans-serif"],
