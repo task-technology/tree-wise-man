@@ -6,16 +6,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import SectionTitle from "@components/Section Title/SectionTitle";
 
 const Testimonial = () => {
   const { testimonials } = home_data;
   return (
     <section className="my-20">
-      <div className="flex justify-center items-center">
-        <h1 className="text-center uppercase text-3xl font-bold py-2 border-b-2 border-primary w-60">
-          Testimonials
-        </h1>
-      </div>
+      <SectionTitle title="Testimonials" />
 
       <div className="max-w-7xl mx-auto mt-20 relative">
         <Swiper
