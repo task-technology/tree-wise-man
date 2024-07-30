@@ -1,15 +1,18 @@
 import Sidebar from "@widgets/Sidebar/Sidebar";
 import "../../shared/styles/globals.css";
+import Providers from "../../redux/Providers";
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" data-theme="light">
       <body>
-        <div className="flex">
-          <div className="min-h-screen">
-            <Sidebar />
+        <Providers>
+          <div className="flex">
+            <div className="min-h-screen">
+              <Sidebar />
+            </div>
+            <div className="flex-1 ">{children}</div>
           </div>
-          <div className="flex-1 ">{children}</div>
-        </div>
+        </Providers>
       </body>
     </html>
   );
