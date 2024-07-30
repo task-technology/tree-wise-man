@@ -47,11 +47,12 @@ const SearchFilterInput: React.FC<SearchFilterInput> = ({
       }))
     : [];
   return (
-    <div className="space-y-1">
+    <div>
       <div className="label">
         <label className="text-lg font-semibold">{labelName}</label>
       </div>
       <Select
+        className="mt-0"
         instanceId="react-select-instance"
         placeholder={isDisabled ? defaultValue : "Select"}
         isDisabled={isDisabled}

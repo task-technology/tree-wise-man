@@ -34,6 +34,7 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({ file, setFile }) => {
           inputType="file"
           accept=".png, .jpg, .jpeg"
           onChange={handleFileChange}
+          className="!py-[5px]"
         />
       )}
       {preview && (
@@ -47,7 +48,9 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({ file, setFile }) => {
         </div>
       )}
       {file && (
-        <p className="text-gray text-center">Selected file: {file.name}</p>
+        <p className="text-gray text-center">
+          Selected file: {file.name.slice(0, -4)}
+        </p>
       )}
     </div>
   );

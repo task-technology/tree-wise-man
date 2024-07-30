@@ -7,6 +7,7 @@ import PublicIcon from "@libs/custom icons/PublicIcon";
 import PrivateIcon from "@libs/custom icons/PrivateIcon";
 import PhotoUpload from "../Photo Upload/PhotoUpload";
 import Button from "@components/Button";
+import { handleFormSubmit } from "./helpers/handleFormSubmit";
 
 const PostForm = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -19,27 +20,22 @@ const PostForm = () => {
   const zipCodeRef = useRef<HTMLInputElement>(null);
   const aboutCompanyRef = useRef<HTMLInputElement>(null);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const fullData = {
-      title: companyNameRef.current?.value || "",
-      urlLink: companyWebsiteRef.current?.value || "",
-      zipCode: zipCodeRef.current?.value || "",
-      state: selectState,
-      content: aboutCompanyRef.current?.value || "",
-      published: isPublic,
-      image: file,
-      authorId: "222",
-    };
-
-    console.log(fullData);
-    // Handle form data submission here
-  };
-
   return (
     <div>
-      <form onSubmit={handleFormSubmit}>
+      <form
+        onSubmit={(e) =>
+          handleFormSubmit(
+            e,
+            companyNameRef,
+            companyWebsiteRef,
+            zipCodeRef,
+            selectState,
+            aboutCompanyRef,
+            isPublic,
+            file
+          )
+        }
+      >
         <div className="grid grid-cols-3 gap-5">
           <Input
             labelName="Company Name"
@@ -62,8 +58,8 @@ const PostForm = () => {
           <SearchFilterInput
             required
             options={states}
-            labelName="Partner Name"
-            filterName="partner_id"
+            labelName="State Name"
+            filterName="state"
             setData={setSelectState}
             data={selectState}
             isMulti={false}
@@ -92,7 +88,9 @@ const PostForm = () => {
                   <PublicIcon />
                   <div>
                     <b className="text-lg">Public</b>
-                    <p>Anyone can see your company details</p>
+                    <p className="text-gray">
+                      Anyone can see your company details
+                    </p>
                   </div>
                 </div>
               </div>
@@ -113,7 +111,9 @@ const PostForm = () => {
                   <PrivateIcon />
                   <div>
                     <b className="text-lg">Private</b>
-                    <p>Anyone cannot see your company details</p>
+                    <p className="text-gray">
+                      Anyone cannot see your company details
+                    </p>
                   </div>
                 </div>
               </div>
