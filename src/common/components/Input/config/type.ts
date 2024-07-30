@@ -10,4 +10,7 @@ export type InputProps = {
   value?: string;
   onChange?: any;
   minValue?: number | string;
+  accept?: any;
+  ref?: any;
+  checked?: boolean;
 };

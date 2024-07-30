@@ -22,6 +22,7 @@ const config: Config = {
         linkColor: "#808080",
         darkSlate: "#334155",
         lightBlue: "#4b74af",
+        slateLightThird: "#cbd5e1",
       },
       fontFamily: {
         primary: ["Poppins", "sans-serif"],

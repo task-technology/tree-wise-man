@@ -52,6 +52,7 @@ const SearchFilterInput: React.FC<SearchFilterInput> = ({
         <label className="text-lg font-semibold">{labelName}</label>
       </div>
       <Select
+        instanceId="react-select-instance"
         placeholder={isDisabled ? defaultValue : "Select"}
         isDisabled={isDisabled}
         required={required}
@@ -60,6 +61,7 @@ const SearchFilterInput: React.FC<SearchFilterInput> = ({
           control: (provided: any) => ({
             ...provided,
             padding: "2px",
+            border: "1px solid black",
           }),
         }}
         closeMenuOnSelect={isMulti ? false : true}

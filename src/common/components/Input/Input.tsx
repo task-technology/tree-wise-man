@@ -1,43 +1,51 @@
+import React, { forwardRef, Ref } from "react";
 import { InputProps } from "./config/type";
 
-const Input: React.FC<InputProps> = ({
-  labelName,
-  inputPlaceholder = "Write here...",
-  inputType = "text",
-  inputName,
-  IsDisabled = false,
-  defaultValue = "",
-  required = false,
-  minValue,
-  // value,
-  onChange,
-  className,
-}) => {
-  return (
-    <div>
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      labelName,
+      inputPlaceholder = "Write here...",
+      inputType = "text",
+      inputName,
+      IsDisabled = false,
+      defaultValue = "",
+      required = false,
+      minValue,
+      onChange,
+      className,
+      accept,
+      checked,
+    },
+    ref
+  ) => {
+    return (
       <div>
-        <div className={` w-full ${labelName && "space-y-1"}`}>
-          {labelName && (
-            <div className="label">
-              <label className="text-lg font-semibold">{labelName}</label>
-            </div>
-          )}
-          <input
-            min={minValue}
-            required={required}
-            onChange={onChange} // Added onChange event handler
-            name={inputName}
-            type={inputType}
-            disabled={IsDisabled}
-            placeholder={inputPlaceholder}
-            defaultValue={defaultValue}
-            className={`${className} border w-full rounded-sm  py-2 pl-2`}
-            step={`${inputType === "number" && "any"}`}
-          />
-        </div>
+        {labelName && (
+          <div className="label">
+            <label className="text-lg font-semibold">{labelName}</label>
+          </div>
+        )}
+        <input
+          accept={accept}
+          ref={ref}
+          min={minValue}
+          required={required}
+          onChange={onChange}
+          name={inputName}
+          type={inputType}
+          disabled={IsDisabled}
+          placeholder={inputPlaceholder}
+          defaultValue={defaultValue}
+          className={`${className} border w-full rounded-sm py-2 pl-2`}
+          step={inputType === "number" ? "any" : undefined}
+          checked={checked}
+        />
       </div>
-    </div>
-  );
-};
+    );
+  }
+);
+
+Input.displayName = "Input";
 
 export default Input;
