@@ -5,11 +5,8 @@ import Container from "@components/Container/Container";
 import SearchBar from "@components/Searchbar/SearchBar";
 import TableStatus from "@components/TableStatus/TableStatus";
 import Pagination from "@components/Pagination/Pagination";
-import { useSearchParams } from "next/navigation";
 
 const PostsList = () => {
-  const params = useSearchParams();
-  console.log(params);
   return (
     <div className="pt-10">
       <Container>

@@ -7,7 +7,7 @@ import {
   handleSearch,
 } from "./helpers/SearchFunction";
 
-const SimpleSearchComponent = ({ placeholder = "Search..." }) => {
+const SearchBar = ({ placeholder = "Search..." }) => {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -46,4 +46,4 @@ const SimpleSearchComponent = ({ placeholder = "Search..." }) => {
   );
 };
 
-export default SimpleSearchComponent;
+export default SearchBar;
