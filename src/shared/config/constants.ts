@@ -4,6 +4,7 @@ import { navDataTypes, singleMenuTypes } from "./types";
 // whenever wee need to change default className value we will use this
 export const cx = classNames;
 
+export const emptyData = "No Data";
 // brand image
 export const logo = "/Tree Wise Men logo.png";
 
