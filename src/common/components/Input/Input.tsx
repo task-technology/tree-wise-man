@@ -16,6 +16,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       className,
       accept,
       checked,
+      labelClassName,
     },
     ref
   ) => {
@@ -23,7 +24,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       <div>
         {labelName && (
           <div className="label">
-            <label className="text-lg font-semibold">{labelName}</label>
+            <label className={`${labelClassName} text-lg font-semibold`}>
+              {labelName}
+            </label>
           </div>
         )}
         <input
@@ -37,7 +40,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           disabled={IsDisabled}
           placeholder={inputPlaceholder}
           defaultValue={defaultValue}
-          className={`${className} border w-full rounded-sm py-2 pl-2`}
+          className={`${className} border border-slateLightThird w-full rounded-sm py-2 pl-2`}
           step={inputType === "number" ? "any" : undefined}
           checked={checked}
         />

@@ -11,6 +11,8 @@ interface SearchFilterInput {
   isMulti?: boolean;
   defaultValue?: string;
   isDisabled?: boolean;
+  className?: string;
+  labelClassName?: string;
 }
 
 const SearchFilterInput: React.FC<SearchFilterInput> = ({
@@ -23,6 +25,8 @@ const SearchFilterInput: React.FC<SearchFilterInput> = ({
   isMulti = false,
   defaultValue,
   isDisabled = false,
+  className,
+  labelClassName,
 }) => {
   const animatedComponents = makeAnimated();
   const handleChangeArray = (e: any[]) => {
@@ -49,10 +53,12 @@ const SearchFilterInput: React.FC<SearchFilterInput> = ({
   return (
     <div>
       <div className="label">
-        <label className="text-lg font-semibold">{labelName}</label>
+        <label className={`${labelClassName} text-lg font-semibold`}>
+          {labelName}
+        </label>
       </div>
       <Select
-        className="mt-0"
+        className={`${className} mt-0 `}
         instanceId="react-select-instance"
         placeholder={isDisabled ? defaultValue : "Select"}
         isDisabled={isDisabled}
@@ -62,7 +68,7 @@ const SearchFilterInput: React.FC<SearchFilterInput> = ({
           control: (provided: any) => ({
             ...provided,
             padding: "2px",
-            border: "1px solid black",
+            border: "1px solid slateLIghtThird",
           }),
         }}
         closeMenuOnSelect={isMulti ? false : true}

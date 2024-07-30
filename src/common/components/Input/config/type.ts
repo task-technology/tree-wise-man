@@ -13,4 +13,5 @@ export type InputProps = {
   accept?: any;
   ref?: any;
   checked?: boolean;
+  labelClassName?: string;
 };

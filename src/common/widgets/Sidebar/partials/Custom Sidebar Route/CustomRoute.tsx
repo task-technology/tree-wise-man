@@ -24,7 +24,7 @@ const CustomRoute = () => {
   };
 
   return (
-    <>
+    <div>
       {sidebarData?.map((data, index) => {
         const isExpanded = expandedIndex === index;
         const hasActiveSubRoute = data.sub_label?.some((subItem) =>
@@ -92,7 +92,7 @@ const CustomRoute = () => {
           </section>
         );
       })}
-    </>
+    </div>
   );
 };
 

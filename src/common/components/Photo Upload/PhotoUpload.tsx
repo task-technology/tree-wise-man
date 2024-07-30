@@ -4,7 +4,13 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { PhotoUploadTypes } from "./config/type";
 
-const PhotoUpload: React.FC<PhotoUploadTypes> = ({ file, setFile }) => {
+const PhotoUpload: React.FC<PhotoUploadTypes> = ({
+  file,
+  setFile,
+  inputClass,
+  imgDetailsClass,
+  inputLabelClass,
+}) => {
   const [preview, setPreview] = useState<string | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +40,8 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({ file, setFile }) => {
           inputType="file"
           accept=".png, .jpg, .jpeg"
           onChange={handleFileChange}
-          className="!py-[5px]"
+          className={`${inputClass} !py-[5px]`}
+          labelClassName={inputLabelClass}
         />
       )}
       {preview && (
@@ -48,7 +55,7 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({ file, setFile }) => {
         </div>
       )}
       {file && (
-        <p className="text-gray text-center">
+        <p className={`${imgDetailsClass} text-center`}>
           Selected file: {file.name.slice(0, -4)}
         </p>
       )}
