@@ -14,3 +14,8 @@ export const data = [
     quantity: 232,
   },
 ];
+
+export const btnValues = [
+  { label: "Active", value: "Active" },
+  { label: "Deactivated", value: "Deactivated" },
+];

@@ -1,36 +1,43 @@
 "use client";
-import { useState } from "react";
-import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 import Button from "@components/Button";
+import {
+  clearSearch,
+  handleInputChange,
+  handleSearch,
+} from "./helpers/SearchFunction";
 
 const SimpleSearchComponent = ({ placeholder = "Search..." }) => {
   const [query, setQuery] = useState("");
-  const router = useRouter();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
-  };
-
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (query) {
-      router.push(`/search?query=${encodeURIComponent(query)}`);
-    }
-  };
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentQuery = urlParams.get("searchTerm") || "";
+    setQuery(currentQuery);
+  }, []);
 
   return (
-    <form onSubmit={handleSearch} className="w-full max-w-md mx-auto">
-      <div className="flex items-center bg-white rounded-lg overflow-hidden shadow-md">
+    <form onSubmit={(e) => handleSearch(e, query)} className="w-full">
+      <div className="flex items-center  bg-white rounded-lg overflow-hidden shadow-md">
         <input
           type="text"
           value={query}
-          onChange={handleInputChange}
-          className="flex-grow px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          onChange={(e) => handleInputChange(e, setQuery)}
+          className="flex-grow px-4 py-3  focus:outline-none "
           placeholder={placeholder}
         />
+        {query && (
+          <button
+            type="button"
+            onClick={() => clearSearch(setQuery)}
+            className=" text-gray text-3xl px-4"
+          >
+            &times;
+          </button>
+        )}
         <Button
           type="submit"
-          className="bg-blue-600 text-white px-6 py-3 rounded-none"
+          className="bg-blue-600 text-white px-6 !py-3 rounded-none"
         >
           Search
         </Button>

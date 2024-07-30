@@ -23,6 +23,8 @@ const config: Config = {
         darkSlate: "#334155",
         lightBlue: "#4b74af",
         slateLightThird: "#cbd5e1",
+        websiteBgColor: "#f5f5f5",
+        grayForBorder: "#D9D9D9",
       },
       fontFamily: {
         primary: ["Poppins", "sans-serif"],

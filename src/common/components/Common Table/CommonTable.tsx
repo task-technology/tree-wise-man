@@ -49,12 +49,12 @@ const CommonTable: FC<CommonTableProps> = ({
       <div className="flex justify-center w-full pb-14">
         <div className="overflow-x-auto w-full ">
           {itemData?.length > 0 ? (
-            <table className="table text-center w-full border border-collapse border-gray-800">
+            <table className="table text-center w-full border border-slateLightThird">
               {/* head */}
-              <thead className=" text-black border text-center">
-                <tr>
+              <thead className=" text-black  text-center  ">
+                <tr className="border border-slateLightThird">
                   {checkbox && (
-                    <td>
+                    <td className="border border-slateLightThird">
                       <label>
                         <input
                           type="checkbox"
@@ -74,16 +74,18 @@ const CommonTable: FC<CommonTableProps> = ({
 
                   {headerData &&
                     headerData?.map((title: string, index: number) => (
-                      <th key={index}>{title}</th>
+                      <th key={index} className="border border-slateLightThird">
+                        {title}
+                      </th>
                     ))}
                 </tr>
               </thead>
-              <tbody className="text-center text-sm">
+              <tbody className="text-center text-sm  ">
                 {itemData?.length > 0 &&
                   itemData?.map((item, index) => (
-                    <tr key={index}>
+                    <tr key={index} className="border border-slateLightThird">
                       {checkbox && (
-                        <td className="border">
+                        <td className="border border-slateLightThird ">
                           <label>
                             <input
                               type="checkbox"
@@ -104,12 +106,15 @@ const CommonTable: FC<CommonTableProps> = ({
                       )}
 
                       {dataLayout.map((layout, idx) => (
-                        <td key={idx} className="border ">
+                        <td
+                          key={idx}
+                          className="border border-slateLightThird "
+                        >
                           {(layout === "item?.products?.serial_number" ||
                             layout === "item?.serial_number") &&
                           link ? (
                             <Link
-                              className="text-solid-black hover:underline hover:text-shadeOfGray"
+                              className="text-solidBlack hover:underline hover:text-shadeOfGray"
                               href={`${link}/${item?.id || item?._id}`}
                             >
                               {eval(layout)}
@@ -120,7 +125,7 @@ const CommonTable: FC<CommonTableProps> = ({
                         </td>
                       ))}
                       {btnLink && (
-                        <td className="border">
+                        <td className="">
                           <Link
                             className="!text-black flex justify-center"
                             target="_blank"
@@ -133,7 +138,7 @@ const CommonTable: FC<CommonTableProps> = ({
                         </td>
                       )}
                       {deleteBtn && (
-                        <td className="border">
+                        <td className="">
                           <div
                             onClick={() => deleteFn(item?.id)}
                             className="text-shade-Of-Red text-xl  flex justify-center cursor-pointer"
@@ -143,7 +148,7 @@ const CommonTable: FC<CommonTableProps> = ({
                         </td>
                       )}
                       {link && (
-                        <td className="border">
+                        <td className="">
                           <Link
                             className=" !text-black flex justify-center "
                             href={`${link}/${item?.id || item?._id}`}
@@ -153,7 +158,7 @@ const CommonTable: FC<CommonTableProps> = ({
                         </td>
                       )}
                       {editPageLink && (
-                        <td className="border">
+                        <td className="">
                           <Link
                             className=" !text-shade-Of-Red flex justify-center"
                             href={`${editPageLink}/${item?.id}`}

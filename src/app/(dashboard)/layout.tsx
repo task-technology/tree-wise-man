@@ -10,7 +10,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
             <div className="min-h-screen">
               <Sidebar />
             </div>
-            <div className="flex-1 ">{children}</div>
+            <div className="flex-1 bg-websiteBgColor">{children}</div>
           </div>
         </Providers>
       </body>

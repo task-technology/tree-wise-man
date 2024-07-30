@@ -56,7 +56,7 @@ const Button: FC<ButtonProps> = ({
     `;
 
   const SECONDARY_CLASS = `bg-transparent outline outline-[1.7px] text-primary outline-primary hover:!text-white hover:bg-primary`;
-  const STATUS_CLASS = `bg-transparent border-gray-for-border !text-solid-black border rounded-full text-sm  !py-1`;
+  const STATUS_CLASS = `bg-transparent border-slateLightThird !text-solidBlack border rounded-full text-sm  !py-1`;
   const btn_primary =
     "px-5   bg-blue-light !text-solid-white border-0 text-lg rounded-md font-normal rounded-[4px]";
   const btn_ghost =
