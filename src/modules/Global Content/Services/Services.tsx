@@ -5,6 +5,7 @@ import Image from "next/image";
 import Button from "@components/Button";
 import { useGetPostsQuery } from "../../../redux/features/api/posts";
 import { getFromLocalStorage } from "../../../shared/helpers/local_storage";
+import Link from "next/link";
 
 const Services = () => {
   const token = getFromLocalStorage("accessToken");
@@ -26,6 +27,7 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 w-full">
           {serviceData?.data?.map((result: any, index: string) => (
             <Card
+              href={`${result?.urlLink}`}
               key={index}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 p-3"
             >
@@ -69,7 +71,9 @@ const Services = () => {
                       </div>
                     </div>
                     <div>
-                      <Button className="!py-1 !px-5">Contact Us</Button>
+                      <Link href={`${result?.urlLink}`}>
+                        <Button className="!py-1 !px-5">Contact Us</Button>
+                      </Link>
                     </div>
                   </div>
                 </div>
