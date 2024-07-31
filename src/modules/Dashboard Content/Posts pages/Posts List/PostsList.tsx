@@ -5,8 +5,10 @@ import Container from "@components/Container/Container";
 import SearchBar from "@components/Searchbar/SearchBar";
 import TableStatus from "@components/TableStatus/TableStatus";
 import Pagination from "@components/Pagination/Pagination";
+import { useGetPostsQuery } from "../../../../redux/features/api/posts";
 
 const PostsList = () => {
+  const { data: postData } = useGetPostsQuery({});
   return (
     <div className="pt-10">
       <Container>
@@ -20,10 +22,10 @@ const PostsList = () => {
           <CommonTable
             dataLayout={tableLayout}
             headerData={tableHeader}
-            itemData={data}
+            itemData={postData || data}
           />
           <div className="fixed bottom-5  right-5">
-            <Pagination></Pagination>
+            <Pagination />
           </div>
         </section>
       </Container>

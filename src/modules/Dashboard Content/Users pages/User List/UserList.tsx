@@ -1,11 +1,14 @@
+"use client";
 import Container from "@components/Container/Container";
 import SearchBar from "@components/Searchbar/SearchBar";
 import TableStatus from "@components/TableStatus/TableStatus";
 import { btnValues, data, tableHeader, tableLayout } from "./config/constant";
 import CommonTable from "@components/Common Table/CommonTable";
 import Pagination from "@components/Pagination/Pagination";
+import { useGetUsersQuery } from "../../../../redux/features/api/users";
 
 const UserList = () => {
+  const { data: userData } = useGetUsersQuery({});
   return (
     <div className="pt-10">
       <Container>
@@ -19,7 +22,7 @@ const UserList = () => {
           <CommonTable
             dataLayout={tableLayout}
             headerData={tableHeader}
-            itemData={data}
+            itemData={userData || data}
           />
           <div className="fixed bottom-5  right-5">
             <Pagination />

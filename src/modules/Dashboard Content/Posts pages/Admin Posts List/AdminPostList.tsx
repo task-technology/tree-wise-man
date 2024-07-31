@@ -1,11 +1,14 @@
+"use client";
 import Container from "@components/Container/Container";
 import SearchBar from "@components/Searchbar/SearchBar";
 import TableStatus from "@components/TableStatus/TableStatus";
 import { btnValues, data, tableHeader, tableLayout } from "./config/constant";
 import CommonTable from "@components/Common Table/CommonTable";
 import Pagination from "@components/Pagination/Pagination";
+import { useGetPostsQuery } from "../../../../redux/features/api/posts";
 
 const AdminPostList = () => {
+  const { data: adminPostData } = useGetPostsQuery({});
   return (
     <div className="pt-10">
       <Container>
@@ -19,7 +22,7 @@ const AdminPostList = () => {
           <CommonTable
             dataLayout={tableLayout}
             headerData={tableHeader}
-            itemData={data}
+            itemData={adminPostData || data}
           />
           <div className="fixed bottom-5  right-5">
             <Pagination />

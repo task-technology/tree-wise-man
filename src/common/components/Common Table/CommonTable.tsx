@@ -54,7 +54,7 @@ const CommonTable: FC<CommonTableProps> = ({
               <thead className=" text-black  text-center  ">
                 <tr className="border border-slateLightThird">
                   {checkbox && (
-                    <td className="border border-slateLightThird">
+                    <td className="border border-slateLightThird ">
                       <label>
                         <input
                           type="checkbox"
@@ -74,7 +74,10 @@ const CommonTable: FC<CommonTableProps> = ({
 
                   {headerData &&
                     headerData?.map((title: string, index: number) => (
-                      <th key={index} className="border border-slateLightThird">
+                      <th
+                        key={index}
+                        className="border border-slateLightThird p-2"
+                      >
                         {title}
                       </th>
                     ))}
@@ -108,7 +111,7 @@ const CommonTable: FC<CommonTableProps> = ({
                       {dataLayout.map((layout, idx) => (
                         <td
                           key={idx}
-                          className="border border-slateLightThird "
+                          className="border border-slateLightThird p-2"
                         >
                           {(layout === "item?.products?.serial_number" ||
                             layout === "item?.serial_number") &&
