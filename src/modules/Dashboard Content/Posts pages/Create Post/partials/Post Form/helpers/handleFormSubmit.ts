@@ -1,4 +1,6 @@
-export const handleFormSubmit = (
+import { showSwal } from "../../../../../../../shared/helpers/SwalShower";
+
+export const handleFormSubmit = async (
   e: React.FormEvent,
   companyNameRef: any,
   zipCodeRef: any,
@@ -6,7 +8,9 @@ export const handleFormSubmit = (
   selectState: any,
   aboutCompanyRef: any,
   isPublic: any,
-  file: any
+  photoURL: any,
+  createService: any,
+  token: string | null
 ) => {
   e.preventDefault();
 
@@ -14,12 +18,14 @@ export const handleFormSubmit = (
     title: companyNameRef.current?.value || "",
     urlLink: companyWebsiteRef.current?.value || "",
     zipCode: zipCodeRef.current?.value || "",
-    state: selectState,
+    state: selectState?.state,
     content: aboutCompanyRef.current?.value || "",
-    published: isPublic,
-    image: file,
-    authorId: "222",
+    published: isPublic === "public" ? true : false,
+    image: photoURL,
   };
+
+  const result = await createService({ fullData, token });
+  showSwal(result);
 
   console.log(fullData);
   // Handle form data submission here

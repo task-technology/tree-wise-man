@@ -25,6 +25,7 @@ const config: Config = {
         slateLightThird: "#cbd5e1",
         websiteBgColor: "#f5f5f5",
         grayForBorder: "#D9D9D9",
+        successMsg: "#22c55e",
       },
       fontFamily: {
         primary: ["Poppins", "sans-serif"],

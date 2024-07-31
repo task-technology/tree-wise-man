@@ -4,8 +4,9 @@ const PostsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     createPost: builder.mutation({
       query: ({ token, fullData }) => {
+        console.log("/post/create");
         return {
-          url: "/posts/create",
+          url: "/post/create",
           headers: {
             authorization: token,
           },
@@ -16,9 +17,9 @@ const PostsApi = baseApi.injectEndpoints({
     }),
 
     getPosts: builder.query({
-      query: ({ token, page, limit }) => {
+      query: ({ token }) => {
         return {
-          url: `/posts?page=${page}&limit=${limit}`,
+          url: `/post`,
           headers: {
             authorization: token,
           },

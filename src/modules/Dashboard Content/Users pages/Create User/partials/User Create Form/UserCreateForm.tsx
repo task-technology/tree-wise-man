@@ -1,88 +1,106 @@
 "use client";
-import Input from "@components/Input";
-import { useState, useRef } from "react";
 
+import { useState } from "react";
 import Button from "@components/Button";
 import { handleFormSubmit } from "./helpers/handleFormSubmit";
 import PhotoUpload from "@components/Photo Upload/PhotoUpload";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../../../../redux/store";
+import { useUserCreateMutation } from "../../../../../../redux/features/api/users";
+import InputWithValue from "@components/Input With Value";
+import { getFromLocalStorage } from "../../../../../../shared/helpers/local_storage";
 
 const UserCreateForm = () => {
-  const [file, setFile] = useState<File | null>(null);
+  const token = getFromLocalStorage("accessToken");
 
-  // Refs for input fields
-  const nameRef = useRef<HTMLInputElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const companyNameRef = useRef<HTMLInputElement>(null);
-  const contactNoRef = useRef<HTMLInputElement>(null);
-  const designationRef = useRef<HTMLInputElement>(null);
+  const { photoURL } = useSelector((state: RootState) => state.photoUpload);
+  const [createUser, { isLoading: userCreateLoading }] =
+    useUserCreateMutation();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [contactNo, setContactNo] = useState("");
+  const [designation, setDesignation] = useState("");
 
   return (
-    <div className=" rounded-lg max-w-3xl mx-auto">
+    <div className="rounded-lg max-w-3xl mx-auto">
       <form
         onSubmit={(e) =>
           handleFormSubmit(
             e,
-            nameRef,
-            emailRef,
-            companyNameRef,
-            contactNoRef,
-            file,
-            designationRef
+            name,
+            email,
+            companyName,
+            contactNo,
+            photoURL,
+            designation,
+            createUser,
+            token
           )
         }
         className="space-y-6"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <Input
+          <InputWithValue
             labelName="Name"
             inputName="name"
             required
-            ref={nameRef}
-            className=" border-slateLightThird bg-transparent text-solidWhite "
+            value={name}
+            onChange={(e: any) => setName(e.target.value)}
+            className="border-slateLightThird bg-transparent text-solidWhite"
             labelClassName="text-solidWhite"
           />
-          <Input
+          <InputWithValue
+            inputType="email"
             labelName="Email"
             inputName="email"
             required
-            ref={emailRef}
-            className=" border-slateLightThird bg-transparent text-solidWhite "
+            value={email}
+            onChange={(e: any) => setEmail(e.target.value)}
+            className="border-slateLightThird bg-transparent text-solidWhite"
             labelClassName="text-solidWhite"
           />
-          <Input
+          <InputWithValue
             labelName="Contact Number"
             inputName="contactNo"
-            ref={contactNoRef}
-            className=" border-slateLightThird bg-transparent text-solidWhite "
+            value={contactNo}
+            onChange={(e: any) => setContactNo(e.target.value)}
+            className="border-slateLightThird bg-transparent text-solidWhite"
             labelClassName="text-solidWhite"
           />
-          <Input
+          <InputWithValue
             labelName="Company Name"
             inputName="companyName"
             required
-            ref={companyNameRef}
-            className=" border-slateLightThird bg-transparent text-solidWhite "
+            value={companyName}
+            onChange={(e: any) => setCompanyName(e.target.value)}
+            className="border-slateLightThird bg-transparent text-solidWhite"
             labelClassName="text-solidWhite"
           />
-          <Input
+          <InputWithValue
             labelName="Designation"
             inputName="designation"
-            ref={designationRef}
-            className=" border-slateLightThird bg-transparent text-solidWhite "
+            value={designation}
+            onChange={(e: any) => setDesignation(e.target.value)}
+            className="border-slateLightThird bg-transparent text-solidWhite"
             labelClassName="text-solidWhite"
           />
         </div>
         <div className="mb-8">
           <PhotoUpload
-            file={file}
-            setFile={setFile}
             inputClass="bg-transparent text-solidWhite border border-slateLightThird"
             imgDetailsClass="!text-solidWhite"
             inputLabelClass="!text-solidWhite"
           />
         </div>
         <div className="text-center w-1/3 mx-auto pt-5">
-          <Button type="submit" primary className="w-full">
+          <Button
+            loading={userCreateLoading}
+            type="submit"
+            primary
+            className="w-full"
+          >
             Submit
           </Button>
         </div>

@@ -5,7 +5,7 @@ const UsersApi = baseApi.injectEndpoints({
     userCreate: builder.mutation({
       query: ({ token, fullData }) => {
         return {
-          url: "/users/create",
+          url: "/auth/user/create-user",
           headers: {
             authorization: token,
           },

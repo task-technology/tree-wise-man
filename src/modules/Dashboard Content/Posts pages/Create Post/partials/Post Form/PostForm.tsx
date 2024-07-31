@@ -8,11 +8,18 @@ import PrivateIcon from "@libs/custom icons/PrivateIcon";
 import Button from "@components/Button";
 import { handleFormSubmit } from "./helpers/handleFormSubmit";
 import PhotoUpload from "@components/Photo Upload/PhotoUpload";
+import { RootState } from "../../../../../../redux/store";
+import { useSelector } from "react-redux";
+import { useCreatePostMutation } from "../../../../../../redux/features/api/posts";
+import { getFromLocalStorage } from "../../../../../../shared/helpers/local_storage";
 
 const PostForm = () => {
-  const [file, setFile] = useState<File | null>(null);
+  const token = getFromLocalStorage("accessToken");
+  const [createService, { isLoading: serviceLoading }] =
+    useCreatePostMutation();
   const [selectState, setSelectState] = useState<any>(null);
   const [isPublic, setIsPublic] = useState<string>("public");
+  const { photoURL } = useSelector((state: RootState) => state.photoUpload);
 
   // Refs for input fields
   const companyNameRef = useRef<HTMLInputElement>(null);
@@ -33,7 +40,9 @@ const PostForm = () => {
               selectState,
               aboutCompanyRef,
               isPublic,
-              file
+              photoURL,
+              createService,
+              token
             )
           }
         >
@@ -119,11 +128,16 @@ const PostForm = () => {
               </div>
             </div>
             <div className="md:col-span-2 ">
-              <PhotoUpload file={file} setFile={setFile} />
+              <PhotoUpload />
             </div>
           </div>
           <div className="text-center w-1/3 mx-auto">
-            <Button type="submit" primary className="w-full">
+            <Button
+              loading={serviceLoading}
+              type="submit"
+              primary
+              className="w-full"
+            >
               Submit
             </Button>
           </div>

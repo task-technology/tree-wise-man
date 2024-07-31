@@ -8,13 +8,16 @@ import SectionTitle from "@components/Section Title/SectionTitle";
 import InputWithValue from "@components/Input With Value";
 import Button from "@components/Button";
 import PhotoUpload from "@components/Photo Upload/PhotoUpload";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
 const Register = () => {
+  const { photoURL } = useSelector((state: RootState) => state.photoUpload);
+
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [contactNo, setContactNo] = useState("");
-  const [profileImage, setProfileImage] = useState<File | null>(null);
   const [designation, setDesignation] = useState("");
 
   useEffect(() => {
@@ -30,7 +33,7 @@ const Register = () => {
       name,
       email,
       company,
-      profileImage,
+      profileImage: photoURL,
       contactNo,
       designation,
     };
@@ -119,8 +122,6 @@ const Register = () => {
             </div>
             <div>
               <PhotoUpload
-                file={profileImage}
-                setFile={setProfileImage}
                 inputLabelClass="text-solidWhite"
                 imgDetailsClass="text-solidWhite"
               />

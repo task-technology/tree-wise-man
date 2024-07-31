@@ -7,8 +7,13 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import InputWithValue from "@components/Input With Value";
 import SectionTitle from "@components/Section Title/SectionTitle";
+import { useLoginMutation } from "../../../redux/features/api/others";
+import { handleLogin } from "./helpers/handleLogin";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const router = useRouter();
+  const [login, { isLoading: loginLoading }] = useLoginMutation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,15 +23,6 @@ const Login = () => {
       once: true,
     });
   }, []);
-
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    const fullData = {
-      email,
-      password,
-    };
-    console.log(fullData);
-  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 relative">
@@ -40,12 +36,15 @@ const Login = () => {
       <div className="absolute inset-0 bg-black opacity-70"></div>
       <div
         data-aos="fade-up"
-        className="relative z-10  p-8 rounded-lg shadow-lg w-full max-w-md"
+        className="relative z-10  p-8 rounded-lg shadow-lg w-full max-w-md  overflow-y-hidden"
       >
         <div className="py-2">
           <SectionTitle className="text-solidWhite" title="Login" />
         </div>
-        <form onSubmit={handleLogin} className="space-y-6">
+        <form
+          onSubmit={(e) => handleLogin(e, email, password, login, router)}
+          className="space-y-6"
+        >
           <div>
             <InputWithValue
               labelName="Email"
@@ -71,7 +70,12 @@ const Login = () => {
             />
           </div>
           <div className="w-full">
-            <Button primary type="submit" className="w-full">
+            <Button
+              loading={loginLoading}
+              primary
+              type="submit"
+              className="w-full"
+            >
               Login
             </Button>
           </div>
