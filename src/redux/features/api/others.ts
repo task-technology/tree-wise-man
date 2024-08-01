@@ -14,7 +14,20 @@ const OtherApi = baseApi.injectEndpoints({
     }),
 
     register: builder.mutation({
-      query: ({ token, id, fullData }) => {
+      query: ({ token, fullData }) => {
+        return {
+          url: "/auth/user/create-user",
+          headers: {
+            authorization: token,
+          },
+          method: "DELETE",
+          body: fullData,
+        };
+      },
+    }),
+
+    forgetPassword: builder.mutation({
+      query: ({ token, fullData }) => {
         return {
           url: "/auth/user/create-user",
           headers: {
@@ -28,4 +41,8 @@ const OtherApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation } = OtherApi;
+export const {
+  useLoginMutation,
+  useRegisterMutation,
+  useForgetPasswordMutation,
+} = OtherApi;

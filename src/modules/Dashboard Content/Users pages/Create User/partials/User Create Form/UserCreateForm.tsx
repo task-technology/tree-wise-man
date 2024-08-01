@@ -4,16 +4,18 @@ import { useState } from "react";
 import Button from "@components/Button";
 import { handleFormSubmit } from "./helpers/handleFormSubmit";
 import PhotoUpload from "@components/Photo Upload/PhotoUpload";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../../../../redux/store";
+
 import { useUserCreateMutation } from "../../../../../../redux/features/api/users";
 import InputWithValue from "@components/Input With Value";
 import { getFromLocalStorage } from "../../../../../../shared/helpers/local_storage";
+import { useRouter } from "next/navigation";
 
 const UserCreateForm = () => {
+  const router = useRouter();
   const token = getFromLocalStorage("accessToken");
+  const [file, setFile] = useState<File | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const { photoURL } = useSelector((state: RootState) => state.photoUpload);
   const [createUser, { isLoading: userCreateLoading }] =
     useUserCreateMutation();
 
@@ -33,10 +35,12 @@ const UserCreateForm = () => {
             email,
             companyName,
             contactNo,
-            photoURL,
+            file,
             designation,
             createUser,
-            token
+            token,
+            router,
+            setLoading
           )
         }
         className="space-y-6"
@@ -89,6 +93,8 @@ const UserCreateForm = () => {
         </div>
         <div className="mb-8">
           <PhotoUpload
+            setFile={setFile}
+            file={file}
             inputClass="bg-transparent text-solidWhite border border-slateLightThird"
             imgDetailsClass="!text-solidWhite"
             inputLabelClass="!text-solidWhite"
@@ -96,7 +102,7 @@ const UserCreateForm = () => {
         </div>
         <div className="text-center w-1/3 mx-auto pt-5">
           <Button
-            loading={userCreateLoading}
+            loading={loading || userCreateLoading}
             type="submit"
             primary
             className="w-full"

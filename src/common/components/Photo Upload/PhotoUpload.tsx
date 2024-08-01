@@ -1,93 +1,82 @@
 import Input from "@components/Input";
 import Image from "next/image";
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../redux/store";
-import { uploadPhoto } from "../../../redux/features/slices/photoUploadSlice";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 import { PhotoUploadTypes } from "./config/type";
+
+import { icons } from "@libs/Icons";
 
 const PhotoUpload: React.FC<PhotoUploadTypes> = ({
   inputClass,
   imgDetailsClass,
   inputLabelClass,
+  file,
+  setFile,
 }) => {
-  const [file, setFile] = useState<File | null>(null);
-
   const [preview, setPreview] = useState<string | null>(null);
-  const dispatch = useDispatch<AppDispatch>(); // Use AppDispatch type
-  const { successMessage, uploading, photoURL, error } = useSelector(
-    (state: RootState) => state.photoUpload
-  );
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const selectedFile = e.target.files[0];
+  const [errorMsg, setErrorMsg] = useState<string>("");
+
+  useEffect(() => {
+    if (file) {
+      const selectedFile = file.target.files[0];
       if (
         selectedFile.type === "image/png" ||
         selectedFile.type === "image/jpeg"
       ) {
-        setFile(selectedFile);
-
-        // Create a preview URL for the selected image
         const previewURL = URL.createObjectURL(selectedFile);
         setPreview(previewURL);
-
-        // Dispatch the uploadPhoto action
-        dispatch(uploadPhoto(selectedFile));
+        setErrorMsg("");
       } else {
-        alert("Only PNG and JPG files are allowed");
+        setErrorMsg("Please Choose a JPG or PNG file");
       }
     }
-  };
-
-  // const handleDelete = () => {
-  //   if (photoURL) {
-  //     const publicId = photoURL.split("/").pop()?.split(".")[0] ?? "";
-  //     dispatch(deletePhoto(publicId));
-  //     setFile(null);
-  //     setPreview(null);
-  //   }
-  // };
+  }, [file]);
 
   return (
     <div
-      className={` ${preview !== null && "border border-slateLightThird p-2"}`}
+      className={` ${
+        preview !== null && "border border-slateLightThird p-2"
+      } relative`}
     >
       {preview === null && (
         <Input
           labelName="Upload Logo"
           inputType="file"
           accept=".png, .jpg, .jpeg"
-          onChange={handleFileChange}
+          onChange={(e: any) => setFile(e)}
           className={`${inputClass} !py-[5px]`}
           labelClassName={inputLabelClass}
         />
       )}
       {preview && (
+        <button
+          onClick={() => setPreview(null)}
+          className="absolute right-2  text-3xl"
+        >
+          {icons.cross}
+        </button>
+      )}
+      {preview && (
         <div className="relative w-48 h-48 mb-4 mx-auto">
           <Image
-            src={photoURL || preview}
+            src={preview}
             alt="Selected file"
             fill
+            sizes="(max-width: 768px) 100vw, 
+            (max-width: 1200px) 50vw, 
+            33vw"
             className="rounded object-cover"
           />
-          {/* <button
-            onClick={handleDelete}
-            className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full"
-          >
-            X
-          </button> */}
         </div>
       )}
-      {file && (
+
+      {preview && (
         <p className={`${imgDetailsClass} text-center`}>
-          Selected File: {file.name.slice(0, -4)}
+          Selected File: {file.target.files[0].name.slice(0, -4)}
         </p>
       )}
-      {uploading && <p className={`${imgDetailsClass}`}>Uploading...</p>}
-      {successMessage && (
-        <div className="text-successMsg">{successMessage}</div>
-      )}
-      {error && <div className="text-red-500">{error.message}</div>}
+      {errorMsg && <p className="text-solidRed">{errorMsg}</p>}
     </div>
   );
 };

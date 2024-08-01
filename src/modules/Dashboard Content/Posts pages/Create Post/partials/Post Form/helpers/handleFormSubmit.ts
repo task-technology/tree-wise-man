@@ -1,32 +1,43 @@
+import { uploadPhoto } from "@components/Photo Upload/helpers/handlePhotoUpload";
 import { showSwal } from "../../../../../../../shared/helpers/SwalShower";
 
 export const handleFormSubmit = async (
   e: React.FormEvent,
-  companyNameRef: any,
-  zipCodeRef: any,
-  companyWebsiteRef: any,
+  companyName: any,
+  zipCode: any,
+  companyWebsite: any,
   selectState: any,
-  aboutCompanyRef: any,
+  aboutCompany: any,
   isPublic: any,
-  photoURL: any,
+  file: any,
   createService: any,
-  token: string | null
+  token: string | null,
+  setLoading: any,
+  router?: any
 ) => {
   e.preventDefault();
+  setLoading(true);
+  const photoUploadResult = await uploadPhoto(file.target.files[0]);
+  console.log(photoUploadResult);
+  if (photoUploadResult.success) {
+    const fullData = {
+      title: companyName || "",
+      urlLink: companyWebsite || "",
+      zipCode: zipCode || "",
+      state: selectState?.state,
+      content: aboutCompany || "",
+      published: isPublic === "public" ? true : false,
+      image: photoUploadResult.url,
+    };
 
-  const fullData = {
-    title: companyNameRef.current?.value || "",
-    urlLink: companyWebsiteRef.current?.value || "",
-    zipCode: zipCodeRef.current?.value || "",
-    state: selectState?.state,
-    content: aboutCompanyRef.current?.value || "",
-    published: isPublic === "public" ? true : false,
-    image: photoURL,
-  };
-
-  const result = await createService({ fullData, token });
-  showSwal(result);
-
-  console.log(fullData);
-  // Handle form data submission here
+    console.log(fullData);
+    const result = await createService({ fullData, token });
+    const isSwalTrue = showSwal(result);
+    if (isSwalTrue) {
+      router?.push("/dashboard/post/posts-list");
+    }
+  } else {
+    swal("Error", photoUploadResult.message, "error");
+  }
+  setLoading(false);
 };

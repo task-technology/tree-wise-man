@@ -5,13 +5,14 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaLocationArrow,
-  FaRegHeart 
+  FaRegHeart,
 } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
 
 import { IoIosSearch, IoMdClose } from "react-icons/io";
 import { MdMenu } from "react-icons/md";
-import { FaXTwitter,FaRegCompass  } from "react-icons/fa6";
-import { RiArrowUpSFill ,RiBarChart2Line } from "react-icons/ri";
+import { FaXTwitter, FaRegCompass } from "react-icons/fa6";
+import { RiArrowUpSFill, RiBarChart2Line } from "react-icons/ri";
 import { BsFillGridFill } from "react-icons/bs";
 import { CiSettings } from "react-icons/ci";
 import { FiPieChart } from "react-icons/fi";
@@ -27,11 +28,11 @@ export const icons: any = {
   Twitter: <FaXTwitter />,
   search: <FaLocationArrow />,
   upperArrow: <RiArrowUpSFill />,
-  grid:<BsFillGridFill />,
-  setting:<CiSettings />,
-  compass:<FaRegCompass />,
-  barChart:<RiBarChart2Line />,
-  pieChart:<FiPieChart />,
-  heart:<FaRegHeart />
-
+  grid: <BsFillGridFill />,
+  setting: <CiSettings />,
+  compass: <FaRegCompass />,
+  barChart: <RiBarChart2Line />,
+  pieChart: <FiPieChart />,
+  heart: <FaRegHeart />,
+  cross: <RxCross2 />,
 };

@@ -1,30 +1,42 @@
+import { uploadPhoto } from "@components/Photo Upload/helpers/handlePhotoUpload";
 import { showSwal } from "../../../../../../../shared/helpers/SwalShower";
 
 export const handleFormSubmit = async (
   e: React.FormEvent,
-  nameRef: any,
-  emailRef: any,
-  companyNameRef: any,
-  contactNoRef: any,
-  photoURL: any,
-  designationRef: any,
+  name: any,
+  email: any,
+  companyName: any,
+  contactNo: any,
+  file: any,
+  designation: any,
   createUser: any,
-  token: string | null
+  token: string | null,
+  router?: any,
+  setLoading?: any
 ) => {
   e.preventDefault();
+  setLoading(true);
+  const photoUploadResult = await uploadPhoto(file.target.files[0]);
 
-  const fullData = {
-    name: nameRef.current?.value || "",
-    email: emailRef.current?.value || "",
-    company: companyNameRef.current?.value || "",
-    contactNo: contactNoRef.current?.value || "",
-    profileImage: photoURL,
-    designation: designationRef.current?.value || "",
-  };
-  console.log(fullData);
-  const result = await createUser({ fullData, token });
-  showSwal(result);
+  if (photoUploadResult.success) {
+    const fullData = {
+      name,
+      email,
+      company: companyName || "",
+      contactNo: contactNo || "",
+      profileImage: photoUploadResult.url,
+      designation,
+    };
+    console.log(fullData);
+    const result = await createUser({ fullData, token });
+    console.log(result);
+    const isSwalTrue = showSwal(result);
+    if (isSwalTrue) {
+      router?.push("/dashboard/post/posts-list");
+    }
+  } else {
+    swal("Error", photoUploadResult.message, "error");
+  }
 
-  console.log(result);
-  // Handle form data submission here
+  setLoading(false);
 };
