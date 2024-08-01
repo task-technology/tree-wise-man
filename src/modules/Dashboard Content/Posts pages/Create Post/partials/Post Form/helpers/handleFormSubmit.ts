@@ -13,7 +13,10 @@ export const handleFormSubmit = async (
   createService: any,
   token: string | null,
   setLoading: any,
-  router?: any
+  router?: any,
+  fbLink?: string,
+  insLink?: string,
+  twtrLink?: string
 ) => {
   e.preventDefault();
   setLoading(true);
@@ -28,6 +31,10 @@ export const handleFormSubmit = async (
       content: aboutCompany || "",
       published: isPublic === "public" ? true : false,
       image: photoUploadResult.url,
+
+      facebookLink: fbLink,
+      instagramLink: insLink,
+      twitterLink: twtrLink,
     };
 
     console.log(fullData);

@@ -1,9 +1,20 @@
-export const tableHeader = ["ID", "Part No", "Description", "Quantity"];
+export const tableHeader = [
+  "ID",
+  "Company Name",
+  "State",
+  "Zip Code",
+  "Website",
+  "Details",
+  "status",
+];
 export const tableLayout = [
   "item?.id",
-  "item?.part_no",
-  "item?.description",
-  "item?.quantity",
+  "item?.title",
+  "item?.state",
+  "item?.zipCode",
+  "item?.urlLink",
+  "item?.content",
+  `item?.published.toString() === true ? "Public" : "Private"`,
 ];
 
 export const data = [

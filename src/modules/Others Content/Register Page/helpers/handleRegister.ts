@@ -1,11 +1,11 @@
 import { uploadPhoto } from "@components/Photo Upload/helpers/handlePhotoUpload";
-import { showSwal } from "../../../../../../../shared/helpers/SwalShower";
+import { showSwal } from "../../../../shared/helpers/SwalShower";
 
-export const handleFormSubmit = async (
+export const handleRegister = async (
   e: React.FormEvent,
   name: any,
   email: any,
-  companyName: any,
+  company: any,
   contactNo: any,
   file: any,
   designation: any,
@@ -23,7 +23,7 @@ export const handleFormSubmit = async (
     const fullData = {
       name,
       email,
-      company: companyName || "",
+      company,
       contactNo: contactNo || "",
       profileImage: photoUploadResult.url,
       designation,
@@ -34,7 +34,7 @@ export const handleFormSubmit = async (
     console.log(result);
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {
-      router?.push("/dashboard/post/posts-list");
+      router?.push("/");
     }
   } else {
     swal("Error", photoUploadResult.message, "error");

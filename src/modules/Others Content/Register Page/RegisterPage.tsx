@@ -8,17 +8,26 @@ import SectionTitle from "@components/Section Title/SectionTitle";
 import InputWithValue from "@components/Input With Value";
 import Button from "@components/Button";
 import PhotoUpload from "@components/Photo Upload/PhotoUpload";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
+
+import { handleRegister } from "./helpers/handleRegister";
+import { useUserCreateMutation } from "../../../redux/features/api/users";
+import { getFromLocalStorage } from "../../../shared/helpers/local_storage";
+import { accessToken } from "@config/constants";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
-  const { photoURL } = useSelector((state: RootState) => state.photoUpload);
-
+  const router = useRouter();
+  const token = getFromLocalStorage(accessToken);
+  const [createUser, { isLoading: userCreateLoading }] =
+    useUserCreateMutation();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [file, setFile] = useState<File | null>(null);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [contactNo, setContactNo] = useState("");
   const [designation, setDesignation] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     AOS.init({
@@ -26,19 +35,6 @@ const Register = () => {
       once: true,
     });
   }, []);
-
-  const handleRegister = (e: React.FormEvent) => {
-    e.preventDefault();
-    const fullData = {
-      name,
-      email,
-      company,
-      profileImage: photoURL,
-      contactNo,
-      designation,
-    };
-    console.log(fullData);
-  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 relative">
@@ -57,7 +53,25 @@ const Register = () => {
         <div className="py-2">
           <SectionTitle className="text-solidWhite" title="Register" />
         </div>
-        <form onSubmit={handleRegister} className="space-y-6">
+        <form
+          onSubmit={(e: any) =>
+            handleRegister(
+              e,
+              name,
+              email,
+              company,
+              contactNo,
+              file,
+              designation,
+              createUser,
+              token,
+              router,
+              setLoading,
+              password
+            )
+          }
+          className="space-y-6"
+        >
           <div className="grid grid-cols-2 gap-5">
             <div>
               <InputWithValue
@@ -120,15 +134,35 @@ const Register = () => {
                 className="bg-transparent text-solidWhite"
               />
             </div>
+
+            <div>
+              <InputWithValue
+                labelName="Password"
+                labelClassName="text-solidWhite"
+                inputType="text"
+                inputName="password"
+                value={password}
+                onChange={(e: any) => setPassword(e.target.value)}
+                required
+                className="bg-transparent text-solidWhite"
+              />
+            </div>
             <div>
               <PhotoUpload
+                file={file}
+                setFile={setFile}
                 inputLabelClass="text-solidWhite"
                 imgDetailsClass="text-solidWhite"
               />
             </div>
           </div>
           <div className="w-full">
-            <Button primary type="submit" className="w-full">
+            <Button
+              loading={loading || userCreateLoading}
+              primary
+              type="submit"
+              className="w-full"
+            >
               Register
             </Button>
           </div>

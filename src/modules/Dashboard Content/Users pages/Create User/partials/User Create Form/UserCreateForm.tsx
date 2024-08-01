@@ -24,6 +24,7 @@ const UserCreateForm = () => {
   const [companyName, setCompanyName] = useState("");
   const [contactNo, setContactNo] = useState("");
   const [designation, setDesignation] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <div className="rounded-lg max-w-3xl mx-auto">
@@ -40,7 +41,8 @@ const UserCreateForm = () => {
             createUser,
             token,
             router,
-            setLoading
+            setLoading,
+            password
           )
         }
         className="space-y-6"
@@ -87,6 +89,14 @@ const UserCreateForm = () => {
             inputName="designation"
             value={designation}
             onChange={(e: any) => setDesignation(e.target.value)}
+            className="border-slateLightThird bg-transparent text-solidWhite"
+            labelClassName="text-solidWhite"
+          />
+          <InputWithValue
+            labelName="Password"
+            inputName="password"
+            value={password}
+            onChange={(e: any) => setPassword(e.target.value)}
             className="border-slateLightThird bg-transparent text-solidWhite"
             labelClassName="text-solidWhite"
           />

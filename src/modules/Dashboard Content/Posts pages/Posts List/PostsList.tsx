@@ -6,9 +6,13 @@ import SearchBar from "@components/Searchbar/SearchBar";
 import TableStatus from "@components/TableStatus/TableStatus";
 import Pagination from "@components/Pagination/Pagination";
 import { useGetPostsQuery } from "../../../../redux/features/api/posts";
+import { getFromLocalStorage } from "../../../../shared/helpers/local_storage";
+import { accessToken } from "@config/constants";
 
 const PostsList = () => {
-  const { data: postData } = useGetPostsQuery({});
+  const token = getFromLocalStorage(accessToken);
+  const { data: postData } = useGetPostsQuery({ token });
+  console.log(postData);
   return (
     <div className="pt-10">
       <Container>
@@ -22,7 +26,7 @@ const PostsList = () => {
           <CommonTable
             dataLayout={tableLayout}
             headerData={tableHeader}
-            itemData={postData || data}
+            itemData={postData?.data}
           />
           <div className="fixed bottom-5  right-5">
             <Pagination />

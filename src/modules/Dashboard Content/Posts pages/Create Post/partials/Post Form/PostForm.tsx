@@ -26,6 +26,9 @@ const PostForm = () => {
   const [companyWebsite, setCompanyWebsite] = useState<string>("");
   const [zipCode, setZipCode] = useState<string>("");
   const [aboutCompany, setAboutCompany] = useState<string>("");
+  const [fbLink, setFBLink] = useState<string | "">("");
+  const [insLink, setInsLink] = useState<string | "">("");
+  const [twtrLink, setTwtrLink] = useState<string | "">("");
 
   return (
     <div className="relative min-h-screen ">
@@ -44,7 +47,10 @@ const PostForm = () => {
               createService,
               token,
               setLoading,
-              router
+              router,
+              fbLink,
+              insLink,
+              twtrLink
             )
           }
         >
@@ -61,6 +67,24 @@ const PostForm = () => {
               inputName="urlLink"
               required
               onChange={(e: any) => setCompanyWebsite(e.target.value)}
+              className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+            />
+            <Input
+              labelName="Facebook Link"
+              inputName="fbLink"
+              onChange={(e: any) => setFBLink(e.target.value)}
+              className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+            />
+            <Input
+              labelName="Twitter Link"
+              inputName="twtrLink"
+              onChange={(e: any) => setTwtrLink(e.target.value)}
+              className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+            />
+            <Input
+              labelName="Instagram Link"
+              inputName="fbLink"
+              onChange={(e: any) => setInsLink(e.target.value)}
               className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
             />
             <Input
