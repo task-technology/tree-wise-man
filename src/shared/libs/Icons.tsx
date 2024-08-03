@@ -8,8 +8,15 @@ import {
   FaRegHeart,
 } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
+import {
+  FiBriefcase,
+  FiCreditCard,
+  FiDollarSign,
+  FiFileText,
+  FiUsers,
+} from "react-icons/fi";
 
-import { IoIosSearch, IoMdClose } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
 import { MdMenu } from "react-icons/md";
 import { FaXTwitter, FaRegCompass } from "react-icons/fa6";
 import { RiArrowUpSFill, RiBarChart2Line } from "react-icons/ri";
@@ -19,6 +26,11 @@ import { FiPieChart } from "react-icons/fi";
 
 // export
 export const icons: any = {
+  usersForDashboard: FiUsers,
+  fileTextForDashboard: FiFileText,
+  dollarSignForDashboard: FiDollarSign,
+  creditCardForDashboard: FiCreditCard,
+  briefCaseForDashboard: FiBriefcase,
   DownArrow: <FaCaretDown />,
   MenuOpen: <MdMenu />,
   MenuClose: <IoMdClose />,

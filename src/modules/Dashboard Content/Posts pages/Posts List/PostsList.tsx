@@ -7,10 +7,10 @@ import TableStatus from "@components/TableStatus/TableStatus";
 import Pagination from "@components/Pagination/Pagination";
 import { useGetPostsQuery } from "../../../../redux/features/api/posts";
 import { getFromLocalStorage } from "../../../../shared/helpers/local_storage";
-import { accessToken } from "@config/constants";
+import { authKey } from "@config/constants";
 
 const PostsList = () => {
-  const token = getFromLocalStorage(accessToken);
+  const token = getFromLocalStorage(authKey);
   const { data: postData } = useGetPostsQuery({ token });
   console.log(postData);
   return (

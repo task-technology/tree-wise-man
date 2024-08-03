@@ -9,13 +9,15 @@ export const getUserInfo = () => {
 
     return decodedData;
   } else {
-    return "";
+    // return ""; comment for testing purposes
+    return { name: "fahim", email: "fahim@gmail.com", role: "admin" };
   }
 };
 
 export const isLoggedIn = () => {
   const authToken = getFromLocalStorage(authKey);
-  return !!authToken;
+  // return !!authToken; comment for testing purposes
+  return true;
 };
 
 export const removeUserInfo = (key: string) => {
