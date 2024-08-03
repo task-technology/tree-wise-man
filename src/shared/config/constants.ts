@@ -3,7 +3,7 @@ import { navDataTypes, singleMenuTypes } from "./types";
 
 // whenever wee need to change default className value we will use this
 export const cx = classNames;
-export const accessToken = "accessToken";
+export const authKey = "accessToken";
 
 export const emptyData = "No Data";
 // brand image
