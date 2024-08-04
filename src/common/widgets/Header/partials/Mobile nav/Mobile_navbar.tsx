@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { icons } from "@libs/Icons";
+import Button from "@components/Button";
 const Mobile_navbar = ({ toggleMenu }: { toggleMenu: boolean }) => {
   const pathname = usePathname();
   const [activeLink, setActiveLink] = useState("");
@@ -20,10 +21,10 @@ const Mobile_navbar = ({ toggleMenu }: { toggleMenu: boolean }) => {
             <span
               className={`cursor-pointer flex items-center gap-2 font-[600] lg:text-[20px]  px-2 ${
                 activeLink === menuItem.to
-                  ? `text-black  ${
+                  ? `text-solidBlack/80  ${
                       toggleMenu ? "border-l-4" : "border-b-2"
                     } border-gray-600`
-                  : "text-black/80 hover:text-[#000000]"
+                  : "text-solidBlack/80 hover:text-grayForBorder"
               }`}
             >
               {menuItem.label}
@@ -55,6 +56,9 @@ const Mobile_navbar = ({ toggleMenu }: { toggleMenu: boolean }) => {
           )}
         </li>
       ))}
+      <Button secondary className="!text-solidBlack !rounded-full">
+        List Your Tree Service
+      </Button>
     </>
   );
 };

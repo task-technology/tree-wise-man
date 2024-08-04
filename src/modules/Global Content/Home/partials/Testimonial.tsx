@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import SectionTitle from "@components/Section Title/SectionTitle";
+import Image from "next/image";
 
 const Testimonial = () => {
   const { testimonials } = home_data;
@@ -19,30 +20,33 @@ const Testimonial = () => {
           pagination={{
             clickable: true,
           }}
-          navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           spaceBetween={30}
-          slidesPerView={2}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 2 }, // Tablets
+            1024: { slidesPerView: 3 }, // Desktops
+          }}
         >
           {testimonials &&
             testimonials.map((data) => (
               <SwiperSlide key={data.id} className="px-5">
-                <div className=" md:max-w-[500px]  mx-auto flex justify-center items-center min-h-[350px]">
-                  <div className="bg-slateLight p-4 rounded-md relative pt-20 pb-8  shadow-lg">
-                    <img
+                <div className="max-w-xs md:max-w-sm mx-auto text-xs md:text-base flex flex-col items-center min-h-[350px] p-4 bg-slateLight rounded-md shadow-lg">
+                  <div className="relative h-24 w-24 bg-solidWhite rounded-full overflow-hidden mb-4">
+                    <Image
                       src={data.image}
-                      className="h-24 w-24 rounded-full p-2 bg-solidWhite absolute top-[-3rem] left-1/2 transform -translate-x-1/2"
                       alt={data.name}
+                      layout="fill"
+                      objectFit="cover"
+                      className="absolute inset-0"
                     />
-                    <article className="text-center mt-4 mb-2">
-                      {data.description}
-                    </article>
-                    <div className="text-center mt-2">
-                      <h5 className="text-primary font-semibold">
-                        {data.name}
-                      </h5>
-                      <p className="text-sm text-gray">{data.designation}</p>
-                    </div>
+                  </div>
+                  <article className="text-center mb-2">
+                    {data.description}
+                  </article>
+                  <div className="text-center">
+                    <h5 className="text-primary font-semibold">{data.name}</h5>
+                    <p className="text-sm text-gray">{data.designation}</p>
                   </div>
                 </div>
               </SwiperSlide>

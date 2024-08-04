@@ -30,19 +30,19 @@ const Search = () => {
 
   return (
     <section className="w-full min-h-[50vh] flex items-center justify-center">
-      <div className="bg-primary/30 max-w-6xl w-full lg:grid grid-cols-[2fr,1fr] flex flex-col space-y-9 items-center px-4 lg:px-20 py-20 mx-2">
-        <div>
-          <h1 className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold !leading-relaxed">
+      <div className="bg-primary/30 max-w-6xl w-full lg:grid grid-cols-[2fr,1fr] flex flex-col space-y-6 lg:space-y-0 items-center px-4 lg:px-20 py-8 lg:py-20 mx-2">
+        <div className="text-center lg:text-left">
+          <h1 className="text-2x text-xl  md:text-[2.5rem] font-bold !leading-relaxed ">
             <span className="block">{search.first_title}</span>
             <span>{search.sec_title}</span>
-            <span className="ml-1.5 bg-solidRed px-4 py-1.5 uppercase rounded-tl-2xl rounded-br-2xl text-solidWhite">
+            <span className="ml-1.5 bg-solidRed px-2 md:px-4 py-1 uppercase rounded-tl-lg md:rounded-tl-2xl rounded-br-lg md:rounded-br-2xl text-solidWhite">
               {search.description}
             </span>
           </h1>
         </div>
         <form
           onSubmit={handleSubmit}
-          className="flex h-11 lg:h-20 justify-center items-center rounded-lg bg-solidWhite p-2"
+          className="flex  w-full  flex-row h-14 lg:h-20 justify-start items-center space-y-4 lg:space-y-0 lg:space-x-4 rounded-lg bg-solidWhite p-4 lg:p-2"
         >
           <input
             type="text"
@@ -50,13 +50,13 @@ const Search = () => {
             name="searchText"
             value={formData.searchText}
             onChange={handleChange}
-            className="text-black w-full min-h-[50px] lg:min-h-[50px] text-xl px-4 py-2 focus:outline-none"
+            className="text-black w-full text-base md:text-xl px-4 py-2 focus:outline-none"
             placeholder={search.button.label}
           />
           <Button
             type="submit"
             className={cx(
-              "rounded-full !px-3 bg-secondary/80 uppercase shadow-md text-lg min-h-[50px] lg:min-h-[40px]",
+              "rounded-full !px-3 bg-secondary/80 uppercase shadow-md text-lg !mt-0",
               styles.buttonRound
             )}
           >
