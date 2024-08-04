@@ -17,8 +17,10 @@ const MyAccordion = () => {
             <Image
               src="https://images.unsplash.com/photo-1514116799412-5876d319c242?q=80&w=1904&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Tree Photo"
-              layout="fill"
-              objectFit="cover"
+              fill
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
               className="rounded-lg"
             />
           </div>

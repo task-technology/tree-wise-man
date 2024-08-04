@@ -120,7 +120,6 @@ const Hero = () => {
                           alt="logo"
                           width={208} // 52 * 4
                           height={240} // 60 * 4
-                          objectFit="cover"
                         />
                       </div>
                     </>
@@ -149,8 +148,6 @@ const Hero = () => {
                           alt="logo"
                           width={208} // 52 * 4 (tailwind unit conversion)
                           height={240} // 60 * 4 (tailwind unit conversion)
-                          layout="intrinsic"
-                          objectFit="cover"
                         />
                       </div>
                       <section className="w-1/2 ">
