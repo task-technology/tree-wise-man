@@ -56,9 +56,11 @@ const Mobile_navbar = ({ toggleMenu }: { toggleMenu: boolean }) => {
           )}
         </li>
       ))}
-      <Button secondary className="!text-solidBlack !rounded-full">
-        List Your Tree Service
-      </Button>
+      <div className="md:hidden">
+        <Button secondary className="!text-solidBlack !rounded-full">
+          List Your Tree Service
+        </Button>
+      </div>
     </>
   );
 };

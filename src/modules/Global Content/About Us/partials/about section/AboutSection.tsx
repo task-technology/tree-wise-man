@@ -16,17 +16,27 @@ const AboutSection: React.FC = () => {
     { count: "532", details: "lorem ipsum dolor sit amet" },
   ];
   return (
-    <main className="px-28 py-10">
-      <section className="flex justify-between gap-10">
-        <div className="w-1/2 " data-aos="fade-right" data-aos-duration="1000">
-          <span className="text-orange font-semibold">Lorem ipsum dolor !</span>
-          <h1 className="text-5xl font-bold">
+    <main className="px-4 py-6 md:px-10 md:py-8 lg:px-28 lg:py-10 overflow-hidden">
+      <section className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-10">
+        <div
+          className="w-full lg:w-1/2"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        >
+          <span className="text-orange-500 font-semibold text-lg md:text-xl">
+            Lorem ipsum dolor !
+          </span>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
             Nullam quis risus eget urna mollis ornare vel eu leo. Donec id elit
             non mi commodo tincidunt. non mi commodo tincidunt.
           </h1>
         </div>
-        <div className="w-2/4" data-aos="fade-left" data-aos-duration="1000">
-          <div className="relative   h-0 pb-[45%]">
+        <div
+          className="w-full lg:w-1/2"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
+          <div className="relative h-0 pb-[45%]">
             <Image
               src="https://images.unsplash.com/photo-1629111981417-8c21a3e4e558?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Tree Photo"
@@ -38,9 +48,9 @@ const AboutSection: React.FC = () => {
         </div>
       </section>
 
-      <section className="flex items-center gap-10 mt-20">
+      <section className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10 mt-10 lg:mt-20">
         <article
-          className="w-1/2"
+          className="w-full lg:w-1/2 text-base md:text-lg lg:text-xl"
           data-aos="fade-up-right"
           data-aos-duration="1200"
         >
@@ -51,19 +61,21 @@ const AboutSection: React.FC = () => {
           magnam, temporibus deserunt laborum et distinctio quisquam quaerat
           aspernatur nulla repellendus esse. Ipsam, magnam!
         </article>
-        <div className="w-1/2">
+        <div className="w-full lg:w-1/2">
           <div
-            className="grid grid-cols-2 gap-5 "
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5"
             data-aos="fade-up-left"
             data-aos-duration="1200"
           >
             {data.map((item, index) => (
               <div
                 key={index}
-                className="flex  flex-col gap-4 bg-slate-100 p-4 rounded-lg"
+                className="flex flex-col gap-3 bg-slate-100 p-4 rounded-lg"
               >
-                <span className="text-2xl font-extrabold">{item.count}</span>
-                <p>{item.details}</p>
+                <span className="text-xl md:text-2xl font-extrabold">
+                  {item.count}
+                </span>
+                <p className="text-sm md:text-base">{item.details}</p>
               </div>
             ))}
           </div>

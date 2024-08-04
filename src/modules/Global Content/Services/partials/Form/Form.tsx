@@ -1,112 +1,155 @@
 "use client";
-
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
+import React, { useState } from "react";
+import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 
 const Form = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
   const [zipCode, setZipCode] = useState("");
   const [state, setState] = useState("");
-  const [searchResults, setSearchResults] = useState<any[]>([]); // Mock search results
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // Function to handle search based on query parameter on initial load
-  const handleInitialSearch = () => {
-    const searchTerm = searchParams.get("searchTerm") || "";
-    const stateParam = searchParams.get("state") || "";
-    if (searchTerm) {
-      setZipCode(searchTerm);
-      setState(stateParam || "");
-      // Perform search based on searchTerm and stateParam
-      handleSearch(searchTerm, stateParam);
-    }
-  };
-
-  // Use useEffect to handle initial search when searchTerm is present in URL
-  useEffect(() => {
-    handleInitialSearch();
-  }, []);
-
-  const handleSearch = (zip: string, st?: string) => {
-    // Mock data for demonstration
-    const mockResults = [
-      {
-        id: 1,
-        name: "Example Business 1",
-        address: "123 Main St",
-        city: "Example City",
-        state: "EX",
-        zip: "12345",
-        logo: "/logo.png", // Example logo
-      },
-      {
-        id: 2,
-        name: "Example Business 2",
-        address: "456 Elm St",
-        city: "Another City",
-        state: "AN",
-        zip: "67890",
-        logo: "/logo.png", // Example logo
-      },
-      // Add more mock results as needed
-    ];
-
-    setSearchResults(mockResults);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission
+    setIsDropdownOpen(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     if (name === "zipCode") {
-      if (value === "") {
-      }
-      {
-        setZipCode(value);
-      }
+      setZipCode(value);
     } else if (name === "state") {
-      if (value === "") {
-      }
-      {
-        setState(value);
-      }
+      setState(value);
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    handleSearch(zipCode, state);
-    // Construct query parameters with both zipCode and state
-    const queryParams = `?searchTerm=${zipCode}&state=${state}`;
-    router.push(queryParams);
+  const clearInput = (name: string) => {
+    if (name === "zipCode") {
+      setZipCode("");
+    } else if (name === "state") {
+      setState("");
+    }
   };
+
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-center w-full max-w-3xl bg-white rounded-lg shadow-lg overflow-hidden"
+      className="relative flex flex-col md:flex-row items-center w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden p-2 md:p-6 space-y-4 md:space-y-0 md:space-x-4 "
     >
-      <input
-        type="text"
-        name="zipCode"
-        value={zipCode}
-        onChange={handleChange}
-        placeholder="Enter Zip Code"
-        className="px-4 py-3 w-full border-y border-l border-gray-300 rounded-l-lg focus:outline-none focus:border-primary"
-      />
-      <input
-        type="text"
-        name="state"
-        value={state}
-        onChange={handleChange}
-        placeholder="Enter State"
-        className="px-4 py-3 w-full border-y border-l border-gray-300 focus:outline-none focus:border-primary"
-      />
-      <button
-        type="submit"
-        className="px-6 py-3 bg-primary text-white rounded-r-lg flex items-center space-x-2 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary transform hover:scale-105 transition duration-300"
-      >
-        <AiOutlineSearch className="h-5 w-5" />
-        <span>Search</span>
-      </button>
+      {/* Mobile Dropdown */}
+      <div className="md:hidden flex flex-col w-full">
+        <button
+          type="button"
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          className="w-full bg-primary text-white px-4 py-3 rounded-lg flex items-center justify-between shadow-md hover:shadow-lg transition-shadow"
+        >
+          <span className="font-semibold">Search Options</span>
+          <AiOutlineSearch
+            className={`h-5 w-5 transform ${
+              isDropdownOpen ? "rotate-180" : "rotate-0"
+            } transition-transform`}
+          />
+        </button>
+        {isDropdownOpen && (
+          <div className="mt-2 w-full bg-white ">
+            <div className="p-2">
+              <div className="relative">
+                <input
+                  type="text"
+                  name="zipCode"
+                  value={zipCode}
+                  onChange={handleChange}
+                  placeholder="Enter Zip Code"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary pr-10"
+                />
+                {zipCode && (
+                  <button
+                    type="button"
+                    onClick={() => clearInput("zipCode")}
+                    className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500"
+                  >
+                    <AiOutlineClose className="h-5 w-5" />
+                  </button>
+                )}
+              </div>
+              <div className="relative mt-4">
+                <input
+                  type="text"
+                  name="state"
+                  value={state}
+                  onChange={handleChange}
+                  placeholder="Enter State"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary pr-10"
+                />
+                {state && (
+                  <button
+                    type="button"
+                    onClick={() => clearInput("state")}
+                    className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500"
+                  >
+                    <AiOutlineClose className="h-5 w-5" />
+                  </button>
+                )}
+              </div>
+              <button
+                type="submit"
+                className="w-full px-6 py-2 bg-primary text-white rounded-lg flex items-center justify-center space-x-2 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mt-4"
+              >
+                <AiOutlineSearch className="h-5 w-5" />
+                <span className="font-medium">Search</span>
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Desktop Form */}
+      <div className="hidden md:flex flex-1 w-full">
+        <div className="relative flex-1 mr-2">
+          <input
+            type="text"
+            name="zipCode"
+            value={zipCode}
+            onChange={handleChange}
+            placeholder="Enter Zip Code"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary pr-10"
+          />
+          {zipCode && (
+            <button
+              type="button"
+              onClick={() => clearInput("zipCode")}
+              className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500"
+            >
+              <AiOutlineClose className="h-5 w-5" />
+            </button>
+          )}
+        </div>
+        <div className="relative flex-1 mr-2">
+          <input
+            type="text"
+            name="state"
+            value={state}
+            onChange={handleChange}
+            placeholder="Enter State"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary pr-10"
+          />
+          {state && (
+            <button
+              type="button"
+              onClick={() => clearInput("state")}
+              className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500"
+            >
+              <AiOutlineClose className="h-5 w-5" />
+            </button>
+          )}
+        </div>
+        <button
+          type="submit"
+          className="px-6 py-3 bg-primary text-white rounded-lg flex items-center justify-center space-x-2 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary"
+        >
+          <AiOutlineSearch className="h-5 w-5" />
+          <span className="font-medium">Search</span>
+        </button>
+      </div>
     </form>
   );
 };
