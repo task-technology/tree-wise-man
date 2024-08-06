@@ -19,9 +19,9 @@ const Sidebar = () => {
 
         {/* logout  */}
         <section className="pl-5 text-2xl absolute bottom-10">
-          <div className="pt-3 flex items-center gap-3">
+          <div className="pt-3 flex items-center gap-3 !text-solidWhite">
             <span>{icons?.logout}</span>
-            <Button link className="!text-xl !text-solid-white">
+            <Button link className="!text-xl ">
               Logout
             </Button>
           </div>

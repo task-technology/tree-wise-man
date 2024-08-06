@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
   FaLocationArrow,
   FaRegHeart,
+  FaUser,
 } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import {
@@ -15,6 +16,7 @@ import {
   FiFileText,
   FiUsers,
 } from "react-icons/fi";
+import { BiHomeAlt2 } from "react-icons/bi";
 
 import { IoMdClose } from "react-icons/io";
 import { MdMenu } from "react-icons/md";
@@ -23,7 +25,9 @@ import { RiArrowUpSFill, RiBarChart2Line } from "react-icons/ri";
 import { BsFillGridFill } from "react-icons/bs";
 import { CiSettings } from "react-icons/ci";
 import { FiPieChart } from "react-icons/fi";
-
+import { IoIosLogOut } from "react-icons/io";
+import { MdPostAdd } from "react-icons/md";
+import { FaChevronRight } from "react-icons/fa";
 // export
 export const icons: any = {
   usersForDashboard: FiUsers,
@@ -47,4 +51,12 @@ export const icons: any = {
   pieChart: <FiPieChart />,
   heart: <FaRegHeart />,
   cross: <RxCross2 />,
+  home: <BiHomeAlt2 />,
+  list: <FiFileText />,
+  payment: <FiCreditCard />,
+  user: <FaUser />,
+  logout: <IoIosLogOut />,
+  posts: <MdPostAdd />,
+  users: <FiUsers />,
+  rightArrow: <FaChevronRight />,
 };

@@ -34,7 +34,7 @@ const CustomRoute = () => {
         return data.sub_label ? (
           <div
             key={index}
-            className={`pl-[30px] py-5 ${
+            className={`pl-5 py-5 ${
               isExpanded || hasActiveSubRoute
                 ? "bg-lightBlue rounded-lg mb-1"
                 : ""
@@ -69,7 +69,7 @@ const CustomRoute = () => {
                           isActiveRoute(subItem.link) ? " underline" : ""
                         }`}
                       >
-                        <span>{icons.RightArrow}</span>
+                        <span>{icons.rightArrow}</span>
                         <span>{subItem.label}</span>
                       </div>
                     </Link>
@@ -85,7 +85,7 @@ const CustomRoute = () => {
                   isActiveRoute(data.link) ? "bg-lightBlue rounded-md" : ""
                 }`}
               >
-                <span>{icons.RightArrow}</span>
+                <span>{icons[data?.icon]}</span>
                 <span>{data.label}</span>
               </div>
             </Link>

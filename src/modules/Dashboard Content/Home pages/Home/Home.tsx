@@ -40,7 +40,7 @@ const Home = () => {
             {/* Replace with your actual payments list component */}
             <div className="text-gray-600">Payments data goes here...</div>
           </Card>
-          <Card title="User List" icon={icons?.users}>
+          <Card title="User List" icon={icons?.usersForDashboard}>
             {/* Replace with your actual user list component */}
             <div className="text-gray-600">Users data goes here...</div>
           </Card>

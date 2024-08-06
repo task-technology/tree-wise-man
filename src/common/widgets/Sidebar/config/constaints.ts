@@ -21,16 +21,16 @@ export const sidebarData = [
   {
     label: "Subscriptions List",
     link: "/dashboard/subscription/subscriptions-list",
-    icon: "subscription",
+    icon: "list",
   },
   {
     label: "Payments List",
     link: "/dashboard/payment/payments-list",
-    icon: "paymentsList",
+    icon: "payment",
   },
   {
     label: "My Profile",
     link: "/dashboard/profile/my-profile",
-    icon: "profile",
+    icon: "user",
   },
 ];
