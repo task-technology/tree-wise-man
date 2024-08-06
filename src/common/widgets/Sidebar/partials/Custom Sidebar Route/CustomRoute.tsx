@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 
 const routeStyle = "pt-3 flex items-center gap-2";
 const singleRouteStyle =
-  "my-3 py-2 flex items-center pl-5 gap-2 text-xl text-solidWhite";
+  "py-5 flex items-center pl-5 gap-2 text-xl text-solidWhite";
 
 const CustomRoute = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);

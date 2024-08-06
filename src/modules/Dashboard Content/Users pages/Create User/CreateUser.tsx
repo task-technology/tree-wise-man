@@ -1,9 +1,10 @@
 import SectionTitle from "@components/Section Title/SectionTitle";
 import UserCreateForm from "./partials/User Create Form/UserCreateForm";
+import Container from "@components/Container/Container";
 
 const CreateUser = () => {
   return (
-    <div
+    <Container
       className="relative min-h-screen bg-cover bg-center"
       style={{
         backgroundImage:
@@ -20,7 +21,7 @@ const CreateUser = () => {
       <div className="relative rounded-lg max-w-5xl mx-auto w-full  bg-opacity-90 z-10">
         <UserCreateForm />
       </div>
-    </div>
+    </Container>
   );
 };
 

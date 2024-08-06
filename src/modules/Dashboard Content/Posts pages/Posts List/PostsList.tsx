@@ -16,7 +16,7 @@ const PostsList = () => {
   return (
     <div className="pt-10">
       <Container>
-        <div className="w-1/4 pb-14">
+        <div className="w-full md:w-2/4 lg:w-1/4  pb-14 ">
           <SearchBar />
         </div>
         <section className="py-10 bg-solidWhite px-5">

@@ -17,27 +17,30 @@ const SearchBar = ({ placeholder = "Search..." }) => {
   }, []);
 
   return (
-    <form onSubmit={(e) => handleSearch(e, query)} className="w-full">
-      <div className="flex items-center  bg-white rounded-lg overflow-hidden shadow-md">
+    <form
+      onSubmit={(e) => handleSearch(e, query)}
+      className="w-full mt-2 md:mt-0"
+    >
+      <div className="flex items-center bg-white rounded-lg overflow-hidden shadow-md space-x-2">
         <input
           type="text"
           value={query}
           onChange={(e) => handleInputChange(e, setQuery)}
-          className="flex-grow px-4 py-3  focus:outline-none "
+          className="flex-grow px-4 py-3 focus:outline-none text-base sm:text-sm"
           placeholder={placeholder}
         />
         {query && (
           <button
             type="button"
             onClick={() => clearSearch(setQuery)}
-            className=" text-gray text-3xl px-4"
+            className="text-gray-600 text-2xl px-4 sm:px-2"
           >
             &times;
           </button>
         )}
         <Button
           type="submit"
-          className="bg-blue-600 text-white px-6 !py-3 rounded-none"
+          className="bg-blue-600 text-white  !py-3  rounded-none"
         >
           Search
         </Button>
