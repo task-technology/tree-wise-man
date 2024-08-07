@@ -113,8 +113,8 @@ const PostForm = () => {
                 className="pt-2 pb-5 bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
               />
             </div>
-            <div className="md:col-span-2 flex justify-around mt-7">
-              <div className="flex items-center gap-3">
+            <div className=" md:col-span-2 flex flex-col gap-5 md:flex-row justify-around mt-7">
+              <div className="flex  items-center gap-3">
                 <Input
                   className="w-8 h-5 !p-0"
                   inputType="radio"

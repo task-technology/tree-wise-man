@@ -30,7 +30,7 @@ const Home = () => {
         <StatsCard
           title="Companies Registered"
           value="45"
-          icon={icons?.briefcaseForDashboard}
+          icon={icons?.briefCaseForDashboard}
         />
       </div>
 
