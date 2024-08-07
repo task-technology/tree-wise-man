@@ -14,6 +14,7 @@ const PostsApi = baseApi.injectEndpoints({
           body: fullData,
         };
       },
+      invalidatesTags: ["post"],
     }),
 
     getPosts: builder.query({
@@ -25,23 +26,25 @@ const PostsApi = baseApi.injectEndpoints({
           },
         };
       },
+      providesTags: ["post"],
     }),
 
     getSinglePost: builder.query({
       query: ({ token, id }) => {
         return {
-          url: `/posts/${id}`,
+          url: `/post/${id}`,
           headers: {
             authorization: token,
           },
         };
       },
+      providesTags: ["post"],
     }),
 
     postEdit: builder.mutation({
       query: ({ token, id, fullData }) => {
         return {
-          url: `/posts/${id}`,
+          url: `/post/${id}`,
           headers: {
             authorization: token,
           },
@@ -49,12 +52,13 @@ const PostsApi = baseApi.injectEndpoints({
           body: fullData,
         };
       },
+      invalidatesTags: ["post"],
     }),
 
     postEditByAdmin: builder.mutation({
       query: ({ token, id, fullData }) => {
         return {
-          url: `/posts/admin/${id}`,
+          url: `/post/admin/${id}`,
           headers: {
             authorization: token,
           },
@@ -62,18 +66,19 @@ const PostsApi = baseApi.injectEndpoints({
           body: fullData,
         };
       },
+      invalidatesTags: ["post"],
     }),
     postDelete: builder.mutation({
-      query: ({ token, id, fullData }) => {
+      query: ({ token, id }) => {
         return {
-          url: `/posts/${id}/delete`,
+          url: `/post/${id}`,
           headers: {
             authorization: token,
           },
           method: "DELETE",
-          body: fullData,
         };
       },
+      invalidatesTags: ["post"],
     }),
   }),
 });
@@ -84,4 +89,5 @@ export const {
   useGetSinglePostQuery,
   usePostEditMutation,
   usePostEditByAdminMutation,
+  usePostDeleteMutation,
 } = PostsApi;

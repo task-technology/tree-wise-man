@@ -6,6 +6,8 @@ export const tableHeader = [
   "Website",
   "Details",
   "status",
+  "Delete",
+  "Edit",
 ];
 export const tableLayout = [
   "item?.id",
@@ -15,15 +17,6 @@ export const tableLayout = [
   "item?.urlLink",
   "item?.content",
   `item?.published.toString() === true ? "Public" : "Private"`,
-];
-
-export const data = [
-  {
-    id: "332",
-    part_no: "2334423",
-    description: "Hello world",
-    quantity: 232,
-  },
 ];
 
 export const btnValues = [

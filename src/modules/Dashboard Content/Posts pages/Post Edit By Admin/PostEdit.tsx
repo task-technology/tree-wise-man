@@ -1,7 +1,7 @@
 import SectionTitle from "@components/Section Title/SectionTitle";
 import PostForm from "./partials/Post Form/PostForm";
 
-const PostEdit = () => {
+const PostEditByAdmin = () => {
   return (
     <div>
       <section className="relative py-10 z-10">
@@ -15,4 +15,4 @@ const PostEdit = () => {
   );
 };
 
-export default PostEdit;
+export default PostEditByAdmin;

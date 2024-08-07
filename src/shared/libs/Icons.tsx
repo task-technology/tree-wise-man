@@ -28,6 +28,8 @@ import { FiPieChart } from "react-icons/fi";
 import { IoIosLogOut } from "react-icons/io";
 import { MdPostAdd } from "react-icons/md";
 import { FaChevronRight } from "react-icons/fa";
+import { MdDeleteOutline } from "react-icons/md";
+
 // export
 export const icons: any = {
   usersForDashboard: FiUsers,
@@ -59,4 +61,5 @@ export const icons: any = {
   posts: <MdPostAdd />,
   users: <FiUsers />,
   rightArrow: <FaChevronRight />,
+  delete: <MdDeleteOutline />,
 };

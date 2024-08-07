@@ -10,6 +10,7 @@ import {
 import { icons } from "../../../shared/libs/Icons";
 import Link from "next/link";
 import { emptyData } from "@config/constants";
+import LoadingSpinner from "@widgets/Loading Spinner/LoadingSpinner";
 
 interface CommonTableProps {
   headerData: string[];
@@ -25,6 +26,7 @@ interface CommonTableProps {
   deleteBtn?: boolean;
   deleteFn?: any;
   editPageLink?: string;
+  loading?: any;
 }
 
 // type TableData = Record<string, any>;
@@ -35,6 +37,7 @@ const CommonTable: FC<CommonTableProps> = ({
   setCheckedRows,
   link,
   checkbox,
+  loading,
 
   itemData = [],
   dataLayout,
@@ -48,7 +51,9 @@ const CommonTable: FC<CommonTableProps> = ({
     <>
       <div className="flex justify-center w-full pb-14">
         <div className="overflow-x-auto w-full ">
-          {itemData?.length > 0 ? (
+          {loading ? (
+            <LoadingSpinner />
+          ) : itemData?.length > 0 ? (
             <table className="table text-center w-full border border-slateLightThird">
               {/* head */}
               <thead className=" text-black  text-center  ">
@@ -141,10 +146,10 @@ const CommonTable: FC<CommonTableProps> = ({
                         </td>
                       )}
                       {deleteBtn && (
-                        <td className="">
+                        <td className="border border-slateLightThird p-2">
                           <div
                             onClick={() => deleteFn(item?.id)}
-                            className="text-shade-Of-Red text-xl  flex justify-center cursor-pointer"
+                            className="text-solidRed text-xl  flex justify-center cursor-pointer"
                           >
                             {icons?.delete}
                           </div>
@@ -161,9 +166,9 @@ const CommonTable: FC<CommonTableProps> = ({
                         </td>
                       )}
                       {editPageLink && (
-                        <td className="">
+                        <td className="border border-slateLightThird p-2">
                           <Link
-                            className=" !text-shade-Of-Red flex justify-center"
+                            className=" !text-lightBlue flex justify-center"
                             href={`${editPageLink}/${item?.id}`}
                           >
                             <MdModeEdit />
