@@ -18,7 +18,7 @@ const UsersApi = baseApi.injectEndpoints({
     getUsers: builder.query({
       query: ({ token, page, limit }) => {
         return {
-          url: `/users?page=${page}&limit=${limit}`,
+          url: `/user`,
           headers: {
             authorization: token,
           },
@@ -29,7 +29,7 @@ const UsersApi = baseApi.injectEndpoints({
     getSingleUser: builder.query({
       query: ({ token, id }) => {
         return {
-          url: `/users/${id}`,
+          url: `/user/${id}`,
           headers: {
             authorization: token,
           },
@@ -40,7 +40,7 @@ const UsersApi = baseApi.injectEndpoints({
     userEdit: builder.mutation({
       query: ({ token, id, fullData }) => {
         return {
-          url: `/users/${id}`,
+          url: `/user/${id}`,
           headers: {
             authorization: token,
           },
@@ -53,7 +53,7 @@ const UsersApi = baseApi.injectEndpoints({
     userMyProfile: builder.query({
       query: ({ token }) => {
         return {
-          url: "/users/my-profile",
+          url: "/user/my-profile",
           headers: {
             authorization: token,
           },
@@ -63,7 +63,7 @@ const UsersApi = baseApi.injectEndpoints({
     userDelete: builder.mutation({
       query: ({ token, id, fullData }) => {
         return {
-          url: `/users/${id}/delete`,
+          url: `/user/${id}`,
           headers: {
             authorization: token,
           },

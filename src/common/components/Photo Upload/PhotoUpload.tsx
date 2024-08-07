@@ -52,7 +52,7 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
       {preview && (
         <button
           onClick={() => setPreview(null)}
-          className="absolute right-2  text-3xl"
+          className={`absolute right-2  text-3xl ${imgDetailsClass}`}
         >
           {icons.cross}
         </button>

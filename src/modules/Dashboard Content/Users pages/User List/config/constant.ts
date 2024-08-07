@@ -1,18 +1,23 @@
-export const tableHeader = ["ID", "Part No", "Description", "Quantity"];
+export const tableHeader = [
+  "ID",
+  "Name",
+  "Designation",
+  "Email",
+  "Contact Number",
+  "Company",
+  "Role",
+  "Created Date",
+  "Delete",
+];
 export const tableLayout = [
   "item?.id",
-  "item?.part_no",
-  "item?.description",
-  "item?.quantity",
-];
-
-export const data = [
-  {
-    id: "332",
-    part_no: "2334423",
-    description: "Hello world",
-    quantity: 232,
-  },
+  "item?.name",
+  "item?.designation",
+  "item?.email",
+  "item?.contactNo",
+  "item?.role",
+  "item?.company",
+  "item?.createdAt?.slice(0,10)",
 ];
 
 export const btnValues = [
