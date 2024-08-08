@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
   const user: any = getUserInfo();
 
   const url = request.nextUrl.clone();
-
+  console.log(isLogged);
   if (!isLogged) {
     if (url.pathname.startsWith("/dashboard")) {
       url.pathname = "/";

@@ -6,6 +6,7 @@ import Button from "@components/Button";
 import { useGetPostsQuery } from "../../../redux/features/api/posts";
 import { getFromLocalStorage } from "../../../shared/helpers/local_storage";
 import Link from "next/link";
+import LoadingSpinner from "@widgets/Loading Spinner/LoadingSpinner";
 
 const Services = () => {
   const token = getFromLocalStorage("accessToken");
@@ -14,7 +15,7 @@ const Services = () => {
   });
 
   if (serviceLoading) {
-    return <div>Loading</div>;
+    return <LoadingSpinner fullHight />;
   }
   return (
     <main className="bg-gray-100 min-h-screen flex mt-20 justify-center">

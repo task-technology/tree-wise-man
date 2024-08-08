@@ -3,8 +3,11 @@ import { useState } from "react";
 import Button from "@components/Button";
 import CustomRoute from "./partials/Custom Sidebar Route/CustomRoute";
 import { icons } from "@libs/Icons";
+import { handleLogout } from "./helpers/handleLogout";
+import { useRouter } from "next/navigation";
 
 const Sidebar = () => {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDrawer = () => setIsOpen(!isOpen);
@@ -47,7 +50,11 @@ const Sidebar = () => {
             <section className="pl-5 text-2xl">
               <div className="pt-3 flex items-center gap-3 !text-solidWhite">
                 <span>{icons?.logout}</span>
-                <Button link className="!text-xl">
+                <Button
+                  onClick={() => handleLogout(router)}
+                  link
+                  className="!text-xl"
+                >
                   Logout
                 </Button>
               </div>
