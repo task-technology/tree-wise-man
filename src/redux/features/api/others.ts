@@ -38,6 +38,18 @@ const OtherApi = baseApi.injectEndpoints({
         };
       },
     }),
+
+    clickCountService: builder.mutation({
+      query: ({ token, id }) => {
+        return {
+          url: `post/click/${id}`,
+          headers: {
+            authorization: token,
+          },
+          method: "POST",
+        };
+      },
+    }),
   }),
 });
 
@@ -45,4 +57,5 @@ export const {
   useLoginMutation,
   useRegisterMutation,
   useForgetPasswordMutation,
+  useClickCountServiceMutation,
 } = OtherApi;
