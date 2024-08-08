@@ -21,7 +21,7 @@ const Sidebar = () => {
         className="fixed top-4 left-4 z-50 lg:hidden p-2   "
       >
         {isOpen ? (
-          <span className="text-3xl text-solidWhite ">{icons.MenuClose}</span> // Better close icon
+          <span className="text-3xl text-solidWhite ">{icons.MenuClose}</span>
         ) : (
           <span className="text-3xl text-solidBlack">{icons.MenuOpen}</span>
         )}

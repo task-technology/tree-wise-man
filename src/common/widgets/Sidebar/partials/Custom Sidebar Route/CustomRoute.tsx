@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { icons } from "../../../../../shared/libs/Icons";
 import { sidebarData } from "../../config/constaints";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { getUserInfo } from "../../../../../shared/auth/auth.service";
 
 const routeStyle = "pt-3 flex items-center gap-2";
 const singleRouteStyle =
@@ -14,6 +15,7 @@ const singleRouteStyle =
 const CustomRoute = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const router = usePathname();
+  const user: any = getUserInfo();
 
   const handleToggle = (index: number) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -26,6 +28,11 @@ const CustomRoute = () => {
   return (
     <div>
       {sidebarData?.map((data, index) => {
+        // Check access: show "admin" routes only if the user is an admin
+        if (data.access === "admin" && user?.role !== "admin") {
+          return null;
+        }
+
         const isExpanded = expandedIndex === index;
         const hasActiveSubRoute = data.sub_label?.some((subItem) =>
           isActiveRoute(subItem.link)
@@ -61,8 +68,12 @@ const CustomRoute = () => {
               }`}
             >
               <section className="pl-5">
-                {data?.sub_label &&
-                  data.sub_label?.map((subItem, subIndex) => (
+                {data.sub_label
+                  .filter(
+                    (subItem) =>
+                      subItem.access === "anyone" || user?.role === "admin"
+                  )
+                  .map((subItem, subIndex) => (
                     <Link href={subItem.link} key={subIndex}>
                       <div
                         className={`${routeStyle} ${
@@ -78,7 +89,7 @@ const CustomRoute = () => {
             </div>
           </div>
         ) : (
-          <section key={index} onClick={() => handleToggle(index)}>
+          <section key={index}>
             <Link href={data.link}>
               <div
                 className={`${singleRouteStyle} ${
