@@ -9,16 +9,15 @@ import {
   useGetSingleUserQuery,
   useUserEditMutation,
 } from "../../../../../../redux/features/api/users";
-import InputWithValue from "@components/Input With Value";
-import { getFromLocalStorage } from "../../../../../../shared/helpers/local_storage";
 import { useParams, useRouter } from "next/navigation";
 import Input from "@components/Input";
+import { getFromCookie } from "../../../../../../shared/helpers/local_storage";
 
 const UserEditForm = () => {
   const { id } = useParams();
 
   const router = useRouter();
-  const token = getFromLocalStorage("accessToken");
+  const token = getFromCookie("accessToken");
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 

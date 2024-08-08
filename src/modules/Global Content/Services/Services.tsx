@@ -4,16 +4,15 @@ import Form from "./partials/Form/Form";
 import Image from "next/image";
 import Button from "@components/Button";
 import { useGetPostsQuery } from "../../../redux/features/api/posts";
-import { getFromLocalStorage } from "../../../shared/helpers/local_storage";
 import Link from "next/link";
 import LoadingSpinner from "@widgets/Loading Spinner/LoadingSpinner";
+import { getFromCookie } from "../../../shared/helpers/local_storage";
 
 const Services = () => {
-  const token = getFromLocalStorage("accessToken");
+  const token = getFromCookie("accessToken");
   const { data: serviceData, isLoading: serviceLoading } = useGetPostsQuery({
     token,
   });
-
   if (serviceLoading) {
     return <LoadingSpinner fullHight />;
   }

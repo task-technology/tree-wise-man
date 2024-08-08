@@ -9,13 +9,13 @@ import {
   useGetPostsQuery,
   usePostDeleteMutation,
 } from "../../../../redux/features/api/posts";
-import { getFromLocalStorage } from "../../../../shared/helpers/local_storage";
 import { authKey } from "@config/constants";
 import { showSwal } from "../../../../shared/helpers/SwalShower";
 import { WarningSwal } from "../../../../shared/helpers/warningSwal";
+import { getFromCookie } from "../../../../shared/helpers/local_storage";
 
 const AdminPostList = () => {
-  const token = getFromLocalStorage(authKey);
+  const token = getFromCookie(authKey);
   const { data: adminPostData, isLoading: adminPostLoading } = useGetPostsQuery(
     { token }
   );

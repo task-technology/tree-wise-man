@@ -10,13 +10,13 @@ import { handleFormSubmit } from "./helpers/handleFormSubmit";
 import PhotoUpload from "@components/Photo Upload/PhotoUpload";
 
 import { useCreatePostMutation } from "../../../../../../redux/features/api/posts";
-import { getFromLocalStorage } from "../../../../../../shared/helpers/local_storage";
 import { useRouter } from "next/navigation";
+import { getFromCookie } from "../../../../../../shared/helpers/local_storage";
 
 const PostForm = () => {
   const router = useRouter();
   const [file, setFile] = useState<File | null>(null);
-  const token = getFromLocalStorage("accessToken");
+  const token = getFromCookie("accessToken");
   const [createService, { isLoading: serviceLoading }] =
     useCreatePostMutation();
   const [selectState, setSelectState] = useState<any>(null);
@@ -119,7 +119,6 @@ const PostForm = () => {
                   className="w-8 h-5 !p-0"
                   inputType="radio"
                   inputName="visibility"
-                  value="public"
                   checked={isPublic === "public"}
                   onChange={() => setIsPublic("public")}
                 />
@@ -138,7 +137,6 @@ const PostForm = () => {
                   className="w-8 h-5 !p-0"
                   inputType="radio"
                   inputName="visibility"
-                  value="private"
                   checked={isPublic === "private"}
                   onChange={() => setIsPublic("private")}
                 />

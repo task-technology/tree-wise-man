@@ -1,4 +1,4 @@
-import { setToLocalStorage } from "../../../../shared/helpers/local_storage";
+import { setToCookie } from "../../../../shared/helpers/local_storage";
 import { showSwal } from "../../../../shared/helpers/SwalShower";
 
 export const handleLogin = async (
@@ -16,8 +16,8 @@ export const handleLogin = async (
   const result = await login({ fullData });
   const isSwalTrue = showSwal(result);
   if (isSwalTrue) {
-    setToLocalStorage("accessToken", result?.data?.data?.accessToken);
-    setToLocalStorage("refreshToken", result?.data?.data?.refreshToken);
+    setToCookie("accessToken", result?.data?.data?.accessToken);
+    setToCookie("refreshToken", result?.data?.data?.refreshToken);
     router.push("/");
   }
   console.log(result.data?.data?.accessToken);

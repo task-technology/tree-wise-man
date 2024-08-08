@@ -6,7 +6,6 @@ import Image from "next/image";
 import styles from "./css/Header.module.css";
 import Mobile_navbar from "./partials/Mobile nav";
 import { icons } from "@libs/Icons";
-import Button from "@components/Button";
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -43,9 +42,6 @@ const Header = () => {
         </div>
         <ul className="hidden lg:flex items-center  gap-11">
           <Mobile_navbar toggleMenu={toggleMenu} />
-          <Button secondary className="!text-solidBlack !rounded-full">
-            List Your Tree Service
-          </Button>
         </ul>
 
         <div className="lg:hidden flex items-center text-3xl px-4 text-black relative">

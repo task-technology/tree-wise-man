@@ -1,7 +1,7 @@
 import { authKey } from "@config/constants";
-import { removeFromLocalStorage } from "../../../../shared/helpers/local_storage";
+import { removeFromCookie } from "../../../../shared/helpers/local_storage";
 
 export const handleLogout = (router: any) => {
-  removeFromLocalStorage(authKey);
+  removeFromCookie(authKey);
   router.push("/login");
 };

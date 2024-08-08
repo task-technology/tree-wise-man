@@ -1,13 +1,16 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import { getUserInfo, isLoggedIn } from "./shared/auth/auth.service";
+// middleware.js
+import { NextRequest, NextResponse } from "next/server";
+import { getUserInfo } from "./shared/auth/auth.service";
 
 export function middleware(request: NextRequest) {
-  const isLogged = isLoggedIn();
-  const user: any = getUserInfo();
+  const { cookies } = request;
+  const authToken = cookies.get("accessToken");
+
+  const isLogged = !!authToken;
+  const user: any = authToken ? getUserInfo() : null;
+  console.log(authToken);
 
   const url = request.nextUrl.clone();
-  console.log(isLogged);
   if (!isLogged) {
     if (url.pathname.startsWith("/dashboard")) {
       url.pathname = "/";

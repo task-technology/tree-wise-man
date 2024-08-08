@@ -14,12 +14,12 @@ import {
   useGetSinglePostQuery,
   usePostEditMutation,
 } from "../../../../../../redux/features/api/posts";
-import { getFromLocalStorage } from "../../../../../../shared/helpers/local_storage";
 import { useParams, useRouter } from "next/navigation";
 import LoadingSpinner from "@widgets/Loading Spinner/LoadingSpinner";
+import { getFromCookie } from "../../../../../../shared/helpers/local_storage";
 
 const PostForm = () => {
-  const token = getFromLocalStorage("accessToken");
+  const token = getFromCookie("accessToken");
   const { id } = useParams();
   const { data: singleData, isLoading: singleDataLoading } =
     useGetSinglePostQuery({ id, token });
@@ -182,7 +182,6 @@ const PostForm = () => {
                   className="w-8 h-5 !p-0"
                   inputType="radio"
                   inputName="visibility"
-                  value="private"
                   checked={isPublic === "private"}
                   onChange={() => setIsPublic("private")}
                 />

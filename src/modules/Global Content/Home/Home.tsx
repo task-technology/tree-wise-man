@@ -1,5 +1,6 @@
 //
 
+import { isLoggedIn } from "../../../shared/auth/auth.service";
 import MyAccordion from "./partials/Accordion";
 import Hero from "./partials/Hero";
 import HowWeWork from "./partials/HowWeWork";

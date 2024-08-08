@@ -1,5 +1,5 @@
 import React from "react";
-import { getUserInfo } from "../../../../shared/auth/auth.service";
+import { getUserInfo, isLoggedIn } from "../../../../shared/auth/auth.service";
 
 import { icons } from "@libs/Icons";
 import StatsCard from "./partials/Dashboard Stats Card/StatsCard";

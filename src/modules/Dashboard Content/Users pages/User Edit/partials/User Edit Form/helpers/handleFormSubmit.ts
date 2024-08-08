@@ -1,5 +1,6 @@
 import { uploadPhoto } from "@components/Photo Upload/helpers/handlePhotoUpload";
 import { showSwal } from "../../../../../../../shared/helpers/SwalShower";
+import { CookieValueTypes } from "cookies-next";
 
 export const handleFormSubmit = async (
   e: React.FormEvent,
@@ -9,7 +10,7 @@ export const handleFormSubmit = async (
   file: any,
   designation: string,
   editUser: any,
-  token: string | null,
+  token: CookieValueTypes,
   router?: any,
   setLoading?: (loading: boolean) => void,
   id?: any

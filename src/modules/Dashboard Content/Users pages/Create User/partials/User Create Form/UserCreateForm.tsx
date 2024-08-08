@@ -7,12 +7,12 @@ import PhotoUpload from "@components/Photo Upload/PhotoUpload";
 
 import { useUserCreateMutation } from "../../../../../../redux/features/api/users";
 import InputWithValue from "@components/Input With Value";
-import { getFromLocalStorage } from "../../../../../../shared/helpers/local_storage";
 import { useRouter } from "next/navigation";
+import { getFromCookie } from "../../../../../../shared/helpers/local_storage";
 
 const UserCreateForm = () => {
   const router = useRouter();
-  const token = getFromLocalStorage("accessToken");
+  const token = getFromCookie("accessToken");
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 

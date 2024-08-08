@@ -11,13 +11,13 @@ import PhotoUpload from "@components/Photo Upload/PhotoUpload";
 
 import { handleRegister } from "./helpers/handleRegister";
 import { useUserCreateMutation } from "../../../redux/features/api/users";
-import { getFromLocalStorage } from "../../../shared/helpers/local_storage";
-import { accessToken } from "@config/constants";
 import { useRouter } from "next/navigation";
+import { authKey } from "@config/constants";
+import { getFromCookie } from "../../../shared/helpers/local_storage";
 
 const Register = () => {
   const router = useRouter();
-  const token = getFromLocalStorage(accessToken);
+  const token = getFromCookie(authKey);
   const [createUser, { isLoading: userCreateLoading }] =
     useUserCreateMutation();
   const [loading, setLoading] = useState<boolean>(false);
@@ -37,7 +37,7 @@ const Register = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 relative">
+    <div className="min-h-screen flex items-center justify-center  relative overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -147,7 +147,7 @@ const Register = () => {
                 className="bg-transparent text-solidWhite"
               />
             </div>
-            <div>
+            <div className="md:col-span-2">
               <PhotoUpload
                 file={file}
                 setFile={setFile}
