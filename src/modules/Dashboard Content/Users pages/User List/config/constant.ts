@@ -8,6 +8,7 @@ export const tableHeader = [
   "Role",
   "Created Date",
   "Delete",
+  "Edit",
 ];
 export const tableLayout = [
   "item?.id",
@@ -15,8 +16,8 @@ export const tableLayout = [
   "item?.designation",
   "item?.email",
   "item?.contactNo",
-  "item?.role",
   "item?.company",
+  "item?.role",
   "item?.createdAt?.slice(0,10)",
 ];
 

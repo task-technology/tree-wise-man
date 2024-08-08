@@ -13,6 +13,7 @@ const UsersApi = baseApi.injectEndpoints({
           body: fullData,
         };
       },
+      invalidatesTags: ["user"],
     }),
 
     getUsers: builder.query({
@@ -24,6 +25,7 @@ const UsersApi = baseApi.injectEndpoints({
           },
         };
       },
+      providesTags: ["user"],
     }),
 
     getSingleUser: builder.query({
@@ -35,6 +37,7 @@ const UsersApi = baseApi.injectEndpoints({
           },
         };
       },
+      providesTags: ["user"],
     }),
 
     userEdit: builder.mutation({
@@ -48,6 +51,7 @@ const UsersApi = baseApi.injectEndpoints({
           body: fullData,
         };
       },
+      invalidatesTags: ["user"],
     }),
 
     userMyProfile: builder.query({
@@ -59,6 +63,7 @@ const UsersApi = baseApi.injectEndpoints({
           },
         };
       },
+      providesTags: ["user"],
     }),
     userDelete: builder.mutation({
       query: ({ token, id, fullData }) => {
@@ -71,6 +76,7 @@ const UsersApi = baseApi.injectEndpoints({
           body: fullData,
         };
       },
+      invalidatesTags: ["user"],
     }),
   }),
 });

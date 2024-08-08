@@ -12,7 +12,7 @@ interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = ({
   currentPage = 1,
-  totalItems = 0,
+  totalItems = 50,
   limit = 10,
   setCurrentPage,
 }) => {
@@ -43,15 +43,20 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="flex justify-between w-[35rem] bg-grayForBorder rounded-md p-2 ">
+    <div className="flex flex-wrap justify-between items-center bg-grayForBorder rounded-md p-2">
       <p className="mt-2">
-        Total : <span>{totalItems}</span>
+        Total: <span>{totalItems}</span>
       </p>
 
-      <div className="pagination">
-        <button onClick={handlePrevPage}>Prev</button>
+      <div className="pagination flex flex-wrap items-center mt-2">
+        <button
+          onClick={handlePrevPage}
+          className="py-1 px-2 m-1 rounded-md bg-gray-200 hover:bg-gray-300"
+        >
+          Prev
+        </button>
         {numberOfPages &&
-          Array?.from({ length: numberOfPages })?.map((_, index) => {
+          Array.from({ length: numberOfPages }).map((_, index) => {
             const page = index + 1;
             if (
               page === 1 ||
@@ -63,7 +68,11 @@ const Pagination: React.FC<PaginationProps> = ({
             ) {
               return (
                 <button
-                  className={currentPage === page ? "selected" : undefined}
+                  className={`py-1 px-2 m-1 rounded-md ${
+                    currentPage === page
+                      ? "!bg-lightBlue text-white"
+                      : "bg-gray-200 hover:bg-gray-300"
+                  }`}
                   onClick={() => setCurrentPage && setCurrentPage(page)}
                   key={page}
                 >
@@ -75,21 +84,30 @@ const Pagination: React.FC<PaginationProps> = ({
               (page === currentPage + 3 && currentPage < numberOfPages - 3)
             ) {
               return (
-                <button key={page} disabled>
+                <button
+                  key={page}
+                  disabled
+                  className="py-1 px-2 m-1 rounded-md bg-gray-200"
+                >
                   ...
                 </button>
               );
             }
             return null;
           })}
-        <button onClick={handleNextPage}>Next</button>
+        <button
+          onClick={handleNextPage}
+          className="py-1 px-2 m-1 rounded-md bg-gray-200 hover:bg-gray-300"
+        >
+          Next
+        </button>
         {/* Select dropdown for page selection */}
         <input
           type="number"
           defaultValue={currentPage}
           onChange={handleItemsPerPage}
           name="changePage"
-          className=" w-14 py-1 border rounded-md text-center ml-4 border-grayForBorder"
+          className="w-14 py-1 border rounded-md text-center ml-4 border-grayForBorder"
           min="1"
           max={numberOfPages}
         />

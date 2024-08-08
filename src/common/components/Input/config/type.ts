@@ -7,7 +7,6 @@ export type InputProps = {
   IsDisabled?: boolean;
   defaultValue?: string | number;
   required?: boolean;
-  value?: string;
   onChange?: any;
   minValue?: number | string;
   accept?: any;

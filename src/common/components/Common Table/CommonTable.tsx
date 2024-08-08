@@ -1,14 +1,14 @@
 import { FC } from "react";
 import { IoMdEye } from "react-icons/io";
+import { MdModeEdit } from "react-icons/md";
+import Link from "next/link";
 
 import Button from "../Button";
-import { MdModeEdit } from "react-icons/md";
 import {
   handleAllCheckboxChange,
   handleCheckboxChange,
 } from "./helpers/handleCheckbox";
 import { icons } from "../../../shared/libs/Icons";
-import Link from "next/link";
 import { emptyData } from "@config/constants";
 import LoadingSpinner from "@widgets/Loading Spinner/LoadingSpinner";
 
@@ -29,8 +29,6 @@ interface CommonTableProps {
   loading?: any;
 }
 
-// type TableData = Record<string, any>;
-
 const CommonTable: FC<CommonTableProps> = ({
   headerData,
   checkedRows,
@@ -50,20 +48,20 @@ const CommonTable: FC<CommonTableProps> = ({
   return (
     <>
       <div className="flex justify-center w-full pb-14">
-        <div className="overflow-x-auto w-full ">
+        <div className="overflow-x-auto w-full">
           {loading ? (
             <LoadingSpinner />
           ) : itemData?.length > 0 ? (
-            <table className="table text-center w-full border border-slateLightThird">
+            <table className="table-auto text-center w-full border border-slateLightThird">
               {/* head */}
-              <thead className=" text-black  text-center  ">
+              <thead className="text-black text-center">
                 <tr className="border border-slateLightThird">
                   {checkbox && (
-                    <td className="border border-slateLightThird ">
+                    <td className="border border-slateLightThird">
                       <label>
                         <input
                           type="checkbox"
-                          className="checkbox form-checkbox h-5 w-5 "
+                          className="checkbox form-checkbox h-5 w-5"
                           checked={checkedRows.length === itemData?.length}
                           onChange={() =>
                             handleAllCheckboxChange(
@@ -78,7 +76,7 @@ const CommonTable: FC<CommonTableProps> = ({
                   )}
 
                   {headerData &&
-                    headerData?.map((title: string, index: number) => (
+                    headerData.map((title: string, index: number) => (
                       <th
                         key={index}
                         className="border border-slateLightThird p-2"
@@ -88,16 +86,16 @@ const CommonTable: FC<CommonTableProps> = ({
                     ))}
                 </tr>
               </thead>
-              <tbody className="text-center text-sm  ">
-                {itemData?.length > 0 &&
-                  itemData?.map((item, index) => (
+              <tbody className="text-center text-sm">
+                {itemData.length > 0 &&
+                  itemData.map((item, index) => (
                     <tr key={index} className="border border-slateLightThird">
                       {checkbox && (
-                        <td className="border border-slateLightThird ">
+                        <td className="border border-slateLightThird">
                           <label>
                             <input
                               type="checkbox"
-                              className="checkbox form-checkbox h-5 w-5 "
+                              className="checkbox form-checkbox h-5 w-5"
                               checked={checkedRows.includes(
                                 item?.id || item?._id
                               )}
@@ -118,28 +116,31 @@ const CommonTable: FC<CommonTableProps> = ({
                           key={idx}
                           className="border border-slateLightThird p-2"
                         >
-                          {(layout === "item?.products?.serial_number" ||
-                            layout === "item?.serial_number") &&
-                          link ? (
-                            <Link
-                              className="text-solidBlack hover:underline hover:text-shadeOfGray"
-                              href={`${link}/${item?.id || item?._id}`}
-                            >
-                              {eval(layout)}
-                            </Link>
+                          {layout === "item?.products?.serial_number" ||
+                          layout === "item?.serial_number" ? (
+                            link ? (
+                              <Link
+                                className="text-solidBlack hover:underline hover:text-shadeOfGray"
+                                href={`${link}/${item?.id || item?._id}`}
+                              >
+                                {eval(layout)}
+                              </Link>
+                            ) : (
+                              eval(layout) || emptyData
+                            )
                           ) : (
                             eval(layout) || emptyData
                           )}
                         </td>
                       ))}
                       {btnLink && (
-                        <td className="">
+                        <td>
                           <Link
                             className="!text-black flex justify-center"
                             target="_blank"
                             href={`${btnLink}/${item?.id}`}
                           >
-                            <Button primary mini className="!text-xs ">
+                            <Button primary mini className="!text-xs">
                               {btnValue}
                             </Button>
                           </Link>
@@ -149,16 +150,16 @@ const CommonTable: FC<CommonTableProps> = ({
                         <td className="border border-slateLightThird p-2">
                           <div
                             onClick={() => deleteFn(item?.id)}
-                            className="text-solidRed text-xl  flex justify-center cursor-pointer"
+                            className="text-solidRed text-xl flex justify-center cursor-pointer"
                           >
                             {icons?.delete}
                           </div>
                         </td>
                       )}
                       {link && (
-                        <td className="">
+                        <td>
                           <Link
-                            className=" !text-black flex justify-center "
+                            className="!text-black flex justify-center"
                             href={`${link}/${item?.id || item?._id}`}
                           >
                             <IoMdEye className="hover:!text-blue-light" />
@@ -168,7 +169,7 @@ const CommonTable: FC<CommonTableProps> = ({
                       {editPageLink && (
                         <td className="border border-slateLightThird p-2">
                           <Link
-                            className=" !text-lightBlue flex justify-center"
+                            className="!text-lightBlue flex justify-center"
                             href={`${editPageLink}/${item?.id}`}
                           >
                             <MdModeEdit />

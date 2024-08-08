@@ -45,6 +45,7 @@ const UserList = () => {
             headerData={tableHeader}
             itemData={userData?.data}
             loading={userDataLoading || userDeleteLoading}
+            editPageLink="/dashboard/user/user-edit"
           />
           <div className="fixed bottom-5  right-5">
             <Pagination />

@@ -34,7 +34,7 @@ export const handleFormSubmit = async (
     console.log(result);
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {
-      router?.push("/dashboard/post/user-list");
+      router?.push("/dashboard/user/user-list");
     }
   } else {
     swal("Error", photoUploadResult.message, "error");
