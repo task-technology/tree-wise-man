@@ -2,6 +2,17 @@ import { baseApi } from "../../api/apiSlice";
 
 const OtherApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
+    getAnalytics: builder.query({
+      query: ({ token }) => {
+        return {
+          url: "post/analytics",
+          headers: {
+            authorization: token,
+          },
+        };
+      },
+      providesTags: ["user", "post", "subscriptions"],
+    }),
     login: builder.mutation({
       query: ({ fullData }) => {
         return {
@@ -58,4 +69,5 @@ export const {
   useRegisterMutation,
   useForgetPasswordMutation,
   useClickCountServiceMutation,
+  useGetAnalyticsQuery,
 } = OtherApi;

@@ -1,72 +1,70 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { getUserInfo, isLoggedIn } from "../../../../shared/auth/auth.service";
 
 import { icons } from "@libs/Icons";
 import StatsCard from "./partials/Dashboard Stats Card/StatsCard";
 import Card from "./partials/Dashboard Home Card/Card";
+import LoadingSpinner from "@widgets/Loading Spinner/LoadingSpinner";
+import { useGetAnalyticsQuery } from "../../../../redux/features/api/others";
+import { getFromCookie } from "../../../../shared/helpers/local_storage";
+import { authKey } from "@config/constants";
+import CommonTable from "@components/Common Table/CommonTable";
+import { useGetPostsQuery } from "../../../../redux/features/api/posts";
+import { tableHeader, tableLayout } from "./config/constant";
 
 const Home = () => {
-  const user: any = getUserInfo();
+  const token = getFromCookie(authKey);
+  const [user, setUser] = useState<any>(null);
+  const { data: allData, isLoading } = useGetAnalyticsQuery({ token });
+  const { data: adminPostData, isLoading: adminPostLoading } = useGetPostsQuery(
+    { token }
+  );
+  console.log(adminPostData);
+  useEffect(() => {
+    const userInfo = getUserInfo();
+    setUser(userInfo);
+  }, []);
+
+  if (!user || isLoading) {
+    return <LoadingSpinner fullHight />;
+  }
   return (
     <div className="p-5 bg-gray-100 min-h-screen ">
-      <h2 className="text-4xl font-bold mb-8 mt-10  md:mt-0 md:ml-14">
-        Welcome, {user.name}
+      <h2 className="text-4xl font-bold mb-8 mt-10  md:mt-0 md:ml-14 lg:ml-0">
+        Welcome, {user?.name}
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <StatsCard
           title="Total Users"
-          value="1,234"
+          value={allData?.data?.totalUsers}
           icon={icons?.usersForDashboard}
         />
         <StatsCard
-          title="Payments Processed"
-          value="$12,345"
+          title="Total Posts"
+          value={allData?.data?.totalPosts}
           icon={icons?.dollarSignForDashboard}
         />
         <StatsCard
-          title="Active Subscriptions"
-          value="123"
+          title="Subscribed Users"
+          value={allData?.data?.totalSubscribedUsers}
           icon={icons?.fileTextForDashboard}
         />
         <StatsCard
-          title="Companies Registered"
-          value="45"
+          title="Total Post Click"
+          value={allData?.data?.totalPostClicks}
           icon={icons?.briefCaseForDashboard}
         />
       </div>
-
-      {user.role === "admin" ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card title="Payments List" icon={icons?.creditCardForDashboard}>
-            {/* Replace with your actual payments list component */}
-            <div className="text-gray-600">Payments data goes here...</div>
-          </Card>
-          <Card title="User List" icon={icons?.usersForDashboard}>
-            {/* Replace with your actual user list component */}
-            <div className="text-gray-600">Users data goes here...</div>
-          </Card>
-          <Card title="Subscription List" icon={icons?.fileTextForDashboard}>
-            {/* Replace with your actual subscription list component */}
-            <div className="text-gray-600">Subscriptions data goes here...</div>
-          </Card>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card title="Company Details" icon={icons?.briefcaseForDashboard}>
-            {/* Replace with your actual company details component */}
-            <div className="text-gray-600">
-              Company details data goes here...
-            </div>
-          </Card>
-          <Card title="Subscription Details" icon={icons?.fileTextForDashboard}>
-            {/* Replace with your actual subscription details component */}
-            <div className="text-gray-600">
-              Subscription details data goes here...
-            </div>
-          </Card>
-        </div>
-      )}
+      <div>
+        <CommonTable
+          dataLayout={tableLayout}
+          headerData={tableHeader}
+          itemData={adminPostData?.data}
+          loading={adminPostLoading}
+        />
+      </div>
     </div>
   );
 };

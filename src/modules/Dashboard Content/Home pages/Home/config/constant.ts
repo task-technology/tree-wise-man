@@ -6,8 +6,6 @@ export const tableHeader = [
   "Website",
   "Details",
   "status",
-  "Delete",
-  "Edit",
 ];
 export const tableLayout = [
   "item?.id",
@@ -17,9 +15,4 @@ export const tableLayout = [
   "item?.urlLink",
   "item?.content",
   `item?.published === true ? "Public" : "Private"`,
-];
-
-export const btnValues = [
-  { label: "Active", value: "Active" },
-  { label: "Deactivated", value: "Deactivated" },
 ];
