@@ -8,8 +8,10 @@ import Card from "./partials/Dashboard Home Card/Card";
 const Home = () => {
   const user: any = getUserInfo();
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h2 className="text-4xl font-bold mb-8">Welcome, {user.name}</h2>
+    <div className="p-5 bg-gray-100 min-h-screen ">
+      <h2 className="text-4xl font-bold mb-8 mt-10  md:mt-0 md:ml-14">
+        Welcome, {user.name}
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <StatsCard

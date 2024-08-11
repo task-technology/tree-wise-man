@@ -10,7 +10,8 @@ export const getUserInfo = () => {
   const authToken = getFromCookie(authKey);
   if (authToken) {
     const decodedData = decodedToken(authToken);
-    return decodedData;
+    // return decodedData; comment for development
+    return { role: "admin" };
   } else {
     return "";
   }

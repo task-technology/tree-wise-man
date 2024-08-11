@@ -1,4 +1,3 @@
-// middleware.js
 import { NextRequest, NextResponse } from "next/server";
 import { getUserInfo } from "./shared/auth/auth.service";
 
@@ -28,7 +27,7 @@ export function middleware(request: NextRequest) {
     ];
 
     if (adminPaths.some((path) => url.pathname.startsWith(path))) {
-      url.pathname = "/login";
+      url.pathname = "/";
       return NextResponse.redirect(url);
     }
   }
