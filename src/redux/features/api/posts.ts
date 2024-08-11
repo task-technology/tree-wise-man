@@ -29,6 +29,18 @@ const PostsApi = baseApi.injectEndpoints({
       providesTags: ["post"],
     }),
 
+    getMyPost: builder.query({
+      query: ({ token }) => {
+        return {
+          url: "post/my-post",
+          headers: {
+            authorization: token,
+          },
+        };
+      },
+      providesTags: ["post"],
+    }),
+
     getSinglePost: builder.query({
       query: ({ token, id }) => {
         return {
@@ -90,4 +102,5 @@ export const {
   usePostEditMutation,
   usePostEditByAdminMutation,
   usePostDeleteMutation,
+  useGetMyPostQuery,
 } = PostsApi;

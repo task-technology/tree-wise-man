@@ -5,8 +5,8 @@ import { CookieValueTypes } from "cookies-next";
 export const handleFormSubmit = async (
   e: React.FormEvent,
   companyName: any,
-  zipCode: any,
   companyWebsite: any,
+  zipCode: any,
   selectState: any,
   aboutCompany: any,
   isPublic: any,

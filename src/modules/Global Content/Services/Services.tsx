@@ -7,6 +7,8 @@ import { useGetPostsQuery } from "../../../redux/features/api/posts";
 import Link from "next/link";
 import LoadingSpinner from "@widgets/Loading Spinner/LoadingSpinner";
 import { getFromCookie } from "../../../shared/helpers/local_storage";
+import { useClickCountServiceMutation } from "../../../redux/features/api/others";
+import { handleSubmit } from "./Helpers/handleServiceCount";
 
 const Services = () => {
   const token = getFromCookie("accessToken");
@@ -14,25 +16,33 @@ const Services = () => {
     token,
   });
 
-  const handleSubmit = () => {
-    console.log("hello");
-  };
+  console.log("hello", serviceData);
+  const [serviceClick] = useClickCountServiceMutation();
 
   if (serviceLoading) {
     return <LoadingSpinner fullHight />;
   }
   return (
     <main className="bg-gray-100 min-h-screen flex mt-20 justify-center">
-      <div className="max-w-7xl w-full flex flex-col items-center space-y-2 md:space-y-8 px-4 py-3  md:py-12">
+      <div className="max-w-7xl w-full flex flex-col items-center space-y-2 md:space-y-8 px-4 py-3  md:py-6">
         <h2 className="text-xl md:text-3xl font-bold text-center mb-4">
           Find Services by Zip Code and State
         </h2>
         <Form />
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2  gap-6 w-full">
           {serviceData?.data?.map((result: any, index: string) => (
             <Card
-              handleSubmit={handleSubmit}
-              href={`${result?.urlLink}`}
+              handleSubmit={() =>
+                handleSubmit({
+                  serviceClick,
+                  token,
+                  url: result?.urlLink,
+                  fbLink: result?.facebookLink,
+                  twtrLink: result?.twitterLink,
+                  instaLink: result?.instaLink,
+                  id: result?.id,
+                })
+              }
               key={index}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 p-4 sm:p-5"
             >

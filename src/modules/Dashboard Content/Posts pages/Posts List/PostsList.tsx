@@ -6,6 +6,7 @@ import SearchBar from "@components/Searchbar/SearchBar";
 import TableStatus from "@components/TableStatus/TableStatus";
 import Pagination from "@components/Pagination/Pagination";
 import {
+  useGetMyPostQuery,
   useGetPostsQuery,
   usePostDeleteMutation,
 } from "../../../../redux/features/api/posts";
@@ -16,7 +17,7 @@ import { getFromCookie } from "../../../../shared/helpers/local_storage";
 
 const PostsList = () => {
   const token = getFromCookie(authKey);
-  const { data: postData, isLoading: postDataLoading } = useGetPostsQuery({
+  const { data: postData, isLoading: postDataLoading } = useGetMyPostQuery({
     token,
   });
   const [postDelete, { isLoading: postDeleteLoading }] =

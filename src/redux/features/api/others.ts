@@ -46,7 +46,7 @@ const OtherApi = baseApi.injectEndpoints({
           headers: {
             authorization: token,
           },
-          method: "POST",
+          method: "PATCH",
         };
       },
     }),

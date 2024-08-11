@@ -1,13 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getUserInfo } from "./shared/auth/auth.service";
+import { decodedToken } from "./shared/auth/helpers/jwt";
 
 export function middleware(request: NextRequest) {
   const { cookies } = request;
-  const authToken = cookies.get("accessToken");
-
+  const authToken = cookies.get("accessToken")?.value;
+  const user: any = authToken ? decodedToken(authToken) : null;
   const isLogged = !!authToken;
-  const user: any = authToken ? getUserInfo() : null;
-  console.log(authToken);
+  console.log("user", user);
 
   const url = request.nextUrl.clone();
   if (!isLogged) {

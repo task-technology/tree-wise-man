@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { icons } from "../../../../../shared/libs/Icons";
 import { sidebarData } from "../../config/constaints";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getUserInfo } from "../../../../../shared/auth/auth.service";
+import LoadingSpinner from "@widgets/Loading Spinner/LoadingSpinner";
 
 const routeStyle = "pt-3 flex items-center gap-2";
 const singleRouteStyle =
@@ -14,8 +15,12 @@ const singleRouteStyle =
 
 const CustomRoute = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [user, setUser] = useState<any>(null);
   const router = usePathname();
-  const user: any = getUserInfo();
+
+  useEffect(() => {
+    setUser(getUserInfo());
+  }, []);
 
   const handleToggle = (index: number) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -25,10 +30,11 @@ const CustomRoute = () => {
     return router === link;
   };
 
+  if (!user) return <LoadingSpinner fullHight />;
+
   return (
     <div>
       {sidebarData?.map((data, index) => {
-        // Check access: show "admin" routes only if the user is an admin
         if (data.access === "admin" && user?.role !== "admin") {
           return null;
         }

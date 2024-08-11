@@ -9,13 +9,13 @@ import {
   useGetUsersQuery,
   useUserDeleteMutation,
 } from "../../../../redux/features/api/users";
-import { getFromLocalStorage } from "../../../../shared/helpers/local_storage";
 import { authKey } from "@config/constants";
 import { showSwal } from "../../../../shared/helpers/SwalShower";
 import { WarningSwal } from "../../../../shared/helpers/warningSwal";
+import { getFromCookie } from "../../../../shared/helpers/local_storage";
 
 const UserList = () => {
-  const token = getFromLocalStorage(authKey);
+  const token = getFromCookie(authKey);
   const { data: userData, isLoading: userDataLoading } = useGetUsersQuery({
     token,
   });
