@@ -23,3 +23,5 @@ export const btnValues = [
   { label: "Active", value: "Active" },
   { label: "Deactivated", value: "Deactivated" },
 ];
+
+export const keys = ["searchTerm"];

@@ -12,7 +12,7 @@ interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = ({
   currentPage = 1,
-  totalItems = 50,
+  totalItems = 0,
   limit = 10,
   setCurrentPage,
 }) => {

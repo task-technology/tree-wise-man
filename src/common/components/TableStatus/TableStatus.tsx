@@ -14,7 +14,7 @@ const TableStatus: React.FC<TableStatusProps> = ({ btnValues, status }) => {
   useEffect(() => {
     const params = new URLSearchParams(searchParams.toString());
     if (!status) {
-      const repairStatus = params.get("repair_status");
+      const repairStatus = params.get("searchTerm");
       setActiveRoute(repairStatus || "");
     } else {
       const statusParam = params.get("status");

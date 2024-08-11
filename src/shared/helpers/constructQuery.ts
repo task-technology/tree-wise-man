@@ -1,18 +1,25 @@
-export function constructQuery(
-  searchParams: any,
-  fields: string,
-  keysToExtract: string[],
-  page?: number,
-  limit?: number
-) {
+export function constructQuery({
+  searchParams,
+  fields,
+  keys,
+  page,
+  limit,
+}: {
+  searchParams: any;
+  fields?: any;
+  keys?: any;
+  page: any;
+  limit: any;
+}) {
   const queryParams = [];
-  keysToExtract.forEach((key) => {
-    const value = searchParams.get(key);
-    if (value && value !== "all") {
-      queryParams.push(`${key}=${value}`);
-    }
-  });
-  if (fields.length > 0) {
+  keys?.length > 0 &&
+    keys?.forEach((key: string) => {
+      const value = searchParams?.get(key);
+      if (value && value !== "all") {
+        queryParams.push(`${key}=${value}`);
+      }
+    });
+  if (fields?.length > 0) {
     queryParams.push(`fields=${fields}`);
   }
   if (page) {

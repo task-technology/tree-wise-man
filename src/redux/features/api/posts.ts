@@ -30,9 +30,10 @@ const PostsApi = baseApi.injectEndpoints({
     }),
 
     getMyPost: builder.query({
-      query: ({ token }) => {
+      query: ({ token, query }) => {
+        console.log("world", `/post/my-post?${query}`);
         return {
-          url: "post/my-post",
+          url: `/post/my-post?${query}`,
           headers: {
             authorization: token,
           },
