@@ -13,6 +13,11 @@ const Services = () => {
   const { data: serviceData, isLoading: serviceLoading } = useGetPostsQuery({
     token,
   });
+
+  const handleSubmit = () => {
+    console.log("hello");
+  };
+
   if (serviceLoading) {
     return <LoadingSpinner fullHight />;
   }
@@ -26,6 +31,7 @@ const Services = () => {
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {serviceData?.data?.map((result: any, index: string) => (
             <Card
+              handleSubmit={handleSubmit}
               href={`${result?.urlLink}`}
               key={index}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 p-4 sm:p-5"

@@ -26,11 +26,6 @@ export type ButtonProps = {
   icon?: string;
 };
 // button props
-export type CardProps = {
-  className?: string;
-  href?: string;
-  children?: ReactNode;
-};
 
 // nav Data types
 export interface singleMenuTypes {
