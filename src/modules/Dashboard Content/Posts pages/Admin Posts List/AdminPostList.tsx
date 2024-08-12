@@ -2,7 +2,7 @@
 import Container from "@components/Container/Container";
 import SearchBar from "@components/Searchbar/SearchBar";
 import TableStatus from "@components/TableStatus/TableStatus";
-import { btnValues, tableHeader, tableLayout } from "./config/constant";
+import { btnValues, keys, tableHeader, tableLayout } from "./config/constant";
 import CommonTable from "@components/Common Table/CommonTable";
 import Pagination from "@components/Pagination/Pagination";
 import {
@@ -13,15 +13,38 @@ import { authKey } from "@config/constants";
 import { showSwal } from "../../../../shared/helpers/SwalShower";
 import { WarningSwal } from "../../../../shared/helpers/warningSwal";
 import { getFromCookie } from "../../../../shared/helpers/local_storage";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { constructQuery } from "../../../../shared/helpers/constructQuery";
 
 const AdminPostList = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalItems, setTotalItems] = useState(0);
+  const [limit, setLimit] = useState(50);
+  const searchParams: any = useSearchParams();
+  const query = constructQuery({
+    searchParams,
+    limit,
+    page: currentPage,
+    keys,
+  });
+
   const token = getFromCookie(authKey);
   const { data: adminPostData, isLoading: adminPostLoading } = useGetPostsQuery(
-    { token }
+    { token, query }
   );
+
+  useEffect(() => {
+    if (adminPostData) {
+      setTotalItems(adminPostData?.meta.total);
+      setLimit(adminPostData?.meta.limit);
+      setCurrentPage(adminPostData?.meta?.page);
+    }
+  }, [adminPostData]);
 
   const [postDelete, { isLoading: postDeleteLoading }] =
     usePostDeleteMutation();
+
   const handleDelete = async (id: string) => {
     const result = await postDelete({ token, id });
     showSwal(result);
@@ -32,7 +55,7 @@ const AdminPostList = () => {
   return (
     <div className="pt-10">
       <Container>
-        <div className="w-full md:w-2/4 lg:w-1/4  pb-14 ">
+        <div className="pb-14">
           <SearchBar />
         </div>
         <section className="py-10 bg-solidWhite px-5">
@@ -45,11 +68,16 @@ const AdminPostList = () => {
             dataLayout={tableLayout}
             headerData={tableHeader}
             itemData={adminPostData?.data}
-            loading={adminPostLoading}
+            loading={adminPostLoading || postDeleteLoading}
             editPageLink="/dashboard/post/post-edit-by-admin"
           />
           <div className="fixed bottom-5  right-5">
-            <Pagination />
+            <Pagination
+              currentPage={currentPage}
+              limit={limit}
+              setCurrentPage={setCurrentPage}
+              totalItems={totalItems}
+            />
           </div>
         </section>
       </Container>

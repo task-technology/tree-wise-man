@@ -20,6 +20,9 @@ export const tableLayout = [
 ];
 
 export const btnValues = [
-  { label: "Active", value: "Active" },
-  { label: "Deactivated", value: "Deactivated" },
+  { label: "public", value: "public" },
+  { label: "private", value: "private" },
+  { label: "disabled", value: "Disabled" },
 ];
+
+export const keys = ["searchTerm"];

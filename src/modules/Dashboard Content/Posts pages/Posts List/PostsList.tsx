@@ -17,6 +17,7 @@ import { getFromCookie } from "../../../../shared/helpers/local_storage";
 import { constructQuery } from "../../../../shared/helpers/constructQuery";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import FilterSystem from "@components/Filter System/FilterSystem";
 
 const PostsList = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -60,8 +61,9 @@ const PostsList = () => {
           <SearchBar />
         </div>
         <section className="py-10 bg-solidWhite px-5 rounded-t-md">
-          <div className="pb-5">
+          <div className="pb-5 flex justify-between items-center w-full">
             <TableStatus btnValues={btnValues} status />
+            <FilterSystem />
           </div>
           <CommonTable
             deleteFn={(id: string) => WarningSwal(handleDelete, id)}

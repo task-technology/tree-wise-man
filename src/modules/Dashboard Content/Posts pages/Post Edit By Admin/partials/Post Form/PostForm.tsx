@@ -75,8 +75,8 @@ const PostForm = () => {
             handleFormSubmit(
               e,
               companyName,
-              zipCode,
               companyWebsite,
+              zipCode,
               selectState,
               aboutCompany,
               isPublic,

@@ -2,7 +2,7 @@
 import Container from "@components/Container/Container";
 import SearchBar from "@components/Searchbar/SearchBar";
 import TableStatus from "@components/TableStatus/TableStatus";
-import { btnValues, tableHeader, tableLayout } from "./config/constant";
+import { btnValues, keys, tableHeader, tableLayout } from "./config/constant";
 import CommonTable from "@components/Common Table/CommonTable";
 import Pagination from "@components/Pagination/Pagination";
 import {
@@ -13,12 +13,36 @@ import { authKey } from "@config/constants";
 import { showSwal } from "../../../../shared/helpers/SwalShower";
 import { WarningSwal } from "../../../../shared/helpers/warningSwal";
 import { getFromCookie } from "../../../../shared/helpers/local_storage";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { constructQuery } from "../../../../shared/helpers/constructQuery";
 
 const UserList = () => {
   const token = getFromCookie(authKey);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalItems, setTotalItems] = useState(0);
+  const [limit, setLimit] = useState(50);
+  const searchParams: any = useSearchParams();
+  const query = constructQuery({
+    searchParams,
+    limit,
+    page: currentPage,
+    keys,
+  });
+
   const { data: userData, isLoading: userDataLoading } = useGetUsersQuery({
     token,
+    query,
   });
+
+  useEffect(() => {
+    if (userData) {
+      setTotalItems(userData?.meta.total);
+      setLimit(userData?.meta.limit);
+      setCurrentPage(userData?.meta?.page);
+    }
+  }, [userData]);
+
   const [userDelete, { isLoading: userDeleteLoading }] =
     useUserDeleteMutation();
 
@@ -27,11 +51,10 @@ const UserList = () => {
     showSwal(result);
     console.log(id);
   };
-  console.log(userData);
   return (
     <div className="pt-10">
       <Container>
-        <div className="w-full md:w-2/4 lg:w-1/4  pb-14 ">
+        <div className="pb-14">
           <SearchBar />
         </div>
         <section className="py-10 bg-solidWhite px-5">
@@ -48,7 +71,12 @@ const UserList = () => {
             editPageLink="/dashboard/user/user-edit"
           />
           <div className="fixed bottom-5  right-5">
-            <Pagination />
+            <Pagination
+              currentPage={currentPage}
+              limit={limit}
+              setCurrentPage={setCurrentPage}
+              totalItems={totalItems}
+            />
           </div>
         </section>
       </Container>

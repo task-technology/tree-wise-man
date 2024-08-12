@@ -17,9 +17,10 @@ const UsersApi = baseApi.injectEndpoints({
     }),
 
     getUsers: builder.query({
-      query: ({ token, page, limit }) => {
+      query: ({ token, query }) => {
+        console.log(`/user?${query}`);
         return {
-          url: `/user`,
+          url: `/user?${query}`,
           headers: {
             authorization: token,
           },

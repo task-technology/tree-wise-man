@@ -1,7 +1,7 @@
 import swal from "sweetalert";
 
 export const showSwal = (result: any) => {
-  console.log(result);
+  console.log("result", result);
   if (result?.data?.success) {
     swal("Success", result.data.message, "success");
     return true;

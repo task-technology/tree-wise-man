@@ -40,12 +40,7 @@ export const sidebarData = [
       },
     ],
   },
-  {
-    access: "admin",
-    label: "Subscriptions List",
-    link: "/dashboard/subscription/subscriptions-list",
-    icon: "list",
-  },
+
   {
     label: "Payments List",
     link: "/dashboard/payment/payments-list",

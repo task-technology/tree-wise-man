@@ -24,7 +24,7 @@ const SearchBar = ({ placeholder = "Search..." }) => {
   };
 
   return (
-    <div className="flex items-center bg-white rounded-lg overflow-hidden shadow-md space-x-2">
+    <div className="flex items-center bg-white rounded-lg overflow-hidden shadow-md space-x-2 w-full md:w-1/2 lg:w-1/3">
       <input
         type="text"
         onChange={(e) => setActiveRoute(e.target.value)}

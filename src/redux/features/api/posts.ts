@@ -18,9 +18,9 @@ const PostsApi = baseApi.injectEndpoints({
     }),
 
     getPosts: builder.query({
-      query: ({ token }) => {
+      query: ({ token, query }) => {
         return {
-          url: "/post",
+          url: `/post?${query}`,
           headers: {
             authorization: token,
           },
