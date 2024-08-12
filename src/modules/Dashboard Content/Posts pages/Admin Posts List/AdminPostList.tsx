@@ -16,6 +16,7 @@ import { getFromCookie } from "../../../../shared/helpers/local_storage";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { constructQuery } from "../../../../shared/helpers/constructQuery";
+import FilterSystem from "@components/Filter System/FilterSystem";
 
 const AdminPostList = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -59,8 +60,9 @@ const AdminPostList = () => {
           <SearchBar />
         </div>
         <section className="py-10 bg-solidWhite px-5">
-          <div className="pb-5">
+          <div className="pb-5 flex justify-between items-center w-full">
             <TableStatus btnValues={btnValues} status />
+            <FilterSystem />
           </div>
           <CommonTable
             deleteFn={(id: string) => WarningSwal(handleDelete, id)}
