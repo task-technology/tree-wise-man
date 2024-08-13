@@ -13,4 +13,5 @@ export type InputProps = {
   ref?: any;
   checked?: boolean;
   labelClassName?: string;
+  maxLength?: string | any;
 };

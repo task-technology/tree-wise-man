@@ -26,6 +26,7 @@ const config: Config = {
         websiteBgColor: "#f5f5f5",
         grayForBorder: "#D9D9D9",
         successMsg: "#22c55e",
+        fb: "#0865fc",
       },
       fontFamily: {
         primary: ["Poppins", "sans-serif"],

@@ -107,7 +107,8 @@ const PostForm = () => {
 
             <div className="md:col-span-2">
               <Input
-                labelName="About Your Company"
+                maxLength={150}
+                labelName="About Your Company (Maximum 150 characters allowed.)"
                 inputName="content"
                 onChange={(e: any) => setAboutCompany(e.target.value)}
                 className="pt-2 pb-5 bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"

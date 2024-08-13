@@ -29,6 +29,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { MdPostAdd } from "react-icons/md";
 import { FaChevronRight } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
+import { FaFacebookSquare } from "react-icons/fa";
 
 // export
 export const icons: any = {
@@ -62,4 +63,5 @@ export const icons: any = {
   users: <FiUsers />,
   rightArrow: <FaChevronRight />,
   delete: <MdDeleteOutline />,
+  fb: <FaFacebookSquare />,
 };

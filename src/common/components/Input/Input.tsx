@@ -17,6 +17,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       accept,
       checked,
       labelClassName,
+      maxLength,
     },
     ref
   ) => {
@@ -30,6 +31,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           </div>
         )}
         <input
+          maxLength={maxLength}
           accept={accept}
           ref={ref}
           min={minValue}
