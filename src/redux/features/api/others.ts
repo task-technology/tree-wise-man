@@ -11,7 +11,7 @@ const OtherApi = baseApi.injectEndpoints({
           },
         };
       },
-      providesTags: ["user", "post", "subscriptions"],
+      providesTags: ["user", "post", "subscriptions", "postClick"],
     }),
     login: builder.mutation({
       query: ({ fullData }) => {
@@ -60,6 +60,7 @@ const OtherApi = baseApi.injectEndpoints({
           method: "PATCH",
         };
       },
+      invalidatesTags: ["postClick"],
     }),
   }),
 });

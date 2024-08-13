@@ -30,6 +30,7 @@ import { MdPostAdd } from "react-icons/md";
 import { FaChevronRight } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import { FaFacebookSquare } from "react-icons/fa";
+import { TbWorld } from "react-icons/tb";
 
 // export
 export const icons: any = {
@@ -64,4 +65,5 @@ export const icons: any = {
   rightArrow: <FaChevronRight />,
   delete: <MdDeleteOutline />,
   fb: <FaFacebookSquare />,
+  earth: <TbWorld />,
 };

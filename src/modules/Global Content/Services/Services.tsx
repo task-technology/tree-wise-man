@@ -4,7 +4,6 @@ import Form from "./partials/Form/Form";
 import Image from "next/image";
 import Button from "@components/Button";
 import { useGetPostsQuery } from "../../../redux/features/api/posts";
-import Link from "next/link";
 import LoadingSpinner from "@widgets/Loading Spinner/LoadingSpinner";
 import { getFromCookie } from "../../../shared/helpers/local_storage";
 import { useClickCountServiceMutation } from "../../../redux/features/api/others";
@@ -17,7 +16,6 @@ const Services = () => {
     token,
   });
 
-  console.log("hello", serviceData);
   const [serviceClick] = useClickCountServiceMutation();
 
   if (serviceLoading) {
@@ -34,17 +32,6 @@ const Services = () => {
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2  gap-6 w-full">
           {serviceData?.data?.map((result: any, index: string) => (
             <Card
-              handleSubmit={() =>
-                handleSubmit({
-                  serviceClick,
-                  token,
-                  url: result?.urlLink,
-                  fbLink: result?.facebookLink,
-                  twtrLink: result?.twitterLink,
-                  instaLink: result?.instaLink,
-                  id: result?.id,
-                })
-              }
               key={index}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 p-4 sm:p-5"
             >
@@ -70,21 +57,69 @@ const Services = () => {
                       </span>
                     </div>
                     <div className="flex gap-2">
+                      {result?.urlLink && (
+                        <span
+                          className="hover:scale-110 text-xl"
+                          onClick={() =>
+                            handleSubmit({
+                              serviceClick,
+                              token,
+                              url: result?.urlLink,
+
+                              id: result?.id,
+                            })
+                          }
+                        >
+                          {icons.earth}
+                        </span>
+                      )}
                       {result?.facebookLink && (
-                        <Link
-                          href={result?.facebookLink}
-                          className="text-fb scale-110"
+                        <span
+                          onClick={() =>
+                            handleSubmit({
+                              serviceClick,
+                              token,
+                              url: result?.facebookLink,
+
+                              id: result?.id,
+                            })
+                          }
+                          className="text-fb hover:scale-110 text-xl"
                         >
                           {icons.fb}
-                        </Link>
+                        </span>
                       )}
                       {result?.instaLink && (
-                        <Link href={result?.instaLink} className="">
+                        <span
+                          onClick={() =>
+                            handleSubmit({
+                              serviceClick,
+                              token,
+                              url: result?.instaLink,
+
+                              id: result?.id,
+                            })
+                          }
+                          className="hover:scale-110 text-xl"
+                        >
                           {icons.Instagram}
-                        </Link>
+                        </span>
                       )}
                       {result?.twitterLink && (
-                        <Link href={result?.twitterLink}>{icons.Twitter}</Link>
+                        <span
+                          onClick={() =>
+                            handleSubmit({
+                              serviceClick,
+                              token,
+                              url: result?.twitterLink,
+
+                              id: result?.id,
+                            })
+                          }
+                          className="hover:scale-110 text-xl"
+                        >
+                          {icons.Twitter}
+                        </span>
                       )}
                     </div>
                   </div>
@@ -105,14 +140,27 @@ const Services = () => {
                         <h3 className="font-semibold text-sm">
                           {result?.author?.name}
                         </h3>
-                        <h3 className="text-xs">CEO</h3>
+                        <h3 className="text-xs">
+                          {result?.author?.designation}
+                        </h3>
                       </div>
                     </div>
-                    <Link href={`${result?.urlLink}`}>
+                    <span
+                      onClick={() =>
+                        handleSubmit({
+                          serviceClick,
+                          token,
+                          url: `tel:${result?.author?.contactNo}`,
+
+                          id: result?.id,
+                          tel: true,
+                        })
+                      }
+                    >
                       <Button className="mt-4 sm:mt-0 !py-1 !px-5 !text-sm hover:scale-110">
                         Contact Us
                       </Button>
-                    </Link>
+                    </span>
                   </div>
                 </div>
               </section>

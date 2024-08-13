@@ -13,6 +13,6 @@ export const tableLayout = [
   "item?.state",
   "item?.zipCode",
   "item?.urlLink",
-  "item?.content",
+  `item?.content?.slice(0,50)`,
   `item?.published === true ? "Public" : "Private"`,
 ];
