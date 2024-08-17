@@ -1,4 +1,5 @@
 "use client";
+import Button from "@components/Button";
 import SectionTitle from "@components/Section Title/SectionTitle";
 import { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
@@ -206,12 +207,13 @@ const PaymentPackages = () => {
       </div>
 
       {/* Proceed Button */}
-      <button
+      <Button
+        primary
         onClick={handleProceed}
-        className="mt-8 bg-green-500 text-white py-3 px-12 rounded-full hover:bg-green-600 transition-transform transform hover:scale-105 shadow-lg"
+        className="mt-8 hover:scale-105 shadow-lg"
       >
         Proceed to Payment
-      </button>
+      </Button>
     </div>
   );
 };
