@@ -52,7 +52,6 @@ const AdminPostList = () => {
     console.log(id);
   };
 
-  console.log(adminPostData);
   return (
     <div className="pt-10">
       <Container>

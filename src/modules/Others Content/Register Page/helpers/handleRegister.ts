@@ -43,6 +43,6 @@ export const handleRegister = async (
   } else {
     swal("Error", photoUploadResult.message, "error");
   }
-
   setLoading(false);
 };
+

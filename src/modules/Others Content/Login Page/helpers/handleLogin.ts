@@ -20,5 +20,4 @@ export const handleLogin = async (
     setToCookie("refreshToken", result?.data?.data?.refreshToken);
     router.push("/");
   }
-  console.log(result.data?.data?.accessToken);
 };

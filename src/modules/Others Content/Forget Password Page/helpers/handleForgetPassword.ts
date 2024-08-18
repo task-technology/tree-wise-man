@@ -14,5 +14,5 @@ export const handleForgetPassword = async (
   if (isSwalTrue) {
     console.log("hello");
   }
-  console.log(result.data?.data?.accessToken);
+  
 };
