@@ -9,11 +9,11 @@ const PaymentPackages = () => {
   const [customValue, setCustomValue] = useState<number>(1);
   const [customType, setCustomType] = useState<"months" | "years">("months");
 
-  const increments = [1, 3, 6, 12, 24, 36]; // Months
+  const increments = [1, 3, 6, 12, 24, 36];
 
   const getPrice = (value: number, type: "months" | "years") => {
-    const monthlyRate = 9.99; // Example monthly rate
-    const yearlyRate = 79.99; // Example yearly rate
+    const monthlyRate = 9.99;
+    const yearlyRate = 79.99;
 
     if (type === "months") {
       return `$${(monthlyRate * value).toFixed(2)}`;
@@ -53,7 +53,6 @@ const PaymentPackages = () => {
       if (nextIndex < increments.length) {
         setCustomValue(increments[nextIndex] / 12);
       } else {
-        // Optionally handle the case when max value is reached
       }
     }
   };
@@ -64,7 +63,7 @@ const PaymentPackages = () => {
       if (prevIndex >= 0) {
         setCustomValue(increments[prevIndex]);
       } else {
-        setCustomValue(1); // Reset to 1 month
+        setCustomValue(1);
       }
     } else if (customType === "years") {
       const currentValueInMonths = customValue * 12;
@@ -81,7 +80,7 @@ const PaymentPackages = () => {
           setCustomValue(newValueInMonths / 12);
         }
       } else {
-        setCustomValue(1); // Reset to 1 month
+        setCustomValue(1);
         setCustomType("months");
       }
     }
@@ -90,7 +89,7 @@ const PaymentPackages = () => {
   const handlePackageSelect = (pkg: string, value: number) => {
     setSelectedPackage(pkg);
     setCustomValue(value);
-    setCustomType("months"); // Reset to months when selecting a predefined package
+    setCustomType("months");
   };
 
   const handleProceed = () => {
@@ -98,7 +97,6 @@ const PaymentPackages = () => {
       ? `${selectedPackage} Package`
       : `${getDisplayValue(customValue, customType)}`;
     console.log("Proceeding with:", packageData);
-    // Implement further functionality here, like navigating to payment page
   };
 
   return (
@@ -124,7 +122,7 @@ const PaymentPackages = () => {
               selectedPackage === "1 Month"
                 ? "bg-blue-600  shadow-lg"
                 : "bg-blue-500 hover:bg-blue-600"
-            } text-white py-1 px-6 rounded-full border transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500`}
+            } text-white py-1 px-6 rounded-full border transition-transform transform hover:scale-105 `}
             onClick={() => handlePackageSelect("1 Month", 1)}
           >
             {selectedPackage === "1 Month" ? "Selected" : "Select"}
@@ -146,7 +144,7 @@ const PaymentPackages = () => {
               selectedPackage === "3 Months"
                 ? "bg-blue-600  shadow-lg"
                 : "bg-blue-500 hover:bg-blue-600"
-            } text-white py-1 px-6 rounded-full border transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500`}
+            } text-white py-1 px-6 rounded-full border transition-transform transform hover:scale-105`}
             onClick={() => handlePackageSelect("3 Months", 3)}
           >
             {selectedPackage === "3 Months" ? "Selected" : "Select"}
@@ -168,7 +166,7 @@ const PaymentPackages = () => {
               selectedPackage === "1 Year"
                 ? "bg-blue-600  shadow-lg"
                 : "bg-blue-500 hover:bg-blue-600"
-            } text-white py-1 px-6 rounded-full border transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500`}
+            } text-white py-1 px-6 rounded-full border transition-transform transform hover:scale-105`}
             onClick={() => handlePackageSelect("1 Year", 12)}
           >
             {selectedPackage === "1 Year" ? "Selected" : "Select"}
@@ -187,7 +185,7 @@ const PaymentPackages = () => {
         <div className="flex items-center justify-center space-x-8 mb-6">
           <button
             onClick={decreaseValue}
-            className="bg-blue-600 text-white py-1 px-6 rounded-l-xl shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-blue-600 text-white py-1 px-6 rounded-l-xl shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105 "
           >
             <span className="text-xl font-semibold">-</span>
           </button>
@@ -196,7 +194,7 @@ const PaymentPackages = () => {
           </p>
           <button
             onClick={increaseValue}
-            className="bg-blue-600 text-white py-1 px-6 rounded-r-xl shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-blue-600 text-white py-1 px-6 rounded-r-xl shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105 "
           >
             <span className="text-xl font-semibold">+</span>
           </button>
