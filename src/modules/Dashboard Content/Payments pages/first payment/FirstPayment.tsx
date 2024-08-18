@@ -8,6 +8,8 @@ import {
   getDisplayValue,
   getPrice,
   increaseValue,
+  handlePackageSelect,
+  handleProceed,
 } from "./helpers/handlePlanSelection";
 import Link from "next/link";
 
@@ -15,19 +17,6 @@ const FirstPayment = () => {
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
   const [customValue, setCustomValue] = useState<number>(1);
   const [customType, setCustomType] = useState<"months" | "years">("months");
-
-  const handlePackageSelect = (pkg: string, value: number) => {
-    setSelectedPackage(pkg);
-    setCustomValue(value);
-    setCustomType("months");
-  };
-
-  const handleProceed = () => {
-    const packageData = selectedPackage
-      ? `${selectedPackage} Package`
-      : `${getDisplayValue(customValue, customType)}`;
-    console.log("Proceeding with:", packageData);
-  };
 
   return (
     <div className="relative mt-10">
@@ -58,7 +47,15 @@ const FirstPayment = () => {
                   ? "bg-blue-600  shadow-lg"
                   : "bg-blue-500 hover:bg-blue-600"
               } text-white py-1 px-6 rounded-full border transition-transform transform hover:scale-105 `}
-              onClick={() => handlePackageSelect("1 Month", 1)}
+              onClick={() =>
+                handlePackageSelect({
+                  pkg: "1 Month",
+                  value: 1,
+                  setSelectedPackage,
+                  setCustomValue,
+                  setCustomType,
+                })
+              }
             >
               {selectedPackage === "1 Month" ? "Selected" : "Select"}
             </button>
@@ -80,7 +77,15 @@ const FirstPayment = () => {
                   ? "bg-blue-600  shadow-lg"
                   : "bg-blue-500 hover:bg-blue-600"
               } text-white py-1 px-6 rounded-full border transition-transform transform hover:scale-105`}
-              onClick={() => handlePackageSelect("3 Months", 3)}
+              onClick={() =>
+                handlePackageSelect({
+                  pkg: "3 Months",
+                  value: 3,
+                  setSelectedPackage,
+                  setCustomValue,
+                  setCustomType,
+                })
+              }
             >
               {selectedPackage === "3 Months" ? "Selected" : "Select"}
             </button>
@@ -102,7 +107,15 @@ const FirstPayment = () => {
                   ? "bg-blue-600  shadow-lg"
                   : "bg-blue-500 hover:bg-blue-600"
               } text-white py-1 px-6 rounded-full border transition-transform transform hover:scale-105`}
-              onClick={() => handlePackageSelect("1 Year", 12)}
+              onClick={() =>
+                handlePackageSelect({
+                  pkg: "1 Year",
+                  value: 12,
+                  setSelectedPackage,
+                  setCustomValue,
+                  setCustomType,
+                })
+              }
             >
               {selectedPackage === "1 Year" ? "Selected" : "Select"}
             </button>
@@ -156,7 +169,9 @@ const FirstPayment = () => {
         {/* Proceed Button */}
         <Button
           primary
-          onClick={handleProceed}
+          onClick={() =>
+            handleProceed({ selectedPackage, customValue, customType })
+          }
           className="mt-8 hover:scale-105 shadow-lg"
         >
           Proceed to Payment
