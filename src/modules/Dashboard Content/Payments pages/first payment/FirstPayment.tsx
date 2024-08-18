@@ -11,20 +11,25 @@ import {
   handlePackageSelect,
   handleProceed,
 } from "./helpers/handlePlanSelection";
+import Link from "next/link";
 
-const PaymentPackages = () => {
+const FirstPayment = () => {
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
   const [customValue, setCustomValue] = useState<number>(1);
   const [customType, setCustomType] = useState<"months" | "years">("months");
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6">
+    <div className="relative mt-10">
+      <Link className="absolute right-5 top-5" href={"/login"}>
+        <Button>Skip</Button>
+      </Link>
+
       <SectionTitle
         title="Choose Your Subscription Plan"
-        className="text-3xl font-bold mb-12"
+        className="text-3xl font-bold "
       />
 
-      <div className="flex flex-col items-center justify-center ">
+      <div className="flex flex-col items-center justify-center mt-10">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-5xl">
           {/* 1-Month Package */}
           <div
@@ -176,4 +181,4 @@ const PaymentPackages = () => {
   );
 };
 
-export default PaymentPackages;
+export default FirstPayment;

@@ -34,7 +34,6 @@ const UserList = () => {
     token,
     query,
   });
-
   useEffect(() => {
     if (userData) {
       setTotalItems(userData?.meta.total);

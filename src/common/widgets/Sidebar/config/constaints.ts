@@ -29,8 +29,13 @@ export const sidebarData = [
     access: "admin",
     sub_label: [
       {
-        label: "Create User",
+        label: "Create Admin",
         link: "/dashboard/user/create-user",
+        access: "admin",
+      },
+      {
+        label: "Create User",
+        link: "/dashboard/user/create-admin",
         access: "admin",
       },
       {
@@ -42,11 +47,23 @@ export const sidebarData = [
   },
 
   {
-    label: "Payments List",
-    link: "/dashboard/payment/payments-list",
+    label: "Payments",
+
     icon: "payment",
 
     access: "anyone",
+    sub_label: [
+      {
+        label: "Create payment",
+        link: "/dashboard/payment/payment-packages",
+        access: "admin",
+      },
+      {
+        label: "Payments List",
+        link: "/dashboard/payment/payments-list",
+        access: "admin",
+      },
+    ],
   },
   {
     label: "My Profile",

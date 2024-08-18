@@ -1,16 +1,17 @@
 import { uploadPhoto } from "@components/Photo Upload/helpers/handlePhotoUpload";
-import { showSwal } from "../../../../shared/helpers/SwalShower";
-import { setToCookie } from "../../../../shared/helpers/local_storage";
+import { showSwal } from "../../../../../../../shared/helpers/SwalShower";
+import { CookieValueTypes } from "cookies-next";
 
-export const handleRegister = async (
+export const handleFormSubmit = async (
   e: React.FormEvent,
   name: any,
   email: any,
-  company: any,
+  companyName: any,
   contactNo: any,
   file: any,
   designation: any,
   createUser: any,
+  token: CookieValueTypes,
   router?: any,
   setLoading?: any,
   password?: string
@@ -23,22 +24,22 @@ export const handleRegister = async (
     const fullData = {
       name,
       email,
-      company,
+      company: companyName || "",
       contactNo: contactNo || "",
       profileImage: photoUploadResult.url,
       designation,
       password,
     };
     console.log(fullData);
-    const result = await createUser({ fullData });
+    const result = await createUser({ fullData, token });
     console.log(result);
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {
-      router?.push("/first-payment");
+      router?.push("/dashboard/user/user-list");
     }
   } else {
     swal("Error", photoUploadResult.message, "error");
   }
+
   setLoading(false);
 };
-
