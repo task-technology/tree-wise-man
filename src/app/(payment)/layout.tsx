@@ -12,10 +12,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <Providers>
-        <div className="flex-1 bg-websiteBgColor">{children}</div>
-      </Providers>
+    <html lang="en" data-theme="light">
+      <body>
+        <Providers>
+          <main className="">{children}</main>
+        </Providers>
+      </body>
     </html>
   );
 }

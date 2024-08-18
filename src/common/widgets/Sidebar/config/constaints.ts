@@ -29,8 +29,13 @@ export const sidebarData = [
     access: "admin",
     sub_label: [
       {
-        label: "Create User",
+        label: "Create Admin",
         link: "/dashboard/user/create-user",
+        access: "admin",
+      },
+      {
+        label: "Create User",
+        link: "/dashboard/user/create-admin",
         access: "admin",
       },
       {
