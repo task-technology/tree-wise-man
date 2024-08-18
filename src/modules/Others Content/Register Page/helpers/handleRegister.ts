@@ -1,7 +1,6 @@
 import { uploadPhoto } from "@components/Photo Upload/helpers/handlePhotoUpload";
 import { showSwal } from "../../../../shared/helpers/SwalShower";
 import { setToCookie } from "../../../../shared/helpers/local_storage";
-import { CookieValueTypes } from "cookies-next";
 
 export const handleRegister = async (
   e: React.FormEvent,
@@ -12,7 +11,6 @@ export const handleRegister = async (
   file: any,
   designation: any,
   createUser: any,
-  token: CookieValueTypes,
   router?: any,
   setLoading?: any,
   password?: string
@@ -32,13 +30,13 @@ export const handleRegister = async (
       password,
     };
     console.log(fullData);
-    const result = await createUser({ fullData, token });
+    const result = await createUser({ fullData });
     console.log(result);
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {
       setToCookie("accessToken", result?.data?.data?.accessToken);
       setToCookie("refreshToken", result?.data?.data?.refreshToken);
-      router?.push("/");
+      router?.push("/payment");
     }
   } else {
     swal("Error", photoUploadResult.message, "error");

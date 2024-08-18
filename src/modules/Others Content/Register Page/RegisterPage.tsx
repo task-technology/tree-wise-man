@@ -12,12 +12,9 @@ import PhotoUpload from "@components/Photo Upload/PhotoUpload";
 import { handleRegister } from "./helpers/handleRegister";
 import { useUserCreateMutation } from "../../../redux/features/api/users";
 import { useRouter } from "next/navigation";
-import { authKey } from "@config/constants";
-import { getFromCookie } from "../../../shared/helpers/local_storage";
 
 const Register = () => {
   const router = useRouter();
-  const token = getFromCookie(authKey);
   const [createUser, { isLoading: userCreateLoading }] =
     useUserCreateMutation();
   const [loading, setLoading] = useState<boolean>(false);
@@ -64,7 +61,6 @@ const Register = () => {
               file,
               designation,
               createUser,
-              token,
               router,
               setLoading,
               password
