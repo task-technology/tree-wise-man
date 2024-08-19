@@ -4,15 +4,14 @@ import SectionTitle from "@components/Section Title/SectionTitle";
 import { useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
-import Link from "next/link";
 import {
   handleDecrease,
   handleIncrease,
   handlePackageSelect,
   handleProceed,
-  packages,
 } from "./helpers/handlePlanSelection";
 import { getUserInfo } from "../../../../shared/auth/auth.service";
+import { packages } from "./config/constant";
 
 const FirstPayment = () => {
   const [month, setMonth] = useState(1);

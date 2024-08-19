@@ -8,9 +8,9 @@ import {
   handleIncrease,
   handlePackageSelect,
   handleProceed,
-  packages,
 } from "./helpers/handlePlanSelection";
 import { getUserInfo } from "../../../../shared/auth/auth.service";
+import { packages } from "./config/constant";
 
 const PaymentPackages = () => {
   const [month, setMonth] = useState(1);
