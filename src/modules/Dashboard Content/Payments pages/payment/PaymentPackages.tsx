@@ -1,7 +1,7 @@
 "use client";
 import Button from "@components/Button";
 import SectionTitle from "@components/Section Title/SectionTitle";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import {
   handleDecrease,
@@ -10,10 +10,15 @@ import {
   handleProceed,
   packages,
 } from "./helpers/handlePlanSelection";
+import { getUserInfo } from "../../../../shared/auth/auth.service";
 
 const PaymentPackages = () => {
   const [month, setMonth] = useState(1);
   const [price, setPrice] = useState(12);
+  const [user, setUser] = useState<any>(null);
+  useEffect(() => {
+    setUser(getUserInfo());
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6">
@@ -90,7 +95,8 @@ const PaymentPackages = () => {
 
         {/* Proceed Button */}
         <Button
-          onClick={() => handleProceed({ month, price })}
+          disabled={!user?.id}
+          onClick={() => handleProceed({ month, price, id: user?.id })}
           primary
           className="mt-8 hover:scale-105 shadow-lg"
         >

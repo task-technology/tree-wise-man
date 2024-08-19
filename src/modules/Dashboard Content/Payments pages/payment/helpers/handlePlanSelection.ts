@@ -46,14 +46,17 @@ export const handleDecrease = ({
   }
 };
 
+// submit payment
 export const handleProceed = ({
   month,
   price,
+  id,
 }: {
   month: number;
   price: number;
+  id: string;
 }) => {
-  console.log("month is", month, "and price is", price);
+  console.log("month is", month, "and price is", price, "Id", id);
 };
 
 export const packages = [

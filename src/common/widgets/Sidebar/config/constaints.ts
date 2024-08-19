@@ -55,6 +55,11 @@ export const sidebarData = [
     sub_label: [
       {
         label: "Create payment",
+        link: "/dashboard/payment/first-payment",
+        access: "admin",
+      },
+      {
+        label: "Update Plan",
         link: "/dashboard/payment/payment-packages",
         access: "admin",
       },
