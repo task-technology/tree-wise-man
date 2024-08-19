@@ -3,9 +3,10 @@ import { baseApi } from "../../api/apiSlice";
 const PaymentApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getPaymentData: builder.query({
-      query: ({ token }) => {
+      query: ({ token, query }) => {
         return {
-          url: "post/analytics",
+          url: `/payment?${query}`,
+
           headers: {
             authorization: token,
           },
@@ -15,4 +16,4 @@ const PaymentApi = baseApi.injectEndpoints({
   }),
 });
 
-export const {} = PaymentApi;
+export const { useGetPaymentDataQuery } = PaymentApi;
