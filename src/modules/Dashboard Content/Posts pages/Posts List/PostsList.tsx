@@ -38,7 +38,6 @@ const PostsList = () => {
 
   const [postDelete, { isLoading: postDeleteLoading }] =
     usePostDeleteMutation();
-  console.log(postData);
   useEffect(() => {
     if (postData) {
       setTotalItems(postData?.meta.total);
@@ -57,7 +56,7 @@ const PostsList = () => {
     <div className="pt-10">
       <Container>
         <div className="pb-14 ">
-          <SearchBar />
+          <SearchBar showNotice />
         </div>
         <section className="py-10 bg-solidWhite px-5 rounded-t-md">
           <div className="pb-5">

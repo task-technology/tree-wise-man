@@ -41,7 +41,7 @@ const UserProfile = () => {
               <Link href="/dashboard/profile/my-profile">Profile</Link>
             </li>
             <li>
-              <Link href="/dashboard">Dashboard</Link>
+              <Link href="/dashboard/home">Dashboard</Link>
             </li>
             <li>
               <span onClick={() => handleLogout(router)}>Logout</span>

@@ -5,7 +5,7 @@ export function middleware(request: NextRequest) {
   const { cookies } = request;
   const authToken = cookies.get("accessToken")?.value;
   const user: any = authToken ? decodedToken(authToken) : null;
-  // const user: any = { role: "admin" };
+  // const user: any = { role: "user" };
   const isLogged = !!authToken;
   console.log("user", user);
 
@@ -19,6 +19,7 @@ export function middleware(request: NextRequest) {
 
   if (isLogged && user?.role !== "admin") {
     const adminPaths = [
+      "/dashboard/home",
       "/dashboard/post/admin-posts-list",
       "/dashboard/payment/payments-list",
       "/dashboard/subscription/subscriptions-list",
@@ -27,7 +28,7 @@ export function middleware(request: NextRequest) {
     ];
 
     if (adminPaths.some((path) => url.pathname.startsWith(path))) {
-      url.pathname = "/";
+      url.pathname = "/dashboard/profile/my-profile";
       return NextResponse.redirect(url);
     }
   }
