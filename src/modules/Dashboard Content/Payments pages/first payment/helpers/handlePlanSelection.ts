@@ -127,5 +127,35 @@ export const handleProceed = ({
   const packageData = selectedPackage
     ? `${selectedPackage} Package`
     : `${getDisplayValue(customValue, customType)}`;
-  console.log("Proceeding with:", packageData);
+  console.log("payment system fire 4", customValue);
+  Payment(5,customValue)
 };
+
+function Payment(userId: number, month: number) {
+  console.log("payment system proccess")
+  const url = 'http://localhost:5000/api/v1/subscription/payment';
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ userId, month })
+  };
+  fetch(url, options)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("payment system finished",data)
+      if (data && data.data) {
+        let lint = data.data.links[1].href;
+        window.location.href = lint;
+      }
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
+}

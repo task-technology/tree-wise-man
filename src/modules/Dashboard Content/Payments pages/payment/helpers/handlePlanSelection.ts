@@ -125,7 +125,7 @@ export const handleProceed = ({
   customType: any;
 }) => {
   const packageData = selectedPackage
-    ? `${selectedPackage} Package`
+    ? `${selectedPackage}`
     : `${getDisplayValue(customValue, customType)}`;
-  console.log("Proceeding with:", packageData);
+  console.log("Proceeding with  :", packageData);
 };

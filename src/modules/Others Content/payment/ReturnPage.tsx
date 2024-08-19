@@ -8,7 +8,7 @@ const ReturnPage = () => {
   const PayerID = searchParams.get("PayerID");
   useEffect(() => {
     const executePayment = async (paymentId: string, PayerID: string) => {
-      const url = "http://localhost:5001/api/v1/subscription/verify";
+      const url = "http://localhost:5000/api/v1/subscription/verify";
 
       const options = {
         method: "POST",
