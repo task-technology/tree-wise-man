@@ -17,6 +17,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { constructQuery } from "../../../../shared/helpers/constructQuery";
 import FilterSystem from "@components/Filter System/FilterSystem";
+import { deletePhoto } from "@components/Photo Upload/helpers/handlePhotoDelete";
 
 const AdminPostList = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,7 +35,6 @@ const AdminPostList = () => {
   const { data: adminPostData, isLoading: adminPostLoading } = useGetPostsQuery(
     { token, query }
   );
-
   useEffect(() => {
     if (adminPostData) {
       setTotalItems(adminPostData?.meta.total);
@@ -47,12 +47,15 @@ const AdminPostList = () => {
     usePostDeleteMutation();
 
   const handleDelete = async (id: string) => {
+    const singleData = adminPostData?.data?.find(
+      (data: any) => data?.id === id
+    );
+
+    await deletePhoto(singleData?.image);
     const result = await postDelete({ token, id });
     showSwal(result);
-    console.log(id);
   };
 
-  console.log(adminPostData);
   return (
     <div className="pt-10">
       <Container>

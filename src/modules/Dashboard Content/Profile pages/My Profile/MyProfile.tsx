@@ -6,13 +6,18 @@ import { getFromCookie } from "../../../../shared/helpers/local_storage";
 import { authKey } from "@config/constants";
 import { getUserInfo } from "../../../../shared/auth/auth.service";
 import { useGetSingleUserQuery } from "../../../../redux/features/api/users";
+import LoadingSpinner from "@widgets/Loading Spinner/LoadingSpinner";
 
 const MyProfile: FC<UserProfile> = () => {
   const token = getFromCookie(authKey);
   const user: any = getUserInfo();
   const { data: singleData, isLoading: singleDataLoading } =
     useGetSingleUserQuery({ token, id: user?.id });
-  console.log("hello", singleData?.data);
+
+  if (singleDataLoading) {
+    return <LoadingSpinner fullHight />;
+  }
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl">

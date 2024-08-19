@@ -22,7 +22,6 @@ export const handleFormSubmit = async (
   e.preventDefault();
   setLoading(true);
   const photoUploadResult = await uploadPhoto(file.target.files[0]);
-  console.log(photoUploadResult);
   if (photoUploadResult.success) {
     const fullData = {
       title: companyName || "",
@@ -38,7 +37,6 @@ export const handleFormSubmit = async (
       twitterLink: twtrLink,
     };
 
-    console.log(fullData);
     const result = await createService({ fullData, token });
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {

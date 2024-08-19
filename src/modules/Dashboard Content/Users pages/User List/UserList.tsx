@@ -16,6 +16,8 @@ import { getFromCookie } from "../../../../shared/helpers/local_storage";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { constructQuery } from "../../../../shared/helpers/constructQuery";
+import { getPublicIdFromUrl } from "@components/Photo Upload/helpers/handleGetPublicId";
+import { deletePhoto } from "@components/Photo Upload/helpers/handlePhotoDelete";
 
 const UserList = () => {
   const token = getFromCookie(authKey);
@@ -44,11 +46,15 @@ const UserList = () => {
 
   const [userDelete, { isLoading: userDeleteLoading }] =
     useUserDeleteMutation();
+  console.log(userData);
 
   const handleDelete = async (id: string) => {
+    const singleData = userData?.data?.find((data: any) => data?.id === id);
+
+    await deletePhoto(singleData?.profileImage);
+
     const result = await userDelete({ token, id });
     showSwal(result);
-    console.log(id);
   };
   return (
     <div className="pt-10">

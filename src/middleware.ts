@@ -7,7 +7,6 @@ export function middleware(request: NextRequest) {
   const user: any = authToken ? decodedToken(authToken) : null;
   // const user: any = { role: "user" };
   const isLogged = !!authToken;
-  console.log("user", user);
 
   const url = request.nextUrl.clone();
   if (!isLogged) {

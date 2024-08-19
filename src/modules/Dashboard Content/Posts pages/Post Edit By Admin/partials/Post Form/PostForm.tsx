@@ -65,8 +65,6 @@ const PostForm = () => {
     return <LoadingSpinner fullHight />;
   }
 
-  console.log(singleData);
-
   return (
     <div className="relative min-h-screen ">
       <div className=" px-8 max-w-4xl mx-auto   rounded-lg">
