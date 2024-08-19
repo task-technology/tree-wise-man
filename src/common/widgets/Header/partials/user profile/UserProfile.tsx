@@ -2,12 +2,24 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@components/Button";
-import { isLoggedIn } from "../../../../../shared/auth/auth.service";
+import {
+  getUserInfo,
+  isLoggedIn,
+} from "../../../../../shared/auth/auth.service";
 import { handleLogout } from "../../../../../shared/helpers/handleLogout";
 import { useRouter } from "next/navigation";
+import { getFromCookie } from "../../../../../shared/helpers/local_storage";
+import { authKey } from "@config/constants";
+import { useGetSingleUserQuery } from "../../../../../redux/features/api/users";
 
 const UserProfile = () => {
+  const token = getFromCookie(authKey);
+
   const [isLogged, setIsLogged] = useState(false);
+  const user: any = getUserInfo();
+  const { data: singleData, isLoading: singleDataLoading } =
+    useGetSingleUserQuery({ token, id: user?.id });
+  console.log(singleData);
   const router = useRouter();
 
   useEffect(() => {
@@ -29,7 +41,7 @@ const UserProfile = () => {
                 fill
                 style={{ objectFit: "cover" }}
                 alt="Tailwind CSS Navbar component"
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src={singleData?.data?.profileImage}
               />
             </div>
           </div>
@@ -37,9 +49,6 @@ const UserProfile = () => {
             tabIndex={0}
             className=" menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <Link href="/dashboard/profile/my-profile">Profile</Link>
-            </li>
             <li>
               <Link href="/dashboard/home">Dashboard</Link>
             </li>
