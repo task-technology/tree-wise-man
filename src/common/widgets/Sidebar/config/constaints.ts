@@ -1,6 +1,12 @@
 export const sidebarData = [
-  { label: "Home", link: "/dashboard", icon: "home", access: "anyone" },
+  { label: "Home", link: "/dashboard/home", icon: "home", access: "admin" },
+  {
+    label: "My Profile",
+    link: "/dashboard/profile/my-profile",
+    icon: "user",
 
+    access: "anyone",
+  },
   {
     label: "Posts",
     icon: "posts",
@@ -55,21 +61,19 @@ export const sidebarData = [
     sub_label: [
       {
         label: "Create payment",
+        link: "/dashboard/payment/first-payment",
+        access: "anyone",
+      },
+      {
+        label: "Update Plan",
         link: "/dashboard/payment/payment-packages",
-        access: "admin",
+        access: "anyone",
       },
       {
         label: "Payments List",
         link: "/dashboard/payment/payments-list",
-        access: "admin",
+        access: "anyone",
       },
     ],
-  },
-  {
-    label: "My Profile",
-    link: "/dashboard/profile/my-profile",
-    icon: "user",
-
-    access: "anyone",
   },
 ];
