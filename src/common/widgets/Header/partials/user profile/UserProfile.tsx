@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { getFromCookie } from "../../../../../shared/helpers/local_storage";
 import { authKey } from "@config/constants";
 import { useGetSingleUserQuery } from "../../../../../redux/features/api/users";
+import { icons } from "@libs/Icons";
 
 const UserProfile = () => {
   const token = getFromCookie(authKey);
@@ -33,16 +34,22 @@ const UserProfile = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost btn-circle avatar"
+            className={`btn btn-ghost btn-circle avatar ${
+              !singleData?.data?.profileImage && "border border-grayForBorder"
+            }`}
           >
             <div>
-              <Image
-                className="rounded-full"
-                fill
-                style={{ objectFit: "cover" }}
-                alt="Tailwind CSS Navbar component"
-                src={singleData?.data?.profileImage}
-              />
+              {singleData?.data?.profileImage ? (
+                <Image
+                  className="rounded-full"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  alt="Tailwind CSS Navbar component"
+                  src={singleData?.data?.profileImage}
+                />
+              ) : (
+                <span className="rounded-full text-2xl ">{icons?.user}</span>
+              )}
             </div>
           </div>
           <ul
