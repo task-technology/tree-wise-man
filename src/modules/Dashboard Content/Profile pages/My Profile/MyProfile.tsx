@@ -7,14 +7,26 @@ import { authKey } from "@config/constants";
 import { getUserInfo } from "../../../../shared/auth/auth.service";
 import { useGetSingleUserQuery } from "../../../../redux/features/api/users";
 import LoadingSpinner from "@widgets/Loading Spinner/LoadingSpinner";
+import { useGetSingleAdminQuery } from "../../../../redux/features/api/admin";
 
 const MyProfile: FC<UserProfile> = () => {
   const token = getFromCookie(authKey);
   const user: any = getUserInfo();
-  const { data: singleData, isLoading: singleDataLoading } =
-    useGetSingleUserQuery({ token, id: user?.id });
+  // Call both queries
+  const { data: adminData, isLoading: adminLoading } = useGetSingleAdminQuery({
+    token,
+    id: user?.id,
+  });
+  const { data: userData, isLoading: userLoading } = useGetSingleUserQuery({
+    token,
+    id: user?.id,
+  });
 
-  if (singleDataLoading) {
+  // Determine which data to use based on user's role
+  const isLoading = adminLoading || userLoading;
+  const singleData = user?.role ? adminData : userData;
+
+  if (isLoading) {
     return <LoadingSpinner fullHight />;
   }
 

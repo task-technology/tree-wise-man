@@ -10,10 +10,11 @@ import InputWithValue from "@components/Input With Value";
 import { useRouter } from "next/navigation";
 import { getFromCookie } from "../../../../../../shared/helpers/local_storage";
 import { useAdminCreateMutation } from "../../../../../../redux/features/api/admin";
+import { authKey } from "@config/constants";
 
 const AdminCreateForm = () => {
   const router = useRouter();
-  const token = getFromCookie("accessToken");
+  const token = getFromCookie(authKey);
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 

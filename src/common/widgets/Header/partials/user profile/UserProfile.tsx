@@ -12,16 +12,25 @@ import { getFromCookie } from "../../../../../shared/helpers/local_storage";
 import { authKey } from "@config/constants";
 import { useGetSingleUserQuery } from "../../../../../redux/features/api/users";
 import { icons } from "@libs/Icons";
+import { useGetSingleAdminQuery } from "../../../../../redux/features/api/admin";
 
 const UserProfile = () => {
+  const router = useRouter();
   const token = getFromCookie(authKey);
 
   const [isLogged, setIsLogged] = useState(false);
   const user: any = getUserInfo();
-  const { data: singleData, isLoading: singleDataLoading } =
-    useGetSingleUserQuery({ token, id: user?.id });
-  console.log(singleData);
-  const router = useRouter();
+  const { data: adminData } = useGetSingleAdminQuery({
+    token,
+    id: user?.id,
+  });
+  const { data: userData } = useGetSingleUserQuery({
+    token,
+    id: user?.id,
+  });
+
+  // Determine which data to use based on user's role
+  const singleData = user?.role ? adminData : userData;
 
   useEffect(() => {
     const isLog: any = isLoggedIn();
@@ -62,6 +71,12 @@ const UserProfile = () => {
             tabIndex={0}
             className=" menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
+            <li>
+              <Link href="/dashboard/profile/my-profile">
+                {singleData?.data?.name}
+              </Link>
+            </li>
+            <hr className="my-2" />
             <li>
               <Link href="/dashboard/home">Dashboard</Link>
             </li>

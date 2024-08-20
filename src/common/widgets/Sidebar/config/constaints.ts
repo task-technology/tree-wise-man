@@ -49,6 +49,11 @@ export const sidebarData = [
         link: "/dashboard/user/user-list",
         access: "admin",
       },
+      {
+        label: "Admin List",
+        link: "/dashboard/user/admin-list",
+        access: "admin",
+      },
     ],
   },
 

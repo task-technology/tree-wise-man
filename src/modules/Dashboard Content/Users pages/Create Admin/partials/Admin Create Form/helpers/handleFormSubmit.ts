@@ -33,7 +33,7 @@ export const handleFormSubmit = async (
     const result = await createUser({ fullData, token });
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {
-      router?.push("/dashboard/user/user-list");
+      router?.push("/dashboard/user/admin-list");
     }
   } else {
     swal("Error", photoUploadResult.message, "error");
