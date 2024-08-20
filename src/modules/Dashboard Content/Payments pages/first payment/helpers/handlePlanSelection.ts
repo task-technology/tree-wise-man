@@ -1,3 +1,5 @@
+import { SERVER_URL } from "@config/secret";
+
 export const handlePackageSelect = ({
   packageDuration,
   setMonth,
@@ -54,9 +56,11 @@ export const handleProceed = ({
 }: {
   month: number;
   price: number;
-  id: string;
+  id: number;
 }) => {
   console.log("month is", month, "and price is", price, "Id", id);
+  console.log(typeof(id))
+  Payment(id,month)
 };
 
 export const packages = [
@@ -64,3 +68,30 @@ export const packages = [
   { name: "6 Months", price: 72, duration: 6 },
   { name: "12 Months", price: 144, duration: 12 },
 ];
+
+function Payment(userId: number, month: number) {
+  const url = SERVER_URL + '/subscription/payment';
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ userId, month })
+  };
+  fetch(url, options)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data && data.data) {
+        let lint = data.data.links[1].href;
+        window.location.href = lint;
+      }
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
+}

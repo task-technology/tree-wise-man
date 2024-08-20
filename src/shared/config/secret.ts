@@ -1,1 +1,1 @@
-export const SERVER_URL = 'https://api-refineimg.onrender.com'
+export const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL
