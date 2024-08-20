@@ -1,11 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { baseApi } from "./api/apiSlice";
-import photoUploadReducer from "./features/slices/photoUploadSlice";
 
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
-    photoUpload: photoUploadReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(baseApi.middleware),

@@ -17,6 +17,7 @@ import { getFromCookie } from "../../../../shared/helpers/local_storage";
 import { constructQuery } from "../../../../shared/helpers/constructQuery";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { deletePhoto } from "@components/Photo Upload/helpers/handlePhotoDelete";
 
 const PostsList = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,7 +36,6 @@ const PostsList = () => {
     token,
     query,
   });
-
   const [postDelete, { isLoading: postDeleteLoading }] =
     usePostDeleteMutation();
   useEffect(() => {
@@ -47,9 +47,11 @@ const PostsList = () => {
   }, [postData]);
 
   const handleDelete = async (id: string) => {
+    const singleData = postData?.data?.find((data: any) => data?.id === id);
+
+    await deletePhoto(singleData?.image);
     const result = await postDelete({ token, id });
     showSwal(result);
-    console.log(id);
   };
 
   return (

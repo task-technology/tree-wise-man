@@ -11,7 +11,6 @@ const SearchBar = ({ placeholder = "Search...", showNotice = false }) => {
   const user: { id: string } | any = getUserInfo();
   const token = getFromCookie(authKey);
   const { data } = useGetSingleUserQuery({ token, id: user?.id });
-  console.log("Hello", data?.data);
   const router: any = useRouter();
   const [activeRoute, setActiveRoute] = useState("");
 

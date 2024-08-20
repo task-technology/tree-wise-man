@@ -12,6 +12,8 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
   inputLabelClass,
   file,
   setFile,
+  label = "Photo Upload",
+  required = false,
 }) => {
   const [preview, setPreview] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string>("");
@@ -40,7 +42,8 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
     >
       {preview === null && (
         <Input
-          labelName="Upload Logo"
+          required={required}
+          labelName={label}
           inputType="file"
           accept=".png, .jpg, .jpeg"
           onChange={(e: any) => setFile(e)}

@@ -10,10 +10,11 @@ import InputWithValue from "@components/Input With Value";
 import { useRouter } from "next/navigation";
 import { getFromCookie } from "../../../../../../shared/helpers/local_storage";
 import { useAdminCreateMutation } from "../../../../../../redux/features/api/admin";
+import { authKey } from "@config/constants";
 
 const AdminCreateForm = () => {
   const router = useRouter();
-  const token = getFromCookie("accessToken");
+  const token = getFromCookie(authKey);
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -69,6 +70,7 @@ const AdminCreateForm = () => {
             labelClassName="text-solidWhite"
           />
           <InputWithValue
+            required
             labelName="Contact Number"
             inputName="contactNo"
             value={contactNo}
@@ -86,6 +88,7 @@ const AdminCreateForm = () => {
             labelClassName="text-solidWhite"
           />
           <InputWithValue
+            required
             labelName="Designation"
             inputName="designation"
             value={designation}
@@ -94,6 +97,7 @@ const AdminCreateForm = () => {
             labelClassName="text-solidWhite"
           />
           <InputWithValue
+            required
             labelName="Password"
             inputName="password"
             value={password}
@@ -104,6 +108,8 @@ const AdminCreateForm = () => {
         </div>
         <div className="mb-8">
           <PhotoUpload
+            required
+            label="Upload Profile Photo"
             setFile={setFile}
             file={file}
             inputClass="bg-transparent text-solidWhite border border-slateLightThird"

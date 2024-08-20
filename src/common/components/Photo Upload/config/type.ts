@@ -4,4 +4,6 @@ export type PhotoUploadTypes = {
   inputLabelClass?: string;
   file: any;
   setFile: any;
+  label?: string;
+  required?: boolean;
 };

@@ -18,12 +18,11 @@ const PostsApi = baseApi.injectEndpoints({
     }),
 
     getPosts: builder.query({
-      query: ({ token, query }) => {
+      query: ({ query }) => {
+        console.log(`/post?searchTerm=${query}`);
         return {
-          url: `/post?${query}`,
-          headers: {
-            authorization: token,
-          },
+          url: `/post?searchTerm=${query}`,
+          // url: `/post?searchTerm=1234`,
         };
       },
       providesTags: ["post"],

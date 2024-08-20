@@ -55,6 +55,7 @@ const SearchFilterInput: React.FC<SearchFilterInput> = ({
       <div className="label">
         <label className={`${labelClassName} text-lg font-semibold`}>
           {labelName}
+          {required && <span className="text-red-500 ml-1">*</span>}
         </label>
       </div>
       <Select

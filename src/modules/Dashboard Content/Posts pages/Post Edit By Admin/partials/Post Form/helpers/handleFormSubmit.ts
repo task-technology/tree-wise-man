@@ -1,6 +1,6 @@
 import { uploadPhoto } from "@components/Photo Upload/helpers/handlePhotoUpload";
 import { showSwal } from "../../../../../../../shared/helpers/SwalShower";
-import { CookieValueTypes } from "cookies-next";
+import swal from "sweetalert";
 
 export const handleFormSubmit = async (
   e: React.FormEvent,
@@ -12,7 +12,7 @@ export const handleFormSubmit = async (
   isPublic: any,
   file: any,
   createService: any,
-  token: CookieValueTypes,
+  token: any,
   setLoading: any,
   router?: any,
   fbLink?: string,
@@ -23,7 +23,6 @@ export const handleFormSubmit = async (
   e.preventDefault();
   setLoading(true);
   const photoUploadResult = await uploadPhoto(file.target.files[0]);
-  console.log(photoUploadResult);
   if (photoUploadResult.success) {
     const fullData = {
       title: companyName || "",
@@ -39,7 +38,6 @@ export const handleFormSubmit = async (
       twitterLink: twtrLink,
     };
 
-    console.log(fullData);
     const result = await createService({ fullData, token, id });
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {

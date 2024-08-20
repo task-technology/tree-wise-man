@@ -20,7 +20,6 @@ const Home = () => {
   const { data: adminPostData, isLoading: adminPostLoading } = useGetPostsQuery(
     { token }
   );
-  console.log(adminPostData);
   useEffect(() => {
     const userInfo = getUserInfo();
     setUser(userInfo);

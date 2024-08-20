@@ -2,13 +2,35 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@components/Button";
-import { isLoggedIn } from "../../../../../shared/auth/auth.service";
+import {
+  getUserInfo,
+  isLoggedIn,
+} from "../../../../../shared/auth/auth.service";
 import { handleLogout } from "../../../../../shared/helpers/handleLogout";
 import { useRouter } from "next/navigation";
+import { getFromCookie } from "../../../../../shared/helpers/local_storage";
+import { authKey } from "@config/constants";
+import { useGetSingleUserQuery } from "../../../../../redux/features/api/users";
+import { icons } from "@libs/Icons";
+import { useGetSingleAdminQuery } from "../../../../../redux/features/api/admin";
 
 const UserProfile = () => {
-  const [isLogged, setIsLogged] = useState(false);
   const router = useRouter();
+  const token = getFromCookie(authKey);
+
+  const [isLogged, setIsLogged] = useState(false);
+  const user: any = getUserInfo();
+  const { data: adminData } = useGetSingleAdminQuery({
+    token,
+    id: user?.id,
+  });
+  const { data: userData } = useGetSingleUserQuery({
+    token,
+    id: user?.id,
+  });
+
+  // Determine which data to use based on user's role
+  const singleData = user?.role ? adminData : userData;
 
   useEffect(() => {
     const isLog: any = isLoggedIn();
@@ -21,16 +43,28 @@ const UserProfile = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost btn-circle avatar"
+            className={`btn btn-ghost btn-circle avatar ${
+              !singleData?.data?.profileImage && "border border-grayForBorder"
+            }`}
           >
             <div>
-              <Image
-                className="rounded-full"
-                fill
-                style={{ objectFit: "cover" }}
-                alt="Tailwind CSS Navbar component"
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              />
+              {!singleData?.data?.profileImage ? (
+                <Image
+                  className="rounded-full"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  alt={
+                    singleData?.data?.name
+                      ? singleData?.data?.name?.slice(0, 1)
+                      : "Profile"
+                  }
+                  src={singleData?.data?.profileImage}
+                />
+              ) : (
+                <span className="rounded-full text-xl md:text-2xl ">
+                  {icons?.user}
+                </span>
+              )}
             </div>
           </div>
           <ul
@@ -38,8 +72,11 @@ const UserProfile = () => {
             className=" menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <Link href="/dashboard/profile/my-profile">Profile</Link>
+              <Link href="/dashboard/profile/my-profile">
+                {singleData?.data?.name}
+              </Link>
             </li>
+            <hr className="my-2" />
             <li>
               <Link href="/dashboard/home">Dashboard</Link>
             </li>

@@ -5,7 +5,7 @@ const AdminApi = baseApi.injectEndpoints({
     adminCreate: builder.mutation({
       query: ({ token, fullData }) => {
         return {
-          url: "/admin/create",
+          url: "/auth/user/create-admin",
           headers: {
             authorization: token,
           },
@@ -13,17 +13,19 @@ const AdminApi = baseApi.injectEndpoints({
           body: fullData,
         };
       },
+      invalidatesTags: ["admin"],
     }),
-
     getAdmin: builder.query({
-      query: ({ token, page, limit }) => {
+      query: ({ token, query }) => {
+        console.log(`/user?${query}`);
         return {
-          url: `/admin?page=${page}&limit=${limit}`,
+          url: `/admin?${query}`,
           headers: {
             authorization: token,
           },
         };
       },
+      providesTags: ["admin"],
     }),
 
     getSingleAdmin: builder.query({
@@ -63,7 +65,7 @@ const AdminApi = baseApi.injectEndpoints({
     adminDelete: builder.mutation({
       query: ({ token, id, fullData }) => {
         return {
-          url: `/admin/${id}/delete`,
+          url: `/admin/${id}`,
           headers: {
             authorization: token,
           },
@@ -71,6 +73,7 @@ const AdminApi = baseApi.injectEndpoints({
           body: fullData,
         };
       },
+      invalidatesTags: ["admin"],
     }),
   }),
 });
