@@ -68,6 +68,7 @@ const UserCreateForm = () => {
             labelClassName="text-solidWhite"
           />
           <InputWithValue
+            required
             labelName="Contact Number"
             inputName="contactNo"
             value={contactNo}
@@ -85,6 +86,7 @@ const UserCreateForm = () => {
             labelClassName="text-solidWhite"
           />
           <InputWithValue
+            required
             labelName="Designation"
             inputName="designation"
             value={designation}
@@ -93,6 +95,7 @@ const UserCreateForm = () => {
             labelClassName="text-solidWhite"
           />
           <InputWithValue
+            required
             labelName="Password"
             inputName="password"
             value={password}
@@ -103,6 +106,8 @@ const UserCreateForm = () => {
         </div>
         <div className="mb-8">
           <PhotoUpload
+            required
+            label="Upload Profile Photo"
             setFile={setFile}
             file={file}
             inputClass="bg-transparent text-solidWhite border border-slateLightThird"

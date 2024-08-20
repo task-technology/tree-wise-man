@@ -65,7 +65,6 @@ const PostForm = () => {
             <Input
               labelName="Company Website Link"
               inputName="urlLink"
-              required
               onChange={(e: any) => setCompanyWebsite(e.target.value)}
               className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
             />
@@ -153,7 +152,12 @@ const PostForm = () => {
               </div>
             </div>
             <div className="md:col-span-2 ">
-              <PhotoUpload setFile={setFile} file={file} />
+              <PhotoUpload
+                required
+                label="Upload Logo"
+                setFile={setFile}
+                file={file}
+              />
             </div>
           </div>
           <div className="text-center w-1/3 mx-auto">
