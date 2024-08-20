@@ -39,7 +39,7 @@ const UserProfile = () => {
             }`}
           >
             <div>
-              {singleData?.data?.profileImage ? (
+              {!singleData?.data?.profileImage ? (
                 <Image
                   className="rounded-full"
                   fill
@@ -48,7 +48,9 @@ const UserProfile = () => {
                   src={singleData?.data?.profileImage}
                 />
               ) : (
-                <span className="rounded-full text-2xl ">{icons?.user}</span>
+                <span className="rounded-full text-xl md:text-2xl ">
+                  {icons?.user}
+                </span>
               )}
             </div>
           </div>

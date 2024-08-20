@@ -17,7 +17,7 @@ import {
   FiUsers,
 } from "react-icons/fi";
 import { BiHomeAlt2 } from "react-icons/bi";
-
+import { FaRegUser } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { MdMenu } from "react-icons/md";
 import { FaXTwitter, FaRegCompass } from "react-icons/fa6";
@@ -58,7 +58,7 @@ export const icons: any = {
   home: <BiHomeAlt2 />,
   list: <FiFileText />,
   payment: <FiCreditCard />,
-  user: <FaUser />,
+  user: <FaRegUser />,
   logout: <IoIosLogOut />,
   posts: <MdPostAdd />,
   users: <FiUsers />,
