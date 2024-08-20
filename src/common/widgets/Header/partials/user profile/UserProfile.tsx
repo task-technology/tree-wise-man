@@ -44,7 +44,11 @@ const UserProfile = () => {
                   className="rounded-full"
                   fill
                   style={{ objectFit: "cover" }}
-                  alt="Tailwind CSS Navbar component"
+                  alt={
+                    singleData?.data?.name
+                      ? singleData?.data?.name?.slice(0, 1)
+                      : "Profile"
+                  }
                   src={singleData?.data?.profileImage}
                 />
               ) : (
