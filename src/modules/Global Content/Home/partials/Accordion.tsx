@@ -15,13 +15,13 @@ const MyAccordion = () => {
         <div className="w-full md:w-2/5">
           <div className="relative w-full h-0 pb-[75%]">
             <Image
-              src="https://images.unsplash.com/photo-1514116799412-5876d319c242?q=80&w=1904&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://res.cloudinary.com/dvpnbsehd/image/upload/v1724228194/ahmed-sheraz-r8C_a4Thpi4-unsplash_gbiadm.jpg"
               alt="Tree Photo"
-              fill
+              layout="fill"
               sizes="(max-width: 768px) 100vw,
-            (max-width: 1200px) 50vw,
-            33vw"
-              className="rounded-lg"
+                (max-width: 1200px) 50vw,
+                33vw"
+              className="rounded-lg object-cover"
             />
           </div>
         </div>

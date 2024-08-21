@@ -7,7 +7,8 @@ export const authKey = "accessToken";
 
 export const emptyData = "No Data";
 // brand image
-export const logo = "/Tree Wise Men logo.png";
+export const logo =
+  "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png";
 
 // menu items
 export const menuData: Array<navDataTypes> = [

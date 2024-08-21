@@ -4,47 +4,42 @@ import Marquee from "react-fast-marquee";
 const LogoHeadline = () => {
   const data = [
     {
-      logo: "/logo.png", // Replace with the actual path to your logo image
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
       title: "The Tree Wise Men",
       details: "Hello, world!",
     },
     {
-      logo: "/logo.png", // Replace with the actual path to your logo image
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
       title: "The Tree Wise Men",
       details: "Hello, world!",
     },
     {
-      logo: "/logo.png", // Replace with the actual path to your logo image
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
       title: "The Tree Wise Men",
       details: "Hello, world!",
     },
     {
-      logo: "/logo.png", // Replace with the actual path to your logo image
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
       title: "The Tree Wise Men",
       details: "Hello, world!",
     },
     {
-      logo: "/logo.png", // Replace with the actual path to your logo image
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
       title: "The Tree Wise Men",
       details: "Hello, world!",
     },
     {
-      logo: "/logo.png", // Replace with the actual path to your logo image
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
       title: "The Tree Wise Men",
       details: "Hello, world!",
     },
     {
-      logo: "/logo.png", // Replace with the actual path to your logo image
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
       title: "The Tree Wise Men",
       details: "Hello, world!",
     },
     {
-      logo: "/logo.png", // Replace with the actual path to your logo image
-      title: "The Tree Wise Men",
-      details: "Hello, world!",
-    },
-    {
-      logo: "/logo.png", // Replace with the actual path to your logo image
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
       title: "The Tree Wise Men",
       details: "Hello, world!",
     },

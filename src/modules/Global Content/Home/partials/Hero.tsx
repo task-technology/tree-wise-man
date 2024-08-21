@@ -68,7 +68,7 @@ const Hero = () => {
               className="relative h-full bg-cover bg-center"
               style={{ backgroundImage: `url("${data?.image}")` }}
             >
-              <div className="absolute inset-0 bg-secondary/20 opacity-80 "></div>
+              <div className="absolute inset-0 bg-solidBlack/40 opacity-100 "></div>
               <main className="relative z-10 min-h-screen">
                 <div className="flex items-center min-h-screen w-full relative overflow-hidden">
                   {data.id % 2 === 0 ? (

@@ -34,7 +34,9 @@ const Header = () => {
         <div className="px-4">
           {/* Logo  */}
           <Image
-            src="/Tree Wise Men logo.png"
+            src={
+              "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png"
+            }
             height={50}
             width={50}
             alt="Logo"

@@ -5,31 +5,33 @@ export const home_data = {
   slides: [
     {
       id: 1,
-      logo: "https://images.unsplash.com/photo-1620288627223-53302f4e8c74?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724228008/cedric-streit-H7qMwOxf6Z8-unsplash_s0nskr.jpg",
       headline: "Welcome to Our Website",
       title: "Discover Amazing Products",
       btnValue: "Shop Now",
       btnLink: "/shop",
-      image: "/slide02.jpg",
+      image:
+        "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227680/heber-davis-5vKQOaAL3IQ-unsplash_kuolww.jpg",
     },
     {
       id: 2,
-      logo: "https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=1949&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724228009/krish-parmar-QsnLLIHwY8Y-unsplash_vn6ugg.jpg",
       headline: "Explore Our Collection",
       title: "Find What You Love",
       btnValue: "Explore",
       btnLink: "/explore",
       image:
-        "https://images.unsplash.com/photo-1509420316987-d27b02f81864?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227680/dan-edwards-SId-lmFXSDU-unsplash_aqa6r8.jpg",
     },
     {
       id: 3,
-      logo: "https://images.unsplash.com/photo-1612810806563-4cb8265db55f?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724228047/chris-kursikowski-ze5wHM9kplc-unsplash_t2elhd.jpg",
       headline: "Contact Us Today",
       title: "We Are Here to Help",
       btnValue: "Contact Us",
       btnLink: "/contact",
-      image: "/slide01.jpg",
+      image:
+        "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227682/collab-media-4qidjSH-9x0-unsplash_d3njpn.jpg",
     },
   ],
 
@@ -74,7 +76,7 @@ export const home_data = {
     {
       id: 1,
       image:
-        "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724229857/foto-sushi-6anudmpILw4-unsplash_ikkoon.jpg",
       name: "John Doe",
       designation: "CEO, Tree Wise Man",
       description:
@@ -83,29 +85,29 @@ export const home_data = {
     {
       id: 2,
       image:
-        "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      name: "Jane Doe",
-      designation: "CTO, Tree Wise Man",
+        "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724229857/foto-sushi-6anudmpILw4-unsplash_ikkoon.jpg",
+      name: "John Doe",
+      designation: "CEO, Tree Wise Man",
       description:
-        "Tree Wise Man has been a game-changer for my business. I have learned so much from the support and guidance I received from the team.",
+        "Tree Wise Man is a fantastic platform that has helped me create my own unique and beautiful treehouse. I am so grateful for the support and guidance I received.",
     },
     {
       id: 3,
       image:
-        "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      name: "Mark Doe",
-      designation: "Product Manager, Tree Wise Man",
+        "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724229857/foto-sushi-6anudmpILw4-unsplash_ikkoon.jpg",
+      name: "John Doe",
+      designation: "CEO, Tree Wise Man",
       description:
-        "Tree Wise Man has been a life-changing experience for me. I have learned so much about creating products and services that make a difference in people's lives.",
+        "Tree Wise Man is a fantastic platform that has helped me create my own unique and beautiful treehouse. I am so grateful for the support and guidance I received.",
     },
     {
       id: 4,
       image:
-        "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      name: "Sarah Doe",
-      designation: "Marketing Manager, Tree Wise Man",
+        "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724229857/foto-sushi-6anudmpILw4-unsplash_ikkoon.jpg",
+      name: "John Doe",
+      designation: "CEO, Tree Wise Man",
       description:
-        "Tree Wise Man has been a source of inspiration and motivation for me. I have learned so much about creating a strong and effective marketing strategy.",
+        "Tree Wise Man is a fantastic platform that has helped me create my own unique and beautiful treehouse. I am so grateful for the support and guidance I received.",
     },
   ],
 };
