@@ -43,7 +43,7 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="flex flex-wrap justify-between items-center bg-grayForBorder rounded-md p-2">
+    <div className="flex flex-wrap justify-between items-center bg-solidWhite shadow-md rounded-md p-2">
       <p className="mt-2">
         Total: <span>{totalItems}</span>
       </p>
