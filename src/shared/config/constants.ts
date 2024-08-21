@@ -57,7 +57,7 @@ export const layout_data = {
   footer: {
     subtitle:
       "Clarity gives you the blocks and components you need to create a truly professional",
-    copywrite: "Newtech Technology",
+    copywrite: "Tree Wise Men",
     social_links: {
       facebook: "/",
       Instagram: "/",
