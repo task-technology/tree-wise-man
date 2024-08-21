@@ -10,32 +10,41 @@ import { useClickCountServiceMutation } from "../../../redux/features/api/others
 import { handleSubmit } from "./Helpers/handleServiceCount";
 import { icons } from "@libs/Icons";
 import { useSearchParams } from "next/navigation";
+import { emptyData } from "@config/constants";
 
 const Services = () => {
   const token = getFromCookie("accessToken");
   const queryParams = useSearchParams();
   const query = queryParams?.get("searchTerm") || "";
-  const { data: serviceData, isLoading: serviceLoading } = useGetPostsQuery({
+  const {
+    data: serviceData,
+    isLoading: serviceLoading,
+    error,
+  } = useGetPostsQuery({
     query,
   });
 
   const [serviceClick] = useClickCountServiceMutation();
 
+  if (error) {
+    return <div>Error loading services</div>; // Simple error handling
+  }
+
   return (
     <main className="bg-gray-100 min-h-screen flex mt-20 justify-center">
-      <div className="max-w-7xl w-full flex flex-col items-center space-y-2 md:space-y-8 px-4 py-3  md:py-6">
+      <div className="max-w-7xl w-full flex flex-col items-center space-y-2 md:space-y-8 px-4 py-3 md:py-6">
         <h2 className="text-xl md:text-3xl font-bold text-center mb-2">
           Find Services by Zip Code and State
         </h2>
         <Form />
 
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2  gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 w-full">
           {serviceLoading ? (
             <div className="col-span-2 w-full">
-              <LoadingSpinner fullHight />
+              <LoadingSpinner />
             </div>
-          ) : (
-            serviceData?.data?.map((result: any, index: string) => (
+          ) : serviceData?.data?.length > 0 ? (
+            serviceData?.data?.map((result: any, index: number) => (
               <Card
                 key={index}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 p-4 sm:p-5"
@@ -73,10 +82,10 @@ const Services = () => {
                                 serviceClick,
                                 token,
                                 url: result?.urlLink,
-
                                 id: result?.id,
                               })
                             }
+                            aria-label="Open link"
                           >
                             {icons.earth}
                           </span>
@@ -88,11 +97,11 @@ const Services = () => {
                                 serviceClick,
                                 token,
                                 url: result?.facebookLink,
-
                                 id: result?.id,
                               })
                             }
                             className="text-fb hover:scale-110 text-xl"
+                            aria-label="Facebook link"
                           >
                             {icons.fb}
                           </span>
@@ -104,11 +113,11 @@ const Services = () => {
                                 serviceClick,
                                 token,
                                 url: result?.instaLink,
-
                                 id: result?.id,
                               })
                             }
                             className="hover:scale-110 text-xl"
+                            aria-label="Instagram link"
                           >
                             {icons.Instagram}
                           </span>
@@ -120,11 +129,11 @@ const Services = () => {
                                 serviceClick,
                                 token,
                                 url: result?.twitterLink,
-
                                 id: result?.id,
                               })
                             }
                             className="hover:scale-110 text-xl"
+                            aria-label="Twitter link"
                           >
                             {icons.Twitter}
                           </span>
@@ -141,7 +150,7 @@ const Services = () => {
                           height={35}
                           width={35}
                           src={result?.author?.profileImage}
-                          alt="Company Logo"
+                          alt="Author"
                           className="rounded-full"
                         />
                         <div>
@@ -159,11 +168,11 @@ const Services = () => {
                             serviceClick,
                             token,
                             url: `tel:${result?.author?.contactNo}`,
-
                             id: result?.id,
                             tel: true,
                           })
                         }
+                        aria-label="Contact author"
                       >
                         <Button className="mt-4 sm:mt-0 !py-1 !px-5 !text-sm hover:scale-110">
                           Contact Us
@@ -174,6 +183,10 @@ const Services = () => {
                 </section>
               </Card>
             ))
+          ) : (
+            <div className="text-center font-medium text-2xl">
+              No services available
+            </div>
           )}
         </div>
       </div>
