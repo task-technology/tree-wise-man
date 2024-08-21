@@ -43,7 +43,7 @@ const MyProfile: FC<UserProfile> = () => {
               alt={`${singleData?.data?.name}'s profile picture`}
               width={150}
               height={150}
-              layout="cover"
+              priority
               className="rounded-full  border-4 border-white"
             />
           </div>

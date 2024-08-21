@@ -36,11 +36,14 @@ const Testimonial = () => {
                     <Image
                       src={data.image}
                       alt={data.name}
-                      layout="fill"
-                      objectFit="cover"
-                      className="absolute inset-0"
+                      fill
+                      sizes="(max-width: 768px) 100vw,
+           (max-width: 1200px) 50vw,
+           24vw"
+                      className="absolute inset-0 object-cover"
                     />
                   </div>
+
                   <article className="text-center mb-2">
                     {data.description}
                   </article>

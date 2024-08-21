@@ -17,10 +17,10 @@ const MyAccordion = () => {
             <Image
               src="https://res.cloudinary.com/dvpnbsehd/image/upload/v1724228194/ahmed-sheraz-r8C_a4Thpi4-unsplash_gbiadm.jpg"
               alt="Tree Photo"
-              layout="fill"
+              fill
               sizes="(max-width: 768px) 100vw,
-                (max-width: 1200px) 50vw,
-                33vw"
+          (max-width: 1200px) 50vw,
+          33vw"
               className="rounded-lg object-cover"
             />
           </div>

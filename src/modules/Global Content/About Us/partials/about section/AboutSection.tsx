@@ -40,8 +40,10 @@ const AboutSection: React.FC = () => {
             <Image
               src="https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227680/dan-edwards-SId-lmFXSDU-unsplash_aqa6r8.jpg"
               alt="Tree Photo"
-              layout="fill"
-              objectFit="cover"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, (min-width: 769px) 100vw" // Adjust sizes as needed
+              style={{ objectFit: "cover" }} // Use style instead of objectFit prop
               className="rounded-lg"
             />
           </div>

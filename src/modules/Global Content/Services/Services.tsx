@@ -41,15 +41,18 @@ const Services = () => {
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 p-4 sm:p-5"
               >
                 <section className="flex flex-col items-center sm:flex-row gap-4 sm:gap-6">
-                  <div className="flex-shrink-0 mx-auto md:mx-0">
+                  <div className="flex-shrink-0 mx-auto md:mx-0 w-[180px] relative h-[180px]">
                     <Image
-                      height={180}
-                      width={180}
                       src={result?.image}
                       alt="Company Logo"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (min-width: 769px) 180px"
+                      priority
+                      style={{ objectFit: "cover" }}
                       className="rounded-full"
                     />
                   </div>
+
                   <div className="flex-1">
                     <div className="flex justify-between items-center">
                       <div className="space-y-2 pb-2">
