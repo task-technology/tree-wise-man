@@ -47,11 +47,12 @@ const UserProfile = () => {
               !singleData?.data?.profileImage && "border border-grayForBorder"
             }`}
           >
-            <div>
+            <div className="relative h-10 ">
               {singleData?.data?.profileImage ? (
                 <Image
                   className="rounded-full"
                   fill
+                  sizes="(max-width: 768px) 40px, (max-width: 1024px) 50px, 64px" // Add sizes prop
                   style={{ objectFit: "cover" }}
                   alt={
                     singleData?.data?.name
@@ -61,7 +62,7 @@ const UserProfile = () => {
                   src={singleData?.data?.profileImage}
                 />
               ) : (
-                <span className="rounded-full text-xl md:text-2xl ">
+                <span className="rounded-full text-xl md:text-2xl h-full w-full flex items-center justify-center">
                   {icons?.user}
                 </span>
               )}
