@@ -36,28 +36,32 @@
   background: linear-gradient(271.66deg, #000f32 -20.59%, #0079c8 122.65%);
 }
 
-@keyframes oddAnimation {
-  0% {
-    width: 0;
-    height: 0;
-  }
-  100% {
-    width: 60rem;
-    height: 60rem;
-  }
-}
 
-@keyframes evenAnimation {
-  0% {
-    width: 40rem;
-    height: 40rem;
+
+
+  @keyframes oddAnimation {
+    0% {
+      width: 0;
+      height: 0;
+    }
+    100% {
+      width: 60rem;
+      height: 60rem;
+    }
+  }
+  
+  @keyframes evenAnimation {
+    0% {
+      width: 40rem;
+      height: 40rem;
+    }
+  
+    100% {
+      width: 82rem;
+      height: 82rem;
+    }
   }
 
-  100% {
-    width: 82rem;
-    height: 82rem;
-  }
-}
 
 @keyframes uptodownAnimation {
   0% {
