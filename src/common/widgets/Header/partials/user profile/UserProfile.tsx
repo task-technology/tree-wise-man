@@ -48,7 +48,7 @@ const UserProfile = () => {
             }`}
           >
             <div>
-              {!singleData?.data?.profileImage ? (
+              {singleData?.data?.profileImage ? (
                 <Image
                   className="rounded-full"
                   fill

@@ -8,7 +8,6 @@ export const tableHeader = [
   "Role",
   "Created Date",
   "Delete",
-  "Edit",
 ];
 export const tableLayout = [
   "item?.id",

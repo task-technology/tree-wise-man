@@ -28,6 +28,19 @@ const PostsApi = baseApi.injectEndpoints({
       providesTags: ["post"],
     }),
 
+    getPostsAdmin: builder.query({
+      query: ({ query, token }) => {
+        console.log(`/post/admin?${query}`);
+        return {
+          url: `/post/admin?${query}`,
+          headers: {
+            authorization: token,
+          },
+        };
+      },
+      providesTags: ["post"],
+    }),
+
     getMyPost: builder.query({
       query: ({ token, query }) => {
         console.log("world", `/post/my-post?${query}`);
@@ -103,4 +116,5 @@ export const {
   usePostEditByAdminMutation,
   usePostDeleteMutation,
   useGetMyPostQuery,
+  useGetPostsAdminQuery,
 } = PostsApi;

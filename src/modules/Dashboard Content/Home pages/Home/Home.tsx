@@ -4,22 +4,20 @@ import { getUserInfo, isLoggedIn } from "../../../../shared/auth/auth.service";
 
 import { icons } from "@libs/Icons";
 import StatsCard from "./partials/Dashboard Stats Card/StatsCard";
-import Card from "./partials/Dashboard Home Card/Card";
 import LoadingSpinner from "@widgets/Loading Spinner/LoadingSpinner";
 import { useGetAnalyticsQuery } from "../../../../redux/features/api/others";
 import { getFromCookie } from "../../../../shared/helpers/local_storage";
 import { authKey } from "@config/constants";
 import CommonTable from "@components/Common Table/CommonTable";
-import { useGetPostsQuery } from "../../../../redux/features/api/posts";
+import { useGetPostsAdminQuery } from "../../../../redux/features/api/posts";
 import { tableHeader, tableLayout } from "./config/constant";
 
 const Home = () => {
   const token = getFromCookie(authKey);
   const [user, setUser] = useState<any>(null);
   const { data: allData, isLoading } = useGetAnalyticsQuery({ token });
-  const { data: adminPostData, isLoading: adminPostLoading } = useGetPostsQuery(
-    { token }
-  );
+  const { data: adminPostData, isLoading: adminPostLoading } =
+    useGetPostsAdminQuery({ token });
   useEffect(() => {
     const userInfo = getUserInfo();
     setUser(userInfo);

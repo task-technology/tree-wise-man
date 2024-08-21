@@ -6,7 +6,7 @@ import { btnValues, keys, tableHeader, tableLayout } from "./config/constant";
 import CommonTable from "@components/Common Table/CommonTable";
 import Pagination from "@components/Pagination/Pagination";
 import {
-  useGetPostsQuery,
+  useGetPostsAdminQuery,
   usePostDeleteMutation,
 } from "../../../../redux/features/api/posts";
 import { authKey } from "@config/constants";
@@ -32,9 +32,8 @@ const AdminPostList = () => {
   });
 
   const token = getFromCookie(authKey);
-  const { data: adminPostData, isLoading: adminPostLoading } = useGetPostsQuery(
-    { token, query }
-  );
+  const { data: adminPostData, isLoading: adminPostLoading } =
+    useGetPostsAdminQuery({ token, query });
   useEffect(() => {
     if (adminPostData) {
       setTotalItems(adminPostData?.meta.total);
