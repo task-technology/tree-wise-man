@@ -69,11 +69,7 @@ export const sidebarData = [
         link: "/dashboard/payment/first-payment",
         access: "anyone",
       },
-      {
-        label: "Update Plan",
-        link: "/dashboard/payment/payment-packages",
-        access: "anyone",
-      },
+
       {
         label: "Payments List",
         link: "/dashboard/payment/payments-list",

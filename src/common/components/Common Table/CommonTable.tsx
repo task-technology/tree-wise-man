@@ -47,7 +47,11 @@ const CommonTable: FC<CommonTableProps> = ({
 }) => {
   return (
     <>
-      <div className="flex justify-center w-full pb-14">
+      <div
+        className={`flex justify-center w-full ${
+          itemData?.length > 0 && "pb-14"
+        } `}
+      >
         <div className="overflow-x-auto w-full">
           {loading ? (
             <LoadingSpinner />

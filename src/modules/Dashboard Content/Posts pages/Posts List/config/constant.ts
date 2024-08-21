@@ -19,10 +19,4 @@ export const tableLayout = [
   `item?.published === true ? "Public" : "Private"`,
 ];
 
-export const btnValues = [
-  { label: "public", value: "public" },
-  { label: "private", value: "private" },
-  { label: "disabled", value: "Disabled" },
-];
-
 export const keys = ["searchTerm"];

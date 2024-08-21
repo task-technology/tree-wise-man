@@ -38,7 +38,7 @@ const AboutSection: React.FC = () => {
         >
           <div className="relative h-0 pb-[45%]">
             <Image
-              src="https://images.unsplash.com/photo-1629111981417-8c21a3e4e558?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227680/dan-edwards-SId-lmFXSDU-unsplash_aqa6r8.jpg"
               alt="Tree Photo"
               layout="fill"
               objectFit="cover"

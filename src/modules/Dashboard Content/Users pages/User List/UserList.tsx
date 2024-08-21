@@ -16,7 +16,6 @@ import { getFromCookie } from "../../../../shared/helpers/local_storage";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { constructQuery } from "../../../../shared/helpers/constructQuery";
-import { getPublicIdFromUrl } from "@components/Photo Upload/helpers/handleGetPublicId";
 import { deletePhoto } from "@components/Photo Upload/helpers/handlePhotoDelete";
 
 const UserList = () => {
@@ -63,8 +62,11 @@ const UserList = () => {
           <SearchBar />
         </div>
         <section className="py-10 bg-solidWhite px-5">
-          <div className="pb-5">
+          {/* <div className="pb-5">
             <TableStatus btnValues={btnValues} status />
+          </div> */}
+          <div className="pb-5">
+            <h5 className="font-semibold text-2xl ">User List</h5>
           </div>
           <CommonTable
             deleteFn={(id: string) => WarningSwal(handleDelete, id)}
