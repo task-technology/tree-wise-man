@@ -184,8 +184,8 @@ const Services = () => {
               </Card>
             ))
           ) : (
-            <div className="text-center font-medium text-2xl">
-              No services available
+            <div className="text-center font-medium text-2xl col-span-2">
+              {emptyData} Available
             </div>
           )}
         </div>
