@@ -1,6 +1,6 @@
 import { uploadPhoto } from "@components/Photo Upload/helpers/handlePhotoUpload";
 import { showSwal } from "../../../../shared/helpers/SwalShower";
-import { setToCookie } from "../../../../shared/helpers/local_storage";
+import swal from "sweetalert"
 
 export const handleRegister = async (
   e: React.FormEvent,
