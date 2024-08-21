@@ -59,6 +59,9 @@ const PostsList = () => {
           <SearchBar showNotice />
         </div>
         <section className="py-10 bg-solidWhite px-5 rounded-t-md">
+          <div className="pb-5">
+            <h5 className="font-semibold text-2xl ">Post List</h5>
+          </div>
           <CommonTable
             deleteFn={(id: string) => WarningSwal(handleDelete, id)}
             deleteBtn
