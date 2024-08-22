@@ -5,21 +5,17 @@ import { UserProfile } from "./config/type";
 import { getFromCookie } from "../../../../shared/helpers/local_storage";
 import { authKey } from "@config/constants";
 import { getUserInfo } from "../../../../shared/auth/auth.service";
-import { useGetSingleUserQuery } from "../../../../redux/features/api/users";
 import LoadingSpinner from "@widgets/Loading Spinner/LoadingSpinner";
 import { useGetSingleAdminQuery } from "../../../../redux/features/api/admin";
 
-const MyProfile: FC<UserProfile> = () => {
+const AdminProfile: FC<UserProfile> = () => {
   const token = getFromCookie(authKey);
   const user: any = getUserInfo();
   // Call both queries
-
-  const { data: singleData, isLoading } = useGetSingleUserQuery({
+  const { data: singleData, isLoading } = useGetSingleAdminQuery({
     token,
     id: user?.id,
   });
-
-  // Determine which data to use based on user's role
 
   if (isLoading) {
     return <LoadingSpinner fullHight />;
@@ -81,4 +77,4 @@ const MyProfile: FC<UserProfile> = () => {
   );
 };
 
-export default MyProfile;
+export default AdminProfile;

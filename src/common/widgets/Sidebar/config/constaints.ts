@@ -5,7 +5,14 @@ export const sidebarData = [
     link: "/dashboard/profile/my-profile",
     icon: "user",
 
-    access: "anyone",
+    access: "user",
+  },
+  {
+    label: "Admin Profile",
+    link: "/dashboard/profile/admin-profile",
+    icon: "user",
+
+    access: "admin",
   },
   {
     label: "Posts",

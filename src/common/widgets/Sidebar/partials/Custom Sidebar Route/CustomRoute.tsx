@@ -35,7 +35,11 @@ const CustomRoute = () => {
   return (
     <div>
       {sidebarData?.map((data, index) => {
-        if (data.access === "admin" && user?.role !== "admin") {
+        // Skip items if the user does not have access
+        if (
+          (data.access === "admin" && user?.role !== "admin") ||
+          (data.access === "user" && user?.role !== "user")
+        ) {
           return null;
         }
 
@@ -77,7 +81,9 @@ const CustomRoute = () => {
                 {data.sub_label
                   .filter(
                     (subItem) =>
-                      subItem.access === "anyone" || user?.role === "admin"
+                      subItem.access === "anyone" ||
+                      (subItem.access === "admin" && user?.role === "admin") ||
+                      (subItem.access === "user" && user?.role === "user")
                   )
                   .map((subItem, subIndex) => (
                     <Link href={subItem.link} key={subIndex}>

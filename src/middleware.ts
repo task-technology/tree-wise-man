@@ -18,6 +18,7 @@ export function middleware(request: NextRequest) {
 
   if (isLogged && user?.role !== "admin") {
     const adminPaths = [
+      "/dashboard/profile/admin-profile",
       "/dashboard/home",
       "/dashboard/post/admin-posts-list",
       "/dashboard/payment/payments-list",
