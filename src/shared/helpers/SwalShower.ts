@@ -17,7 +17,7 @@ export const showSwal = (result: any) => {
         text: errorMessage,
         icon: "error",
       }).then(() => {
-        // window.location.href = "/login";
+        window.location.href = "/login";
       });
     } else {
       swal("Error", errorMessage, "error");

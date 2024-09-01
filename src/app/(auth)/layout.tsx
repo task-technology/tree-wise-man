@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Providers from "../../redux/Providers";
-import "../../shared/styles/globals.css";
+import "../../../shared/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Tree Wise Man",
