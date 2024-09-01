@@ -11,8 +11,10 @@ import { isLoggedIn, isUserAdmin } from "../../../shared/auth/auth.service";
 import UserProfileAdmin from "./partials/user profile admin/UserProfileAdmin";
 import Link from "next/link";
 import Button from "@components/Button";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
+  const router = useRouter();
   const [toggleMenu, setToggleMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -64,11 +66,15 @@ const Header = () => {
               <UserProfile />
             )
           ) : (
-            <Link href="/login">
-              <Button secondary className="!text-solidBlack !rounded-full">
-                List Your Tree Service
-              </Button>
-            </Link>
+            // <Link href="/login">
+            <Button
+              onClick={() => router.push("/login")}
+              secondary
+              className="!text-solidBlack !rounded-full"
+            >
+              List Your Tree Service
+            </Button>
+            // </Link>
           )}
         </ul>
 
@@ -98,11 +104,15 @@ const Header = () => {
                   <UserProfile />
                 )
               ) : (
-                <Link href="/login">
-                  <Button secondary className="!text-solidBlack !rounded-full">
-                    List Your Tree Service
-                  </Button>
-                </Link>
+                // <Link href="/login">
+                <Button
+                  onClick={() => router.push("/login")}
+                  secondary
+                  className="!text-solidBlack !rounded-full"
+                >
+                  List Your Tree Service
+                </Button>
+                // </Link>
               )}
               <button onClick={() => setToggleMenu(false)}>
                 <span>{icons.MenuClose}</span>

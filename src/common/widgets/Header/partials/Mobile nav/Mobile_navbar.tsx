@@ -1,4 +1,4 @@
-import { authKey, menuData } from "@config/constants";
+import { menuData } from "@config/constants";
 import { navDataTypes, singleMenuTypes } from "@config/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
