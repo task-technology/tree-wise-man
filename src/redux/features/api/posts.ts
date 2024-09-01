@@ -19,10 +19,8 @@ const PostsApi = baseApi.injectEndpoints({
 
     getPosts: builder.query({
       query: ({ query }) => {
-        console.log(`/post?searchTerm=${query}`);
         return {
           url: `/post?searchTerm=${query}`,
-          // url: `/post?searchTerm=1234`,
         };
       },
       providesTags: ["post"],
