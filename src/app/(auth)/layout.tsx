@@ -1,7 +1,17 @@
+import { Metadata } from "next";
 import Providers from "../../redux/Providers";
 import "../../shared/styles/globals.css";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+export const metadata: Metadata = {
+  title: "Tree Wise Man",
+  description: "Always There for you",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" data-theme="light">
       <body>
@@ -11,6 +21,4 @@ const layout = ({ children }: { children: React.ReactNode }) => {
       </body>
     </html>
   );
-};
-
-export default layout;
+}
