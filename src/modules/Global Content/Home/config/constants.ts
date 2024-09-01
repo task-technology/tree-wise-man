@@ -42,7 +42,7 @@ export const home_data = {
     button: {
       text: "GO",
       link: "/contact",
-      label: "Enter your zip code",
+      label: "Search by state or zip code",
       placeholder: "Enter Zip Code",
     },
   },
