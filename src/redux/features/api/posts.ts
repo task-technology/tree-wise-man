@@ -4,7 +4,6 @@ const PostsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     createPost: builder.mutation({
       query: ({ token, fullData }) => {
-        console.log("/post/create");
         return {
           url: "/post/create",
           headers: {
@@ -28,7 +27,6 @@ const PostsApi = baseApi.injectEndpoints({
 
     getPostsAdmin: builder.query({
       query: ({ query, token }) => {
-        console.log(`/post/admin?${query}`);
         return {
           url: `/post/admin?${query}`,
           headers: {
@@ -41,7 +39,6 @@ const PostsApi = baseApi.injectEndpoints({
 
     getMyPost: builder.query({
       query: ({ token, query }) => {
-        console.log("world", `/post/my-post?${query}`);
         return {
           url: `/post/my-post?${query}`,
           headers: {

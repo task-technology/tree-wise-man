@@ -23,7 +23,6 @@ const Services = () => {
   } = useGetPostsQuery({
     query,
   });
-  console.log(serviceData);
 
   const [serviceClick] = useClickCountServiceMutation();
 

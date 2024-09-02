@@ -24,7 +24,6 @@ const SearchBar = ({ placeholder = "Search...", showNotice = false }) => {
     }
     router.push(`?${queryParams.toString()}`);
   };
-  console.log(user);
   const handleFilter = (route: string) => {
     setQuery("searchTerm", route);
     setActiveRoute(route);

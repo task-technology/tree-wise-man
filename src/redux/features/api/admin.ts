@@ -17,7 +17,6 @@ const AdminApi = baseApi.injectEndpoints({
     }),
     getAdmin: builder.query({
       query: ({ token, query }) => {
-        console.log(`/user?${query}`);
         return {
           url: `/admin?${query}`,
           headers: {

@@ -27,7 +27,6 @@ const PaymentsList = () => {
     token,
     query,
   });
-  console.log(paymentData);
 
   useEffect(() => {
     if (paymentData) {

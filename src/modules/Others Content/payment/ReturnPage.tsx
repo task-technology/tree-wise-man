@@ -9,7 +9,7 @@ const ReturnPage = () => {
   const PayerID = searchParams.get("PayerID");
   useEffect(() => {
     const executePayment = async (paymentId: string, PayerID: string) => {
-      const url =SERVER_URL+"/subscription/verify";
+      const url = SERVER_URL + "/subscription/verify";
 
       const options = {
         method: "POST",
@@ -35,7 +35,6 @@ const ReturnPage = () => {
           } else {
             router.push("/payment/failed");
           }
-     
         })
         .catch((error) => {
           console.error("Fetch error:", error);
@@ -43,7 +42,6 @@ const ReturnPage = () => {
     };
 
     if (paymentId && PayerID) {
-      console.log("query", paymentId, PayerID);
       executePayment(paymentId as string, PayerID as string);
     }
   }, [paymentId, PayerID]);
