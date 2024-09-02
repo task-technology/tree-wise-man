@@ -6,6 +6,7 @@ import { getUserInfo } from "../../../shared/auth/auth.service";
 import { authKey } from "@config/constants";
 import { getFromCookie } from "../../../shared/helpers/local_storage";
 import { useGetSingleUserQuery } from "../../../redux/features/api/users";
+import Link from "next/link";
 
 const SearchBar = ({ placeholder = "Search...", showNotice = false }) => {
   const user: { id: string } | any = getUserInfo();
@@ -48,12 +49,15 @@ const SearchBar = ({ placeholder = "Search...", showNotice = false }) => {
         </Button>
       </div>
       {!data?.data?.subscription && showNotice && user?.role !== "admin" && (
-        <div className="w-full md:w-1/2 lg:w-1/3 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md shadow-lg">
+        <Link
+          href={"/dashboard/payment/first-payment"}
+          className="w-full md:w-1/2 lg:w-1/3 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md shadow-lg"
+        >
           <p className="text-sm">
             <strong>Notice:</strong> Please complete your payment to add your
             company to our website and attract more clients.
           </p>
-        </div>
+        </Link>
       )}
     </div>
   );
