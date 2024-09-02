@@ -27,6 +27,8 @@ const config: Config = {
         grayForBorder: "#D9D9D9",
         successMsg: "#22c55e",
         fb: "#0865fc",
+        instagram: "#E1306C",
+        internet: "#1E90FF",
       },
       fontFamily: {
         primary: ["Poppins", "sans-serif"],

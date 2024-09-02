@@ -48,7 +48,7 @@ const SearchBar = ({ placeholder = "Search...", showNotice = false }) => {
           Search
         </Button>
       </div>
-      {!data?.data?.subscription && showNotice && user?.role !== "Admin" && (
+      {!data?.data?.subscription && showNotice && user?.role !== "admin" && (
         <div className="w-full md:w-1/2 lg:w-1/3 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md shadow-lg">
           <p className="text-sm">
             <strong>Notice:</strong> Please complete your payment to add your

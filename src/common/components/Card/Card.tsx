@@ -21,7 +21,7 @@ const Card: FC<CardProps> = ({
           )}
         </Link>
       ) : (
-        <div className="cursor-pointer" onClick={handleSubmit}>
+        <div onClick={handleSubmit}>
           {children || (
             <div className=" min-h-[10rem] flex justify-center items-center text-xl text-white">
               <p>This is Card</p>
