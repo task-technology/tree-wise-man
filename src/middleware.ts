@@ -5,7 +5,7 @@ export function middleware(request: NextRequest) {
   const { cookies } = request;
   const authToken = cookies.get("accessToken")?.value;
   const user: any = authToken ? decodedToken(authToken) : null;
-  // const user: any = { role: "user" };
+  // const user: any = { role: "admin" };
   const isLogged = !!authToken;
 
   const url = request.nextUrl.clone();
@@ -21,8 +21,6 @@ export function middleware(request: NextRequest) {
       "/dashboard/profile/admin-profile",
       "/dashboard/home",
       "/dashboard/post/admin-posts-list",
-      "/dashboard/payment/payments-list",
-      "/dashboard/subscription/subscriptions-list",
       "/dashboard/user/create-user",
       "/dashboard/user/create-admin",
       "/dashboard/user/user-list",
