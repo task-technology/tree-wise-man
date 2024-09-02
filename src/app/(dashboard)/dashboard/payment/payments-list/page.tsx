@@ -1,4 +1,8 @@
-import PaymentsList from "@modules/Dashboard Content/Payments pages/Payments List/PaymentsList";
+
+import dynamic from 'next/dynamic';
+const PaymentsList = dynamic(() => import("@modules/Dashboard Content/Payments pages/Payments List/PaymentsList"), {
+  ssr: false,
+});
 
 const page = () => {
   return (

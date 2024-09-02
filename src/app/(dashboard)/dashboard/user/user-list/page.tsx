@@ -1,4 +1,8 @@
-import UserList from "@modules/Dashboard Content/Users pages/User List/UserList";
+
+import dynamic from 'next/dynamic';
+const UserList = dynamic(() => import("@modules/Dashboard Content/Users pages/User List/UserList"), {
+  ssr: false,
+});
 
 const page = () => {
   return (
