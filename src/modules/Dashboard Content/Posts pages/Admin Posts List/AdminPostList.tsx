@@ -63,7 +63,10 @@ const AdminPostList = () => {
         </div>
         <section className="py-10 bg-solidWhite px-5">
           <div className="pb-5 flex justify-between items-center w-full">
-            <TableStatus btnValues={btnValues} status />
+            {/* <TableStatus btnValues={btnValues} status /> */}
+            <div className="pb-5">
+              <h5 className="font-semibold text-2xl ">Admin Post List</h5>
+            </div>
             <FilterSystem />
           </div>
           <CommonTable

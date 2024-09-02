@@ -34,21 +34,21 @@ const Register = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center  relative overflow-hidden">
-      <div
+    <div className="min-h-screen flex items-center justify-center  relative overflow-hidden mt-8">
+      {/* <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
             "url('https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227680/heber-davis-5vKQOaAL3IQ-unsplash_kuolww.jpg')",
         }}
       ></div>
-      <div className="absolute inset-0 bg-black opacity-70"></div>
+      <div className="absolute inset-0 bg-black opacity-70"></div> */}
       <div
         data-aos="fade-up"
-        className="relative z-10  p-8 rounded-lg  w-full max-w-3xl"
+        className="relative z-10  p-8 rounded-lg  w-full max-w-3xl  shadow-lg"
       >
         <div className="py-2">
-          <SectionTitle className="text-solidWhite" title="Register" />
+          <SectionTitle title="Register" />
         </div>
         <form
           onSubmit={(e: any) =>
@@ -72,84 +72,67 @@ const Register = () => {
             <div>
               <InputWithValue
                 labelName="Name"
-                labelClassName="text-solidWhite"
                 inputType="text"
                 inputName="name"
                 value={name}
                 onChange={(e: any) => setName(e.target.value)}
                 required
-                className="bg-transparent text-solidWhite"
               />
             </div>
             <div>
               <InputWithValue
                 labelName="Email"
-                labelClassName="text-solidWhite"
                 inputType="email"
                 inputName="email"
                 value={email}
                 onChange={(e: any) => setEmail(e.target.value)}
                 required
-                className="bg-transparent text-solidWhite"
               />
             </div>
             <div>
               <InputWithValue
                 labelName="Company"
-                labelClassName="text-solidWhite"
                 inputType="text"
                 inputName="company"
                 value={company}
                 onChange={(e: any) => setCompany(e.target.value)}
                 required
-                className="bg-transparent text-solidWhite"
               />
             </div>
             <div>
               <InputWithValue
                 labelName="Contact Number"
-                labelClassName="text-solidWhite"
                 inputType="text"
                 inputName="contactNo"
                 value={contactNo}
                 onChange={(e: any) => setContactNo(e.target.value)}
                 required
-                className="bg-transparent text-solidWhite"
               />
             </div>
 
             <div>
               <InputWithValue
                 labelName="Designation"
-                labelClassName="text-solidWhite"
                 inputType="text"
                 inputName="designation"
                 value={designation}
                 onChange={(e: any) => setDesignation(e.target.value)}
                 required
-                className="bg-transparent text-solidWhite"
               />
             </div>
 
             <div>
               <InputWithValue
                 labelName="Password"
-                labelClassName="text-solidWhite"
                 inputType="text"
                 inputName="password"
                 value={password}
                 onChange={(e: any) => setPassword(e.target.value)}
                 required
-                className="bg-transparent text-solidWhite"
               />
             </div>
             <div className="md:col-span-2">
-              <PhotoUpload
-                file={file}
-                setFile={setFile}
-                inputLabelClass="text-solidWhite"
-                imgDetailsClass="text-solidWhite"
-              />
+              <PhotoUpload file={file} setFile={setFile} required />
             </div>
           </div>
           <div className="w-full">
@@ -163,7 +146,7 @@ const Register = () => {
             </Button>
           </div>
         </form>
-        <p className="mt-6 text-center text-grayForBorder">
+        <p className="mt-6 text-center ">
           Already have an account?{" "}
           <Link href="/login">
             <span className="text-blue-400 hover:text-indigo-500">Login</span>

@@ -27,7 +27,7 @@ const Header = () => {
 
   const handleScroll = () => {
     const scrollTop = window.scrollY;
-    setIsScrolled(scrollTop > 1000);
+    setIsScrolled(scrollTop > 10);
   };
 
   useEffect(() => {

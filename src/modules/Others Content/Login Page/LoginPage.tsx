@@ -26,20 +26,20 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 relative">
-      <div
+      {/* <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
             "url('https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227680/heber-davis-5vKQOaAL3IQ-unsplash_kuolww.jpg')",
         }}
       ></div>
-      <div className="absolute inset-0 bg-black opacity-70"></div>
+      <div className="absolute inset-0 bg-black opacity-70"></div> */}
       <div
         data-aos="fade-up"
         className="relative z-10  p-8 rounded-lg shadow-lg w-full max-w-md  overflow-y-hidden"
       >
         <div className="py-2">
-          <SectionTitle className="text-solidWhite" title="Login" />
+          <SectionTitle title="Login" />
         </div>
         <form
           onSubmit={(e) => handleLogin(e, email, password, login, router)}
@@ -48,25 +48,21 @@ const Login = () => {
           <div>
             <InputWithValue
               labelName="Email"
-              labelClassName="text-solidWhite"
               inputType="email"
               inputName="email"
               value={email}
               onChange={(e: any) => setEmail(e.target.value)}
               required
-              className="bg-transparent text-solidWhite"
             />
           </div>
           <div>
             <InputWithValue
               labelName="Password"
-              labelClassName="text-solidWhite"
               inputType="password"
               inputName="password"
               value={password}
               onChange={(e: any) => setPassword(e.target.value)}
               required
-              className="bg-transparent text-solidWhite"
             />
           </div>
           <div className="w-full">
@@ -80,7 +76,7 @@ const Login = () => {
             </Button>
           </div>
         </form>
-        <p className="mt-6 text-center text-grayForBorder">
+        <p className="mt-6 text-center ">
           Do not have an account?{" "}
           <Link href="/register">
             <span className="text-blue-400 hover:text-indigo-500">
