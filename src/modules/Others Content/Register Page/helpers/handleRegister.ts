@@ -1,6 +1,6 @@
 import { uploadPhoto } from "@components/Photo Upload/helpers/handlePhotoUpload";
 import { showSwal } from "../../../../shared/helpers/SwalShower";
-import swal from "sweetalert"
+import swal from "sweetalert";
 
 export const handleRegister = async (
   e: React.FormEvent,
@@ -29,16 +29,13 @@ export const handleRegister = async (
       designation,
       password,
     };
-    console.log(fullData);
     const result = await createUser({ fullData });
-    console.log(result);
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {
-      router?.push("/first-payment");
+      router?.push("/login");
     }
   } else {
     swal("Error", photoUploadResult.message, "error");
   }
   setLoading(false);
 };
-
