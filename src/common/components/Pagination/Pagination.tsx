@@ -16,6 +16,9 @@ const Pagination: React.FC<PaginationProps> = ({
   limit = 10,
   setCurrentPage,
 }) => {
+  if (totalItems <= 0) {
+    return;
+  }
   const numberOfPages = Math.ceil(totalItems / limit) || 0;
 
   const handleItemsPerPage = (e: React.ChangeEvent<HTMLInputElement>) => {

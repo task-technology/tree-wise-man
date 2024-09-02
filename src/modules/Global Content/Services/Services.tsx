@@ -76,7 +76,7 @@ const Services = () => {
                       <div className="flex gap-2">
                         {result?.urlLink && (
                           <span
-                            className="hover:scale-110 text-xl"
+                            className="text-internet hover:scale-110 text-xl cursor-pointer"
                             onClick={() =>
                               handleSubmit({
                                 serviceClick,
@@ -100,23 +100,23 @@ const Services = () => {
                                 id: result?.id,
                               })
                             }
-                            className="text-fb hover:scale-110 text-xl"
+                            className="text-fb hover:scale-110 text-xl cursor-pointer"
                             aria-label="Facebook link"
                           >
                             {icons.fb}
                           </span>
                         )}
-                        {result?.instaLink && (
+                        {result?.instagramLink && (
                           <span
                             onClick={() =>
                               handleSubmit({
                                 serviceClick,
                                 token,
-                                url: result?.instaLink,
+                                url: result?.instagramLink,
                                 id: result?.id,
                               })
                             }
-                            className="hover:scale-110 text-xl"
+                            className="text-instagram hover:scale-110 text-xl cursor-pointer"
                             aria-label="Instagram link"
                           >
                             {icons.Instagram}
@@ -132,7 +132,7 @@ const Services = () => {
                                 id: result?.id,
                               })
                             }
-                            className="hover:scale-110 text-xl"
+                            className="hover:scale-110 text-xl cursor-pointer"
                             aria-label="Twitter link"
                           >
                             {icons.Twitter}

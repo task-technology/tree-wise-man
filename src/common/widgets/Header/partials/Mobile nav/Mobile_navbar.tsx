@@ -1,21 +1,16 @@
-import { authKey, menuData } from "@config/constants";
+import { menuData } from "@config/constants";
 import { navDataTypes, singleMenuTypes } from "@config/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { icons } from "@libs/Icons";
-import Button from "@components/Button";
-import { getFromCookie } from "../../../../../shared/helpers/local_storage";
-import { isLoggedIn } from "../../../../../shared/auth/auth.service";
+
 const Mobile_navbar = ({ toggleMenu }: { toggleMenu: boolean }) => {
   const pathname = usePathname();
   const [activeLink, setActiveLink] = useState("");
-  const [isLogged, setIsLogged] = useState(false);
 
   useEffect(() => {
     setActiveLink(pathname);
-    const isLog: any = isLoggedIn();
-    setIsLogged(isLog);
   }, [pathname]);
 
   return (

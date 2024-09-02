@@ -45,7 +45,6 @@ const UserList = () => {
 
   const [userDelete, { isLoading: userDeleteLoading }] =
     useUserDeleteMutation();
-  console.log(userData);
 
   const handleDelete = async (id: string) => {
     const singleData = userData?.data?.find((data: any) => data?.id === id);

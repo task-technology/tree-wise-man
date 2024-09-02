@@ -18,12 +18,15 @@ export function middleware(request: NextRequest) {
 
   if (isLogged && user?.role !== "admin") {
     const adminPaths = [
+      "/dashboard/profile/admin-profile",
       "/dashboard/home",
       "/dashboard/post/admin-posts-list",
       "/dashboard/payment/payments-list",
       "/dashboard/subscription/subscriptions-list",
       "/dashboard/user/create-user",
+      "/dashboard/user/create-admin",
       "/dashboard/user/user-list",
+      "/dashboard/user/admin-list",
     ];
 
     if (adminPaths.some((path) => url.pathname.startsWith(path))) {

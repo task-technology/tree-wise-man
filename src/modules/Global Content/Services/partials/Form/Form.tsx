@@ -1,14 +1,21 @@
 "use client";
 
-import Input from "@components/Input";
 import InputWithValue from "@components/Input With Value";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 
 const Form = () => {
+  const searchParams = useSearchParams();
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    const searchValue = searchParams.get("searchTerm");
+    if (searchValue) {
+      setSearchTerm(searchValue);
+    }
+  }, [searchParams]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

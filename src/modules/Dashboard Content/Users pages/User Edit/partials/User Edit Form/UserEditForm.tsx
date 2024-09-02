@@ -23,7 +23,6 @@ const UserEditForm = () => {
 
   const { data: singleUser } = useGetSingleUserQuery({ token, id });
   const [editUser, { isLoading: userCreateLoading }] = useUserEditMutation();
-  console.log("data", singleUser);
   const [name, setName] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [contactNo, setContactNo] = useState("");

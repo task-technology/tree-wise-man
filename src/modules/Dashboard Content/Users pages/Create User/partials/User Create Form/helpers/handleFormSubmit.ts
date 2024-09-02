@@ -1,7 +1,7 @@
 import { uploadPhoto } from "@components/Photo Upload/helpers/handlePhotoUpload";
 import { showSwal } from "../../../../../../../shared/helpers/SwalShower";
 import { CookieValueTypes } from "cookies-next";
-import swal from "sweetalert"
+import swal from "sweetalert";
 export const handleFormSubmit = async (
   e: React.FormEvent,
   name: any,
@@ -31,7 +31,6 @@ export const handleFormSubmit = async (
       password,
     };
     const result = await createUser({ fullData, token });
-    console.log(result);
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {
       router?.push("/dashboard/user/user-list");

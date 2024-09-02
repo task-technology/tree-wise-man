@@ -46,7 +46,7 @@ const Hero = () => {
 
   return (
     <>
-      <header className="relative h-screen">
+      <header className="relative h-60 md:h-screen ">
         <Swiper
           ref={swiperRef}
           spaceBetween={30}
@@ -58,7 +58,7 @@ const Hero = () => {
           pagination={{
             clickable: true,
           }}
-          navigation={true}
+          // navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper h-full"
         >
@@ -70,40 +70,43 @@ const Hero = () => {
             >
               <div className="absolute inset-0 bg-solidBlack/40 opacity-100 "></div>
               <main className="relative z-10 min-h-screen">
-                <div className="flex items-center min-h-screen w-full relative overflow-hidden">
+                <div className="flex items-center  md:min-h-screen w-full relative overflow-hidden px-2 md:px-0">
                   {data.id % 2 === 0 ? (
                     <>
                       <div
                         className={cx(
-                          "absolute bottom-[-41rem] right-[-40rem]",
+                          "absolute bottom-[-41rem] right-[-40rem] ",
                           styles.animationEven
                         )}
                         key={animationKey}
                       ></div>
-                      <div className="w-1/2 flex justify-end">
-                        <section>
+                      <section className="w-1/2  h-60 md:h-screen flex items-center justify-center">
+                        <div className="z-50 pl-5 md:pl-14">
                           <div
                             key={`${animationKey}-${data.id}`}
-                            className={cx("space-y-5", styles.uptoDown)}
+                            className={cx(
+                              "space-y-1 md:space-y-5",
+                              styles.uptoDown
+                            )}
                           >
-                            <h1 className="text-5xl text-solidWhite font-semibold">
+                            <h1 className="text-lg md:text-5xl text-solidWhite font-semibold">
                               {data?.headline}
                             </h1>
-                            <h3 className="text-2xl text-solidWhite font-semibold">
+                            <h3 className="text-sm md:text-2xl text-solidWhite font-semibold">
                               {data?.title}
                             </h3>
                           </div>
                           <button
                             key={animationKey}
                             className={cx(
-                              "py-1 text-solidWhite px-3  rounded-full mt-5 font-semibold border-2",
+                              "text-xs md:text-base py-1 text-solidWhite px-3  rounded-full mt-5 font-semibold border-2",
                               styles.zoomIn
                             )}
                           >
                             {data?.btnValue}
                           </button>
-                        </section>
-                      </div>
+                        </div>
+                      </section>
                       <div
                         className={cx(
                           "w-1/2 mx-auto rounded-3xl",
@@ -113,7 +116,7 @@ const Hero = () => {
                         <Image
                           key={animationKey}
                           className={cx(
-                            "h-60 w-52 mx-auto rounded-md",
+                            "h-32 w-28  md:h-60 md:w-52 mx-auto rounded-md",
                             styles.uptoDown
                           )}
                           src={data?.logo}
@@ -127,7 +130,7 @@ const Hero = () => {
                     <>
                       <div
                         className={cx(
-                          "w-[60rem] h-[60rem] rounded-full absolute left-[-20rem] bottom-[-20rem]",
+                          "w-[60rem] h-[60rem] rounded-full absolute left-[-20rem] bottom-[-20rem] ",
                           styles.animationOdd
                         )}
                         key={animationKey}
@@ -141,7 +144,7 @@ const Hero = () => {
                         <Image
                           key={animationKey}
                           className={cx(
-                            "h-60 w-52 mx-auto rounded-md",
+                            "h-32 w-28  md:h-60 md:w-52 mx-auto rounded-md",
                             styles.uptoDown
                           )}
                           src={data?.logo}
@@ -150,27 +153,32 @@ const Hero = () => {
                           height={240} // 60 * 4 (tailwind unit conversion)
                         />
                       </div>
-                      <section className="w-1/2 ">
-                        <div
-                          key={`${animationKey}-${data.id}`}
-                          className={cx("space-y-5", styles.uptoDown)}
-                        >
-                          <h1 className="text-5xl text-solidWhite font-semibold">
-                            {data?.headline}
-                          </h1>
-                          <h3 className="text-2xl text-solidWhite font-semibold">
-                            {data?.title}
-                          </h3>
+                      <section className="w-1/2  h-60 md:h-screen flex items-center">
+                        <div className="z-50 ">
+                          <div
+                            key={`${animationKey}-${data.id}`}
+                            className={cx(
+                              "space-y-1 md:space-y-5",
+                              styles.uptoDown
+                            )}
+                          >
+                            <h1 className="text-lg md:text-5xl text-solidWhite font-semibold">
+                              {data?.headline}
+                            </h1>
+                            <h3 className="text-sm md:text-2xl text-solidWhite font-semibold">
+                              {data?.title}
+                            </h3>
+                          </div>
+                          <button
+                            key={animationKey}
+                            className={cx(
+                              "text-xs md:text-base py-1 text-solidWhite px-3 bg-blue-light rounded-full mt-5 font-semibold border-2",
+                              styles.zoomIn
+                            )}
+                          >
+                            {data?.btnValue}
+                          </button>
                         </div>
-                        <button
-                          key={animationKey}
-                          className={cx(
-                            "py-1 text-solidWhite px-3 bg-blue-light rounded-full mt-5 font-semibold border-2",
-                            styles.zoomIn
-                          )}
-                        >
-                          {data?.btnValue}
-                        </button>
                       </section>
                     </>
                   )}

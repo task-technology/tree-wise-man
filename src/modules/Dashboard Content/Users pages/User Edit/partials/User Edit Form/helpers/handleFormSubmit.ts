@@ -33,9 +33,7 @@ export const handleFormSubmit = async (
       designation,
     };
 
-    console.log(fullData);
     const result = await editUser({ fullData, token, id });
-    console.log(result);
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {
       router?.push("/dashboard/user/user-list");

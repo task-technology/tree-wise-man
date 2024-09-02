@@ -46,7 +46,7 @@ const LogoHeadline = () => {
   ];
 
   return (
-    <section className="py-8 md:py-16">
+    <section className="px-5 md:px-0 py-8 md:py-16">
       <div>
         {/* Header Section */}
         <div className="text-center pb-8 md:pb-16 space-y-4 md:space-y-5">

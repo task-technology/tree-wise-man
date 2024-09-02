@@ -2,29 +2,23 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@components/Button";
-import {
-  getUserInfo,
-  isLoggedIn,
-} from "../../../../../shared/auth/auth.service";
+import { getUserInfo } from "../../../../../shared/auth/auth.service";
 import { handleLogout } from "../../../../../shared/helpers/handleLogout";
 import { useRouter } from "next/navigation";
 import { getFromCookie } from "../../../../../shared/helpers/local_storage";
 import { authKey } from "@config/constants";
-import { useGetSingleUserQuery } from "../../../../../redux/features/api/users";
 import { icons } from "@libs/Icons";
+import { useGetSingleAdminQuery } from "../../../../../redux/features/api/admin";
 
-const UserProfile = () => {
+const UserProfileAdmin = () => {
   const router = useRouter();
   const token = getFromCookie(authKey);
 
   const user: any = getUserInfo();
-
-  const { data: singleData } = useGetSingleUserQuery({
+  const { data: singleData } = useGetSingleAdminQuery({
     token,
     id: user?.id,
   });
-
-  // Determine which data to use based on user's role
 
   return (
     <>
@@ -79,4 +73,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default UserProfileAdmin;

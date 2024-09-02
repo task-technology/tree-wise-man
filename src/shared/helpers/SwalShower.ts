@@ -1,7 +1,6 @@
 import swal from "sweetalert";
 
 export const showSwal = (result: any) => {
-  console.log("result", result);
   if (result?.data?.success) {
     swal("Success", result.data.message, "success");
     return true;
@@ -17,7 +16,7 @@ export const showSwal = (result: any) => {
         text: errorMessage,
         icon: "error",
       }).then(() => {
-        // window.location.href = "/login";
+        window.location.href = "/login";
       });
     } else {
       swal("Error", errorMessage, "error");

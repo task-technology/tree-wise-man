@@ -58,9 +58,7 @@ export const handleProceed = ({
   price: number;
   id: number;
 }) => {
-  console.log("month is", month, "and price is", price, "Id", id);
-  console.log(typeof(id))
-  Payment(id,month)
+  Payment(id, month);
 };
 
 export const packages = [
@@ -70,28 +68,28 @@ export const packages = [
 ];
 
 function Payment(userId: number, month: number) {
-  const url = SERVER_URL + '/subscription/payment';
+  const url = SERVER_URL + "/subscription/payment";
   const options = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({ userId, month })
+    body: JSON.stringify({ userId, month }),
   };
   fetch(url, options)
-    .then(response => {
+    .then((response) => {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
       return response.json();
     })
-    .then(data => {
+    .then((data) => {
       if (data && data.data) {
         let lint = data.data.links[1].href;
         window.location.href = lint;
       }
     })
-    .catch(error => {
-      console.error('Fetch error:', error);
+    .catch((error) => {
+      console.error("Fetch error:", error);
     });
 }

@@ -12,7 +12,6 @@ export const handleSubmit = async ({
   tel?: boolean;
 }) => {
   const result = await serviceClick({ token, id });
-  console.log("click", result);
 
   if (result?.data?.success) {
     if (url) {
