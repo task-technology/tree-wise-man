@@ -38,7 +38,7 @@ const Header = () => {
   }, []);
   return (
     <nav
-      className={`w-full z-[999999] ${styles.navbar} ${
+      className={`shadow-lg w-full z-[999999] ${styles.navbar} ${
         isScrolled ? styles.scrolled : ""
       }`}
     >
