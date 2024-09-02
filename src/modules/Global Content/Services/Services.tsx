@@ -11,6 +11,7 @@ import { handleSubmit } from "./Helpers/handleServiceCount";
 import { icons } from "@libs/Icons";
 import { useSearchParams } from "next/navigation";
 import { emptyData } from "@config/constants";
+import Error from "@components/Error/Error";
 
 const Services = () => {
   const token = getFromCookie("accessToken");
@@ -27,7 +28,7 @@ const Services = () => {
   const [serviceClick] = useClickCountServiceMutation();
 
   if (error) {
-    return <div>Error loading services</div>; // Simple error handling
+    return <Error />;
   }
 
   return (
