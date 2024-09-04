@@ -52,7 +52,7 @@ const Footer = () => {
       </div>
       <div className="py-6 flex justify-center items-center text-white text-lg">
         <p className="text-center">
-          © <span>{layout_data.footer.copywrite}</span> |{" "}
+          © <span>{layout_data.footer.copyWrite}</span> |{" "}
           <span> All Rights Reserved.</span>
         </p>
       </div>
