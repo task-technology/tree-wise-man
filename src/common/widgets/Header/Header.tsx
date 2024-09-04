@@ -45,15 +45,17 @@ const Header = () => {
       <div className="container px-2 h-16 lg:h-20 mx-auto flex items-center justify-between w-full py-2 ">
         <div className="px-4">
           {/* Logo  */}
-          <Image
-            src={
-              "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png"
-            }
-            height={50}
-            width={50}
-            alt="Logo"
-            className=""
-          />
+          <Link href="/">
+            <Image
+              src={
+                "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png"
+              }
+              height={50}
+              width={50}
+              alt="Logo"
+              className=""
+            />
+          </Link>
         </div>
         <ul className="hidden lg:flex items-center  gap-11">
           <Mobile_navbar toggleMenu={toggleMenu} />
