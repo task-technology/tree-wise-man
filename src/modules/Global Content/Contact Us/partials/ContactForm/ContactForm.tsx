@@ -16,13 +16,13 @@ const ContactForm: React.FC = () => {
   return (
     <div className="max-w-lg mx-auto p-8 bg-transparent bg-opacity-25 bg-white shadow-xl rounded-lg relative overflow-hidden">
       <div className="absolute inset-0  pointer-events-none"></div>
-      <h2 className="text-4xl font-extrabold text-center mb-8 text-">
+      <h2 className="text-4xl font-extrabold text-center mb-8 text-solidWhite">
         Contact Us
       </h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label
-            className="block text-gray-800 text-sm font-semibold mb-2"
+            className="block text-gray-800 text-sm font-semibold mb-2 text-solidWhite"
             htmlFor="name"
           >
             Name
@@ -31,14 +31,14 @@ const ContactForm: React.FC = () => {
             id="name"
             type="text"
             placeholder="Your Name"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition duration-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm "
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div>
           <label
-            className="block text-gray-800 text-sm font-semibold mb-2"
+            className="block text-gray-800 text-sm font-semibold mb-2 text-solidWhite"
             htmlFor="email"
           >
             Email
@@ -47,14 +47,14 @@ const ContactForm: React.FC = () => {
             id="email"
             type="email"
             placeholder="Your Email"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition duration-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm "
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div>
           <label
-            className="block text-gray-800 text-sm font-semibold mb-2"
+            className="block text-gray-800 text-sm font-semibold mb-2 text-solidWhite"
             htmlFor="message"
           >
             Message
@@ -62,7 +62,7 @@ const ContactForm: React.FC = () => {
           <textarea
             id="message"
             placeholder="Your Message"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition duration-300"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm "
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />

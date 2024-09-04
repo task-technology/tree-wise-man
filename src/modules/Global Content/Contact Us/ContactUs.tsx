@@ -3,7 +3,7 @@ import ContactForm from "./partials/ContactForm/ContactForm";
 const ContactUs = () => {
   return (
     <div
-      className="relative mt-20 min-h-screen bg-cover bg-center text-white"
+      className="relative mt-20 min-h-screen bg-cover bg-center "
       style={{
         backgroundImage:
           'url("https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227682/immo-wegmann-edLp78lkLEU-unsplash_p52jps.jpg")',
