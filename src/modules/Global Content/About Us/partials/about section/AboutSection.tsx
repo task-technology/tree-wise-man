@@ -19,17 +19,17 @@ const AboutSection: React.FC = () => {
   //   { count: "532", details: "lorem ipsum dolor sit amet" },
   // ];
   return (
-    <main className="px-4 py-6 md:px-10 md:py-8 lg:px-28 lg:py-10 overflow-hidden">
-      <section className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-10">
+    <main className="px-4 py-6 md:px-10 md:py-8 lg:px-28 lg:py-20 overflow-hidden">
+      <section className="flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-10">
         <div
           className="w-full lg:w-1/2"
           data-aos="fade-right"
           data-aos-duration="1000"
         >
-          <span className="text-orange font-semibold text-lg md:text-xl pb-2">
+          <span className="text-orange font-medium text-lg md:text-xl pb-2">
             {aboutUsData?.headline}
           </span>
-          <h1 className="text-base md:text-xl lg:text-2xl font-bold">
+          <h1 className="text-base md:text-xl lg:text-2xl font-medium">
             {aboutUsData?.details}
           </h1>
 
