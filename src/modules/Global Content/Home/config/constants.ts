@@ -49,27 +49,64 @@ export const home_data = {
   frequently_asked_questions: [
     {
       id: 1,
-      question: "What are basic FAQ questions?",
-      answer:
-        "What is General FAQ? It is a collection of common questions and answers not specific to a product, feature, or service. They usually cover payment policies, how to contact customer support, and refund policies.",
+      question: "Why Should My Tree Be Removed?",
+      detailsHeader: "Reasons For Tree Removal Include:",
+      answer: [
+        "•	A tree is dead or dying",
+        "•	Root and crown rot or other types of disease",
+        "•	Termite or other invasive bug infestations",
+        "•	A tree has grown too large for the space it occupies and threatens life or property",
+        "•	Aggressive root systems are destroying pools, retaining walls, and foundations",
+        "•	New construction in the area",
+      ],
     },
     {
       id: 2,
-      question: "What does FAQ mean?",
+      question: "Can My Trees Be Saved?",
       answer:
-        "/ˌef eɪ ˈkjuː/, /fæk/ ​used in writing to mean ' frequently asked questions. ' (a list of questions and answers about a particular subject, especially one giving basic information for users of a website)",
+        "A Licensed & Experienced Arborist can assess if your tree(s) can be saved, and what types of treatment will be necessary.",
     },
     {
       id: 3,
-      question: "What are general questions?",
+      question: "Why Should I Hire a Christian-Owned Tree Service?",
       answer:
-        "General questions are broad and do not require a specific answer. They are often used to gather general information about a subject. For example: What is the capital of France? Specific questions are more focused and require a specific answer.",
+        "If you need to have a tree removed from your property, you want an expert that shares your values. It is important that the companies you hire follow The Golden Rule: “Do to others as you would like them to do to you” - Luke 6:31 NLT",
     },
     {
       id: 4,
-      question: "How is 20 questions so smart?",
+      question: "Why Are Arborists So Important?",
       answer:
-        "The 20Q AI uses an artificial neural network to pick the questions and to guess. After the player has answered the twenty questions posed (sometimes fewer), 20Q makes a guess. If it is incorrect, it asks more questions, then guesses again.",
+        "Professional arborists are highly trained to work safely and efficiently in all tree removals, including large tree varieties.",
+    },
+    {
+      id: 5,
+      question: "Are Properly Maintained Trees Really Less Prone to Damage?",
+      answer:
+        "Most of the property damage resulting from severe storms occurs due to falling trees and limbs. If trees are properly maintained and trimmed, they are less likely to be damaged by high winds. ",
+    },
+    {
+      id: 6,
+      question: "What are Fire Mitigation Services?",
+      answer:
+        "Over the last few years, the number of devastating enormous and wildly destructive wildfires has risen. It is essential to establish a safe zone around your home to protect your property and to help reduce the fire risk at your property by creating a defensible space. A professional tree service will remove fuel from around homes and outbuildings that can contribute to the severity of a fire. By thinning trees and brush, along with removing dead limbs, leaves, and other debris, tree services will provide fire prevention measures, including pruning branches away from the ground and your roof. It is also important to ensure that weeds and dry grass are removed from around your home while also ensuring your roof and gutters are free of branches, leaves, and other bits of wood.",
+    },
+    {
+      id: 7,
+      question: "Should I Ask for the Stumps to be Removed?",
+      answer:
+        "Aesthetically, an unsightly tree stump can ruin the look of your property and detract from your home’s beauty and curb appeal. Professional tree services have the experience and stump grinding equipment to remove these eyesores from your property. Oftentimes, stumps can be a safety hazard, as well as attracting termites or carpenter ants to your property. Grinding your stump will create mulch rich in nutrients that can then spread across your property to enrich your other trees & plants. With the proper soil, you can plant a new tree in the exact location.",
+    },
+    {
+      id: 8,
+      question: "Is Tree Pruning & Thinning Necessary?",
+      answer:
+        "During a severe storm, tree limbs may be torn free, or an entire tree may fall. Extremely high winds and overly saturated soil conditions can cause tree roots to fail and branches to weaken, particularly when trees have a large amount of foliage. Annual pruning of your trees is important. Pruning deciduous trees should only be done in the winter while they are dormant. Annual pruning of fruit-bearing trees keeps the limbs strong and healthy, encourages healthy fruit production, and keeps fruit accessible. Safety pruning should be done to reduce the size of more giant trees, correct imbalances, and remove weak or dangerous limbs and branches. Arborists will be well-versed in making decisions on when and how to treat your trees.",
+    },
+    {
+      id: 9,
+      question: "What Is Tree Shaping?",
+      answer:
+        "Trimming a tree's crown into a definite line or look, such as an umbrella shape is Crown Shaping. Cutting the tree can reduce its crown, but its natural condition is maintained. Expert crown shaping adds beauty to any tree and should only be performed by a tree care specialist. Removing the upper branches of a tree to promote a dense head of foliage and stems and restrict its growth in height is Pollarding and is found in many ornamental gardens. This process should be started when the tree is very young and only performed by a tree care expert.",
     },
   ],
   testimonials: [
