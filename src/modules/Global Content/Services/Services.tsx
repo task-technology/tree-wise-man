@@ -191,8 +191,8 @@ const Services = () => {
         </div>
       </div>
 
-      <section className="w-full lg:w-3/12 bg-white p-2 shadow-2xl min-h-screen flex flex-col gap-4">
-        <div className="relative w-full h-64">
+      <section className="w-full lg:w-3/12    min-h-screen flex flex-col justify-between gap-4">
+        <div className="relative w-full h-1/2 bg-white shadow-inner p-4">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26588344.458482444!2d-117.92179875201163!3d35.56240656685558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1726134726446!5m2!1sen!2sbd"
             width="100%"

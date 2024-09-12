@@ -13,10 +13,12 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto  p-5  overflow-hidden">
+    <div className="max-w-lg mx-auto p-5 shadow-inner  bg-white  rounded-lg  overflow-hidden">
       <div className="absolute inset-0  pointer-events-none"></div>
-      <h2 className="text-2xl font-medium text-center mb-3 text-solidBlack">
-        Contact Us
+      <h2 className="text-xl font-medium text-center mb-3 text-solidBlack">
+        If you don’t see a local Christian-owned tree service in your area,
+        please fill out the form below with your location details, and we will
+        connect you with one.
       </h2>
       <form onSubmit={handleSubmit} className="space-y-2">
         <div>
