@@ -1,10 +1,13 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { home_data } from "../config/constants";
 import Image from "next/image";
+import Button from "@components/Button";
 
 const MyAccordion = () => {
+  const [isMore, setIsMore] = useState(5);
   const { frequently_asked_questions } = home_data;
-  console.log(frequently_asked_questions);
+  console.log("hello", isMore);
   return (
     <section className="my-8 md:my-20">
       <div className="flex justify-center items-center pb-6 md:pb-10">
@@ -27,7 +30,7 @@ const MyAccordion = () => {
           </div>
         </div>
         <div className="w-full md:w-3/5 space-y-2">
-          {frequently_asked_questions?.map((data: any) => (
+          {frequently_asked_questions?.slice(0, isMore)?.map((data: any) => (
             <div key={data.id} className="collapse collapse-arrow bg-base-200">
               <input type="radio" name="my-accordion-2" defaultChecked />
               <b className="collapse-title  text-sm md:text-base">
@@ -54,6 +57,16 @@ const MyAccordion = () => {
               </div>
             </div>
           ))}
+          {frequently_asked_questions?.length >= isMore || (
+            <div className="flex justify-center pt-7">
+              <Button
+                secondary
+                onClick={() => setIsMore(frequently_asked_questions?.length)}
+              >
+                See All
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </section>
