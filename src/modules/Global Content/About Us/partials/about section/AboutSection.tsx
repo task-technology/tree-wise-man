@@ -3,18 +3,21 @@ import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { aboutUsData } from "./config/constant";
+import Link from "next/link";
+import Button from "@components/Button";
 
 const AboutSection: React.FC = () => {
   useEffect(() => {
     AOS.init();
   }, []);
 
-  const data = [
-    { count: "542", details: "lorem ipsum dolor sit amet" },
-    { count: "+42", details: "lorem ipsum dolor sit amet" },
-    { count: "542K", details: "lorem ipsum dolor sit amet" },
-    { count: "532", details: "lorem ipsum dolor sit amet" },
-  ];
+  // const data = [
+  //   { count: "542", details: "lorem ipsum dolor sit amet" },
+  //   { count: "+42", details: "lorem ipsum dolor sit amet" },
+  //   { count: "542K", details: "lorem ipsum dolor sit amet" },
+  //   { count: "532", details: "lorem ipsum dolor sit amet" },
+  // ];
   return (
     <main className="px-4 py-6 md:px-10 md:py-8 lg:px-28 lg:py-10 overflow-hidden">
       <section className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-10">
@@ -23,20 +26,28 @@ const AboutSection: React.FC = () => {
           data-aos="fade-right"
           data-aos-duration="1000"
         >
-          <span className="text-orange-500 font-semibold text-lg md:text-xl">
-            WHY USE A CHRISTIAN-OWNED TREE SERVICE?
+          <span className="text-orange font-semibold text-lg md:text-xl pb-2">
+            {aboutUsData?.headline}
           </span>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-            Nullam quis risus eget urna mollis ornare vel eu leo. Donec id elit
-            non mi commodo tincidunt. non mi commodo tincidunt.
+          <h1 className="text-base md:text-xl lg:text-2xl font-bold">
+            {aboutUsData?.details}
           </h1>
+
+          <article className="pt-10 text-sm md:text-lg">
+            <Link href="TreeWiseMenUSA.com">
+              <Button link className="!text-solidBlack">
+                TreeWiseMenUSA.com
+              </Button>
+            </Link>{" "}
+            {aboutUsData?.moreDetails}
+          </article>
         </div>
         <div
           className="w-full lg:w-1/2"
           data-aos="fade-left"
           data-aos-duration="1000"
         >
-          <div className="relative h-0 pb-[45%]">
+          <div className="relative h-0 pb-[80%]">
             <Image
               src="https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227680/dan-edwards-SId-lmFXSDU-unsplash_aqa6r8.jpg"
               alt="Tree Photo"
@@ -50,18 +61,13 @@ const AboutSection: React.FC = () => {
         </div>
       </section>
 
-      <section className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10 mt-10 lg:mt-20">
+      {/* <section className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10 mt-10 lg:mt-20">
         <article
           className="w-full lg:w-1/2 text-base md:text-lg lg:text-xl"
           data-aos="fade-up-right"
           data-aos-duration="1200"
         >
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat cum
-          officia velit nobis, consectetur quasi atque commodi aliquid hic quia
-          earum error blanditiis iste doloremque obcaecati quo! Accusamus
-          necessitatibus accusantium quos, ducimus est laboriosam minus natus
-          magnam, temporibus deserunt laborum et distinctio quisquam quaerat
-          aspernatur nulla repellendus esse. Ipsam, magnam!
+          {aboutUsData?.moreDetails}
         </article>
         <div className="w-full lg:w-1/2">
           <div
@@ -82,7 +88,7 @@ const AboutSection: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 };
