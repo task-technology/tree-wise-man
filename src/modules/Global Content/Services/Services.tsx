@@ -194,7 +194,7 @@ const Services = () => {
       <section className="w-full lg:w-3/12    min-h-screen flex flex-col justify-between gap-4">
         <div className="relative w-full h-1/2 bg-white shadow-inner p-4">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26588344.458482444!2d-117.92179875201163!3d35.56240656685558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1726134726446!5m2!1sen!2sbd"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1588025.8527729951!2d-94.769030085425!3d38.97850405193589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xafc85451c2529a8d%3A0xe74dfcf82864c1f5!2sThe%20Tree%20Wise%20Men!5e0!3m2!1sen!2sbd!4v1726142072069!5m2!1sen!2sbd"
             width="100%"
             height="100%"
             style={{ border: "0" }}
