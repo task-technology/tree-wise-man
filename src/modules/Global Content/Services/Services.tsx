@@ -12,6 +12,7 @@ import { icons } from "@libs/Icons";
 import { useSearchParams } from "next/navigation";
 import { emptyData } from "@config/constants";
 import Error from "@components/Error/Error";
+import ContactForm from "./Helpers/ContactForm/ContactForm";
 
 const Services = () => {
   const token = getFromCookie("accessToken");
@@ -21,9 +22,7 @@ const Services = () => {
     data: serviceData,
     isLoading: serviceLoading,
     error,
-  } = useGetPostsQuery({
-    query,
-  });
+  } = useGetPostsQuery({ query });
 
   const [serviceClick] = useClickCountServiceMutation();
 
@@ -32,14 +31,14 @@ const Services = () => {
   }
 
   return (
-    <main className="bg-gray-100 min-h-screen flex mt-20 justify-center w-full">
-      <div className="max-w-7xl w-8/12 flex flex-col items-center space-y-2 md:space-y-8 px-4 py-3 md:py-6">
+    <main className="bg-gray-100 min-h-screen flex flex-col lg:flex-row mt-20 justify-center w-full px-2 md:pl-4">
+      <div className="max-w-7xl w-full lg:w-9/12 flex flex-col items-center space-y-2 md:space-y-8 py-3 md:py-6">
         <h2 className="text-xl md:text-3xl font-bold text-center mb-2">
           Find Tree Wise Men Near Me
         </h2>
         <Form />
 
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {serviceLoading ? (
             <div className="col-span-2 w-full">
               <LoadingSpinner />
@@ -185,15 +184,15 @@ const Services = () => {
               </Card>
             ))
           ) : (
-            <div className="text-center font-medium text-2xl col-span-2">
+            <div className="text-center py-10 md:py-0 font-medium text-2xl col-span-2">
               {emptyData} Available
             </div>
           )}
         </div>
       </div>
 
-      <section className="w-4/12">
-        <div className="relative w-full min-h-screen">
+      <section className="w-full lg:w-3/12 bg-white p-2 shadow-2xl min-h-screen flex flex-col gap-4">
+        <div className="relative w-full h-64">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26588344.458482444!2d-117.92179875201163!3d35.56240656685558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1726134726446!5m2!1sen!2sbd"
             width="100%"
@@ -204,6 +203,9 @@ const Services = () => {
             referrerPolicy="no-referrer-when-downgrade"
             className="absolute inset-0"
           ></iframe>
+        </div>
+        <div className="h-auto">
+          <ContactForm />
         </div>
       </section>
     </main>

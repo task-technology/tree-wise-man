@@ -57,7 +57,7 @@ const MyAccordion = () => {
               </div>
             </div>
           ))}
-          {frequently_asked_questions?.length >= isMore || (
+          {frequently_asked_questions?.length > isMore && (
             <div className="flex justify-center pt-7">
               <Button
                 secondary
