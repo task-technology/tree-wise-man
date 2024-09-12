@@ -17,7 +17,7 @@ import {
   FiUsers,
 } from "react-icons/fi";
 import { BiHomeAlt2 } from "react-icons/bi";
-import { FaRegUser } from "react-icons/fa";
+import { FaRegUser, FaExclamationTriangle } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { MdMenu } from "react-icons/md";
 import { FaXTwitter, FaRegCompass } from "react-icons/fa6";
@@ -28,9 +28,17 @@ import { FiPieChart } from "react-icons/fi";
 import { IoIosLogOut } from "react-icons/io";
 import { MdPostAdd } from "react-icons/md";
 import { FaChevronRight } from "react-icons/fa";
-import { MdDeleteOutline } from "react-icons/md";
+import { MdDeleteOutline, MdAssessment } from "react-icons/md";
 import { FaFacebookSquare } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
+import {
+  GiTreeRoots,
+  GiChainsaw,
+  GiAxeInLog,
+  GiTreeBranch,
+  GiChemicalDrop,
+  GiStumpRegrowth,
+} from "react-icons/gi";
 
 // export
 export const icons: any = {
@@ -66,4 +74,12 @@ export const icons: any = {
   delete: <MdDeleteOutline />,
   fb: <FaFacebookSquare />,
   earth: <TbWorld />,
+  treesRoot: <GiTreeRoots />,
+  chainsaw: <GiChainsaw />,
+  assessment: <MdAssessment />,
+  fallingTree: <GiAxeInLog />,
+  exclamation: <FaExclamationTriangle />,
+  treeBranch: <GiTreeBranch />,
+  chemicalDrop: <GiChemicalDrop />,
+  regrowth: <GiStumpRegrowth />,
 };

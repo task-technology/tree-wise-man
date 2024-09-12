@@ -6,8 +6,8 @@ const HowWeWork = () => {
   return (
     <section className="max-w-6xl mx-auto p-4 my-8 md:my-20 space-y-12 md:space-y-16">
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5 px-2">
-        <h2 className="text-2xl md:text-4xl font-light">{data.title}</h2>
-        <p className="text-base md:text-lg">{data.description}</p>
+        <h2 className="text-base md:text-xl font-light">{data.title}</h2>
+        <p className="text-xs md:text-sm">{data.description}</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {data.steps &&

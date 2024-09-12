@@ -113,51 +113,76 @@ export const home_data = {
 };
 
 export const how_we_work = {
-  title: "Designed to perfectly fit to your lifestyle",
+  title:
+    "A professional tree company can help you care for your trees throughout the year so that they are less likely to be impacted by severe storms. Arborists can inspect your trees for conditions that could predispose your trees to fall or break.",
   description:
-    "Prepared do an dissuade be so whatever steepest. Yet her beyond looked either day wished nay. By doubtful disposed.",
+    "Expertly performed tree care will keep your trees looking beautiful, complete, and healthy. Periodic tree trimming and pruning will help keep your trees vibrant by removing dead and dying branches and encouraging new growth while controlling tree size. Regular tree care can also reduce hazards such as falling limbs or low-hanging branches and make trees more storm-resistant.",
   steps: [
     {
       id: 1,
-      icon: icons.grid,
-      title: "Apps and Notifications",
+      icon: icons.treesRoot,
+      title: "Root Aeration",
       description:
-        "Called person are around county talked her esteem. Those fully these way nay thing seems.",
+        "Did you know that trees need oxygen? Yes, trees do need oxygen, just like other living organisms, to process the food they create through photosynthesis; they use oxygen for cellular respiration to break down sugars and release energy for growth, although they produce significantly more oxygen than they consume through the process of photosynthesis. Root aeration helps trees grow and stay healthy by loosening compacted soil around their roots.                          ",
     },
     {
       id: 2,
-      icon: icons.setting,
-      title: "Customizable Watch Faces",
+      icon: icons.chainsaw,
+      title: "Land Clearing",
       description:
-        "Called person are around county talked her esteem. Those fully these way nay thing seems.",
+        "Are you building a new home or need some property cleared out? Qualified arborists can help you with an in-depth walk through and analysis. Together, they will give you the best course of action and a step-by-step process on how the project will be performed. Also, your local Arborist will help you to address any government concerns regarding permits, etc.",
     },
     {
       id: 3,
-      icon: icons.compass,
-      title: "Built-in GPS",
+      icon: icons.assessment,
+      title: "Assessments",
       description:
-        "Called person are around county talked her esteem. Those fully these way nay thing seems.",
+        "Tree assessments are the first step in determining if your trees can be saved. If you are concerned about a dead, dangerous, or diseased tree, the highly-qualified tree specialists will discuss your options and costs up-front, whether it be the cost of tree removal, the cost for stump grinding, or any other services. ",
     },
     {
       id: 4,
-      icon: icons.barChart,
-      title: "Third-Party Health Apps",
+      icon: icons.fallingTree,
+      title: "Tree Removal",
       description:
-        "Called person are around county talked her esteem. Those fully these way nay thing seems.",
+        "The goal is always to save a tree, but if a damaged tree is threatening to fall and compromise your residential or commercial property? These companies will be able to protect you and your loved ones using the latest and greatest technologies should your trees need to be removed.",
     },
     {
       id: 5,
-      icon: icons.pieChart,
-      title: "Activity Rings",
+      icon: icons.exclamation,
+      title: "Emergencies",
       description:
-        "Called person are around county talked her esteem. Those fully these way nay thing seems.",
+        "Has a natural disaster recently impacted your area? Is a tree at risk of falling on your property? If you need emergency tree removal, one of these local companies can get out to you quickly and get the dangerous trees removed. ",
     },
     {
       id: 6,
-      icon: icons.heart,
-      title: "Heart Rate Sensor",
+      icon: icons.treeBranch,
+      title: "Tree Pruning",
       description:
-        "Called person are around county talked her esteem. Those fully these way nay thing seems.",
+        "Are your tree branches too close to the house or affecting your curb appeal? Arborists can help you maintain a safe, beautiful, and well-maintained & manicured landscape by practicing proper pruning techniques.           ",
+    },
+    {
+      id: 7,
+      icon: icons.chemicalDrop,
+      title: "Bio-Remediation",
+      description:
+        "Much like how the human body requires proper nutrients, your trees may be suffering due to poor soil conditions, such as the presence of contaminants, toxins, or other pollutants.",
+    },
+    {
+      id: 8,
+      icon: icons.regrowth,
+      title: "Stump Grinding",
+      description:
+        "Stump grinding is a vital process to remove tree stumps and roots to prevent any future growth.                       ",
     },
   ],
+};
+
+export const aboutCompanyData = {
+  title: "LOCAL CHRISTIAN-OWNED TREE SERVICES ARE READY TO SERVE YOUR NEEDS!",
+  about: `Trees are a living legacy and a future investment in your residential  and commercial property. These Christian-Owned tree services have worked         with many of your neighbors for years, helping to care for their trees     
+        and enhance the value of their homes and businesses. Arborists provide
+        personalized care and expertise for every tree care need, understanding
+        that trees represent an important and enjoyable part of your daily
+        environment.
+`,
 };
