@@ -32,10 +32,10 @@ const Services = () => {
   }
 
   return (
-    <main className="bg-gray-100 min-h-screen flex mt-20 justify-center">
-      <div className="max-w-7xl w-full flex flex-col items-center space-y-2 md:space-y-8 px-4 py-3 md:py-6">
+    <main className="bg-gray-100 min-h-screen flex mt-20 justify-center w-full">
+      <div className="max-w-7xl w-8/12 flex flex-col items-center space-y-2 md:space-y-8 px-4 py-3 md:py-6">
         <h2 className="text-xl md:text-3xl font-bold text-center mb-2">
-          Find Services by Zip Code and State
+          Find Tree Wise Men Near Me
         </h2>
         <Form />
 
@@ -191,6 +191,21 @@ const Services = () => {
           )}
         </div>
       </div>
+
+      <section className="w-4/12">
+        <div className="relative w-full min-h-screen">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26588344.458482444!2d-117.92179875201163!3d35.56240656685558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1726134726446!5m2!1sen!2sbd"
+            width="100%"
+            height="100%"
+            style={{ border: "0" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="absolute inset-0"
+          ></iframe>
+        </div>
+      </section>
     </main>
   );
 };

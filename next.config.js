@@ -7,6 +7,7 @@ const nextConfig = {
       "https://images.unsplash.com",
       "leafty.codelayers.net",
       "encrypted-tbn0.gstatic.com",
+      "https://maps.googleapis.com",
     ],
   },
 };
