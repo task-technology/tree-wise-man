@@ -8,7 +8,7 @@ const SectionTitle = ({
   return (
     <div className="flex justify-center items-center">
       <h1
-        className={`${className} text-center uppercase text-3xl font-bold py-2 border-b-2 border-primary`}
+        className={`${className} text-center uppercase text-xl md:text-3xl font-bold py-2 border-b-2 border-primary`}
       >
         {title}
       </h1>

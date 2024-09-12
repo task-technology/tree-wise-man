@@ -24,7 +24,7 @@ const AboutSection: React.FC = () => {
           data-aos-duration="1000"
         >
           <span className="text-orange-500 font-semibold text-lg md:text-xl">
-            Lorem ipsum dolor !
+            WHY USE A CHRISTIAN-OWNED TREE SERVICE?
           </span>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
             Nullam quis risus eget urna mollis ornare vel eu leo. Donec id elit

@@ -36,9 +36,9 @@ export const home_data = {
   ],
 
   search: {
-    first_title: "Enter your zip code to find",
-    sec_title: "a Tree Wise Man",
-    description: "near you",
+    first_title: "Ready to Find",
+    sec_title: "TREE WISE MEN",
+    description: "Near You?",
     button: {
       text: "GO",
       link: "/contact",

@@ -1,6 +1,7 @@
 //
 
 import { isLoggedIn } from "../../../shared/auth/auth.service";
+import AboutCompany from "./partials/AboutCompany";
 import MyAccordion from "./partials/Accordion";
 import Hero from "./partials/Hero";
 import HowWeWork from "./partials/HowWeWork";
@@ -12,6 +13,7 @@ const Home = () => {
   return (
     <div id="home" className="mt-20">
       <Hero />
+      <AboutCompany />
       <LogoHeadline />
       <Search />
       <HowWeWork />
