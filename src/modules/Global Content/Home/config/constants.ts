@@ -6,30 +6,32 @@ export const home_data = {
     {
       id: 1,
       logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724228008/cedric-streit-H7qMwOxf6Z8-unsplash_s0nskr.jpg",
-      headline: "Welcome to Our Website",
-      title: "Discover Amazing Products",
-      btnValue: "Shop Now",
-      btnLink: "/shop",
+      headline:
+        "LOCAL CHRISTIAN-OWNED TREE SERVICES ARE READY TO SERVE YOUR NEEDS!",
+      title: `Trees are a living legacy and a future investment in your residential  and commercial property. These Christian-Owned tree services have worked         with many of your neighbors for years, helping to care for their trees     
+        and enhance the value of their homes and businesses. Arborists provide
+        personalized care and expertise for every tree care need, understanding
+        that trees represent an important and enjoyable part of your daily
+        environment.`,
       image:
         "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227680/heber-davis-5vKQOaAL3IQ-unsplash_kuolww.jpg",
     },
     {
       id: 2,
       logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724228009/krish-parmar-QsnLLIHwY8Y-unsplash_vn6ugg.jpg",
-      headline: "Explore Our Collection",
-      title: "Find What You Love",
-      btnValue: "Explore",
-      btnLink: "/explore",
+      headline:
+        "Trees are the longest living organisms on Earth, and never die of old age.",
+      title: `California holds the record for the oldest living trees. Some of the state’s bristlecone pines and giant sequoias are 4,000-5,000 years old. Methuselah, an estimated 4,852-year-old ancient Bristlecone Pine, is one of the oldest living trees in the world.`,
+
       image:
         "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227680/dan-edwards-SId-lmFXSDU-unsplash_aqa6r8.jpg",
     },
     {
       id: 3,
       logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724228047/chris-kursikowski-ze5wHM9kplc-unsplash_t2elhd.jpg",
-      headline: "Contact Us Today",
-      title: "We Are Here to Help",
-      btnValue: "Contact Us",
-      btnLink: "/contact",
+      headline: "Learn More About Our Local Christian-Owned Tree Services",
+      title: `There are many tree services out there, and whenever possible, be sure to hire a Christian-Owned company to meet your needs. It is important to hire companies that share your values. Tree work is dangerous work, especially when trees are close to your home or building. As a property owner, you need to be able to trust the contractors working on your property. It is important that the companies you hire follow The Golden Rule: “Do to others as you would like them to do to you” - Luke 6:31`,
+
       image:
         "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227682/collab-media-4qidjSH-9x0-unsplash_d3njpn.jpg",
     },

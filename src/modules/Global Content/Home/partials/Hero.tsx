@@ -89,22 +89,13 @@ const Hero = () => {
                               styles.uptoDown
                             )}
                           >
-                            <h1 className="text-lg md:text-5xl text-solidWhite font-semibold">
+                            <h1 className="text-[10px] md:text-3xl text-solidWhite font-semibold">
                               {data?.headline}
                             </h1>
-                            <h3 className="text-sm md:text-2xl text-solidWhite font-semibold">
+                            <h3 className="text-[6px] md:text-lg text-solidWhite font-semibold">
                               {data?.title}
                             </h3>
                           </div>
-                          <button
-                            key={animationKey}
-                            className={cx(
-                              "text-xs md:text-base py-1 text-solidWhite px-3  rounded-full mt-5 font-semibold border-2",
-                              styles.zoomIn
-                            )}
-                          >
-                            {data?.btnValue}
-                          </button>
                         </div>
                       </section>
                       <div
@@ -154,7 +145,7 @@ const Hero = () => {
                         />
                       </div>
                       <section className="w-1/2  h-60 md:h-screen flex items-center">
-                        <div className="z-50 ">
+                        <div className="z-50 pr-0 md:pr-10">
                           <div
                             key={`${animationKey}-${data.id}`}
                             className={cx(
@@ -162,22 +153,13 @@ const Hero = () => {
                               styles.uptoDown
                             )}
                           >
-                            <h1 className="text-lg md:text-5xl text-solidWhite font-semibold">
+                            <h1 className="text-[10px] md:text-3xl text-solidWhite font-semibold">
                               {data?.headline}
                             </h1>
-                            <h3 className="text-sm md:text-2xl text-solidWhite font-semibold">
+                            <h3 className="text-[6px] md:text-lg text-solidWhite font-semibold">
                               {data?.title}
                             </h3>
                           </div>
-                          <button
-                            key={animationKey}
-                            className={cx(
-                              "text-xs md:text-base py-1 text-solidWhite px-3 bg-blue-light rounded-full mt-5 font-semibold border-2",
-                              styles.zoomIn
-                            )}
-                          >
-                            {data?.btnValue}
-                          </button>
                         </div>
                       </section>
                     </>
