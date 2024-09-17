@@ -17,10 +17,10 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row justify-between">
           <div className="max-w-[300px] mx-auto px-4 lg:mx-0">
             <Brand />
-            <p className="font-[500] text-md font-primary text-white mt-4">
+            {/* <p className="font-[500] text-md font-primary text-white mt-4">
               {layout_data.footer.subtitle}
-            </p>
-            <div className="flex space-x-6 mt-4">
+            </p> */}
+            {/* <div className="flex space-x-6 mt-4">
               <Link href={layout_data.footer.social_links.facebook}>
                 <p className=" border-2 border-white text-white p-2 rounded-full text-xl hover:bg-secondary hover:translate-y-1 duration-300">
                   {icons.facebook}
@@ -41,7 +41,7 @@ const Footer = () => {
                   {icons.Twitter}
                 </p>
               </Link>
-            </div>
+            </div> */}
           </div>
           <div className="pt-11 lg:w-9/12 grid grid-cols-1 gap-9 lg:gap-5 lg:grid-cols-3 text-white px-4">
             <Navigation_sec />
