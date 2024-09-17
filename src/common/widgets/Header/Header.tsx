@@ -10,6 +10,7 @@ import UserProfile from "./partials/user profile/UserProfile";
 import { isLoggedIn, isUserAdmin } from "../../../shared/auth/auth.service";
 import UserProfileAdmin from "./partials/user profile admin/UserProfileAdmin";
 import Link from "next/link";
+import logo from "@public/The_Tree_Wise_Logo.png";
 import Button from "@components/Button";
 
 const Header = () => {
@@ -48,11 +49,9 @@ const Header = () => {
           <abbr title="Tree Wise Men USA Home">
             <Link href="/">
               <Image
-                src={
-                  "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png"
-                }
-                height={50}
-                width={50}
+                src={logo}
+                height={80}
+                width={80}
                 alt="Logo"
                 className=""
               />
