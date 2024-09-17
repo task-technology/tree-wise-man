@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import SocialMediaLinks from "../Media Links/MediaLinks";
 
 const ContactForm: React.FC = () => {
   const [name, setName] = useState("");
@@ -67,7 +66,7 @@ const ContactForm: React.FC = () => {
             onChange={(e) => setMessage(e.target.value)}
           />
         </div>
-        <div className="flex justify-center w-full">
+        <div className="flex justify-center w-full pb-10">
           <button
             className="w-full bg-primary hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 duration-300"
             type="submit"
@@ -76,7 +75,7 @@ const ContactForm: React.FC = () => {
           </button>
         </div>
       </form>
-      <SocialMediaLinks />
+      {/* <SocialMediaLinks /> */}
     </div>
   );
 };
