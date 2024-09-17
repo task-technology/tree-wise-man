@@ -5,6 +5,7 @@ import slide3 from "../../../../../public/slide image 3.png";
 import slideBg1 from "@public/slide bg 1.jpg";
 import slideBg2 from "@public/slide bg 2.jpg";
 import slideBg3 from "@public/slide bg 3.jpg";
+import logo from "@public/The_Tree_Wise_Logo.png";
 
 export const home_data = {
   //
@@ -211,6 +212,10 @@ export const how_we_work = {
     },
     {
       id: 8,
+      logo: logo,
+    },
+    {
+      id: 9,
       icon: icons.regrowth,
       title: "Stump Grinding",
       description:
