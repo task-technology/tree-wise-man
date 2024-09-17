@@ -2,6 +2,9 @@ import { icons } from "@libs/Icons";
 import slide1 from "../../../../../public/slide image 1.jpg";
 import slide2 from "../../../../../public/slide image 2.png";
 import slide3 from "../../../../../public/slide image 3.png";
+import slideBg1 from "@public/slide bg 1.jpg";
+import slideBg2 from "@public/slide bg 2.jpg";
+import slideBg3 from "@public/slide bg 3.jpg";
 
 export const home_data = {
   //
@@ -16,8 +19,7 @@ export const home_data = {
         personalized care and expertise for every tree care need, understanding
         that trees represent an important and enjoyable part of your daily
         environment.`,
-      image:
-        "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227680/heber-davis-5vKQOaAL3IQ-unsplash_kuolww.jpg",
+      image: slideBg1.src,
     },
     {
       id: 2,
@@ -26,8 +28,7 @@ export const home_data = {
         "Trees are the longest living organisms on Earth, and never die of old age.",
       title: `California holds the record for the oldest living trees. Some of the state’s bristlecone pines and giant sequoias are 4,000-5,000 years old. Methuselah, an estimated 4,852-year-old ancient Bristlecone Pine, is one of the oldest living trees in the world.`,
 
-      image:
-        "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227680/dan-edwards-SId-lmFXSDU-unsplash_aqa6r8.jpg",
+      image: slideBg2.src,
     },
     {
       id: 3,
@@ -35,8 +36,7 @@ export const home_data = {
       headline: "Learn More About Our Local Christian-Owned Tree Services",
       title: `There are many tree services out there, and whenever possible, be sure to hire a Christian-Owned company to meet your needs. It is important to hire companies that share your values. Tree work is dangerous work, especially when trees are close to your home or building. As a property owner, you need to be able to trust the contractors working on your property. It is important that the companies you hire follow The Golden Rule: “Do to others as you would like them to do to you” - Luke 6:31`,
 
-      image:
-        "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227682/collab-media-4qidjSH-9x0-unsplash_d3njpn.jpg",
+      image: slideBg3.src,
     },
   ],
 
