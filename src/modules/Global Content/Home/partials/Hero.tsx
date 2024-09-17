@@ -13,12 +13,14 @@ import { home_data } from "../config/constants";
 import { cx } from "@config/constants";
 import Image from "next/image";
 import slideBg1 from "@public/slide bg 1.jpg";
+
 const Hero = () => {
   // destructure
   const { slides } = home_data;
 
   const swiperRef = useRef<any>(null);
   const [animationKey, setAnimationKey] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -45,6 +47,18 @@ const Hero = () => {
     }
   }, []);
 
+  useEffect(() => {
+    // Check if it's a mobile device
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Setting a breakpoint for mobile
+    };
+
+    checkIfMobile();
+    window.addEventListener("resize", checkIfMobile);
+
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
+
   return (
     <>
       <header className="relative h-60 md:h-screen ">
@@ -59,7 +73,8 @@ const Hero = () => {
           pagination={{
             clickable: true,
           }}
-          navigation={true}
+          // Remove navigation for mobile
+          navigation={!isMobile}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper h-full"
         >
@@ -81,7 +96,7 @@ const Hero = () => {
                         )}
                         key={animationKey}
                       ></div> */}
-                      <section className="w-2/3  h-60 md:h-screen flex items-center justify-center">
+                      <section className="w-3/5  h-60 md:h-screen flex items-center justify-center">
                         <div className="z-50 pl-0 md:pl-20">
                           <div
                             key={`${animationKey}-${data.id}`}
@@ -101,7 +116,7 @@ const Hero = () => {
                       </section>
                       <div
                         className={cx(
-                          "w-1/3 mx-auto rounded-3xl",
+                          "w-2/5 mx-auto rounded-3xl",
                           styles.perspectiveEven
                         )}
                       >
@@ -129,7 +144,7 @@ const Hero = () => {
                       ></div> */}
                       <div
                         className={cx(
-                          "w-1/3 mx-auto rounded-3xl",
+                          "w-2/5 mx-auto rounded-3xl",
                           styles.perspective
                         )}
                       >
@@ -145,7 +160,7 @@ const Hero = () => {
                           height={240} // 60 * 4 (tailwind unit conversion)
                         />
                       </div>
-                      <section className="w-2/3  h-60 md:h-screen flex items-center">
+                      <section className="w-3/5  h-60 md:h-screen flex items-center">
                         <div className="z-50 pr-0 md:pr-20">
                           <div
                             key={`${animationKey}-${data.id}`}

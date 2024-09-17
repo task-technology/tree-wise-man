@@ -29,6 +29,7 @@ const config: Config = {
         fb: "#0865fc",
         instagram: "#E1306C",
         internet: "#1E90FF",
+        logoColor: "#45516b",
       },
       fontFamily: {
         primary: ["Poppins", "sans-serif"],

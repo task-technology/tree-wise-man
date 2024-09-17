@@ -49,11 +49,11 @@ const Header = () => {
           <abbr title="Tree Wise Men USA Home">
             <Link href="/">
               <Image
+                className="h-auto w-14 md:w-16 "
                 src={logo}
-                height={80}
-                width={80}
+                height={70}
+                width={70}
                 alt="Logo"
-                className=""
               />
             </Link>
           </abbr>

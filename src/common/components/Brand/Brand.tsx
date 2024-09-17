@@ -4,7 +4,7 @@ import { logo } from "@config/constants";
 
 const Brand = () => {
   return (
-    <div className="w-44 h-auto">
+    <div className="w-44 md:w-52 h-auto">
       <Image
         src={logo}
         width={140}

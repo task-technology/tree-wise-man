@@ -17,6 +17,9 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row justify-between">
           <div className="max-w-[300px] mx-auto px-4 lg:mx-0">
             <Brand />
+            <h3 className="text-center font-medium text-base md:text-xl text-logoColor pt-3">
+              Tree Wise Men USA
+            </h3>
             {/* <p className="font-[500] text-md font-primary text-white mt-4">
               {layout_data.footer.subtitle}
             </p> */}

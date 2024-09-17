@@ -16,7 +16,7 @@ const HowWeWork = () => {
             step?.id === 8 ? (
               <div key={step?.id}>
                 <Image
-                  className={"hidden md:block h-60 w-48 mx-auto  rounded-md"}
+                  className={"hidden md:block h-auto w-48 mx-auto  rounded-md"}
                   src={step?.logo || ""}
                   alt="logo"
                   width={208} // 52 * 4
