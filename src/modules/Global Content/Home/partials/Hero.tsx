@@ -59,7 +59,7 @@ const Hero = () => {
           pagination={{
             clickable: true,
           }}
-          // navigation={true}
+          navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper h-full"
         >
@@ -81,8 +81,8 @@ const Hero = () => {
                         )}
                         key={animationKey}
                       ></div> */}
-                      <section className="w-1/2  h-60 md:h-screen flex items-center justify-center">
-                        <div className="z-50 pl-5 md:pl-14">
+                      <section className="w-2/3  h-60 md:h-screen flex items-center justify-center">
+                        <div className="z-50 pl-0 md:pl-20">
                           <div
                             key={`${animationKey}-${data.id}`}
                             className={cx(
@@ -101,14 +101,14 @@ const Hero = () => {
                       </section>
                       <div
                         className={cx(
-                          "w-1/2 mx-auto rounded-3xl",
+                          "w-1/3 mx-auto rounded-3xl",
                           styles.perspectiveEven
                         )}
                       >
                         <Image
                           key={animationKey}
                           className={cx(
-                            "h-32 w-28  md:h-60 md:w-52 mx-auto rounded-md",
+                            "h-32 w-28  md:h-72 md:w-60 mx-auto rounded-md",
                             styles.uptoDown
                           )}
                           src={data?.logo}
@@ -129,14 +129,14 @@ const Hero = () => {
                       ></div> */}
                       <div
                         className={cx(
-                          "w-1/2 mx-auto rounded-3xl",
+                          "w-1/3 mx-auto rounded-3xl",
                           styles.perspective
                         )}
                       >
                         <Image
                           key={animationKey}
                           className={cx(
-                            "h-32 w-28  md:h-60 md:w-52 mx-auto rounded-md",
+                            "h-32 w-28  md:h-72 md:w-60 mx-auto rounded-md",
                             styles.uptoDown
                           )}
                           src={data?.logo}
@@ -145,8 +145,8 @@ const Hero = () => {
                           height={240} // 60 * 4 (tailwind unit conversion)
                         />
                       </div>
-                      <section className="w-1/2  h-60 md:h-screen flex items-center">
-                        <div className="z-50 pr-0 md:pr-10">
+                      <section className="w-2/3  h-60 md:h-screen flex items-center">
+                        <div className="z-50 pr-0 md:pr-20">
                           <div
                             key={`${animationKey}-${data.id}`}
                             className={cx(
