@@ -1,5 +1,5 @@
 import { icons } from "@libs/Icons";
-import slide1 from "../../../../../public/slide image 1.jpg";
+import slide1 from "../../../../../public/slide image 1.png";
 import slide2 from "../../../../../public/slide image 2.png";
 import slide3 from "../../../../../public/slide image 3.png";
 import slideBg1 from "@public/slide bg 1.jpg";

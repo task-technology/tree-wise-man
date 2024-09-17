@@ -49,7 +49,7 @@ const AboutSection: React.FC = () => {
         >
           <div className="relative h-0 pb-[80%]">
             <Image
-              src="https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227680/dan-edwards-SId-lmFXSDU-unsplash_aqa6r8.jpg"
+              src={aboutUsData?.sideImage}
               alt="Tree Photo"
               fill
               priority
