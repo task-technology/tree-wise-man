@@ -52,7 +52,7 @@ const Hero = () => {
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
-            delay: 7000,
+            delay: 15000,
             disableOnInteraction: false,
           }}
           pagination={{
@@ -73,13 +73,13 @@ const Hero = () => {
                 <div className="flex items-center  md:min-h-screen w-full relative overflow-hidden px-2 md:px-0">
                   {data.id % 2 === 0 ? (
                     <>
-                      <div
+                      {/* <div
                         className={cx(
                           "absolute bottom-[-41rem] right-[-40rem] ",
                           styles.animationEven
                         )}
                         key={animationKey}
-                      ></div>
+                      ></div> */}
                       <section className="w-1/2  h-60 md:h-screen flex items-center justify-center">
                         <div className="z-50 pl-5 md:pl-14">
                           <div
@@ -119,13 +119,13 @@ const Hero = () => {
                     </>
                   ) : (
                     <>
-                      <div
+                      {/* <div
                         className={cx(
                           "w-[60rem] h-[60rem] rounded-full absolute left-[-20rem] bottom-[-20rem] ",
                           styles.animationOdd
                         )}
                         key={animationKey}
-                      ></div>
+                      ></div> */}
                       <div
                         className={cx(
                           "w-1/2 mx-auto rounded-3xl",
