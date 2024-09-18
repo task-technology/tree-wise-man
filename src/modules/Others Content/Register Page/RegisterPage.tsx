@@ -112,7 +112,7 @@ const Register = () => {
 
             <div>
               <InputWithValue
-                labelName="Designation"
+                labelName="Job Title"
                 inputType="text"
                 inputName="designation"
                 value={designation}
