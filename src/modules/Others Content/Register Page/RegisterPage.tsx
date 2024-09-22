@@ -136,7 +136,6 @@ const Register = () => {
                 label="Upload Your Photo"
                 file={file}
                 setFile={setFile}
-                required
               />
             </div>
           </div>

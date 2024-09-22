@@ -108,7 +108,6 @@ const AdminCreateForm = () => {
         </div>
         <div className="mb-8">
           <PhotoUpload
-            required
             label="Upload Your Photo"
             setFile={setFile}
             file={file}
