@@ -17,15 +17,35 @@ export const handleRegister = async (
 ) => {
   e.preventDefault();
   setLoading(true);
-  const photoUploadResult = await uploadPhoto(file.target.files[0]);
 
-  if (photoUploadResult.success) {
+  if (file) {
+    const photoUploadResult = await uploadPhoto(file.target.files[0]);
+
+    if (photoUploadResult.success) {
+      const fullData = {
+        name,
+        email,
+        company,
+        contactNo: contactNo || "",
+        profileImage: photoUploadResult.url,
+        designation,
+        password,
+      };
+      const result = await createUser({ fullData });
+      const isSwalTrue = showSwal(result);
+      if (isSwalTrue) {
+        router?.push("/login");
+      }
+    } else {
+      swal("Error", photoUploadResult.message, "error");
+    }
+  } else {
     const fullData = {
       name,
       email,
       company,
       contactNo: contactNo || "",
-      profileImage: photoUploadResult.url,
+      profileImage: "",
       designation,
       password,
     };
@@ -34,8 +54,6 @@ export const handleRegister = async (
     if (isSwalTrue) {
       router?.push("/login");
     }
-  } else {
-    swal("Error", photoUploadResult.message, "error");
   }
   setLoading(false);
 };

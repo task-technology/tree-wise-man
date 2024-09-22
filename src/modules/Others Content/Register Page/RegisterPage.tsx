@@ -132,7 +132,12 @@ const Register = () => {
               />
             </div>
             <div className="md:col-span-2">
-              <PhotoUpload file={file} setFile={setFile} required />
+              <PhotoUpload
+                label="Upload Your Photo"
+                file={file}
+                setFile={setFile}
+                required
+              />
             </div>
           </div>
           <div className="w-full">

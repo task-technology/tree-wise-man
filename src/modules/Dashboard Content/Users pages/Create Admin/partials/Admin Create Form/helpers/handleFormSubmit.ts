@@ -18,15 +18,35 @@ export const handleFormSubmit = async (
 ) => {
   e.preventDefault();
   setLoading(true);
-  const photoUploadResult = await uploadPhoto(file.target.files[0]);
 
-  if (photoUploadResult.success) {
+  if (file) {
+    const photoUploadResult = await uploadPhoto(file.target.files[0]);
+
+    if (photoUploadResult.success) {
+      const fullData = {
+        name,
+        email,
+        company: companyName || "",
+        contactNo: contactNo || "",
+        profileImage: photoUploadResult.url,
+        designation,
+        password,
+      };
+      const result = await createUser({ fullData, token });
+      const isSwalTrue = showSwal(result);
+      if (isSwalTrue) {
+        router?.push("/dashboard/user/admin-list");
+      }
+    } else {
+      swal("Error", photoUploadResult.message, "error");
+    }
+  } else {
     const fullData = {
       name,
       email,
       company: companyName || "",
       contactNo: contactNo || "",
-      profileImage: photoUploadResult.url,
+      profileImage: "",
       designation,
       password,
     };
@@ -35,8 +55,6 @@ export const handleFormSubmit = async (
     if (isSwalTrue) {
       router?.push("/dashboard/user/admin-list");
     }
-  } else {
-    swal("Error", photoUploadResult.message, "error");
   }
 
   setLoading(false);

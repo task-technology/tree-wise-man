@@ -106,8 +106,7 @@ const UserCreateForm = () => {
         </div>
         <div className="mb-8">
           <PhotoUpload
-            required
-            label="Upload Profile Photo"
+            label="Upload Your Photo"
             setFile={setFile}
             file={file}
             inputClass="bg-transparent text-solidWhite border border-slateLightThird"
