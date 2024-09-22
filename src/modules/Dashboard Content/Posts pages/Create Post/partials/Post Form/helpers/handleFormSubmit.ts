@@ -1,6 +1,6 @@
 import { uploadPhoto } from "@components/Photo Upload/helpers/handlePhotoUpload";
 import { showSwal } from "../../../../../../../shared/helpers/SwalShower";
-import swal from "sweetalert"
+import swal from "sweetalert";
 
 export const handleFormSubmit = async (
   e: React.FormEvent,
@@ -21,8 +21,32 @@ export const handleFormSubmit = async (
 ) => {
   e.preventDefault();
   setLoading(true);
-  const photoUploadResult = await uploadPhoto(file.target.files[0]);
-  if (photoUploadResult.success) {
+  if (file) {
+    const photoUploadResult = await uploadPhoto(file.target.files[0]);
+    if (photoUploadResult.success) {
+      const fullData = {
+        title: companyName || "",
+        urlLink: companyWebsite || "",
+        zipCode: zipCode || "",
+        state: selectState?.state,
+        content: aboutCompany || "",
+        published: isPublic === "public" ? true : false,
+        image: photoUploadResult.url,
+
+        facebookLink: fbLink,
+        instagramLink: insLink,
+        twitterLink: twtrLink,
+      };
+
+      const result = await createService({ fullData, token });
+      const isSwalTrue = showSwal(result);
+      if (isSwalTrue) {
+        router?.push("/dashboard/post/posts-list");
+      }
+    } else {
+      swal("Error", photoUploadResult.message, "error");
+    }
+  } else {
     const fullData = {
       title: companyName || "",
       urlLink: companyWebsite || "",
@@ -30,7 +54,7 @@ export const handleFormSubmit = async (
       state: selectState?.state,
       content: aboutCompany || "",
       published: isPublic === "public" ? true : false,
-      image: photoUploadResult.url,
+      image: "",
 
       facebookLink: fbLink,
       instagramLink: insLink,
@@ -42,8 +66,6 @@ export const handleFormSubmit = async (
     if (isSwalTrue) {
       router?.push("/dashboard/post/posts-list");
     }
-  } else {
-    swal("Error", photoUploadResult.message, "error");
   }
   setLoading(false);
 };

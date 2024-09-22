@@ -152,12 +152,7 @@ const PostForm = () => {
               </div>
             </div>
             <div className="md:col-span-2 ">
-              <PhotoUpload
-                required
-                label="Upload Logo"
-                setFile={setFile}
-                file={file}
-              />
+              <PhotoUpload label="Upload Logo" setFile={setFile} file={file} />
             </div>
           </div>
           <div className="text-center w-1/3 mx-auto">
