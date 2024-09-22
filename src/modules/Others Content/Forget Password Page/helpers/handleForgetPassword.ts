@@ -10,9 +10,9 @@ export const handleForgetPassword = async (
     email,
   };
   const result = await forgetPassword({ fullData });
+  console.log(result);
   const isSwalTrue = showSwal(result);
   if (isSwalTrue) {
     console.log("hello");
   }
-  
 };

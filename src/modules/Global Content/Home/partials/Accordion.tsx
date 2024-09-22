@@ -7,7 +7,6 @@ import Button from "@components/Button";
 const MyAccordion = () => {
   const [isMore, setIsMore] = useState(5);
   const { frequently_asked_questions } = home_data;
-  console.log("hello", isMore);
   return (
     <section className="my-8 md:my-20">
       <div className="flex justify-center items-center pb-6 md:pb-10">

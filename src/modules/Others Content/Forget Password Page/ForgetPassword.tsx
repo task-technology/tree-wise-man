@@ -23,21 +23,13 @@ const ForgotPassword = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 relative">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://res.cloudinary.com/dvpnbsehd/image/upload/v1724227680/heber-davis-5vKQOaAL3IQ-unsplash_kuolww.jpg')",
-        }}
-      ></div>
-      <div className="absolute inset-0 bg-black opacity-70"></div>
+    <div className="min-h-screen flex items-center justify-center  relative">
       <div
         data-aos="fade-up"
         className="relative z-10 p-8 rounded-lg shadow-lg w-full max-w-md overflow-y-hidden"
       >
         <div className="py-2">
-          <SectionTitle className="text-solidWhite" title="Forgot Password" />
+          <SectionTitle title="Forgot Password" />
         </div>
         <form
           onSubmit={(e) => handleForgetPassword(e, email, forgetPassword)}
@@ -46,13 +38,11 @@ const ForgotPassword = () => {
           <div>
             <InputWithValue
               labelName="Email"
-              labelClassName="text-solidWhite"
               inputType="email"
               inputName="email"
               value={email}
               onChange={(e: any) => setEmail(e.target.value)}
               required
-              className="bg-transparent text-solidWhite"
             />
           </div>
           <div className="w-full">
@@ -66,7 +56,7 @@ const ForgotPassword = () => {
             </Button>
           </div>
         </form>
-        <p className="mt-6 text-center text-grayForBorder">
+        <p className="mt-6 text-center ">
           Remembered your password?{" "}
           <Link href="/login">
             <span className="text-blue-400 hover:text-indigo-500">Login</span>

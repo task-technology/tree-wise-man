@@ -40,11 +40,11 @@ const OtherApi = baseApi.injectEndpoints({
     forgetPassword: builder.mutation({
       query: ({ token, fullData }) => {
         return {
-          url: "/auth/user/create-user",
+          url: "/reset-password",
           headers: {
             authorization: token,
           },
-          method: "DELETE",
+          method: "POST",
           body: fullData,
         };
       },
