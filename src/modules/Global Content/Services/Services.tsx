@@ -13,6 +13,7 @@ import { useSearchParams } from "next/navigation";
 import { emptyData } from "@config/constants";
 import Error from "@components/Error/Error";
 import ContactForm from "./Helpers/ContactForm/ContactForm";
+import demoLogo from "@public/demo logo.jpg";
 
 const Services = () => {
   const token = getFromCookie("accessToken");
@@ -50,19 +51,33 @@ const Services = () => {
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300 p-4 sm:p-5"
               >
                 <section className="flex flex-col items-center sm:flex-row gap-4 sm:gap-6">
-                  <div className="flex-shrink-0 mx-auto md:mx-0 w-[180px] relative h-[180px]">
-                    <Image
-                      src={result?.image}
-                      alt="Company Logo"
-                      fill
-                      sizes="(max-width: 768px) 100vw, (min-width: 769px) 180px"
-                      priority
-                      style={{ objectFit: "cover" }}
-                      className="rounded-full"
-                    />
-                  </div>
+                  {result?.image ? (
+                    <div className="flex-shrink-0 mx-auto md:mx-0 w-[180px] relative h-[180px]">
+                      <Image
+                        src={result?.image}
+                        alt="Company Logo"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (min-width: 769px) 180px"
+                        priority
+                        style={{ objectFit: "cover" }}
+                        className="rounded-full"
+                      />
+                    </div>
+                  ) : (
+                    <div className="flex-shrink-0 mx-auto md:mx-0 w-[180px] relative h-[180px]">
+                      <Image
+                        src={demoLogo}
+                        alt="Company Logo"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (min-width: 769px) 180px"
+                        priority
+                        style={{ objectFit: "cover" }}
+                        className="rounded-full"
+                      />
+                    </div>
+                  )}
 
-                  <div className="flex-1">
+                  <div className="md:flex-1 w-full">
                     <div className="flex justify-between items-center">
                       <div className="space-y-2 pb-2">
                         <h4 className="text-lg sm:text-xl font-bold">
@@ -141,18 +156,24 @@ const Services = () => {
                       </div>
                     </div>
 
-                    <p className="py-2 text-sm sm:text-base min-h-28">
+                    <p className="py-2 text-sm md:text-base min-h-28 ">
                       <strong>About us:</strong> {result?.content}
                     </p>
-                    <div className="flex flex-col sm:flex-row justify-between items-center mt-2 md:mt-4">
+                    <div className="flex  justify-between items-center  mt-2 md:mt-4">
                       <div className="flex items-center gap-2">
-                        <Image
-                          height={35}
-                          width={35}
-                          src={result?.author?.profileImage}
-                          alt="Author"
-                          className="rounded-full"
-                        />
+                        {result?.author?.profileImage ? (
+                          <Image
+                            height={35}
+                            width={35}
+                            src={result?.author?.profileImage}
+                            alt="Author"
+                            className="rounded-full"
+                          />
+                        ) : (
+                          <span className="rounded-full text-base md:text-lg border border-grayForBorder p-2">
+                            {icons?.user}
+                          </span>
+                        )}
                         <div>
                           <h3 className="font-semibold text-sm">
                             {result?.author?.name}
@@ -162,7 +183,7 @@ const Services = () => {
                           </h3>
                         </div>
                       </div>
-                      <span
+                      <div
                         onClick={() =>
                           handleSubmit({
                             serviceClick,
@@ -174,10 +195,10 @@ const Services = () => {
                         }
                         aria-label="Contact author"
                       >
-                        <Button className="mt-4 sm:mt-0 !py-1 !px-5 !text-sm hover:scale-110">
+                        <Button className=" !py-1 !px-5 !text-sm hover:scale-110">
                           Contact Us
                         </Button>
-                      </span>
+                      </div>
                     </div>
                   </div>
                 </section>
