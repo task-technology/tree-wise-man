@@ -2,14 +2,13 @@
 import React, { useState } from "react";
 
 const ContactForm: React.FC = () => {
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log("Form submitted:", { name, email, message });
+    console.log("Form submitted:", { email, message });
   };
 
   return (
@@ -21,22 +20,6 @@ const ContactForm: React.FC = () => {
         connect you with one.
       </h2>
       <form onSubmit={handleSubmit} className="space-y-2">
-        <div>
-          <label
-            className="block text-gray-800 text-sm font-semibold mb-2 text-solidBlack"
-            htmlFor="name"
-          >
-            Name
-          </label>
-          <input
-            id="name"
-            type="text"
-            placeholder="Your Name"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm "
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
         <div>
           <label
             className="block text-gray-800 text-sm font-semibold mb-2 text-solidBlack"

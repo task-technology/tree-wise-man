@@ -1,22 +1,27 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { how_we_work } from "../config/constants";
 import Image from "next/image";
+import Button from "@components/Button";
 
 const HowWeWork = () => {
+  const [isOpen, setIsOpen] = useState<{ [key: number]: boolean }>({}); // Initialize isOpen as an object
   const data = how_we_work;
+
   return (
     <section className="max-w-6xl mx-auto p-4 my-8 md:my-20 space-y-12 md:space-y-16">
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5 px-2">
         <h2 className="text-base md:text-xl font-light">{data.title}</h2>
         <p className="text-xs md:text-sm">{data.description}</p>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {data.steps &&
           data.steps.map((step) =>
-            step?.id === 8 ? (
+            step?.id === 5 ? (
               <div key={step?.id}>
                 <Image
-                  className={"hidden md:block h-auto w-48 mx-auto  rounded-md"}
+                  className="hidden md:block h-auto w-48 mx-auto rounded-md"
                   src={step?.logo || ""}
                   alt="logo"
                   width={208} // 52 * 4
@@ -35,7 +40,25 @@ const HowWeWork = () => {
                         {step.title}
                       </h5>
                       <article className="text-sm sm:text-base">
-                        {step.description}
+                        {step.description?.slice(
+                          0,
+                          isOpen[step?.id] ? step.description.length : 180
+                        )}
+                        {step.description && step.description.length > 180 && (
+                          <>
+                            <Button
+                              link
+                              onClick={() =>
+                                setIsOpen((prev) => ({
+                                  ...prev,
+                                  [step.id]: !prev[step.id], // Toggle open state for the specific step
+                                }))
+                              }
+                            >
+                              {isOpen[step?.id] ? "See Less" : "...See More"}
+                            </Button>
+                          </>
+                        )}
                       </article>
                     </div>
                   </div>

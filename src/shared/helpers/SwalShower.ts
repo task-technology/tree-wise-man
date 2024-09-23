@@ -16,7 +16,11 @@ export const showSwal = (result: any) => {
         text: errorMessage,
         icon: "error",
       }).then(() => {
-        window.location.href = "/login";
+        if (errorMessage === "No subscription found") {
+          window.location.href = "/dashboard/payment/first-payment";
+        } else {
+          window.location.href = "/login";
+        }
       });
     } else {
       swal("Error", errorMessage, "error");

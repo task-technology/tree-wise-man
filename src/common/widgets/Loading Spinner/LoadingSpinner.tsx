@@ -29,7 +29,7 @@ const LoadingSpinner = ({ fullHight = false }: { fullHight?: boolean }) => {
             type="rotate"
             attributeName="transform"
             calcMode="discrete"
-            dur="2s"
+            dur={1}
             values="360;324;288;252;216;180;144;108;72;36"
             repeatCount="indefinite"
           ></animateTransform>

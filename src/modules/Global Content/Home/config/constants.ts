@@ -191,10 +191,7 @@ export const how_we_work = {
     },
     {
       id: 5,
-      icon: icons.exclamation,
-      title: "Emergencies",
-      description:
-        "Has a natural disaster recently impacted your area? Is a tree at risk of falling on your property? If you need emergency tree removal, one of these local companies can get out to you quickly and get the dangerous trees removed. ",
+      logo: logo,
     },
     {
       id: 6,
@@ -212,7 +209,10 @@ export const how_we_work = {
     },
     {
       id: 8,
-      logo: logo,
+      icon: icons.exclamation,
+      title: "Emergencies",
+      description:
+        "Has a natural disaster recently impacted your area? Is a tree at risk of falling on your property? If you need emergency tree removal, one of these local companies can get out to you quickly and get the dangerous trees removed. ",
     },
     {
       id: 9,

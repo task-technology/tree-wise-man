@@ -58,7 +58,7 @@ const Button: FC<ButtonProps> = ({
   const SECONDARY_CLASS = `bg-transparent outline outline-[1.7px] !text-solidBlack outline-primary hover:!text-white hover:bg-primary`;
   const STATUS_CLASS = `bg-transparent border-slateLightThird !text-solidBlack border rounded-full text-sm  !py-1`;
   const btn_primary =
-    "px-5   bg-blue-light !text-solid-white border-0 text-lg rounded-md font-normal rounded-[4px]";
+    "px-5   bg-lightBlue !text-solid-white border-0 text-lg rounded-md font-normal rounded-[4px]";
   const btn_ghost =
     " px-5 hover:!bg-primary  !bg-[#D9D9D9] !text-solid-black border-0 text-lg rounded-md font-normal";
 
@@ -69,7 +69,7 @@ const Button: FC<ButtonProps> = ({
   const smallStyle =
     "!px-3 !py-1 rounded-md text-xs bg-shadeOfLightBlue hover:bg-sideBarBtnColor hover:text-solid-white text-solid-black";
 
-  const linkStyle = `!text-link-color !px-0 !py-0 hover:!text-blue-light hover:underline !bg-transparent`;
+  const linkStyle = `!text-linkColor !px-0 !py-0 hover:!text-lightBlue hover:underline !bg-transparent`;
   const transparentStyle = `!px-0 !py-0 !bg-transparent`;
 
   const _renderLoading = () => {

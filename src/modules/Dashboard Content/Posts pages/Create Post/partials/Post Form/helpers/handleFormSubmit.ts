@@ -62,6 +62,7 @@ export const handleFormSubmit = async (
     };
 
     const result = await createService({ fullData, token });
+
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {
       router?.push("/dashboard/post/posts-list");
