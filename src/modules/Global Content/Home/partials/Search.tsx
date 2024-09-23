@@ -29,7 +29,7 @@ const Search = () => {
   };
 
   return (
-    <section className="w-full min-h-[50vh] flex items-center justify-center">
+    <section className="w-full  flex items-center justify-center">
       <div className="bg-primary/30 max-w-6xl w-full lg:grid grid-cols-[2fr,1fr] flex flex-col space-y-6 lg:space-y-0 items-center px-4 lg:px-20 py-8 lg:py-20 mx-2">
         <div className="text-center lg:text-left">
           <h1 className="text-2x text-xl  md:text-[2.5rem] font-bold !leading-relaxed ">

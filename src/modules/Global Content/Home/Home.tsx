@@ -10,7 +10,7 @@ import Testimonial from "./partials/Testimonial";
 
 const Home = () => {
   return (
-    <div id="home" className="mt-20">
+    <div id="home" className="mt-16 md:mt-20">
       <Hero />
       <LogoHeadline />
       <Search />
