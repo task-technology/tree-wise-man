@@ -19,10 +19,9 @@ const PasswordChange = () => {
     e.preventDefault();
     const fullData = {
       email,
-      password,
+      newPassword: password,
     };
     const result = await passChange({ token, fullData });
-    console.log(result);
     showSwal(result);
   };
   return (

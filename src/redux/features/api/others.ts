@@ -75,6 +75,18 @@ const OtherApi = baseApi.injectEndpoints({
         };
       },
     }),
+    newsSubscribe: builder.mutation({
+      query: ({ token, fullData }) => {
+        return {
+          url: "/news-subscribe",
+          headers: {
+            authorization: token,
+          },
+          method: "POST",
+          body: fullData,
+        };
+      },
+    }),
 
     clickCountService: builder.mutation({
       query: ({ token, id }) => {
@@ -99,4 +111,5 @@ export const {
   useGetAnalyticsQuery,
   usePasswordChangeMutation,
   useContactUsMutation,
+  useNewsSubscribeMutation,
 } = OtherApi;

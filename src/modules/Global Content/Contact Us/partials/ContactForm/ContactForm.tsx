@@ -14,7 +14,7 @@ const ContactForm: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [sendEmail] = useContactUsMutation();
+  const [sendEmail, { isLoading }] = useContactUsMutation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,7 +30,13 @@ const ContactForm: React.FC = () => {
       message,
     };
     const result = await sendEmail({ token, fullData });
-    showSwal(result);
+
+    const isSwalTrue = showSwal(result);
+    if (isSwalTrue) {
+      setName("");
+      setEmail("");
+      setMessage("");
+    }
   };
 
   return (
@@ -73,7 +79,7 @@ const ContactForm: React.FC = () => {
           />
         </div>
         <div className=" w-full py-8">
-          <Button className="w-full" type="submit">
+          <Button loading={isLoading} className="w-full" type="submit">
             Send
           </Button>
         </div>

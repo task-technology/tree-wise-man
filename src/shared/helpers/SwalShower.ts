@@ -1,4 +1,6 @@
 import swal from "sweetalert";
+import { removeFromCookie } from "./local_storage";
+import { authKey } from "@config/constants";
 
 export const showSwal = (result: any) => {
   if (result?.data?.success) {
@@ -19,6 +21,7 @@ export const showSwal = (result: any) => {
         if (errorMessage === "No subscription found") {
           window.location.href = "/dashboard/payment/first-payment";
         } else {
+          removeFromCookie(authKey);
           window.location.href = "/login";
         }
       });
