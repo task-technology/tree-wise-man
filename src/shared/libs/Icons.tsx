@@ -31,6 +31,7 @@ import { FaChevronRight } from "react-icons/fa";
 import { MdDeleteOutline, MdAssessment } from "react-icons/md";
 import { FaFacebookSquare } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
+import { BsMotherboard } from "react-icons/bs";
 import {
   GiTreeRoots,
   GiChainsaw,
@@ -82,4 +83,5 @@ export const icons: any = {
   treeBranch: <GiTreeBranch />,
   chemicalDrop: <GiChemicalDrop />,
   regrowth: <GiStumpRegrowth />,
+  others: <BsMotherboard />,
 };

@@ -84,4 +84,18 @@ export const sidebarData = [
       },
     ],
   },
+  {
+    label: "Others",
+
+    icon: "others",
+
+    access: "admin",
+    sub_label: [
+      {
+        label: "Change Password",
+        link: "/dashboard/others/change-password",
+        access: "admin",
+      },
+    ],
+  },
 ];

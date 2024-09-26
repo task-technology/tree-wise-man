@@ -1,15 +1,36 @@
 "use client";
 import React, { useState } from "react";
+import { useContactUsMutation } from "../../../../../redux/features/api/others";
+import { getFromCookie } from "../../../../../shared/helpers/local_storage";
+import { authKey } from "@config/constants";
+import { showSwal } from "../../../../../shared/helpers/SwalShower";
+import { validateEmail } from "../../../../../shared/helpers/emailVerifications";
+import swal from "sweetalert";
+import InputWithValue from "@components/Input With Value";
+import Button from "@components/Button";
 
 const ContactForm: React.FC = () => {
+  const token = getFromCookie(authKey);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [sendEmail] = useContactUsMutation();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", { name, email, message });
+
+    if (!validateEmail(email)) {
+      swal("warning", "Please enter a valid email address", "Warning");
+      return;
+    }
+
+    const fullData = {
+      name,
+      email,
+      message,
+    };
+    const result = await sendEmail({ token, fullData });
+    showSwal(result);
   };
 
   return (
@@ -18,61 +39,43 @@ const ContactForm: React.FC = () => {
       <h2 className="text-4xl font-extrabold text-center mb-8 text-solidWhite">
         Contact Us
       </h2>
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-3">
         <div>
-          <label
-            className="block text-gray-800 text-sm font-semibold mb-2 text-solidWhite"
-            htmlFor="name"
-          >
-            Name
-          </label>
-          <input
-            id="name"
-            type="text"
-            placeholder="Your Name"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm "
+          <InputWithValue
+            required
+            labelClassName="text-solidWhite"
+            labelName="Name"
+            inputType="text"
+            inputPlaceholder="Your Name"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e: any) => setName(e.target.value)}
           />
         </div>
         <div>
-          <label
-            className="block text-gray-800 text-sm font-semibold mb-2 text-solidWhite"
-            htmlFor="email"
-          >
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="Your Email"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm "
+          <InputWithValue
+            required
+            labelClassName="text-solidWhite"
+            labelName="Email"
+            inputType="email"
+            inputPlaceholder="Your Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: any) => setEmail(e.target.value)}
           />
         </div>
         <div>
-          <label
-            className="block text-gray-800 text-sm font-semibold mb-2 text-solidWhite"
-            htmlFor="message"
-          >
-            Message
-          </label>
-          <textarea
-            id="message"
-            placeholder="Your Message"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm "
+          <InputWithValue
+            required
+            labelName="Message"
+            labelClassName="text-solidWhite"
+            inputPlaceholder="Your Message"
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={(e: any) => setMessage(e.target.value)}
           />
         </div>
-        <div className="flex justify-center w-full pb-10">
-          <button
-            className="w-full bg-primary hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 duration-300"
-            type="submit"
-          >
+        <div className=" w-full py-8">
+          <Button className="w-full" type="submit">
             Send
-          </button>
+          </Button>
         </div>
       </form>
       {/* <SocialMediaLinks /> */}

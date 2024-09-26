@@ -50,6 +50,32 @@ const OtherApi = baseApi.injectEndpoints({
       },
     }),
 
+    passwordChange: builder.mutation({
+      query: ({ token, fullData }) => {
+        return {
+          url: "/reset-password",
+          headers: {
+            authorization: token,
+          },
+          method: "POST",
+          body: fullData,
+        };
+      },
+    }),
+
+    contactUs: builder.mutation({
+      query: ({ token, fullData }) => {
+        return {
+          url: "/contact-us",
+          headers: {
+            authorization: token,
+          },
+          method: "POST",
+          body: fullData,
+        };
+      },
+    }),
+
     clickCountService: builder.mutation({
       query: ({ token, id }) => {
         return {
@@ -71,4 +97,6 @@ export const {
   useForgetPasswordMutation,
   useClickCountServiceMutation,
   useGetAnalyticsQuery,
+  usePasswordChangeMutation,
+  useContactUsMutation,
 } = OtherApi;
