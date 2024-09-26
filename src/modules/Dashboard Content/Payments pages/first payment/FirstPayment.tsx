@@ -61,7 +61,7 @@ const FirstPayment = () => {
         </div>
 
         {/* Custom Value Selector */}
-        <div className="mt-12 w-full max-w-md bg-white p-6 rounded-lg shadow-lg text-center ">
+        {/* <div className="mt-12 w-full max-w-md bg-white p-6 rounded-lg shadow-lg text-center ">
           <label
             htmlFor="customValue"
             className="block text-xl font-medium mb-6 text-gray-700"
@@ -92,7 +92,7 @@ const FirstPayment = () => {
           <p className="text-xl font-medium text-gray-800">
             Price: ${price.toFixed(2)}
           </p>
-        </div>
+        </div> */}
 
         {/* Proceed Button */}
         <Button
