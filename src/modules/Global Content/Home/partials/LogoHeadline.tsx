@@ -1,50 +1,8 @@
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import { logoHeadlineData } from "../config/constants";
 
 const LogoHeadline = () => {
-  const data = [
-    {
-      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
-      title: "The Tree Wise Men",
-      details: "Hello, world!",
-    },
-    {
-      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
-      title: "The Tree Wise Men",
-      details: "Hello, world!",
-    },
-    {
-      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
-      title: "The Tree Wise Men",
-      details: "Hello, world!",
-    },
-    {
-      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
-      title: "The Tree Wise Men",
-      details: "Hello, world!",
-    },
-    {
-      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
-      title: "The Tree Wise Men",
-      details: "Hello, world!",
-    },
-    {
-      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
-      title: "The Tree Wise Men",
-      details: "Hello, world!",
-    },
-    {
-      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
-      title: "The Tree Wise Men",
-      details: "Hello, world!",
-    },
-    {
-      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1724224184/vokvxqgzmfoxeng6xsf9.png", // Replace with the actual path to your logo image
-      title: "The Tree Wise Men",
-      details: "Hello, world!",
-    },
-  ];
-
   return (
     <section className="px-5 md:px-0 py-12 md:py-16">
       <div>
@@ -64,7 +22,7 @@ const LogoHeadline = () => {
 
         {/* Marquee Section */}
         <Marquee className="px-2 md:px-5">
-          {data?.map((company, index) => (
+          {logoHeadlineData?.map((company, index) => (
             <div key={index} className="flex items-center px-2 md:px-5">
               <div className="pr-2 md:pr-3">
                 <Image
