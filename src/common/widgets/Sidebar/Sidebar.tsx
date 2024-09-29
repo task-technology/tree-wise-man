@@ -35,11 +35,13 @@ const Sidebar = () => {
       >
         <div className="flex flex-col h-full overflow-y-auto">
           <div>
-            <Link href="/">
-              <h1 className="text-solidWhite font-bold text-2xl mb-5 ">
-                The Tree Wise Men
-              </h1>
-            </Link>
+            <abbr title="Tree Wise Men USA Home">
+              <Link href="/">
+                <h1 className="text-solidWhite font-bold text-2xl mb-5 ">
+                  The Tree Wise Men
+                </h1>
+              </Link>
+            </abbr>
             <hr className="text-solidWhite mb-4" />
           </div>
           <div className="flex-grow">
