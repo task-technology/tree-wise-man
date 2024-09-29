@@ -34,7 +34,7 @@ const AboutSection: React.FC = () => {
           </h1>
 
           <article className="pt-10 text-sm md:text-lg">
-            <Link href="TreeWiseMenUSA.com">
+            <Link href="https://treewisemenusa.com">
               <Button link className="!text-solidBlack">
                 TreeWiseMenUSA.com
               </Button>
