@@ -238,41 +238,41 @@ export const logoHeadlineData = [
   {
     logo: logo, // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
-    details: "Hello, world!",
+    details: "Contact Us",
   },
   {
     logo: logo, // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
-    details: "Hello, world!",
+    details: "Contact Us",
   },
   {
     logo: logo, // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
-    details: "Hello, world!",
+    details: "Contact Us",
   },
   {
     logo: logo, // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
-    details: "Hello, world!",
+    details: "Contact Us",
   },
   {
     logo: logo, // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
-    details: "Hello, world!",
+    details: "Contact Us",
   },
   {
     logo: logo, // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
-    details: "Hello, world!",
+    details: "Contact Us",
   },
   {
     logo: logo, // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
-    details: "Hello, world!",
+    details: "Contact Us",
   },
   {
     logo: logo, // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
-    details: "Hello, world!",
+    details: "Contact Us",
   },
 ];

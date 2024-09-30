@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { home_data } from "../config/constants";
 import Image from "next/image";
 import Button from "@components/Button";
+import sideImage from "@public/wise .jpg";
 
 const MyAccordion = () => {
   const [isMore, setIsMore] = useState(5);
@@ -18,7 +19,7 @@ const MyAccordion = () => {
         <div className="w-full md:w-2/5">
           <div className="relative w-full h-0 pb-[100%]">
             <Image
-              src="https://res.cloudinary.com/dvpnbsehd/image/upload/v1725425726/wise_cpu3tx.jpg"
+              src={sideImage}
               alt="Tree Photo"
               fill
               sizes="(max-width: 768px) 100vw,
