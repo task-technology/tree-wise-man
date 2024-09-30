@@ -10,7 +10,7 @@ import UserProfile from "./partials/user profile/UserProfile";
 import { isLoggedIn, isUserAdmin } from "../../../shared/auth/auth.service";
 import UserProfileAdmin from "./partials/user profile admin/UserProfileAdmin";
 import Link from "next/link";
-import logo from "@public/The_Tree_Wise_Logo.png";
+import logo from "../../../../public/The_Tree_Wise_Logo.png";
 import Button from "@components/Button";
 
 const Header = () => {

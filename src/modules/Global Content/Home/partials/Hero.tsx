@@ -12,7 +12,6 @@ import styles from "../style/hero.module.css";
 import { home_data } from "../config/constants";
 import { cx } from "@config/constants";
 import Image from "next/image";
-import slideBg1 from "@public/slide bg 1.jpg";
 
 const Hero = () => {
   // destructure

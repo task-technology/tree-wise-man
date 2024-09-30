@@ -5,9 +5,8 @@ import Brand from "@components/Brand";
 import Navigation_sec from "./partials/Navigation_sec";
 import Help_Navigation_sec from "./partials/Help_Navigation_sec";
 import News_letter_sec from "./partials/News_letter_sec";
-import { icons } from "@libs/Icons";
 import { layout_data } from "@config/constants";
-import Link from "next/link";
+
 const Footer = () => {
   return (
     <footer

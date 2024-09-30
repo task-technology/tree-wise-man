@@ -2,10 +2,10 @@ import { icons } from "@libs/Icons";
 import slide1 from "../../../../../public/slide image 1.png";
 import slide2 from "../../../../../public/slide image 2.png";
 import slide3 from "../../../../../public/slide image 3.png";
-import slideBg1 from "@public/slide bg 1.jpg";
-import slideBg2 from "@public/slide bg 2.png";
-import slideBg3 from "@public/slide bg 3.jpg";
-import logo from "@public/The_Tree_Wise_Logo.png";
+import slideBg1 from "../../../../../public/slide bg 1.jpg";
+import slideBg2 from "../../../../../public/slide bg 2.png";
+import slideBg3 from "../../../../../public/slide bg 3.jpg";
+import logo from "../../../../../public/The_Tree_Wise_Logo.png";
 
 export const home_data = {
   //
