@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { home_data } from "../config/constants";
 import Image from "next/image";
 import Button from "@components/Button";
-import sideImage from "../../../../../public/wise .jpg";
+import sideImage from "../../../../images/wise .jpg";
 
 const MyAccordion = () => {
   const [isMore, setIsMore] = useState(5);

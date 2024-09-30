@@ -13,7 +13,7 @@ import { useSearchParams } from "next/navigation";
 import { emptyData } from "@config/constants";
 import Error from "@components/Error/Error";
 import ContactForm from "./Helpers/ContactForm/ContactForm";
-import demoLogo from "../../../../public/demo logo.jpg";
+import demoLogo from "../../../images/demo logo.jpg";
 
 const Services = () => {
   const token = getFromCookie("accessToken");

@@ -1,4 +1,4 @@
-import sideImage from "../../../../../../../public/aboout us.jpg";
+import sideImage from "../../../../../../images/aboout us.jpg";
 
 export const aboutUsData = {
   headline: "WHY USE A CHRISTIAN-OWNED TREE SERVICE?",

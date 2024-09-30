@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { navDataTypes, singleMenuTypes } from "./types";
-import brandLogo from "../../../public/The_Tree_Wise_Logo.png";
+import brandLogo from "../../images/The_Tree_Wise_Logo.png";
 
 // whenever wee need to change default className value we will use this
 export const cx = classNames;
