@@ -6,7 +6,8 @@ export const tableHeader = [
   "Contact Number",
   "Company",
   "Role",
-  "Created Date",
+  "Subscription Start Date",
+  "Subscription End Date",
   "Delete",
   "Edit",
 ];
@@ -18,7 +19,8 @@ export const tableLayout = [
   "item?.contactNo",
   "item?.company",
   "item?.role",
-  "item?.createdAt?.slice(0,10)",
+  "item?.subscription?.startDate?.slice(0,10)",
+  "item?.subscription?.endDate?.slice(0,10)",
 ];
 
 export const btnValues = [
