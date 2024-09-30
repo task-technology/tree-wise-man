@@ -19,7 +19,9 @@ const MyAccordion = () => {
         <div className="w-full md:w-2/5">
           <div className="relative w-full h-0 pb-[100%]">
             <Image
-              src={sideImage}
+              src={
+                "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698746/aboout_us_icbr5b.jpg"
+              }
               alt="Tree Photo"
               fill
               sizes="(max-width: 768px) 100vw,
