@@ -66,7 +66,9 @@ const Services = () => {
                   ) : (
                     <div className="flex-shrink-0 mx-auto md:mx-0 w-[180px] relative h-[180px]">
                       <Image
-                        src={demoLogo}
+                        src={
+                          "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698743/demo_logo_qdotoc.jpg"
+                        }
                         alt="Company Logo"
                         fill
                         sizes="(max-width: 768px) 100vw, (min-width: 769px) 180px"

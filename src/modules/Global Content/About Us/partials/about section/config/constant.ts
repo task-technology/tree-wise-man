@@ -8,5 +8,6 @@ export const aboutUsData = {
 
   moreDetails:
     "focuses on connecting Christians with Local Christian-Owned Tree Service Professionals. It is important that Christian Support the Leading Local Christian-Owned Businesses. We all live in the same area, and go to the same Churches, Schools, Restaurants, and even the same Coffee Shops!",
-  sideImage: sideImage,
+  sideImage:
+    "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698746/aboout_us_icbr5b.jpg",
 };

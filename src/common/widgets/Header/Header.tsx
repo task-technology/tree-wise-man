@@ -50,7 +50,9 @@ const Header = () => {
             <Link href="/">
               <Image
                 className="h-auto w-14 md:w-16 "
-                src={logo}
+                src={
+                  "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png"
+                }
                 height={70}
                 width={70}
                 alt="Logo"

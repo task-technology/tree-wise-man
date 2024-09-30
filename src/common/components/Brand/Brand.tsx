@@ -6,7 +6,9 @@ const Brand = () => {
   return (
     <div className="w-44 md:w-52 h-auto">
       <Image
-        src={logo}
+        src={
+          "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png"
+        }
         width={140}
         height={140}
         alt="The Tree Wise Men"

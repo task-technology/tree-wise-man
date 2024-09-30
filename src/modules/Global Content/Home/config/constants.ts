@@ -12,7 +12,7 @@ export const home_data = {
   slides: [
     {
       id: 1,
-      logo: slide1,
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698747/slide_image_1_o35aed.png",
       headline:
         "LOCAL CHRISTIAN-OWNED TREE SERVICES ARE READY TO SERVE YOUR NEEDS!",
       title: `Trees are a living legacy and a future investment in your residential  and commercial property. These Christian-Owned tree services have worked         with many of your neighbors for years, helping to care for their trees
@@ -20,24 +20,27 @@ export const home_data = {
         personalized care and expertise for every tree care need, understanding
         that trees represent an important and enjoyable part of your daily
         environment.`,
-      image: slideBg1.src,
+      image:
+        "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/slide_bg_1_j43rws.jpg",
     },
     {
       id: 2,
-      logo: slide2,
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/slide_image_2_rtrfnm.png",
       headline:
         "Trees are the longest living organisms on Earth, and never die of old age.",
       title: `California holds the record for the oldest living trees. Some of the state’s bristlecone pines and giant sequoias are 4,000-5,000 years old. Methuselah, an estimated 4,852-year-old ancient Bristlecone Pine, is one of the oldest living trees in the world.`,
 
-      image: slideBg2.src,
+      image:
+        "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698747/slide_bg_2_pw5xwk.png",
     },
     {
       id: 3,
-      logo: slide3,
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/slide_image_3_aj0aey.png",
       headline: "Learn More About Our Local Christian-Owned Tree Services",
       title: `There are many tree services out there, and whenever possible, be sure to hire a Christian-Owned company to meet your needs. It is important to hire companies that share your values. Tree work is dangerous work, especially when trees are close to your home or building. As a property owner, you need to be able to trust the contractors working on your property. It is important that the companies you hire follow The Golden Rule: “Do to others as you would like them to do to you” - Luke 6:31`,
 
-      image: slideBg3.src,
+      image:
+        "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698746/slide_bg_3_a2r6st.jpg",
     },
   ],
 
@@ -191,7 +194,7 @@ export const how_we_work = {
     },
     {
       id: 5,
-      logo: logo,
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png",
     },
     {
       id: 6,
@@ -236,42 +239,42 @@ export const aboutCompanyData = {
 
 export const logoHeadlineData = [
   {
-    logo: logo, // Replace with the actual path to your logo image
+    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
     details: "Contact Us",
   },
   {
-    logo: logo, // Replace with the actual path to your logo image
+    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
     details: "Contact Us",
   },
   {
-    logo: logo, // Replace with the actual path to your logo image
+    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
     details: "Contact Us",
   },
   {
-    logo: logo, // Replace with the actual path to your logo image
+    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
     details: "Contact Us",
   },
   {
-    logo: logo, // Replace with the actual path to your logo image
+    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
     details: "Contact Us",
   },
   {
-    logo: logo, // Replace with the actual path to your logo image
+    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
     details: "Contact Us",
   },
   {
-    logo: logo, // Replace with the actual path to your logo image
+    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
     details: "Contact Us",
   },
   {
-    logo: logo, // Replace with the actual path to your logo image
+    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
     title: "The Tree Wise Men",
     details: "Contact Us",
   },

@@ -52,8 +52,6 @@ const AboutSection: React.FC = () => {
               src={aboutUsData?.sideImage}
               alt="Tree Photo"
               fill
-              // loading="eager"
-              placeholder="blur"
               priority
               sizes="(max-width: 768px) 100vw, (min-width: 769px) 100vw" // Adjust sizes as needed
               style={{ objectFit: "cover" }} // Use style instead of objectFit prop
