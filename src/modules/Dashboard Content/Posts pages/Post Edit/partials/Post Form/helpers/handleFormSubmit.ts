@@ -7,7 +7,6 @@ export const handleFormSubmit = async (
   e: React.FormEvent,
   companyName: any,
   companyWebsite: any,
-  zipCode: any,
   selectState: any,
   aboutCompany: any,
   isPublic: any,
@@ -29,7 +28,7 @@ export const handleFormSubmit = async (
       const fullData = {
         title: companyName || "",
         urlLink: companyWebsite || "",
-        zipCode: zipCode || "",
+        zipCode: selectState?.zipCode || "",
         state: selectState?.state,
         content: aboutCompany || "",
         published: isPublic === "public" ? true : false,
@@ -52,7 +51,7 @@ export const handleFormSubmit = async (
     const fullData = {
       title: companyName || "",
       urlLink: companyWebsite || "",
-      zipCode: zipCode || "",
+      zipCode: selectState?.zipCode || "",
       state: selectState?.state,
       content: aboutCompany || "",
       published: isPublic === "public" ? true : false,
