@@ -13,7 +13,6 @@ import { useSearchParams } from "next/navigation";
 import { emptyData } from "@config/constants";
 import Error from "@components/Error/Error";
 import ContactForm from "./Helpers/ContactForm/ContactForm";
-import demoLogo from "../../../images/demo logo.jpg";
 
 const Services = () => {
   const token = getFromCookie("accessToken");
@@ -30,7 +29,7 @@ const Services = () => {
   if (error) {
     return <Error />;
   }
-
+  console.log(serviceData);
   return (
     <main className="bg-gray-100 min-h-screen flex flex-col lg:flex-row mt-20 justify-center w-full px-2 md:pl-4">
       <div className="max-w-7xl w-full lg:w-9/12 flex flex-col items-center space-y-2 md:space-y-8 py-3 md:py-6">
@@ -85,10 +84,17 @@ const Services = () => {
                         <h4 className="text-lg sm:text-xl font-bold">
                           {result?.title}
                         </h4>
-                        <span className="text-sm">
-                          <strong>Joining Date:</strong>{" "}
+                        <p className="text-sm">
+                          <strong>Joining Date: </strong>
                           {result?.createdAt?.slice(0, 10)}
-                        </span>
+                        </p>
+                        <p className="text-sm">
+                          <strong>State: </strong>
+                          {result?.state}{" "}
+                          <abbr title="Zip Code" className="no-underline">
+                            <span>({result?.zipCode})</span>
+                          </abbr>
+                        </p>
                       </div>
                       <div className="flex gap-2">
                         {result?.urlLink && (
