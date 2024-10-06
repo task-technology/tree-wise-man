@@ -25,11 +25,10 @@ const OtherApi = baseApi.injectEndpoints({
     }),
 
     register: builder.mutation({
-      query: ({ token, fullData }) => {
+      query: ({ fullData }) => {
         return {
           url: "/auth/user/create-user",
-
-          method: "DELETE",
+          method: "POST",
           body: fullData,
         };
       },
