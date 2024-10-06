@@ -10,7 +10,6 @@ import InputWithValue from "@components/Input With Value";
 import Button from "@components/Button";
 
 const ContactForm: React.FC = () => {
-  const token = getFromCookie(authKey);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -29,7 +28,7 @@ const ContactForm: React.FC = () => {
       email,
       message,
     };
-    const result = await sendEmail({ token, fullData });
+    const result = await sendEmail({ fullData });
 
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {

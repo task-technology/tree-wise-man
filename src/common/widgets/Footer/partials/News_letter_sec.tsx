@@ -11,8 +11,6 @@ import { authKey } from "@config/constants";
 import { showSwal } from "../../../../shared/helpers/SwalShower";
 
 const News_letter_sec = () => {
-  const token = getFromCookie(authKey);
-
   const [email, setEmail] = useState("");
   const [sendEmail, { isLoading }] = useNewsSubscribeMutation();
 
@@ -26,7 +24,7 @@ const News_letter_sec = () => {
 
     const fullData = { email };
 
-    const result = await sendEmail({ token, fullData });
+    const result = await sendEmail({ fullData });
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {
       setEmail("");

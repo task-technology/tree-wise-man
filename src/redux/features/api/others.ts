@@ -64,24 +64,20 @@ const OtherApi = baseApi.injectEndpoints({
     }),
 
     contactUs: builder.mutation({
-      query: ({ token, fullData }) => {
+      query: ({ fullData }) => {
         return {
           url: "/contact-us",
-          headers: {
-            authorization: token,
-          },
+
           method: "POST",
           body: fullData,
         };
       },
     }),
     newsSubscribe: builder.mutation({
-      query: ({ token, fullData }) => {
+      query: ({ fullData }) => {
         return {
           url: "/news-subscribe",
-          headers: {
-            authorization: token,
-          },
+
           method: "POST",
           body: fullData,
         };
