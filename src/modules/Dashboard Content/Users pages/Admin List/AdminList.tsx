@@ -48,7 +48,9 @@ const AdminList = () => {
   const handleDelete = async (id: string) => {
     const singleData = userData?.data?.find((data: any) => data?.id === id);
 
-    await deletePhoto(singleData?.profileImage);
+    if (singleData?.profileImage) {
+      await deletePhoto(singleData?.profileImage);
+    }
 
     const result = await userDelete({ token, id });
     showSwal(result);
