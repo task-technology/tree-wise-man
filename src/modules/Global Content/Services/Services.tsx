@@ -29,7 +29,6 @@ const Services = () => {
   if (error) {
     return <Error />;
   }
-  console.log(serviceData);
   return (
     <main className="bg-gray-100 min-h-screen flex flex-col lg:flex-row mt-20 justify-center w-full px-2 md:pl-4">
       <div className="max-w-7xl w-full lg:w-9/12 flex flex-col items-center space-y-2 md:space-y-8 py-3 md:py-6">

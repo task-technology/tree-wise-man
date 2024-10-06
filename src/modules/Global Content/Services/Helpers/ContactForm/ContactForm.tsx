@@ -1,14 +1,42 @@
 "use client";
 import React, { useState } from "react";
+import { validateEmail } from "../../../../../shared/helpers/emailVerifications";
+import { useContactUsMutation } from "../../../../../redux/features/api/others";
+import { getFromCookie } from "../../../../../shared/helpers/local_storage";
+import { authKey } from "@config/constants";
+import swal from "sweetalert";
+import { showSwal } from "../../../../../shared/helpers/SwalShower";
 
 const ContactForm: React.FC = () => {
+  const token = getFromCookie(authKey);
+
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [sendEmail, { isLoading }] = useContactUsMutation();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", { email, message });
+
+    if (!validateEmail(email)) {
+      swal("warning", "Please enter a valid email address", "Warning");
+      return;
+    }
+
+    const fullData = {
+      name,
+      email,
+      message,
+    };
+    const result = await sendEmail({ token, fullData });
+
+    const isSwalTrue = showSwal(result);
+    if (isSwalTrue) {
+      setName("");
+      setEmail("");
+      setMessage("");
+    }
   };
 
   return (
