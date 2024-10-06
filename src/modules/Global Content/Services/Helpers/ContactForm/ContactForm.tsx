@@ -6,6 +6,7 @@ import { getFromCookie } from "../../../../../shared/helpers/local_storage";
 import { authKey } from "@config/constants";
 import swal from "sweetalert";
 import { showSwal } from "../../../../../shared/helpers/SwalShower";
+import Button from "@components/Button";
 
 const ContactForm: React.FC = () => {
   const token = getFromCookie(authKey);
@@ -80,12 +81,9 @@ const ContactForm: React.FC = () => {
           />
         </div>
         <div className="flex justify-center w-full">
-          <button
-            className="w-full bg-primary hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 duration-300"
-            type="submit"
-          >
+          <Button loading={isLoading} className="w-full" type="submit">
             Send
-          </button>
+          </Button>
         </div>
       </form>
     </div>
