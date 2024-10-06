@@ -2,7 +2,7 @@ import Select from "react-select";
 import makeAnimated from "react-select/animated";
 
 interface SearchFilterInput {
-  options?: { value?: string; id?: string }[];
+  options?: { value?: string; id?: string | number }[];
   labelName?: string;
   filterName?: string;
   data: string[] | any;

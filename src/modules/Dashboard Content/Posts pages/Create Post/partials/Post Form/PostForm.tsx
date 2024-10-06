@@ -24,12 +24,10 @@ const PostForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [companyName, setCompanyName] = useState<string>("");
   const [companyWebsite, setCompanyWebsite] = useState<string>("");
-  const [zipCode, setZipCode] = useState<string>("");
   const [aboutCompany, setAboutCompany] = useState<string>("");
   const [fbLink, setFBLink] = useState<string | "">("");
   const [insLink, setInsLink] = useState<string | "">("");
   const [twtrLink, setTwtrLink] = useState<string | "">("");
-
   return (
     <div className="relative min-h-screen ">
       <div className=" px-8 max-w-4xl mx-auto   rounded-lg">
@@ -39,7 +37,6 @@ const PostForm = () => {
               e,
               companyName,
               companyWebsite,
-              zipCode,
               selectState,
               aboutCompany,
               isPublic,
@@ -86,13 +83,6 @@ const PostForm = () => {
               onChange={(e: any) => setInsLink(e.target.value)}
               className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
             />
-            <Input
-              labelName="Zip Code"
-              inputName="zipCode"
-              required
-              onChange={(e: any) => setZipCode(e.target.value)}
-              className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-            />
 
             <SearchFilterInput
               required
@@ -102,6 +92,15 @@ const PostForm = () => {
               setData={setSelectState}
               data={selectState}
               isMulti={false}
+            />
+
+            <Input
+              IsDisabled
+              labelName="Zip Code"
+              inputName="zipCode"
+              required
+              defaultValue={selectState?.zipCode}
+              className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
             />
 
             <div className="md:col-span-2">
