@@ -10,13 +10,12 @@ import Button from "@components/Button";
 import PhotoUpload from "@components/Photo Upload/PhotoUpload";
 
 import { handleRegister } from "./helpers/handleRegister";
-import { useUserCreateMutation } from "../../../redux/features/api/users";
 import { useRouter } from "next/navigation";
+import { useRegisterMutation } from "../../../redux/features/api/others";
 
 const Register = () => {
   const router = useRouter();
-  const [createUser, { isLoading: userCreateLoading }] =
-    useUserCreateMutation();
+  const [createUser, { isLoading: userCreateLoading }] = useRegisterMutation();
   const [loading, setLoading] = useState<boolean>(false);
   const [file, setFile] = useState<File | null>(null);
   const [email, setEmail] = useState("");

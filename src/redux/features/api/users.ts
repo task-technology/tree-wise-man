@@ -3,10 +3,12 @@ import { baseApi } from "../../api/apiSlice";
 const UsersApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     userCreate: builder.mutation({
-      query: ({ fullData }) => {
+      query: ({ fullData, token }) => {
         return {
           url: "/auth/user/create-user",
-
+          headers: {
+            authorization: token,
+          },
           method: "POST",
           body: fullData,
         };

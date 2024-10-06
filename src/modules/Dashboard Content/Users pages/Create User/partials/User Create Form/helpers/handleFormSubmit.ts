@@ -18,6 +18,7 @@ export const handleFormSubmit = async (
 ) => {
   e.preventDefault();
   setLoading(true);
+  console.log(token);
   if (file) {
     const photoUploadResult = await uploadPhoto(file.target.files[0]);
 
@@ -50,6 +51,7 @@ export const handleFormSubmit = async (
       password,
     };
     const result = await createUser({ fullData, token });
+    console.log(result);
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {
       router?.push("/dashboard/user/user-list");

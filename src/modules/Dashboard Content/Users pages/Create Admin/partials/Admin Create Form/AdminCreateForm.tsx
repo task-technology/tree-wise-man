@@ -5,7 +5,6 @@ import Button from "@components/Button";
 import { handleFormSubmit } from "./helpers/handleFormSubmit";
 import PhotoUpload from "@components/Photo Upload/PhotoUpload";
 
-import { useUserCreateMutation } from "../../../../../../redux/features/api/users";
 import InputWithValue from "@components/Input With Value";
 import { useRouter } from "next/navigation";
 import { getFromCookie } from "../../../../../../shared/helpers/local_storage";

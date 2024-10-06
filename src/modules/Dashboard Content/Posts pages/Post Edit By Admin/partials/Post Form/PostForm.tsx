@@ -64,7 +64,6 @@ const PostForm = () => {
   if (singleDataLoading) {
     return <LoadingSpinner fullHight />;
   }
-  console.log(selectState);
   return (
     <div className="relative min-h-screen ">
       <div className=" px-8 max-w-4xl mx-auto   rounded-lg">
@@ -139,6 +138,7 @@ const PostForm = () => {
             />
 
             <Input
+              IsDisabled
               labelName="Zip Code"
               inputName="zipCode"
               required

@@ -33,6 +33,7 @@ export const handleFormSubmit = async (
         password,
       };
       const result = await createUser({ fullData, token });
+
       const isSwalTrue = showSwal(result);
       if (isSwalTrue) {
         router?.push("/dashboard/user/admin-list");

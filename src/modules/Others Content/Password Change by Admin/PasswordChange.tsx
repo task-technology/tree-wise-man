@@ -22,7 +22,11 @@ const PasswordChange = () => {
       newPassword: password,
     };
     const result = await passChange({ token, fullData });
-    showSwal(result);
+    const isSwalTrue = showSwal(result);
+    if (isSwalTrue) {
+      setEmail("");
+      setPassword("");
+    }
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">

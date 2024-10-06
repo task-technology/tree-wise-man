@@ -28,9 +28,7 @@ const OtherApi = baseApi.injectEndpoints({
       query: ({ token, fullData }) => {
         return {
           url: "/auth/user/create-user",
-          headers: {
-            authorization: token,
-          },
+
           method: "DELETE",
           body: fullData,
         };
