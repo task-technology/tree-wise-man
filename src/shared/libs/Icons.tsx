@@ -27,7 +27,7 @@ import { CiSettings } from "react-icons/ci";
 import { FiPieChart } from "react-icons/fi";
 import { IoIosLogOut } from "react-icons/io";
 import { MdPostAdd } from "react-icons/md";
-import { FaChevronRight } from "react-icons/fa";
+import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { MdDeleteOutline, MdAssessment } from "react-icons/md";
 import { FaFacebookSquare } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
@@ -72,6 +72,7 @@ export const icons: any = {
   posts: <MdPostAdd />,
   users: <FiUsers />,
   rightArrow: <FaChevronRight />,
+  leftArrow: <FaChevronLeft />,
   delete: <MdDeleteOutline />,
   fb: <FaFacebookSquare />,
   earth: <TbWorld />,
