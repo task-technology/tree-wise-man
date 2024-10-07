@@ -15,19 +15,24 @@ const SearchBar = ({ placeholder = "Search...", showNotice = false }) => {
   const router: any = useRouter();
   const [activeRoute, setActiveRoute] = useState("");
 
+  // Function to set or clear the search query parameter
   const setQuery = (paramName: string, paramValue: string) => {
     const queryParams = new URLSearchParams(window.location.search);
     if (paramValue === "") {
       queryParams.delete(paramName);
-      queryParams.delete("searchTerm");
     } else {
       queryParams.set(paramName, paramValue);
     }
     router.push(`?${queryParams.toString()}`);
   };
+
   const handleFilter = (route: string) => {
     setQuery("searchTerm", route);
-    setActiveRoute(route);
+  };
+
+  const handleClear = () => {
+    setActiveRoute("");
+    setQuery("searchTerm", "");
   };
 
   return (
@@ -35,10 +40,20 @@ const SearchBar = ({ placeholder = "Search...", showNotice = false }) => {
       <div className="flex items-center bg-white rounded-lg overflow-hidden shadow-md space-x-2 w-full md:w-1/2 lg:w-1/3">
         <input
           type="text"
-          onChange={(e) => setActiveRoute(e.target.value)}
+          value={activeRoute}
+          onChange={(e) => setActiveRoute(e.target.value)} // Update state on input change
           className="flex-grow px-4 py-3 focus:outline-none text-base sm:text-sm"
           placeholder={placeholder}
         />
+
+        {activeRoute && (
+          <button
+            className="text-gray-500 hover:text-gray-700 px-2"
+            onClick={handleClear}
+          >
+            ✕
+          </button>
+        )}
 
         <Button
           type="submit"
@@ -48,6 +63,7 @@ const SearchBar = ({ placeholder = "Search...", showNotice = false }) => {
           Search
         </Button>
       </div>
+
       {!isLoading &&
         !data?.data?.subscription &&
         showNotice &&
