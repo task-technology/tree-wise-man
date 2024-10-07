@@ -46,7 +46,7 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="flex flex-wrap justify-between items-center bg-solidWhite shadow-md rounded-md p-2">
+    <div className="flex flex-wrap justify-between items-center bg-solidWhite shadow-md rounded-md p-2 text-[10px] md:text-base">
       <p className="mt-2">
         Total: <span>{totalItems}</span>
       </p>
@@ -110,7 +110,7 @@ const Pagination: React.FC<PaginationProps> = ({
           defaultValue={currentPage}
           onChange={handleItemsPerPage}
           name="changePage"
-          className="w-14 py-1 border rounded-md text-center ml-4 border-grayForBorder"
+          className="w-8 md:w-14 py-1 border rounded-md text-center ml-4 border-grayForBorder"
           min="1"
           max={numberOfPages}
         />

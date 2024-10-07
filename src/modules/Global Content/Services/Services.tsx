@@ -13,16 +13,37 @@ import { useSearchParams } from "next/navigation";
 import { emptyData } from "@config/constants";
 import Error from "@components/Error/Error";
 import ContactForm from "./Helpers/ContactForm/ContactForm";
+import Pagination from "@components/Pagination/Pagination";
+import { useEffect, useState } from "react";
+import { constructQuery } from "../../../shared/helpers/constructQuery";
+import { keys } from "./config/constant";
 
 const Services = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalItems, setTotalItems] = useState(0);
+  const [limit, setLimit] = useState(10);
+
   const token = getFromCookie("accessToken");
-  const queryParams = useSearchParams();
-  const query = queryParams?.get("searchTerm") || "";
+  const searchParams: any = useSearchParams();
+  const query = constructQuery({
+    searchParams,
+    limit,
+    page: currentPage,
+    keys,
+  });
   const {
     data: serviceData,
     isLoading: serviceLoading,
     error,
   } = useGetPostsQuery({ query });
+
+  useEffect(() => {
+    if (serviceData) {
+      setTotalItems(serviceData?.meta.total);
+      setLimit(serviceData?.meta.limit);
+      setCurrentPage(serviceData?.meta?.page);
+    }
+  }, [serviceData]);
 
   const [serviceClick] = useClickCountServiceMutation();
 
@@ -31,13 +52,13 @@ const Services = () => {
   }
   return (
     <main className="bg-gray-100 min-h-screen flex flex-col lg:flex-row mt-20 justify-center w-full px-2 md:pl-4">
-      <div className="max-w-7xl w-full lg:w-9/12 flex flex-col items-center space-y-2 md:space-y-8 py-3 md:py-6">
+      <div className="relative max-w-7xl w-full lg:w-9/12 flex flex-col items-center space-y-2 md:space-y-8 py-3 md:py-6">
         <h2 className="text-xl md:text-3xl font-bold text-center mb-2">
           Find Tree Wise Men Near Me
         </h2>
         <Form />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full px-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full px-5 pb-32 md:pb-28">
           {serviceLoading ? (
             <div className="col-span-2 w-full">
               <LoadingSpinner />
@@ -216,6 +237,14 @@ const Services = () => {
               {emptyData} Available
             </div>
           )}
+        </div>
+        <div className="absolute bottom-4 ">
+          <Pagination
+            currentPage={currentPage}
+            limit={limit}
+            setCurrentPage={setCurrentPage}
+            totalItems={totalItems}
+          />
         </div>
       </div>
 
