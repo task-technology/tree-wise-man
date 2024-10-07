@@ -2,9 +2,8 @@ import Button from "@components/Button";
 import SearchFilterInput from "@components/Search Filter Input/SearchFilterInput";
 import { Menu, Transition } from "@headlessui/react";
 import { usePathname, useRouter } from "next/navigation";
-import { Fragment, useRef, useState } from "react";
-import { isDisabled, isPublished, states } from "./config/constant";
-import SelectForFilter from "@components/SelectForFilter/SelectForFilter";
+import { Fragment, useState } from "react";
+import { states } from "./config/constant";
 
 const FilterSystem: React.FC = () => {
   const pathName = usePathname();
@@ -87,26 +86,6 @@ const FilterSystem: React.FC = () => {
                     setData={setSelectState}
                     data={selectState}
                     isMulti={false}
-                  />
-                </div>
-                <div>
-                  <SelectForFilter
-                    label="Is Disabled"
-                    Filter={isDisabled}
-                    inputName="disabled"
-                    placeholder="Select..."
-                    defaultValue={selectDisabled}
-                    onChange={(e: any) => setSelectDisabled(e.target.value)}
-                  />
-                </div>
-                <div>
-                  <SelectForFilter
-                    label="Is Published"
-                    Filter={isPublished}
-                    inputName="published"
-                    placeholder="Select..."
-                    defaultValue={selectPublished}
-                    onChange={(e: any) => setSelectPublished(e.target.value)}
                   />
                 </div>
               </div>

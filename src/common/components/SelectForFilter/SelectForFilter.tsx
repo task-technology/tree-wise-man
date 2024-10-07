@@ -1,5 +1,5 @@
 interface inputFilterProps {
-  Filter: { label: string; value: string }[];
+  Filter: { label: string; value: string | boolean }[];
   label?: string;
   IsDisabled?: boolean;
   placeholder?: string;
@@ -36,7 +36,7 @@ const SelectForFilter: React.FC<inputFilterProps> = ({
           {placeholder}
         </option>
         {Filter.map((item, i) => (
-          <option key={i} value={item.value}>
+          <option key={i} value={String(item.value)}>
             {item.label}
           </option>
         ))}

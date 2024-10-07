@@ -30,10 +30,15 @@ const AdminList = () => {
     keys,
   });
 
-  const { data: userData, isLoading: userDataLoading } = useGetAdminQuery({
+  const {
+    data: userData,
+    isLoading: userDataLoading,
+    error,
+  } = useGetAdminQuery({
     token,
     query,
   });
+
   useEffect(() => {
     if (userData) {
       setTotalItems(userData?.meta.total);
@@ -59,7 +64,7 @@ const AdminList = () => {
     <div className="pt-10">
       <Container>
         <div className="pb-14">
-          <SearchBar />
+          <SearchBar placeholder="Search by name, email, contact" />
         </div>
         <section className="py-10 bg-solidWhite px-5">
           <div className="pb-5">

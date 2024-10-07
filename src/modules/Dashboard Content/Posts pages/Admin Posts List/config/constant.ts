@@ -25,4 +25,4 @@ export const btnValues = [
   { label: "disabled", value: "Disabled" },
 ];
 
-export const keys = ["searchTerm"];
+export const keys = ["searchTerm", "state"];
