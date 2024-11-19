@@ -39,7 +39,7 @@ const PostForm = () => {
   const [ownerDesignation, setOwnerDesignation] = useState<string | "">("");
   const [contactNo, setContactNo] = useState<string | "">("");
   const [profileImage, setProfileImage] = useState<File | null>(null);
-  console.log("hello", ownerName);
+
   useEffect(() => {
     if (singleData) {
       setCompanyName(singleData?.data?.title);

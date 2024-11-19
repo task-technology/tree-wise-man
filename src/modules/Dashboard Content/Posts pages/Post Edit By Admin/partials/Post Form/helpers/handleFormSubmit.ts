@@ -1,5 +1,6 @@
 import { uploadPhoto } from "@components/Photo Upload/helpers/handlePhotoUpload";
 import { showSwal } from "../../../../../../../shared/helpers/SwalShower";
+import { CookieValueTypes } from "cookies-next";
 import swal from "sweetalert";
 
 export const handleFormSubmit = async (
@@ -11,61 +12,77 @@ export const handleFormSubmit = async (
   isPublic: any,
   file: any,
   createService: any,
-  token: any,
+  token: CookieValueTypes,
   setLoading: any,
   router?: any,
   fbLink?: string,
   insLink?: string,
   twtrLink?: string,
-  id?: any
+  id?: any,
+  ownerName?: string,
+  ownerDesignation?: string,
+  contactNo?: string,
+  profileImage?: any
 ) => {
   e.preventDefault();
   setLoading(true);
-  if (file) {
-    const photoUploadResult = await uploadPhoto(file.target.files[0]);
-    if (photoUploadResult.success) {
-      const fullData = {
-        title: companyName || "",
-        urlLink: companyWebsite || "",
-        zipCode: selectState?.zipCode || "",
-        state: selectState?.state,
-        content: aboutCompany || "",
-        published: isPublic === "public" ? true : false,
-        image: photoUploadResult.url,
 
-        facebookLink: fbLink,
-        instagramLink: insLink,
-        twitterLink: twtrLink,
-      };
+  try {
+    let logoUploadResult, profilePhotoUploadResult;
 
-      const result = await createService({ fullData, token, id });
-      const isSwalTrue = showSwal(result);
-      if (isSwalTrue) {
-        router?.push("/dashboard/post/posts-list");
+    // Upload company logo if provided
+    if (file) {
+      logoUploadResult = await uploadPhoto(file.target.files[0]);
+      if (!logoUploadResult.success) {
+        swal("Error", logoUploadResult.message, "error");
+        setLoading(false);
+        return;
       }
-    } else {
-      swal("Error", photoUploadResult.message, "error");
     }
-  } else {
-    const fullData = {
+
+    // Upload profile image if provided
+    if (profileImage) {
+      profilePhotoUploadResult = await uploadPhoto(
+        profileImage.target.files[0]
+      );
+      if (!profilePhotoUploadResult.success) {
+        swal("Error", profilePhotoUploadResult.message, "error");
+        setLoading(false);
+        return;
+      }
+    }
+
+    // Construct the data object
+    const fullData: any = {
       title: companyName || "",
       urlLink: companyWebsite || "",
       zipCode: selectState?.zipCode || "",
       state: selectState?.state,
       content: aboutCompany || "",
       published: isPublic === "public" ? true : false,
-      image: "",
-
+      image: logoUploadResult?.url || "",
       facebookLink: fbLink,
       instagramLink: insLink,
       twitterLink: twtrLink,
     };
 
+    // Add owner-related fields if they exist
+    if (ownerName) fullData.ownerName = ownerName;
+    if (ownerDesignation) fullData.ownerDesignation = ownerDesignation;
+    if (contactNo) fullData.contactNo = contactNo;
+    if (profilePhotoUploadResult?.url)
+      fullData.profileImage = profilePhotoUploadResult.url;
+
+    // Call the createService function
     const result = await createService({ fullData, token, id });
     const isSwalTrue = showSwal(result);
+
     if (isSwalTrue) {
-      router?.push("/dashboard/post/posts-list");
+      router?.push("/dashboard/post/admin-posts-list");
     }
+  } catch (error) {
+    swal("Error", "Something went wrong. Please try again.", "error");
+  } finally {
+    setLoading(false);
   }
-  setLoading(false);
 };

@@ -35,6 +35,10 @@ const PostForm = () => {
   const [fbLink, setFBLink] = useState<string | "">("");
   const [insLink, setInsLink] = useState<string | "">("");
   const [twtrLink, setTwtrLink] = useState<string | "">("");
+  const [ownerName, setOwnerName] = useState<string | "">("");
+  const [ownerDesignation, setOwnerDesignation] = useState<string | "">("");
+  const [contactNo, setContactNo] = useState<string | "">("");
+  const [profileImage, setProfileImage] = useState<File | null>(null);
 
   useEffect(() => {
     if (singleData) {
@@ -49,6 +53,10 @@ const PostForm = () => {
       setFBLink(singleData?.data?.facebookLink);
       setInsLink(singleData?.data?.instagramLink);
       setTwtrLink(singleData?.data?.twitterLink);
+
+      setOwnerName(singleData?.data?.ownerName);
+      setOwnerDesignation(singleData?.data?.ownerDesignation);
+      setContactNo(singleData?.data?.contactNo);
     } else {
       setCompanyName("");
       setCompanyWebsite("");
@@ -84,11 +92,43 @@ const PostForm = () => {
               fbLink,
               insLink,
               twtrLink,
-              id
+              id,
+              ownerName,
+              ownerDesignation,
+              contactNo,
+              profileImage
             )
           }
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {singleData?.data?.ownerName && (
+              <>
+                <Input
+                  labelName="Owner Name"
+                  inputName="ownerName"
+                  required
+                  onChange={(e: any) => setOwnerName(e.target.value)}
+                  defaultValue={singleData?.data?.ownerName}
+                  className=""
+                />
+                <Input
+                  labelName="Designation"
+                  inputName="designation"
+                  required
+                  onChange={(e: any) => setOwnerDesignation(e.target.value)}
+                  defaultValue={singleData?.data?.ownerDesignation}
+                  className=""
+                />
+                <Input
+                  labelName="Contact Number"
+                  inputName="contactNo"
+                  required
+                  onChange={(e: any) => setContactNo(e.target.value)}
+                  defaultValue={singleData?.data?.contactNo}
+                  className=""
+                />
+              </>
+            )}
             <Input
               labelName="Company Name"
               inputName="title"
@@ -193,9 +233,28 @@ const PostForm = () => {
                 </div>
               </div>
             </div>
-            <div className="md:col-span-2 ">
-              <PhotoUpload setFile={setFile} file={file} />
-            </div>
+            {singleData?.data?.profileImage ? (
+              <>
+                <PhotoUpload
+                  label="Upload Logo"
+                  setFile={setFile}
+                  file={file}
+                />
+                <PhotoUpload
+                  label="Owner Photo"
+                  setFile={setProfileImage}
+                  file={profileImage}
+                />
+              </>
+            ) : (
+              <div className="md:col-span-2 ">
+                <PhotoUpload
+                  label="Upload Logo"
+                  setFile={setFile}
+                  file={file}
+                />
+              </div>
+            )}
           </div>
           <div className="text-center w-1/3 mx-auto">
             <Button
