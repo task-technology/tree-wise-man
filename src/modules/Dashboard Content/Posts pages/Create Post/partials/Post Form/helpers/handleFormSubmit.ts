@@ -16,56 +16,54 @@ export const handleFormSubmit = async (
   router?: any,
   fbLink?: string,
   insLink?: string,
-  twtrLink?: string
+  twtrLink?: string,
+  ownerName?: string,
+  ownerDesignation?: string,
+  contactNo?: string,
+  profileImage?: any,
+  isCustom?: boolean
 ) => {
   e.preventDefault();
   setLoading(true);
-  if (file) {
-    const photoUploadResult = await uploadPhoto(file.target.files[0]);
-    if (photoUploadResult.success) {
-      const fullData = {
-        title: companyName || "",
-        urlLink: companyWebsite || "",
-        zipCode: selectState?.zipCode || "",
-        state: selectState?.state,
-        content: aboutCompany || "",
-        published: isPublic === "public" ? true : false,
-        image: photoUploadResult.url,
 
-        facebookLink: fbLink,
-        instagramLink: insLink,
-        twitterLink: twtrLink,
-      };
-
-      const result = await createService({ fullData, token });
-      const isSwalTrue = showSwal(result);
-      if (isSwalTrue) {
-        router?.push("/dashboard/post/posts-list");
-      }
-    } else {
-      swal("Error", photoUploadResult.message, "error");
+  try {
+    let logoUploadResult: any, photoUploadResult: any;
+    if (file) {
+      logoUploadResult = await uploadPhoto(file.target.files[0]);
     }
-  } else {
-    const fullData = {
+
+    if (isCustom && profileImage) {
+      photoUploadResult = await uploadPhoto(profileImage.target.files[0]);
+    }
+
+    const fullData: any = {
       title: companyName || "",
       urlLink: companyWebsite || "",
       zipCode: selectState?.zipCode || "",
       state: selectState?.state,
       content: aboutCompany || "",
       published: isPublic === "public" ? true : false,
-      image: "",
-
+      image: logoUploadResult?.url || "",
       facebookLink: fbLink,
       instagramLink: insLink,
       twitterLink: twtrLink,
     };
 
-    const result = await createService({ fullData, token });
+    if (isCustom) {
+      fullData.ownerName = ownerName || "";
+      fullData.ownerDesignation = ownerDesignation || "";
+      fullData.contactNo = contactNo || "";
+      fullData.profileImage = photoUploadResult?.url || "";
+    }
 
+    const result = await createService({ fullData, token });
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {
       router?.push("/dashboard/post/posts-list");
     }
+  } catch (error) {
+    swal("Error", "Something went wrong. Please try again.", "error");
+  } finally {
+    setLoading(false);
   }
-  setLoading(false);
 };
