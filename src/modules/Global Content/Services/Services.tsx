@@ -36,7 +36,7 @@ const Services = () => {
     isLoading: serviceLoading,
     error,
   } = useGetPostsQuery({ query });
-
+  console.log("service", serviceData);
   useEffect(() => {
     if (serviceData) {
       setTotalItems(serviceData?.meta.total);
@@ -189,11 +189,15 @@ const Services = () => {
                     </p>
                     <div className="flex  justify-between items-center  mt-2 md:mt-4">
                       <div className="flex items-center gap-2">
-                        {result?.author?.profileImage ? (
+                        {result?.profileImage ||
+                        result?.author?.profileImage ? (
                           <Image
                             height={35}
                             width={35}
-                            src={result?.author?.profileImage}
+                            src={
+                              result?.profileImage ||
+                              result?.author?.profileImage
+                            }
                             alt="Author"
                             className="rounded-full"
                           />
@@ -204,10 +208,11 @@ const Services = () => {
                         )}
                         <div>
                           <h3 className="font-semibold text-sm">
-                            {result?.author?.name}
+                            {result?.ownerName || result?.author?.name}
                           </h3>
                           <h3 className="text-xs">
-                            {result?.author?.designation}
+                            {result?.ownerDesignation ||
+                              result?.author?.designation}
                           </h3>
                         </div>
                       </div>
@@ -216,7 +221,9 @@ const Services = () => {
                           handleSubmit({
                             serviceClick,
                             token,
-                            url: `tel:${result?.author?.contactNo}`,
+                            url: `tel:${
+                              result?.contactNo || result?.author?.contactNo
+                            }`,
                             id: result?.id,
                             tel: true,
                           })

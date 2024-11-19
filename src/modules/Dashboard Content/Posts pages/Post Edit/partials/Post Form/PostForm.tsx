@@ -35,7 +35,11 @@ const PostForm = () => {
   const [fbLink, setFBLink] = useState<string | "">("");
   const [insLink, setInsLink] = useState<string | "">("");
   const [twtrLink, setTwtrLink] = useState<string | "">("");
-
+  const [ownerName, setOwnerName] = useState<string | "">("");
+  const [ownerDesignation, setOwnerDesignation] = useState<string | "">("");
+  const [contactNo, setContactNo] = useState<string | "">("");
+  const [profileImage, setProfileImage] = useState<File | null>(null);
+  console.log("hello", ownerName);
   useEffect(() => {
     if (singleData) {
       setCompanyName(singleData?.data?.title);
@@ -49,6 +53,10 @@ const PostForm = () => {
       setFBLink(singleData?.data?.facebookLink);
       setInsLink(singleData?.data?.instagramLink);
       setTwtrLink(singleData?.data?.twitterLink);
+
+      setOwnerName(singleData?.data?.ownerName);
+      setOwnerDesignation(singleData?.data?.ownerDesignation);
+      setContactNo(singleData?.data?.contactNo);
     } else {
       setCompanyName("");
       setCompanyWebsite("");
@@ -85,18 +93,50 @@ const PostForm = () => {
               fbLink,
               insLink,
               twtrLink,
-              id
+              id,
+              ownerName,
+              ownerDesignation,
+              contactNo,
+              profileImage
             )
           }
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {singleData?.data?.ownerName && (
+              <>
+                <Input
+                  labelName="Owner Name"
+                  inputName="ownerName"
+                  required
+                  onChange={(e: any) => setOwnerName(e.target.value)}
+                  defaultValue={singleData?.data?.ownerName}
+                  className=""
+                />
+                <Input
+                  labelName="Designation"
+                  inputName="designation"
+                  required
+                  onChange={(e: any) => setOwnerDesignation(e.target.value)}
+                  defaultValue={singleData?.data?.ownerDesignation}
+                  className=""
+                />
+                <Input
+                  labelName="Contact Number"
+                  inputName="contactNo"
+                  required
+                  onChange={(e: any) => setContactNo(e.target.value)}
+                  defaultValue={singleData?.data?.contactNo}
+                  className=""
+                />
+              </>
+            )}
             <Input
               labelName="Company Name"
               inputName="title"
               required
               defaultValue={singleData?.data?.title}
               onChange={(e: any) => setCompanyName(e.target.value)}
-              className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              className=""
             />
             <Input
               labelName="Company Website Link"
@@ -104,28 +144,28 @@ const PostForm = () => {
               required
               defaultValue={singleData?.data?.urlLink}
               onChange={(e: any) => setCompanyWebsite(e.target.value)}
-              className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              className=""
             />
             <Input
               labelName="Facebook Link"
               inputName="fbLink"
               defaultValue={singleData?.data?.facebookLink}
               onChange={(e: any) => setFBLink(e.target.value)}
-              className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              className=""
             />
             <Input
               labelName="Twitter Link"
               inputName="twtrLink"
               defaultValue={singleData?.data?.twitterLink}
               onChange={(e: any) => setTwtrLink(e.target.value)}
-              className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              className=""
             />
             <Input
               labelName="Instagram Link"
               inputName="instagramLink"
               defaultValue={singleData?.data?.instagramLink}
               onChange={(e: any) => setInsLink(e.target.value)}
-              className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              className=""
             />
 
             <SearchFilterInput
@@ -144,7 +184,7 @@ const PostForm = () => {
               inputName="zipCode"
               required
               defaultValue={selectState?.zipCode}
-              className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              className=""
             />
 
             <div className="md:col-span-2">
@@ -153,7 +193,7 @@ const PostForm = () => {
                 inputName="content"
                 defaultValue={singleData?.data?.content}
                 onChange={(e: any) => setAboutCompany(e.target.value)}
-                className="pt-2 pb-5 bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                className="pt-2 pb-5 "
               />
             </div>
             <div className=" md:col-span-2 flex flex-col gap-5 md:flex-row justify-around mt-7">
@@ -194,9 +234,28 @@ const PostForm = () => {
                 </div>
               </div>
             </div>
-            <div className="md:col-span-2 ">
-              <PhotoUpload setFile={setFile} file={file} />
-            </div>
+            {singleData?.data?.profileImage ? (
+              <>
+                <PhotoUpload
+                  label="Upload Logo"
+                  setFile={setFile}
+                  file={file}
+                />
+                <PhotoUpload
+                  label="Owner Photo"
+                  setFile={setProfileImage}
+                  file={profileImage}
+                />
+              </>
+            ) : (
+              <div className="md:col-span-2 ">
+                <PhotoUpload
+                  label="Upload Logo"
+                  setFile={setFile}
+                  file={file}
+                />
+              </div>
+            )}
           </div>
           <div className="text-center w-1/3 mx-auto">
             <Button
