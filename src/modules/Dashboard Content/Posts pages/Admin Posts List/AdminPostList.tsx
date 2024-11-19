@@ -44,7 +44,7 @@ const AdminPostList = () => {
 
   const [postDelete, { isLoading: postDeleteLoading }] =
     usePostDeleteMutation();
-
+  console.log("admin", adminPostData);
   const handleDelete = async (id: string) => {
     const singleData = adminPostData?.data?.find(
       (data: any) => data?.id === id
