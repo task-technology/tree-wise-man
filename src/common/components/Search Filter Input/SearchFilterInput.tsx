@@ -1,8 +1,10 @@
+"use client";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
+import { getState } from "./helpers/getState";
+import { useEffect, useState } from "react";
 
 interface SearchFilterInput {
-  options?: { value?: string; id?: string | number }[];
   labelName?: string;
   filterName?: string;
   data: string[] | any;
@@ -16,7 +18,6 @@ interface SearchFilterInput {
 }
 
 const SearchFilterInput: React.FC<SearchFilterInput> = ({
-  options = [],
   labelName,
   filterName,
   data,
@@ -28,7 +29,25 @@ const SearchFilterInput: React.FC<SearchFilterInput> = ({
   className,
   labelClassName,
 }) => {
+  const [options, setOptions] = useState([]);
+
+  const fetchData = async (inputValue: string) => {
+    const options = await getState(inputValue);
+    if (options?.results) {
+      setOptions(options.results);
+    }
+  };
+
+  const debounceFetchData = (inputValue: string) => {
+    clearTimeout((window as any).debounceTimeout);
+    (window as any).debounceTimeout = setTimeout(
+      () => fetchData(inputValue),
+      500
+    );
+  };
+
   const animatedComponents = makeAnimated();
+
   const handleChangeArray = (e: any[]) => {
     if (isMulti) {
       setData(Array.isArray(e) ? e.map((x) => x.value) : []);
@@ -37,19 +56,21 @@ const SearchFilterInput: React.FC<SearchFilterInput> = ({
     }
   };
 
-  const transformedOptions = options?.length
+  const transformedOptions = options.length
     ? (options as { state?: string; id?: string }[])?.map((option) => ({
         value: option?.id,
         label: option?.state,
       }))
     : [];
-  const transformedOption = options?.length
+
+  const transformedOption = options.length
     ? (options as any[])?.map((option) => ({
         ...option,
         value: option?.state,
-        label: `${option?.state} (${option?.zipCode})`,
+        label: `${option?.ste_name} (${option?.zip_code})`,
       }))
     : [];
+
   return (
     <div>
       <div className="label">
@@ -61,7 +82,7 @@ const SearchFilterInput: React.FC<SearchFilterInput> = ({
       <Select
         className={`${className} mt-0 `}
         instanceId="react-select-instance"
-        placeholder={isDisabled ? defaultValue : "Select"}
+        placeholder={isDisabled ? defaultValue : "Search by zip code"}
         isDisabled={isDisabled}
         required={required}
         name={filterName}
@@ -88,6 +109,10 @@ const SearchFilterInput: React.FC<SearchFilterInput> = ({
               )
         }
         onChange={(e: any) => handleChangeArray(e)}
+        onInputChange={(newValue) => {
+          // Trigger the API call on user input with debounce
+          debounceFetchData(newValue);
+        }}
       />
     </div>
   );

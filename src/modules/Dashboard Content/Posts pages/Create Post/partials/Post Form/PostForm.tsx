@@ -1,6 +1,5 @@
 "use client";
 import Input from "@components/Input";
-import { states } from "./config/constant";
 import { useState } from "react";
 import SearchFilterInput from "@components/Search Filter Input/SearchFilterInput";
 import PublicIcon from "@libs/custom icons/PublicIcon";
@@ -33,7 +32,7 @@ const PostForm = () => {
   const [ownerDesignation, setOwnerDesignation] = useState<string | "">("");
   const [contactNo, setContactNo] = useState<string | "">("");
   const [profileImage, setProfileImage] = useState<File | null>(null);
-
+  console.log("select", selectState);
   return (
     <div className="relative min-h-screen ">
       <div className="flex gap-2 max-w-4xl mx-auto px-8 pb-5">
@@ -134,21 +133,10 @@ const PostForm = () => {
 
             <SearchFilterInput
               required
-              options={states}
-              labelName="State Name"
-              filterName="state"
+              labelName="Zip Code"
               setData={setSelectState}
               data={selectState}
               isMulti={false}
-            />
-
-            <Input
-              IsDisabled
-              labelName="Zip Code"
-              inputName="zipCode"
-              required
-              defaultValue={selectState?.zipCode}
-              className=""
             />
 
             <div className="md:col-span-2">

@@ -39,8 +39,8 @@ export const handleFormSubmit = async (
     const fullData: any = {
       title: companyName || "",
       urlLink: companyWebsite || "",
-      zipCode: selectState?.zipCode || "",
-      state: selectState?.state,
+      zipCode: selectState?.zip_code || "",
+      state: selectState?.ste_name,
       content: aboutCompany || "",
       published: isPublic === "public" ? true : false,
       image: logoUploadResult?.url || "",

@@ -1,6 +1,5 @@
 "use client";
 import Input from "@components/Input";
-import { states } from "./config/constant";
 import { useEffect, useState } from "react";
 import SearchFilterInput from "@components/Search Filter Input/SearchFilterInput";
 import PublicIcon from "@libs/custom icons/PublicIcon";
@@ -170,21 +169,10 @@ const PostForm = () => {
 
             <SearchFilterInput
               required
-              options={states}
-              labelName="State Name"
-              filterName="state"
+              labelName="Zip Code"
               setData={setSelectState}
               data={selectState}
               isMulti={false}
-            />
-
-            <Input
-              IsDisabled
-              labelName="Zip Code"
-              inputName="zipCode"
-              required
-              defaultValue={selectState?.zipCode}
-              className=""
             />
 
             <div className="md:col-span-2">
