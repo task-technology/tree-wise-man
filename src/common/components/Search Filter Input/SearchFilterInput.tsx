@@ -66,7 +66,7 @@ const SearchFilterInput: React.FC<SearchFilterInput> = ({
   const transformedOption = options.length
     ? (options as any[])?.map((option) => ({
         ...option,
-        value: option?.state,
+        value: option?.state || option?.zipCode,
         label: `${option?.ste_name} (${option?.zip_code})`,
       }))
     : [];

@@ -36,7 +36,7 @@ const Services = () => {
     isLoading: serviceLoading,
     error,
   } = useGetPostsQuery({ query });
-  console.log("service", serviceData);
+
   useEffect(() => {
     if (serviceData) {
       setTotalItems(serviceData?.meta.total);

@@ -32,7 +32,7 @@ const PostForm = () => {
   const [ownerDesignation, setOwnerDesignation] = useState<string | "">("");
   const [contactNo, setContactNo] = useState<string | "">("");
   const [profileImage, setProfileImage] = useState<File | null>(null);
-  console.log("select", selectState);
+
   return (
     <div className="relative min-h-screen ">
       <div className="flex gap-2 max-w-4xl mx-auto px-8 pb-5">
