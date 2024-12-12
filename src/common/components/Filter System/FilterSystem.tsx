@@ -3,7 +3,6 @@ import SearchFilterInput from "@components/Search Filter Input/SearchFilterInput
 import { Menu, Transition } from "@headlessui/react";
 import { usePathname, useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
-import { states } from "./config/constant";
 
 const FilterSystem: React.FC = () => {
   const pathName = usePathname();
@@ -80,7 +79,6 @@ const FilterSystem: React.FC = () => {
               <div className="px-5 py-5 space-y-4">
                 <div>
                   <SearchFilterInput
-                    options={states}
                     labelName="State Name"
                     filterName="state"
                     setData={setSelectState}
