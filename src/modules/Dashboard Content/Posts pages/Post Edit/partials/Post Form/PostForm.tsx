@@ -38,9 +38,11 @@ const PostForm = () => {
   const [ownerDesignation, setOwnerDesignation] = useState<string | "">("");
   const [contactNo, setContactNo] = useState<string | "">("");
   const [profileImage, setProfileImage] = useState<File | null>(null);
-
+  console.log("singleData", singleData);
   useEffect(() => {
     if (singleData) {
+      setFile(singleData?.data?.image);
+      setProfileImage(singleData?.data?.profileImage);
       setCompanyName(singleData?.data?.title);
       setCompanyWebsite(singleData?.data?.urlLink);
       setSelectState({

@@ -17,12 +17,11 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
 }) => {
   const [preview, setPreview] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string>("");
-
-  console.log("file", file);
-
+  console.log("preview", file);
   useEffect(() => {
     if (file) {
       const selectedFile = file?.target?.files[0];
+      console.log("selectedFile", selectedFile);
       if (selectedFile) {
         if (
           selectedFile.type === "image/png" ||
