@@ -170,6 +170,7 @@ const PostForm = () => {
 
             <SearchFilterInput
               required
+              defaultValue={selectState?.zipCode}
               labelName="Zip Code"
               setData={setSelectState}
               data={selectState}

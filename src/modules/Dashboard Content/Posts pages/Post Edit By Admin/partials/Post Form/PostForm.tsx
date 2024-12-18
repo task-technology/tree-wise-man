@@ -69,7 +69,7 @@ const PostForm = () => {
       setTwtrLink("");
     }
   }, [singleData]);
-
+  console.log("hello world", selectState);
   if (singleDataLoading) {
     return <LoadingSpinner fullHight />;
   }
@@ -169,6 +169,7 @@ const PostForm = () => {
 
             <SearchFilterInput
               required
+              defaultValue={selectState?.zipCode}
               labelName="Zip Code"
               setData={setSelectState}
               data={selectState}

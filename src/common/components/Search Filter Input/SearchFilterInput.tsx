@@ -82,7 +82,7 @@ const SearchFilterInput: React.FC<SearchFilterInput> = ({
       <Select
         className={`${className} mt-0 `}
         instanceId="react-select-instance"
-        placeholder={isDisabled ? defaultValue : "Search by zip code"}
+        placeholder={defaultValue || "Search by zip code"}
         isDisabled={isDisabled}
         required={required}
         name={filterName}
