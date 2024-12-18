@@ -79,7 +79,7 @@ export const handleFormSubmit = async (
     if (ownerDesignation) fullData.ownerDesignation = ownerDesignation;
     if (contactNo) fullData.contactNo = contactNo;
     if (profilePhotoUploadResult?.url)
-      fullData.profileImage = profilePhotoUploadResult.url;
+      fullData.profileImage = profilePhotoUploadResult.url || "";
 
     // Call the createService function
     const result = await createService({ fullData, token, id });
