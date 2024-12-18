@@ -85,9 +85,9 @@ export const handleFormSubmit = async (
     const result = await createService({ fullData, token, id });
     const isSwalTrue = showSwal(result);
 
-    // if (isSwalTrue) {
-    //   router?.push("/dashboard/post/posts-list");
-    // }
+    if (isSwalTrue) {
+      router?.push("/dashboard/post/posts-list");
+    }
   } catch (error) {
     swal("Error", "Something went wrong. Please try again.", "error");
   } finally {
