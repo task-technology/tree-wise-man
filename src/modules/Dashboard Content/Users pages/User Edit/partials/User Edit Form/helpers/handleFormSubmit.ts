@@ -29,7 +29,7 @@ export const handleFormSubmit = async (
       name,
       company: companyName || "",
       contactNo: contactNo || "",
-      profileImage: photoUploadResult.url || file,
+      profileImage: photoUploadResult.url || file || "",
       designation,
     };
 
