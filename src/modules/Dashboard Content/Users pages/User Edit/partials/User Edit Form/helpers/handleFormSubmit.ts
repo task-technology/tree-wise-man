@@ -13,8 +13,7 @@ export const handleFormSubmit = async (
   token: CookieValueTypes,
   router?: any,
   setLoading?: (loading: boolean) => void,
-  id?: any,
-  oldImage?: string
+  id?: any
 ) => {
   e.preventDefault();
   setLoading?.(true);
@@ -30,7 +29,7 @@ export const handleFormSubmit = async (
       name,
       company: companyName || "",
       contactNo: contactNo || "",
-      profileImage: photoUploadResult.url || oldImage,
+      profileImage: photoUploadResult.url || file,
       designation,
     };
 

@@ -17,7 +17,7 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
 }) => {
   const [preview, setPreview] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string>("");
-
+  console.log(file);
   useEffect(() => {
     if (file) {
       const selectedFile = file?.target?.files[0];
@@ -57,7 +57,11 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
         />
       )}
       <div className="pb-5">
-        {preview && <label className="text-lg font-semibold">{label}</label>}
+        {preview && (
+          <label className={`${inputLabelClass} text-lg font-semibold`}>
+            {label}
+          </label>
+        )}
         {preview && (
           <button
             onClick={() => setPreview(null)}

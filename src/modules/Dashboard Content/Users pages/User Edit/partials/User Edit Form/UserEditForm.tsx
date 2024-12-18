@@ -27,7 +27,6 @@ const UserEditForm = () => {
   const [companyName, setCompanyName] = useState("");
   const [contactNo, setContactNo] = useState("");
   const [designation, setDesignation] = useState("");
-  const [oldImage, setOldImage] = useState("");
 
   useEffect(() => {
     if (singleUser) {
@@ -35,7 +34,7 @@ const UserEditForm = () => {
       setCompanyName(singleUser?.data?.company);
       setContactNo(singleUser?.data?.contactNo);
       setDesignation(singleUser?.data?.designation);
-      setOldImage(singleUser?.data?.profileImage);
+      setFile(singleUser?.data?.profileImage);
     } else {
       setName("");
       setCompanyName("");
@@ -59,8 +58,7 @@ const UserEditForm = () => {
             token,
             router,
             setLoading,
-            id,
-            oldImage
+            id
           )
         }
         className="space-y-6"
