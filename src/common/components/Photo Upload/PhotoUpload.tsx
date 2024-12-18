@@ -17,7 +17,7 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
 }) => {
   const [preview, setPreview] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string>("");
-  console.log(file);
+
   useEffect(() => {
     if (file) {
       const selectedFile = file?.target?.files[0];
