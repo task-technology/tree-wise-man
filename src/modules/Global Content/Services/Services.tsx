@@ -186,15 +186,11 @@ const Services = () => {
                     </p>
                     <div className="flex  justify-between items-center  mt-2 md:mt-4">
                       <div className="flex items-center gap-2">
-                        {result?.profileImage ||
-                        result?.author?.profileImage ? (
+                        {result?.profileImage ? (
                           <Image
                             height={35}
                             width={35}
-                            src={
-                              result?.profileImage ||
-                              result?.author?.profileImage
-                            }
+                            src={result?.profileImage}
                             alt="Author"
                             className="rounded-full"
                           />

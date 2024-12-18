@@ -25,11 +25,7 @@ export const handleFormSubmit = async (
 ) => {
   e.preventDefault();
   setLoading(true);
-  console.log(
-    "hello world",
-    profileImage?.target?.files[0],
-    file?.target?.files[0]
-  );
+
   try {
     let logoUploadResult: any, photoUploadResult: any;
     if (file) {

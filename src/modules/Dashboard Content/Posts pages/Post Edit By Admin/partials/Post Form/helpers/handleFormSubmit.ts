@@ -90,7 +90,6 @@ export const handleFormSubmit = async (
       router?.push("/dashboard/post/admin-posts-list");
     }
   } catch (error) {
-    console.log(error);
     swal("Error", "Something went wrong. Please try again.", "error");
   } finally {
     setLoading(false);
