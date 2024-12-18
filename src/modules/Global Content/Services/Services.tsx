@@ -104,10 +104,7 @@ const Services = () => {
                         <h4 className="text-lg sm:text-xl font-bold">
                           {result?.title}
                         </h4>
-                        <p className="text-sm">
-                          <strong>Joining Date: </strong>
-                          {result?.createdAt?.slice(0, 10)}
-                        </p>
+
                         <p className="text-sm">
                           <strong>State: </strong>
                           {result?.state}{" "}
@@ -184,7 +181,7 @@ const Services = () => {
                       </div>
                     </div>
 
-                    <p className="py-2 text-sm md:text-base min-h-28 ">
+                    <p className="py-2 text-sm md:text-base min-h-36">
                       <strong>About us:</strong> {result?.content}
                     </p>
                     <div className="flex  justify-between items-center  mt-2 md:mt-4">
