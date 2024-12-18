@@ -141,7 +141,6 @@ const PostForm = () => {
             <Input
               labelName="Company Website Link"
               inputName="urlLink"
-              required
               defaultValue={singleData?.data?.urlLink}
               onChange={(e: any) => setCompanyWebsite(e.target.value)}
               className="bg-gray-50 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"

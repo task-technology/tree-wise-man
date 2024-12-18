@@ -142,7 +142,6 @@ const PostForm = () => {
             <Input
               labelName="Company Website Link"
               inputName="urlLink"
-              required
               defaultValue={singleData?.data?.urlLink}
               onChange={(e: any) => setCompanyWebsite(e.target.value)}
               className=""
