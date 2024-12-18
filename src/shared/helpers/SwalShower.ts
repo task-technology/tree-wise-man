@@ -10,7 +10,7 @@ export const showSwal = (result: any) => {
     const errorStatus = result?.error?.status;
     const errorMessage =
       result?.error?.data?.message || "Unknown error occurred";
-    console.log(errorMessage);
+
     if (errorStatus === 403 || errorStatus === 401) {
       // removeUserInfo(authKey);
       swal({

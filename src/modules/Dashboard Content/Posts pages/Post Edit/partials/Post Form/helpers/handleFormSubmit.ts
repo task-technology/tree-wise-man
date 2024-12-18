@@ -55,7 +55,7 @@ export const handleFormSubmit = async (
         return;
       }
     } else if (typeof profileImage === "string") {
-      profilePhotoUploadResult = { url: profileImage };
+      profilePhotoUploadResult = { url: profileImage || "" };
     } else {
       profilePhotoUploadResult = { url: "" };
     }
@@ -78,16 +78,16 @@ export const handleFormSubmit = async (
     if (ownerName) fullData.ownerName = ownerName;
     if (ownerDesignation) fullData.ownerDesignation = ownerDesignation;
     if (contactNo) fullData.contactNo = contactNo;
-    if (profilePhotoUploadResult?.url)
+    if (profilePhotoUploadResult?.url || ownerName)
       fullData.profileImage = profilePhotoUploadResult.url || "";
 
     // Call the createService function
     const result = await createService({ fullData, token, id });
     const isSwalTrue = showSwal(result);
 
-    if (isSwalTrue) {
-      router?.push("/dashboard/post/posts-list");
-    }
+    // if (isSwalTrue) {
+    //   router?.push("/dashboard/post/posts-list");
+    // }
   } catch (error) {
     swal("Error", "Something went wrong. Please try again.", "error");
   } finally {

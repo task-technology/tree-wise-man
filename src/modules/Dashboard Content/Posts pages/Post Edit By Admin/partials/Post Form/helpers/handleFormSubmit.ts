@@ -79,7 +79,7 @@ export const handleFormSubmit = async (
     if (ownerName) fullData.ownerName = ownerName;
     if (ownerDesignation) fullData.ownerDesignation = ownerDesignation;
     if (contactNo) fullData.contactNo = contactNo;
-    if (profilePhotoUploadResult?.url)
+    if (profilePhotoUploadResult?.url || ownerName)
       fullData.profileImage = profilePhotoUploadResult.url || "";
 
     // Call the createService function

@@ -224,7 +224,8 @@ const PostForm = () => {
                 </div>
               </div>
             </div>
-            {singleData?.data?.profileImage ? (
+            {singleData?.data?.profileImage ||
+            singleData?.data?.profileImage === "" ? (
               <>
                 <PhotoUpload
                   label="Upload Logo"
