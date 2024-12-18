@@ -30,18 +30,22 @@ export const handleFormSubmit = async (
   try {
     let logoUploadResult, profilePhotoUploadResult;
 
-    // Upload company logo if provided
-    if (file) {
+    const isFileInput = (input: any) => input?.target?.files?.length > 0;
+
+    if (isFileInput(file)) {
       logoUploadResult = await uploadPhoto(file.target.files[0]);
       if (!logoUploadResult.success) {
         swal("Error", logoUploadResult.message, "error");
         setLoading(false);
         return;
       }
+    } else if (typeof file === "string") {
+      logoUploadResult = { url: file };
+    } else {
+      logoUploadResult = { url: "" };
     }
 
-    // Upload profile image if provided
-    if (profileImage) {
+    if (isFileInput(profileImage)) {
       profilePhotoUploadResult = await uploadPhoto(
         profileImage.target.files[0]
       );
@@ -50,6 +54,10 @@ export const handleFormSubmit = async (
         setLoading(false);
         return;
       }
+    } else if (typeof profileImage === "string") {
+      profilePhotoUploadResult = { url: profileImage };
+    } else {
+      profilePhotoUploadResult = { url: "" };
     }
 
     // Construct the data object
@@ -57,7 +65,7 @@ export const handleFormSubmit = async (
       title: companyName || "",
       urlLink: companyWebsite || "",
       zipCode: selectState?.zip_code || "",
-      state: selectState?.ste_name,
+      state: selectState?.ste_name || "",
       content: aboutCompany || "",
       published: isPublic === "public" ? true : false,
       image: logoUploadResult?.url || "",
