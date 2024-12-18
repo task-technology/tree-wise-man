@@ -18,18 +18,24 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
   const [preview, setPreview] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string>("");
 
+  console.log("file", file);
+
   useEffect(() => {
     if (file) {
-      const selectedFile = file.target.files[0];
-      if (
-        selectedFile.type === "image/png" ||
-        selectedFile.type === "image/jpeg"
-      ) {
-        const previewURL = URL.createObjectURL(selectedFile);
-        setPreview(previewURL);
-        setErrorMsg("");
+      const selectedFile = file?.target?.files[0];
+      if (selectedFile) {
+        if (
+          selectedFile.type === "image/png" ||
+          selectedFile.type === "image/jpeg"
+        ) {
+          const previewURL = URL.createObjectURL(selectedFile);
+          setPreview(previewURL);
+          setErrorMsg("");
+        } else {
+          setErrorMsg("Please Choose a JPG or PNG file");
+        }
       } else {
-        setErrorMsg("Please Choose a JPG or PNG file");
+        setPreview(file);
       }
     }
   }, [file]);
@@ -51,14 +57,17 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
           labelClassName={inputLabelClass}
         />
       )}
-      {preview && (
-        <button
-          onClick={() => setPreview(null)}
-          className={`absolute right-2  text-3xl ${imgDetailsClass}`}
-        >
-          {icons.cross}
-        </button>
-      )}
+      <div className="pb-5">
+        {preview && <label className="text-lg font-semibold">{label}</label>}
+        {preview && (
+          <button
+            onClick={() => setPreview(null)}
+            className={`absolute right-2  text-3xl ${imgDetailsClass}`}
+          >
+            {icons.cross}
+          </button>
+        )}
+      </div>
       {preview && (
         <div className="relative w-48 h-48 mb-4 mx-auto">
           <Image
@@ -73,7 +82,7 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
         </div>
       )}
 
-      {preview && (
+      {preview && file?.target && (
         <p className={`${imgDetailsClass} text-center`}>
           Selected File: {file.target.files[0].name.slice(0, -4)}
         </p>

@@ -41,6 +41,8 @@ const PostForm = () => {
 
   useEffect(() => {
     if (singleData) {
+      setFile(singleData?.data?.image);
+      setProfileImage(singleData?.data?.profileImage);
       setCompanyName(singleData?.data?.title);
       setCompanyWebsite(singleData?.data?.urlLink);
       setSelectState({
