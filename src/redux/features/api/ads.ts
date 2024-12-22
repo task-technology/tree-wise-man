@@ -16,6 +16,19 @@ const AdsApi = baseApi.injectEndpoints({
       },
       invalidatesTags: ["user"],
     }),
+    createHeadlineAds: builder.mutation({
+      query: ({ fullData, token }) => {
+        return {
+          url: "/auth/user/create-user",
+          headers: {
+            authorization: token,
+          },
+          method: "POST",
+          body: fullData,
+        };
+      },
+      invalidatesTags: ["user"],
+    }),
 
     getHeroAds: builder.query({
       query: ({ token, query }) => {
@@ -28,8 +41,30 @@ const AdsApi = baseApi.injectEndpoints({
       },
       providesTags: ["user"],
     }),
+    getHeadlineAds: builder.query({
+      query: ({ token, query }) => {
+        return {
+          url: `/user?${query}`,
+          headers: {
+            authorization: token,
+          },
+        };
+      },
+      providesTags: ["user"],
+    }),
 
     deleteHeroAds: builder.mutation({
+      query: ({ token, id }) => {
+        return {
+          url: `/user/${id}`,
+          headers: {
+            authorization: token,
+          },
+        };
+      },
+      invalidatesTags: ["user"],
+    }),
+    deleteHeadlineAds: builder.mutation({
       query: ({ token, id }) => {
         return {
           url: `/user/${id}`,
@@ -84,7 +119,10 @@ const AdsApi = baseApi.injectEndpoints({
 
 export const {
   useCreateHeroAdsMutation,
+  useCreateHeadlineAdsMutation,
   useGetHeroAdsQuery,
+  useGetHeadlineAdsQuery,
+  useDeleteHeadlineAdsMutation,
   useDeleteHeroAdsMutation,
   useUserEditMutation,
   useUserMyProfileQuery,
