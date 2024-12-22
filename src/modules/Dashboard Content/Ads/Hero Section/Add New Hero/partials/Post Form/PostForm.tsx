@@ -41,7 +41,7 @@ const PostForm = () => {
         >
           <div className="gap-6 mb-8">
             <Input
-              labelName="Company Name"
+              labelName="Title"
               inputName="title"
               required
               onChange={(e: any) => setTitle(e.target.value)}
@@ -51,8 +51,8 @@ const PostForm = () => {
             <div className="md:col-span-2">
               <Input
                 maxLength={150}
-                labelName="About Your Company (Maximum 150 characters allowed.)"
-                inputName="content"
+                labelName="Description"
+                inputName="description"
                 onChange={(e: any) => setDescription(e.target.value)}
                 className="pt-2 pb-5 "
               />

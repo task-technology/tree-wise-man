@@ -53,8 +53,8 @@ const PostForm = () => {
 
             <div className="md:col-span-2">
               <Input
-                labelName="About"
-                inputName="content"
+                labelName="Short Description"
+                inputName="description"
                 onChange={(e: any) => setDescription(e.target.value)}
               />
             </div>
