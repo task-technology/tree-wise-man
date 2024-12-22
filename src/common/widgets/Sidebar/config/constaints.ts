@@ -37,6 +37,33 @@ export const sidebarData = [
     ],
   },
   {
+    label: "Update Ads",
+    icon: "slide",
+    access: "admin",
+    sub_label: [
+      {
+        label: "Add New Hero",
+        link: "/dashboard/ads/change-hero",
+        access: "admin",
+      },
+      {
+        label: "Add New Headline",
+        link: "/dashboard/ads/change-headline",
+        access: "admin",
+      },
+      {
+        label: "Hero Ads List",
+        link: "/dashboard/ads/hero-ads-list",
+        access: "admin",
+      },
+      {
+        label: "Headline Ads List",
+        link: "/dashboard/ads/headline-ads-list",
+        access: "admin",
+      },
+    ],
+  },
+  {
     label: "Users",
     icon: "users",
     access: "admin",

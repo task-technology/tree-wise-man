@@ -40,6 +40,7 @@ import {
   GiChemicalDrop,
   GiStumpRegrowth,
 } from "react-icons/gi";
+import { RiSlideshowLine } from "react-icons/ri";
 
 // export
 export const icons: any = {
@@ -85,4 +86,5 @@ export const icons: any = {
   chemicalDrop: <GiChemicalDrop />,
   regrowth: <GiStumpRegrowth />,
   others: <BsMotherboard />,
+  slide: <RiSlideshowLine />,
 };
