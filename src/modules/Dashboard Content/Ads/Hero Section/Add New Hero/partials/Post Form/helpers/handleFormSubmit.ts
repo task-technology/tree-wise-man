@@ -44,12 +44,12 @@ export const handleFormSubmit = async ({
       bgImage: logoUploadResult?.url || "",
       sideImage: photoUploadResult?.url || "",
     };
-
-    const result = await createAds({ fullData, token });
-    const isSwalTrue = showSwal(result);
-    if (isSwalTrue) {
-      router?.push("/dashboard/post/posts-list");
-    }
+    console.log(fullData);
+    // const result = await createAds({ fullData, token });
+    // const isSwalTrue = showSwal(result);
+    // if (isSwalTrue) {
+    //   router?.push("/dashboard/post/posts-list");
+    // }
   } catch (error) {
     swal("Error", "Something went wrong. Please try again.", "error");
   } finally {

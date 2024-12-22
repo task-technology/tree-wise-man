@@ -3,7 +3,6 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 import { PhotoUploadTypes } from "./config/type";
-
 import { icons } from "@libs/Icons";
 
 const PhotoUpload: React.FC<PhotoUploadTypes> = ({
@@ -17,8 +16,26 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
 }) => {
   const [preview, setPreview] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string>("");
+  const [photoSuggestion, setPhotoSuggestion] = useState<string>("");
 
   useEffect(() => {
+    const checkPhoto = async (selectedFile: File) => {
+      const img = new window.Image();
+      img.src = URL.createObjectURL(selectedFile);
+
+      img.onload = () => {
+        const { width, height } = img;
+
+        if (width === height) {
+          setPhotoSuggestion("This photo is perfect for a profile picture.");
+        } else if (width > height) {
+          setPhotoSuggestion("This photo is good for a background image.");
+        } else {
+          setPhotoSuggestion("This photo might be suitable for a portrait.");
+        }
+      };
+    };
+
     if (file) {
       const selectedFile = file?.target?.files[0];
 
@@ -27,11 +44,14 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
           selectedFile.type === "image/png" ||
           selectedFile.type === "image/jpeg"
         ) {
+          setErrorMsg("");
           const previewURL = URL.createObjectURL(selectedFile);
           setPreview(previewURL);
-          setErrorMsg("");
+
+          checkPhoto(selectedFile); // Check photo dimensions
         } else {
-          setErrorMsg("Please Choose a JPG or PNG file");
+          setErrorMsg("Please choose a JPG or PNG file.");
+          setPhotoSuggestion("");
         }
       } else {
         setPreview(file);
@@ -41,7 +61,7 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
 
   return (
     <div
-      className={` ${
+      className={`${
         preview !== null && "border border-slateLightThird p-2"
       } relative`}
     >
@@ -56,38 +76,43 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
           labelClassName={inputLabelClass}
         />
       )}
-      <div className="pb-5">
+      <div className="pb-5 flex items-center justify-between">
         {preview && (
           <label className={`${inputLabelClass} text-lg font-semibold`}>
             {label}
           </label>
         )}
+        {photoSuggestion && (
+          <p className="text-center italic">{photoSuggestion}</p>
+        )}
         {preview && (
-          <button
-            onClick={() => {
-              setPreview(null);
-              setFile(null);
-            }}
-            className={`absolute right-2  text-3xl ${imgDetailsClass}`}
-          >
-            {icons.cross}
-          </button>
+          <div>
+            <button
+              onClick={() => {
+                setPreview(null);
+                setFile(null);
+                setPhotoSuggestion("");
+              }}
+              className={` text-3xl ${imgDetailsClass}`}
+            >
+              {icons.cross}
+            </button>
+          </div>
         )}
       </div>
       {preview && (
-        <div className="relative w-48 h-48 mb-4 mx-auto">
+        <div className="relative w-full h-96 mb-4 mx-auto">
           <Image
             src={preview}
             alt="Selected file"
             fill
             sizes="(max-width: 768px) 100vw, 
-            (max-width: 1200px) 50vw, 
-            33vw"
-            className="rounded object-cover"
+                 (max-width: 1200px) 50vw, 
+                 33vw"
+            className="rounded object-contain"
           />
         </div>
       )}
-
       {preview && file?.target && (
         <p className={`${imgDetailsClass} text-center`}>
           Selected File: {file.target.files[0].name.slice(0, -4)}

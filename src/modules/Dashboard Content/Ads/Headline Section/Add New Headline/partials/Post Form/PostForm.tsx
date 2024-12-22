@@ -8,11 +8,7 @@ import PhotoUpload from "@components/Photo Upload/PhotoUpload";
 
 import { useRouter } from "next/navigation";
 import { getFromCookie } from "../../../../../../../shared/helpers/local_storage";
-import { useCreatePostMutation } from "../../../../../../../redux/features/api/posts";
-import {
-  useCreateHeadlineAdsMutation,
-  useCreateHeroAdsMutation,
-} from "../../../../../../../redux/features/api/ads";
+import { useCreateHeadlineAdsMutation } from "../../../../../../../redux/features/api/ads";
 
 const PostForm = () => {
   const router = useRouter();
