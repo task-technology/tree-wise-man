@@ -6,7 +6,7 @@ const AdsApi = baseApi.injectEndpoints({
     createHeroAds: builder.mutation({
       query: ({ fullData, token }) => {
         return {
-          url: "/auth/user/create-user",
+          url: "/customize/carousel-create",
           headers: {
             authorization: token,
           },
@@ -14,12 +14,12 @@ const AdsApi = baseApi.injectEndpoints({
           body: fullData,
         };
       },
-      invalidatesTags: ["user"],
+      invalidatesTags: ["customize"],
     }),
     createHeadlineAds: builder.mutation({
       query: ({ fullData, token }) => {
         return {
-          url: "/auth/user/create-user",
+          url: "/customize/headline-create",
           headers: {
             authorization: token,
           },
@@ -27,92 +27,53 @@ const AdsApi = baseApi.injectEndpoints({
           body: fullData,
         };
       },
-      invalidatesTags: ["user"],
+      invalidatesTags: ["customize"],
     }),
 
     getHeroAds: builder.query({
       query: ({ token, query }) => {
         return {
-          url: `/user?${query}`,
+          url: `/customize/carousels?${query}`,
           headers: {
             authorization: token,
           },
         };
       },
-      providesTags: ["user"],
+      providesTags: ["customize"],
     }),
     getHeadlineAds: builder.query({
       query: ({ token, query }) => {
         return {
-          url: `/user?${query}`,
+          url: `/customize/headlines?${query}`,
           headers: {
             authorization: token,
           },
         };
       },
-      providesTags: ["user"],
+      providesTags: ["customize"],
     }),
 
     deleteHeroAds: builder.mutation({
       query: ({ token, id }) => {
         return {
-          url: `/user/${id}`,
+          url: `/customize/carousel-delete/${id}`,
           headers: {
             authorization: token,
           },
         };
       },
-      invalidatesTags: ["user"],
+      invalidatesTags: ["customize"],
     }),
     deleteHeadlineAds: builder.mutation({
       query: ({ token, id }) => {
         return {
-          url: `/user/${id}`,
+          url: `/customize/headline-delete/${id}`,
           headers: {
             authorization: token,
           },
         };
       },
-      invalidatesTags: ["user"],
-    }),
-
-    userEdit: builder.mutation({
-      query: ({ token, id, fullData }) => {
-        return {
-          url: `/user/${id}`,
-          headers: {
-            authorization: token,
-          },
-          method: "PATCH",
-          body: fullData,
-        };
-      },
-      invalidatesTags: ["user"],
-    }),
-
-    userMyProfile: builder.query({
-      query: ({ token }) => {
-        return {
-          url: "/user/my-profile",
-          headers: {
-            authorization: token,
-          },
-        };
-      },
-      providesTags: ["user"],
-    }),
-    userDelete: builder.mutation({
-      query: ({ token, id, fullData }) => {
-        return {
-          url: `/user/${id}`,
-          headers: {
-            authorization: token,
-          },
-          method: "DELETE",
-          body: fullData,
-        };
-      },
-      invalidatesTags: ["user"],
+      invalidatesTags: ["customize"],
     }),
   }),
 });
@@ -124,7 +85,4 @@ export const {
   useGetHeadlineAdsQuery,
   useDeleteHeadlineAdsMutation,
   useDeleteHeroAdsMutation,
-  useUserEditMutation,
-  useUserMyProfileQuery,
-  useUserDeleteMutation,
 } = AdsApi;
