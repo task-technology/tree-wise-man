@@ -60,7 +60,7 @@ const PostForm = () => {
 
             <>
               <PhotoUpload
-                label="Background Image"
+                label="Background Image (Min size: 1920x1080.)"
                 setFile={setBgImage}
                 file={bgImage}
               />
