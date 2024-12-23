@@ -28,7 +28,7 @@ export const handleFormSubmit = async ({
   setLoading(true);
 
   try {
-    let logoUploadResult: any, photoUploadResult: any;
+    let logoUploadResult: any;
     if (logo) {
       logoUploadResult = await uploadPhoto(logo.target.files[0]);
     }
