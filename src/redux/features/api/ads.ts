@@ -6,7 +6,7 @@ const AdsApi = baseApi.injectEndpoints({
     createHeroAds: builder.mutation({
       query: ({ fullData, token }) => {
         return {
-          url: "/customize/carousel-create",
+          url: "/customize/carousel",
           headers: {
             authorization: token,
           },
@@ -19,7 +19,7 @@ const AdsApi = baseApi.injectEndpoints({
     createHeadlineAds: builder.mutation({
       query: ({ fullData, token }) => {
         return {
-          url: "/customize/headline-create",
+          url: "/customize/headline",
           headers: {
             authorization: token,
           },
@@ -56,7 +56,7 @@ const AdsApi = baseApi.injectEndpoints({
     deleteHeroAds: builder.mutation({
       query: ({ token, id }) => {
         return {
-          url: `/customize/carousel-delete/${id}`,
+          url: `/customize/carousel/${id}`,
           headers: {
             authorization: token,
           },
@@ -67,7 +67,7 @@ const AdsApi = baseApi.injectEndpoints({
     deleteHeadlineAds: builder.mutation({
       query: ({ token, id }) => {
         return {
-          url: `/customize/headline-delete/${id}`,
+          url: `/customize/headline/${id}`,
           headers: {
             authorization: token,
           },

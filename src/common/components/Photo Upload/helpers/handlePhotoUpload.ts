@@ -1,5 +1,6 @@
 export const uploadPhoto = async (
-  file: any
+  file: any,
+  folderAddress: string = "Tree Wise Men Demo"
 ): Promise<
   | { url: string; message: string; success: true }
   | { message: string; success: false }
@@ -11,6 +12,10 @@ export const uploadPhoto = async (
       "upload_preset",
       process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!
     );
+
+    //   folderAddress && formData.append("folder", "Tree Wise Men Demo");
+
+    formData.append("folder", folderAddress);
 
     const response = await fetch(
       `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,

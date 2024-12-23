@@ -20,7 +20,10 @@ export const handleFormSubmit = async (
   setLoading(true);
 
   if (file) {
-    const photoUploadResult = await uploadPhoto(file.target.files[0]);
+    const photoUploadResult = await uploadPhoto(
+      file.target.files[0],
+      "Admin Photo"
+    );
 
     if (photoUploadResult.success) {
       const fullData = {

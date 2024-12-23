@@ -1,20 +1,24 @@
-import CryptoJS from "crypto-js";
 import { getPublicIdFromUrl } from "./handleGetPublicId";
+import CryptoJS from "crypto-js";
 
 export const deletePhoto = async (
   imageUrl: string
 ): Promise<{ message: string; success: boolean }> => {
   try {
-    const publicId: any = getPublicIdFromUrl(imageUrl);
+    const publicId: string | null = getPublicIdFromUrl(imageUrl);
+
+    if (!publicId) {
+      throw new Error("Invalid image URL");
+    }
 
     const timestamp = Math.floor(Date.now() / 1000);
+
     const stringToSign = `public_id=${publicId}&timestamp=${timestamp}${process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET}`;
 
-    // Create the signature using SHA-1 with crypto-js
     const signature = CryptoJS.SHA1(stringToSign).toString();
 
     const formData = new FormData();
-    formData.append("public_id", publicId);
+    formData.append("public_id", publicId); // Use the unencoded public_id here
     formData.append("signature", signature);
     formData.append("api_key", process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY!);
     formData.append("timestamp", timestamp.toString());
@@ -27,14 +31,12 @@ export const deletePhoto = async (
       }
     );
 
-    if (!response.ok) {
-      throw new Error("Failed to delete image");
-    }
-
     const data = await response.json();
 
-    if (data.result !== "ok") {
-      throw new Error("Failed to delete image");
+    if (!response.ok || data.result !== "ok") {
+      throw new Error(
+        `Failed to delete image: ${data.error?.message || "Unknown error"}`
+      );
     }
 
     return {

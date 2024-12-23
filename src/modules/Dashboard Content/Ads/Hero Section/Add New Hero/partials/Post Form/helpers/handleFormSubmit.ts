@@ -31,11 +31,17 @@ export const handleFormSubmit = async ({
   try {
     let logoUploadResult: any, photoUploadResult: any;
     if (bgImage) {
-      logoUploadResult = await uploadPhoto(bgImage.target.files[0]);
+      logoUploadResult = await uploadPhoto(
+        bgImage.target.files[0],
+        "Ads Photo"
+      );
     }
 
     if (sideImage) {
-      photoUploadResult = await uploadPhoto(sideImage.target.files[0]);
+      photoUploadResult = await uploadPhoto(
+        sideImage.target.files[0],
+        "Ads Photo"
+      );
     }
 
     const fullData: any = {
@@ -45,11 +51,11 @@ export const handleFormSubmit = async ({
       sideImage: photoUploadResult?.url || "",
     };
     console.log(fullData);
-    // const result = await createAds({ fullData, token });
-    // const isSwalTrue = showSwal(result);
-    // if (isSwalTrue) {
-    //   router?.push("/dashboard/post/posts-list");
-    // }
+    const result = await createAds({ fullData, token });
+    const isSwalTrue = showSwal(result);
+    if (isSwalTrue) {
+      router?.push("/dashboard/ads/hero-ads-list");
+    }
   } catch (error) {
     swal("Error", "Something went wrong. Please try again.", "error");
   } finally {
