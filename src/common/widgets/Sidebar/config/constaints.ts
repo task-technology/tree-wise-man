@@ -46,21 +46,21 @@ export const sidebarData = [
         link: "/dashboard/ads/change-hero",
         access: "admin",
       },
-      {
-        label: "Add New Headline",
-        link: "/dashboard/ads/change-headline",
-        access: "admin",
-      },
+      // {
+      //   label: "Add New Headline",
+      //   link: "/dashboard/ads/change-headline",
+      //   access: "admin",
+      // },
       {
         label: "Hero Ads List",
         link: "/dashboard/ads/hero-ads-list",
         access: "admin",
       },
-      {
-        label: "Headline Ads List",
-        link: "/dashboard/ads/headline-ads-list",
-        access: "admin",
-      },
+      // {
+      //   label: "Headline Ads List",
+      //   link: "/dashboard/ads/headline-ads-list",
+      //   access: "admin",
+      // },
     ],
   },
   {
