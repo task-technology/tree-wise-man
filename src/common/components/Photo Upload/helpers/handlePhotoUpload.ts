@@ -1,6 +1,6 @@
 export const uploadPhoto = async (
   file: any,
-  folderAddress: string = "Tree Wise Men Demo"
+  folderAddress: string = "Tree Wise Men"
 ): Promise<
   | { url: string; message: string; success: true }
   | { message: string; success: false }
