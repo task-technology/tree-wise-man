@@ -21,7 +21,7 @@ export const handleFormSubmit = async (
   let photoUploadResult: any = { success: false, url: "", message: "" };
 
   if (file?.target?.files[0]) {
-    photoUploadResult = await uploadPhoto(file.target.files[0]);
+    photoUploadResult = await uploadPhoto(file.target.files[0], "Users Photo");
   }
 
   if (photoUploadResult.success || !file?.target?.files[0]) {

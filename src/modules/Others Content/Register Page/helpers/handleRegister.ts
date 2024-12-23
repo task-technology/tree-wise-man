@@ -19,7 +19,10 @@ export const handleRegister = async (
   setLoading(true);
 
   if (file) {
-    const photoUploadResult = await uploadPhoto(file.target.files[0]);
+    const photoUploadResult = await uploadPhoto(
+      file.target.files[0],
+      "Users Photo"
+    );
 
     if (photoUploadResult.success) {
       const fullData = {

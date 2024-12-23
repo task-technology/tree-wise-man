@@ -33,14 +33,14 @@ export const handleFormSubmit = async ({
     if (bgImage) {
       logoUploadResult = await uploadPhoto(
         bgImage.target.files[0],
-        "Ads Photo"
+        "Ads Background"
       );
     }
 
     if (sideImage) {
       photoUploadResult = await uploadPhoto(
         sideImage.target.files[0],
-        "Ads Photo"
+        "Ads Logo"
       );
     }
 

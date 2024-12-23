@@ -33,7 +33,10 @@ export const handleFormSubmit = async (
     const isFileInput = (input: any) => input?.target?.files?.length > 0;
 
     if (isFileInput(file)) {
-      logoUploadResult = await uploadPhoto(file.target.files[0]);
+      logoUploadResult = await uploadPhoto(
+        file.target.files[0],
+        "Company Logo"
+      );
       if (!logoUploadResult.success) {
         swal("Error", logoUploadResult.message, "error");
         setLoading(false);
@@ -47,7 +50,8 @@ export const handleFormSubmit = async (
 
     if (isFileInput(profileImage)) {
       profilePhotoUploadResult = await uploadPhoto(
-        profileImage.target.files[0]
+        profileImage.target.files[0],
+        "Owner Photo"
       );
       if (!profilePhotoUploadResult.success) {
         swal("Error", profilePhotoUploadResult.message, "error");

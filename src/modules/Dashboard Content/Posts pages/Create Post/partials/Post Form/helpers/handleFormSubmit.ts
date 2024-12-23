@@ -29,11 +29,17 @@ export const handleFormSubmit = async (
   try {
     let logoUploadResult: any, photoUploadResult: any;
     if (file) {
-      logoUploadResult = await uploadPhoto(file.target.files[0]);
+      logoUploadResult = await uploadPhoto(
+        file.target.files[0],
+        "Company Logo"
+      );
     }
 
     if (isCustom && profileImage) {
-      photoUploadResult = await uploadPhoto(profileImage.target.files[0]);
+      photoUploadResult = await uploadPhoto(
+        profileImage.target.files[0],
+        "Owner Photo"
+      );
     }
 
     const fullData: any = {
