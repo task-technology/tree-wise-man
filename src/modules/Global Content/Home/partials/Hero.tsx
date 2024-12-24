@@ -66,7 +66,7 @@ const Hero = () => {
 
   return (
     <>
-      <header className=" relative h-60 md:h-screen ">
+      <header className="relative h-60 md:h-screen ">
         <Swiper
           ref={swiperRef}
           spaceBetween={30}
