@@ -69,7 +69,7 @@ const PostForm = () => {
       setTwtrLink("");
     }
   }, [singleData]);
-  console.log("hello world", selectState);
+
   if (singleDataLoading) {
     return <LoadingSpinner fullHight />;
   }

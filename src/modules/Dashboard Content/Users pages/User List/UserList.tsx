@@ -48,7 +48,7 @@ const UserList = () => {
 
   const handleDelete = async (id: string) => {
     const singleData = userData?.data?.find((data: any) => data?.id === id);
-    console.log(singleData);
+
     if (singleData?.profileImage) {
       await deletePhoto(singleData?.profileImage);
     }

@@ -60,7 +60,7 @@ const Hero = () => {
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
-  if (true) {
+  if (isLoading) {
     return <HeroLoading />;
   }
 

@@ -53,7 +53,7 @@ export const handleFormSubmit = async ({
       image: photoUploadResult?.url || "",
       link: link || "",
     };
-    console.log(fullData);
+
     const result = await createAds({ fullData, token });
     const isSwalTrue = showSwal(result);
     if (isSwalTrue) {
