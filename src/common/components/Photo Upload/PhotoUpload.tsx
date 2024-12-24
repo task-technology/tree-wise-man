@@ -83,7 +83,9 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
           </label>
         )}
         {photoSuggestion && (
-          <p className="text-center italic">{photoSuggestion}</p>
+          <p className={`${inputLabelClass} text-center italic`}>
+            {photoSuggestion}
+          </p>
         )}
         {preview && (
           <div>
