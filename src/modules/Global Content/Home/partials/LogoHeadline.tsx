@@ -1,8 +1,12 @@
+"use client";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import { logoHeadlineData } from "../config/constants";
+import { useGetHeadlineAdsQuery } from "../../../../redux/features/api/ads";
 
 const LogoHeadline = () => {
+  const { data } = useGetHeadlineAdsQuery({});
+  console.log("headline", data);
   return (
     <section className="px-5 md:px-0 py-12 md:py-16">
       <div>

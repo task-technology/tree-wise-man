@@ -12,6 +12,7 @@ import styles from "../style/hero.module.css";
 import { home_data } from "../config/constants";
 import { cx } from "@config/constants";
 import Image from "next/image";
+import { useGetHeroAdsQuery } from "../../../../redux/features/api/ads";
 
 const Hero = () => {
   // destructure
@@ -20,6 +21,9 @@ const Hero = () => {
   const swiperRef = useRef<any>(null);
   const [animationKey, setAnimationKey] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+
+  const { data } = useGetHeroAdsQuery({});
+  console.log("data", data);
 
   useEffect(() => {
     AOS.init({

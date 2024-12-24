@@ -78,8 +78,8 @@ const Services = () => {
                         fill
                         sizes="(max-width: 768px) 100vw, (min-width: 769px) 180px"
                         priority
-                        style={{ objectFit: "cover" }}
-                        className="rounded-full"
+                        style={{ objectFit: "contain" }}
+                        className="rounded-full bg-white border border-grayForBorder"
                       />
                     </div>
                   ) : (

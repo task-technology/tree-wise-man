@@ -31,12 +31,9 @@ const AdsApi = baseApi.injectEndpoints({
     }),
 
     getHeroAds: builder.query({
-      query: ({ token, query }) => {
+      query: ({ query }) => {
         return {
-          url: `/customize/carousels?${query}`,
-          headers: {
-            authorization: token,
-          },
+          url: `/customize/carousel?${query}`,
         };
       },
       providesTags: ["customize"],
@@ -44,7 +41,7 @@ const AdsApi = baseApi.injectEndpoints({
     getHeadlineAds: builder.query({
       query: ({ token, query }) => {
         return {
-          url: `/customize/headlines?${query}`,
+          url: `/post/cards?${query}`,
           headers: {
             authorization: token,
           },
