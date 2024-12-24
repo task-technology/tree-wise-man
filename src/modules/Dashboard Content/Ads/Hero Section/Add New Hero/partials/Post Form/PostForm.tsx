@@ -20,6 +20,7 @@ const PostForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
+  const [link, setLink] = useState<string>("");
 
   return (
     <div className="relative min-h-screen ">
@@ -36,10 +37,17 @@ const PostForm = () => {
               token,
               setLoading,
               router,
+              link,
             })
           }
         >
           <div className="gap-6 mb-8">
+            <Input
+              labelName="Website Link"
+              inputName="link"
+              onChange={(e: any) => setLink(e.target.value)}
+              className=""
+            />
             <Input
               labelName="Title"
               inputName="title"
@@ -50,6 +58,7 @@ const PostForm = () => {
 
             <div className="md:col-span-2">
               <Input
+                required
                 maxLength={150}
                 labelName="Description"
                 inputName="description"
@@ -60,7 +69,7 @@ const PostForm = () => {
 
             <>
               <PhotoUpload
-                label="Background Image (Min size: 1920x1080.)"
+                label="Banner Image (Min size: 1920x1080.)"
                 setFile={setBgImage}
                 file={bgImage}
               />

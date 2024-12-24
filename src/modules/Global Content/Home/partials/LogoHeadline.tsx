@@ -31,7 +31,7 @@ const LogoHeadline = async () => {
               key={index}
               className="flex items-center gap-3 px-2 md:px-5"
             >
-              <div className="pr-2 md:pr-3 w-[70px] relative h-[70px]">
+              <div className="pr-2 md:pr-3 md:w-[70px] w-[50px] h-[50px] relative md:h-[70px]">
                 <Image
                   fill
                   sizes="(max-width: 768px) 100vw, (min-width: 769px) 180px"
@@ -43,7 +43,7 @@ const LogoHeadline = async () => {
                 />
               </div>
               <div className="flex flex-col">
-                <h1 className="text-lg md:text-xl font-bold">
+                <h1 className="text-base md:text-xl font-bold">
                   {post?.post?.title}
                 </h1>
                 <p className="text-xs md:text-gray-600">{`${post?.post?.state} (${post?.post?.zipCode})`}</p>

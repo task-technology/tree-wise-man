@@ -14,6 +14,7 @@ export const handleFormSubmit = async ({
   token,
   setLoading,
   router,
+  link,
 }: {
   e?: any;
   title: string;
@@ -24,6 +25,7 @@ export const handleFormSubmit = async ({
   token: CookieValueTypes;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   router: any;
+  link: string;
 }) => {
   e.preventDefault();
   setLoading(true);
@@ -46,9 +48,10 @@ export const handleFormSubmit = async ({
 
     const fullData: any = {
       title: title || "",
-      description: description || "",
-      bgImage: logoUploadResult?.url || "",
-      sideImage: photoUploadResult?.url || "",
+      discription: description || "",
+      banner: logoUploadResult?.url || "",
+      image: photoUploadResult?.url || "",
+      link: link || "",
     };
     console.log(fullData);
     const result = await createAds({ fullData, token });

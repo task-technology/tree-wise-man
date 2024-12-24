@@ -54,6 +54,7 @@ const AdsApi = baseApi.injectEndpoints({
       query: ({ token, id }) => {
         return {
           url: `/customize/carousel/${id}`,
+          method: "DELETE",
           headers: {
             authorization: token,
           },

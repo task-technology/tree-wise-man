@@ -12,14 +12,16 @@ import styles from "../style/hero.module.css";
 import { home_data } from "../config/constants";
 import { cx } from "@config/constants";
 import Image from "next/image";
+import { useGetHeroAdsQuery } from "../../../../redux/features/api/ads";
+import HeroLoading from "@components/Hero Loading/HeroLoading";
 
 const Hero = () => {
-  // destructure
   const { slides } = home_data;
 
   const swiperRef = useRef<any>(null);
   const [animationKey, setAnimationKey] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const { data, isLoading } = useGetHeroAdsQuery({});
 
   useEffect(() => {
     AOS.init({
@@ -58,15 +60,19 @@ const Hero = () => {
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
+  if (isLoading) {
+    return <HeroLoading />;
+  }
+
   return (
     <>
-      <header className="relative h-60 md:h-screen ">
+      <header className=" relative h-60 md:h-screen ">
         <Swiper
           ref={swiperRef}
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
-            delay: 15000,
+            delay: 5000,
             disableOnInteraction: false,
           }}
           pagination={{
@@ -77,16 +83,16 @@ const Hero = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper h-full"
         >
-          {slides?.map((data) => (
+          {data?.data?.map((banner: any) => (
             <SwiperSlide
-              key={data.id}
+              key={banner?.id}
               className="relative h-full bg-cover bg-center"
-              style={{ backgroundImage: `url("${data?.image}")` }}
+              style={{ backgroundImage: `url("${banner?.banner}")` }}
             >
               <div className="absolute inset-0 bg-solidBlack/40 opacity-100 "></div>
               <main className="relative z-10 min-h-screen">
                 <div className="flex items-center  md:min-h-screen w-full relative overflow-hidden px-2 md:px-0">
-                  {data.id % 2 === 0 ? (
+                  {banner.id % 2 === 0 ? (
                     <>
                       {/* <div
                         className={cx(
@@ -98,17 +104,17 @@ const Hero = () => {
                       <section className="w-3/5  h-60 md:h-screen flex items-center justify-center">
                         <div className="z-50 pl-0 md:pl-20">
                           <div
-                            key={`${animationKey}-${data.id}`}
+                            key={`${animationKey}-${banner?.id}`}
                             className={cx(
                               "space-y-1 md:space-y-5",
                               styles.uptoDown
                             )}
                           >
                             <h1 className="text-[10px] md:text-3xl text-solidWhite font-semibold">
-                              {data?.headline}
+                              {banner?.title}
                             </h1>
                             <h3 className="text-[6px] md:text-lg text-solidWhite font-semibold">
-                              {data?.title}
+                              {banner?.discription}
                             </h3>
                           </div>
                         </div>
@@ -125,7 +131,7 @@ const Hero = () => {
                             "h-32 w-28  md:h-72 md:w-60 mx-auto rounded-md",
                             styles.uptoDown
                           )}
-                          src={data?.logo}
+                          src={banner?.image}
                           alt="logo"
                           width={208} // 52 * 4
                           height={240} // 60 * 4
@@ -153,7 +159,7 @@ const Hero = () => {
                             "h-32 w-28  md:h-72 md:w-60 mx-auto rounded-md",
                             styles.uptoDown
                           )}
-                          src={data?.logo}
+                          src={banner?.image}
                           alt="logo"
                           width={208} // 52 * 4 (tailwind unit conversion)
                           height={240} // 60 * 4 (tailwind unit conversion)
@@ -162,17 +168,17 @@ const Hero = () => {
                       <section className="w-3/5  h-60 md:h-screen flex items-center">
                         <div className="z-50 pr-0 md:pr-20">
                           <div
-                            key={`${animationKey}-${data.id}`}
+                            key={`${animationKey}-${banner?.id}`}
                             className={cx(
                               "space-y-1 md:space-y-5",
                               styles.uptoDown
                             )}
                           >
                             <h1 className="text-[10px] md:text-3xl text-solidWhite font-semibold">
-                              {data?.headline}
+                              {banner?.title}
                             </h1>
                             <h3 className="text-[6px] md:text-lg text-solidWhite font-semibold">
-                              {data?.title}
+                              {banner?.discription}
                             </h3>
                           </div>
                         </div>
