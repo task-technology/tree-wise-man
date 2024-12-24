@@ -1,12 +1,11 @@
-"use client";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-import { logoHeadlineData } from "../config/constants";
-import { useGetHeadlineAdsQuery } from "../../../../redux/features/api/ads";
+import { fetchData } from "../Helpers/getHeadlineData";
+import Link from "next/link";
 
-const LogoHeadline = () => {
-  const { data } = useGetHeadlineAdsQuery({});
-  console.log("headline", data);
+const LogoHeadline = async () => {
+  const data = await fetchData();
+
   return (
     <section className="px-5 md:px-0 py-12 md:py-16">
       <div>
@@ -26,24 +25,30 @@ const LogoHeadline = () => {
 
         {/* Marquee Section */}
         <Marquee className="px-2 md:px-5">
-          {logoHeadlineData?.map((company, index) => (
-            <div key={index} className="flex items-center px-2 md:px-5">
-              <div className="pr-2 md:pr-3">
+          {data?.data?.map((post: any, index: string) => (
+            <Link
+              href={`/services?searchTerm=${post?.post?.title}`}
+              key={index}
+              className="flex items-center gap-3 px-2 md:px-5"
+            >
+              <div className="pr-2 md:pr-3 w-[70px] relative h-[70px]">
                 <Image
-                  width={40}
-                  height={40}
-                  className="object-contain"
-                  src={company.logo}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (min-width: 769px) 180px"
+                  priority
+                  style={{ objectFit: "contain" }}
+                  className="rounded-full bg-white border border-grayForBorder"
+                  src={post?.post.image}
                   alt="Logo"
                 />
               </div>
               <div className="flex flex-col">
                 <h1 className="text-lg md:text-xl font-bold">
-                  {company?.title}
+                  {post?.post?.title}
                 </h1>
-                <p className="text-xs md:text-gray-600">{company?.details}</p>
+                <p className="text-xs md:text-gray-600">{`${post?.post?.state} (${post?.post?.zipCode})`}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </Marquee>
       </div>
