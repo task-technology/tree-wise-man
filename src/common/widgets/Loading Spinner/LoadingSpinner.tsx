@@ -1,7 +1,13 @@
-const LoadingSpinner = ({ fullHight = false }: { fullHight?: boolean }) => {
+const LoadingSpinner = ({
+  fullHight = false,
+  className,
+}: {
+  fullHight?: boolean;
+  className?: string;
+}) => {
   return (
     <div
-      className={`${
+      className={`${className} ${
         fullHight ? "min-h-screen" : "min-h-20"
       } flex justify-center items-center `}
     >
