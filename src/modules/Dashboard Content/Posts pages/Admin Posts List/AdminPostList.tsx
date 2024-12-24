@@ -53,6 +53,11 @@ const AdminPostList = () => {
     if (singleData?.image) {
       await deletePhoto(singleData?.image);
     }
+
+    if (singleData?.profileImage) {
+      await deletePhoto(singleData?.profileImage);
+    }
+
     const result = await postDelete({ token, id });
     showSwal(result);
   };
