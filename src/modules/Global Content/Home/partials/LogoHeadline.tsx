@@ -38,7 +38,10 @@ const LogoHeadline = async () => {
                   priority
                   style={{ objectFit: "contain" }}
                   className="rounded-full bg-white border border-grayForBorder"
-                  src={post?.post.image}
+                  src={
+                    post?.post.image ||
+                    "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698743/demo_logo_qdotoc.jpg"
+                  }
                   alt="Logo"
                 />
               </div>

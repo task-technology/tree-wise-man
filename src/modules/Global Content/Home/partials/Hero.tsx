@@ -9,18 +9,16 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 //
 import styles from "../style/hero.module.css";
-import { home_data } from "../config/constants";
 import { cx } from "@config/constants";
 import Image from "next/image";
 import { useGetHeroAdsQuery } from "../../../../redux/features/api/ads";
 import HeroLoading from "@components/Hero Loading/HeroLoading";
 
 const Hero = () => {
-  const { slides } = home_data;
-
   const swiperRef = useRef<any>(null);
   const [animationKey, setAnimationKey] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+
   const { data, isLoading } = useGetHeroAdsQuery({});
 
   useEffect(() => {
@@ -34,8 +32,8 @@ const Hero = () => {
     });
 
     const handleSlideChange = () => {
-      AOS.refreshHard();
-      setAnimationKey((prev) => prev + 1); // Reset animation key
+      setAnimationKey((prev) => prev + 1);
+      AOS.refresh();
     };
 
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -82,6 +80,10 @@ const Hero = () => {
           navigation={!isMobile}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper h-full"
+          onSlideChange={() => {
+            setAnimationKey((prev) => prev + 1);
+            AOS.refresh();
+          }}
         >
           {data?.data?.map((banner: any) => (
             <SwiperSlide
@@ -114,7 +116,7 @@ const Hero = () => {
                               {banner?.title}
                             </h1>
                             <h3 className="text-[6px] md:text-lg text-solidWhite font-semibold">
-                              {banner?.discription}
+                              {banner?.description}
                             </h3>
                           </div>
                         </div>
@@ -178,7 +180,7 @@ const Hero = () => {
                               {banner?.title}
                             </h1>
                             <h3 className="text-[6px] md:text-lg text-solidWhite font-semibold">
-                              {banner?.discription}
+                              {banner?.description}
                             </h3>
                           </div>
                         </div>

@@ -48,7 +48,7 @@ export const handleFormSubmit = async ({
 
     const fullData: any = {
       title: title || "",
-      discription: description || "",
+      description: description || "",
       banner: logoUploadResult?.url || "",
       image: photoUploadResult?.url || "",
       link: link || "",

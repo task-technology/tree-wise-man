@@ -8,7 +8,7 @@ export const tableHeader = [
 export const tableLayout = [
   "item?.id",
   "item?.title",
-  "item?.discription",
+  "item?.description",
   "item?.link",
 ];
 
