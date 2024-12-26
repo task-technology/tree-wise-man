@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "@components/Button";
-import {
-  getUserInfo,
-  isLoggedIn,
-} from "../../../../../shared/auth/auth.service";
+import { getUserInfo } from "../../../../../shared/auth/auth.service";
 import { handleLogout } from "../../../../../shared/helpers/handleLogout";
 import { useRouter } from "next/navigation";
 import { getFromCookie } from "../../../../../shared/helpers/local_storage";

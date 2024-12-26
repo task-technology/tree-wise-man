@@ -194,7 +194,7 @@ export const how_we_work = {
     },
     {
       id: 5,
-      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png",
+      logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1735186356/The_Tree_Wise_Logo_ay1yal.png",
     },
     {
       id: 6,

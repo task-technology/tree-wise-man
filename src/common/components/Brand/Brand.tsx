@@ -7,7 +7,7 @@ const Brand = () => {
     <div className="w-44 md:w-52 h-auto">
       <Image
         src={
-          "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png"
+          "https://res.cloudinary.com/dvpnbsehd/image/upload/v1735186356/The_Tree_Wise_Logo_ay1yal.png"
         }
         width={140}
         height={140}
