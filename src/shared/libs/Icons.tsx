@@ -41,6 +41,7 @@ import {
   GiStumpRegrowth,
 } from "react-icons/gi";
 import { RiSlideshowLine } from "react-icons/ri";
+import { PiPhoneCallLight } from "react-icons/pi";
 
 // export
 export const icons: any = {
@@ -87,4 +88,5 @@ export const icons: any = {
   regrowth: <GiStumpRegrowth />,
   others: <BsMotherboard />,
   slide: <RiSlideshowLine />,
+  call: <PiPhoneCallLight />,
 };

@@ -214,18 +214,19 @@ const Services = () => {
                           handleSubmit({
                             serviceClick,
                             token,
-                            url: `tel:${
-                              result?.contactNo || result?.author?.contactNo
-                            }`,
+                            url: `tel:${result?.contactNo}`,
                             id: result?.id,
                             tel: true,
                           })
                         }
                         aria-label="Contact author"
                       >
-                        <Button className=" !py-1 !px-5 !text-sm hover:scale-110">
-                          Contact Us
-                        </Button>
+                        <div className="flex h-full items-center justify-center gap-2 hover:text-fb cursor-pointer">
+                          <span className="text-xl pt-[3px]">
+                            {icons?.call}
+                          </span>
+                          <span>{result?.contactNo}</span>
+                        </div>
                       </div>
                     </div>
                   </div>
