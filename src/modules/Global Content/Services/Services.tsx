@@ -238,8 +238,9 @@ const Services = () => {
             </div>
           )}
         </div>
-        <div className="absolute bottom-4 ">
+        <div className="absolute bottom-4 md:left-0  px-5">
           <Pagination
+            className="shadow-none bg-none"
             currentPage={currentPage}
             limit={limit}
             setCurrentPage={setCurrentPage}

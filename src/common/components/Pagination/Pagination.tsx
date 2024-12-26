@@ -8,6 +8,7 @@ interface PaginationProps {
   totalItems?: number;
   limit?: number;
   setCurrentPage?: Dispatch<SetStateAction<number>>;
+  className?: string;
 }
 
 const Pagination: React.FC<PaginationProps> = ({
@@ -15,6 +16,7 @@ const Pagination: React.FC<PaginationProps> = ({
   totalItems = 0,
   limit = 10,
   setCurrentPage,
+  className = "bg-solidWhite shadow-md",
 }) => {
   const [inputValue, setInputValue] = useState<string | number>(currentPage);
   const numberOfPages = Math.ceil(totalItems / limit) || 0;
@@ -122,12 +124,14 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="flex flex-wrap justify-between gap-2 text-xs md:text-base w-auto md:w-[40rem] bg-solidWhite shadow-md rounded-md p-2 ">
-      <p className="mt-2">
+    <div
+      className={`${className} flex flex-wrap justify-between items-center gap-2 text-xs md:text-sm w-auto md:w-[40rem]  rounded-md p-2 `}
+    >
+      <p className="">
         Total: <span>{totalItems}</span>
       </p>
 
-      <div className="pagination flex flex-wrap gap-2">
+      <div className="pagination flex flex-wrap gap-1">
         <button onClick={handlePrevPage} disabled={currentPage === 1}>
           {icons?.leftArrow}
         </button>
