@@ -127,8 +127,8 @@ const Pagination: React.FC<PaginationProps> = ({
     <div
       className={`${className} flex flex-wrap justify-between items-center gap-2 text-xs md:text-sm w-auto md:w-[40rem]  rounded-md p-2 `}
     >
-      <p className="">
-        Total: <span>{totalItems}</span>
+      <p className="font-bold">
+        Total Post: <span>{totalItems}</span>
       </p>
 
       <div className="pagination flex flex-wrap gap-1">
