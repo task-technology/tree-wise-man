@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import { navDataTypes, singleMenuTypes } from "./types";
-import brandLogo from "../../images/The_Tree_Wise_Logo.png";
 
 // whenever wee need to change default className value we will use this
 export const cx = classNames;
@@ -8,7 +7,8 @@ export const authKey = "accessToken";
 
 export const emptyData = "No Data";
 // brand image
-export const logo = brandLogo;
+export const logo =
+  "https://res.cloudinary.com/dvpnbsehd/image/upload/v1735186356/The_Tree_Wise_Logo_ay1yal.png";
 
 // menu items
 export const menuData: Array<navDataTypes> = [
