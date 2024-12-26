@@ -5,7 +5,7 @@ const ContactUs = () => {
     <div
       className="relative mt-20 min-h-screen bg-cover bg-center "
       style={{
-        backgroundImage: `url("https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698749/tree_fqkapb.png")`,
+        backgroundImage: `url("https://res.cloudinary.com/dvpnbsehd/image/upload/v1735195544/tree_cn3tpo.png")`,
       }}
     >
       <div className="absolute inset-0 bg-black opacity-40"></div>
