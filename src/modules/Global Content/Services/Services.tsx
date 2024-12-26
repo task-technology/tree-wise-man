@@ -225,7 +225,9 @@ const Services = () => {
                           <span className="text-xl pt-[3px]">
                             {icons?.call}
                           </span>
-                          <span>{result?.contactNo}</span>
+                          <span>
+                            {result?.contactNo || result?.author?.contactNo}
+                          </span>
                         </div>
                       </div>
                     </div>
