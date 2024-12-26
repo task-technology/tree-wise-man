@@ -37,12 +37,12 @@ export const sidebarData = [
     ],
   },
   {
-    label: "Update Ads",
+    label: "Widgets",
     icon: "slide",
     access: "admin",
     sub_label: [
       {
-        label: "Add New Hero",
+        label: "Add New Banner",
         link: "/dashboard/ads/change-hero",
         access: "admin",
       },
@@ -52,7 +52,7 @@ export const sidebarData = [
       //   access: "admin",
       // },
       {
-        label: "Hero Ads List",
+        label: "Banner Ads List",
         link: "/dashboard/ads/hero-ads-list",
         access: "admin",
       },
