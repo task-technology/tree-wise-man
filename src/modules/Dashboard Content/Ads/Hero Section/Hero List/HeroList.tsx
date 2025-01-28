@@ -34,7 +34,7 @@ const HeroList = () => {
       await deletePhoto(singleData?.image);
     }
     if (singleData?.banner) {
-      await deletePhoto(singleData?.image);
+      await deletePhoto(singleData?.banner);
     }
     const result = await postDelete({ token, id });
     showSwal(result);
