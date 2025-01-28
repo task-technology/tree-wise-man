@@ -15,7 +15,7 @@ export const home_data = {
       logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698747/slide_image_1_o35aed.png",
       headline:
         "LOCAL CHRISTIAN-OWNED TREE SERVICES ARE READY TO SERVE YOUR NEEDS!",
-      title: `Trees are a living legacy and a future investment in your residential  and commercial property. These Christian-Owned tree services have worked         with many of your neighbors for years, helping to care for their trees
+      title: `Trees are a living legacy and a future investment in your residential and commercial property. These Christian-Owned tree services have worked with many of your neighbors for years, helping to care for their trees
         and enhance the value of their homes and businesses. Arborists provide
         personalized care and expertise for every tree care need, understanding
         that trees represent an important and enjoyable part of your daily
@@ -236,46 +236,3 @@ export const aboutCompanyData = {
         environment.
 `,
 };
-
-export const logoHeadlineData = [
-  {
-    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
-    title: "The Tree Wise Men",
-    details: "Contact Us",
-  },
-  {
-    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
-    title: "The Tree Wise Men",
-    details: "Contact Us",
-  },
-  {
-    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
-    title: "The Tree Wise Men",
-    details: "Contact Us",
-  },
-  {
-    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
-    title: "The Tree Wise Men",
-    details: "Contact Us",
-  },
-  {
-    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
-    title: "The Tree Wise Men",
-    details: "Contact Us",
-  },
-  {
-    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
-    title: "The Tree Wise Men",
-    details: "Contact Us",
-  },
-  {
-    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
-    title: "The Tree Wise Men",
-    details: "Contact Us",
-  },
-  {
-    logo: "https://res.cloudinary.com/dvpnbsehd/image/upload/v1727698745/The_Tree_Wise_Logo_hivgrn.png", // Replace with the actual path to your logo image
-    title: "The Tree Wise Men",
-    details: "Contact Us",
-  },
-];

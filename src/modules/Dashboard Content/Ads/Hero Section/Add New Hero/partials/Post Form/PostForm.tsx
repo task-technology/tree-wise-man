@@ -59,7 +59,7 @@ const PostForm = () => {
             <div className="md:col-span-2">
               <Input
                 required
-                maxLength={150}
+                // maxLength={150}
                 labelName="Description"
                 inputName="description"
                 onChange={(e: any) => setDescription(e.target.value)}
