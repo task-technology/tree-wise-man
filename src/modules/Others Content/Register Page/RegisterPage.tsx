@@ -132,7 +132,7 @@ const Register = () => {
             </div>
             <div className="md:col-span-2">
               <PhotoUpload
-                label="Upload Your Photo"
+                label="Upload Your Logo/Photo"
                 file={file}
                 setFile={setFile}
               />
