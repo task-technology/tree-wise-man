@@ -62,7 +62,7 @@ const PhotoUpload: React.FC<PhotoUploadTypes> = ({
   return (
     <div
       className={`${
-        preview !== null && "border border-slateLightThird p-2"
+        preview !== null && "border border-slateLightThird p-2 mb-2"
       } relative`}
     >
       {preview === null && (

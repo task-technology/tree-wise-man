@@ -56,7 +56,7 @@ const PostForm = () => {
               className=""
             />
 
-            <div className="md:col-span-2">
+            <div className="md:col-span-2 pb-2">
               <Input
                 required
                 // maxLength={150}
