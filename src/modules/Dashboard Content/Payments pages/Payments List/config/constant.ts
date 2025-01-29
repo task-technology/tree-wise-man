@@ -1,7 +1,7 @@
 export const tableHeader = [
   "ID",
   "Payment ID",
-  "Amount",
+  "$ Amount",
   "Status",
   "Created Date",
 ];

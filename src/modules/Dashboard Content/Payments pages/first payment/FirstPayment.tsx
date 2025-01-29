@@ -23,6 +23,20 @@ const FirstPayment = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6">
+      <h4 className="relative p-6 text-lg italic font-semibold text-center text-gray-800 ">
+        <span className="absolute top-0 left-0 text-5xl text-gray-300 dark:text-gray-600">
+          “
+        </span>
+        The fruits of the righteous is a tree of life, and the one who is wise
+        saves lives
+        <span className="block mt-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+          — Proverbs 11:30 (NIV)
+        </span>
+        <span className="absolute bottom-0 right-0 text-5xl text-gray-300 dark:text-gray-600">
+          ”
+        </span>
+      </h4>
+
       <SectionTitle
         title="Choose Your Subscription Plan"
         className="text-3xl font-bold mb-12"
